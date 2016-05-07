@@ -3,6 +3,7 @@ import {UniteList} from '../../unite-framework/unitelist';
 
 @Page({
   templateUrl: 'build/pages/details/details.html',
+  providers: [UniteList],
 })
 
 export class DetailsPage {
@@ -24,7 +25,7 @@ export class DetailsPage {
 		// Loader Config
 		this.unitelist.loaderconfig.content = 'Hold Tight!';
 		
-		//this.loadData();
+		this.loadData();
 		
 	}
 	

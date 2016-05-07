@@ -84,3 +84,27 @@ Next, add a new loadData() method to the class that will utilise the magic of Un
 	}
 	
 ```
+
+Use the data returned by the API in your template (pages/articles-list/articles-list.html)
+
+```html
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Lists</ion-title>
+</ion-navbar>
+
+<ion-content>
+	<ion-list *ngFor="#item of items">
+	  <ion-item (click)="itemTapped($event, item)">
+		<ion-avatar item-left>
+		  <img src="{{item.user.avatar}}">
+		</ion-avatar>
+		<h2>{{item.annotation_id}} {{item.user.name}}</h2>
+		<p [innerHTML]="item.annotation_html"></p>
+	  </ion-item>
+	</ion-list>
+  <button (click)="loadData()">Load More</button>
+</ion-content>
+```

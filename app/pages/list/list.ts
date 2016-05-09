@@ -43,6 +43,11 @@ export class ListPage {
 		});
 		
 	}
+	doRefresh(refresher){
+		this.unitelist.limitstart = 0;
+		this.items = [];
+		this.loadData(refresher);
+	}
 	
 	itemTapped(event, item) {
 		this.nav.push(DetailsPage, {

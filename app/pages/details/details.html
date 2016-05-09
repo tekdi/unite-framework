@@ -1,10 +1,10 @@
 <ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>Lists</ion-title>
+    <button menuToggle *ngIf="!selectedItem">
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Title</ion-title>
 </ion-navbar>
 
 <ion-content>
-Ashwin
+    Ashwin
 </ion-content>

@@ -15,5 +15,7 @@
 		<p [innerHTML]="item.annotation_html"></p>
 	  </ion-item>
 	</ion-list>
-  <button (click)="loadData()">Load More</button>
+	<ion-infinite-scroll (infinite)="loadData($event)" threshold="5%">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
 </ion-content>

@@ -1,26 +1,48 @@
+import {LocalStorage,Storage} from 'ionic-angular';
 import {Injectable, Inject} from 'angular2/core';
-import {Http} from 'angular2/http';
-import 'rxjs/add/operator/map';
-// import {GettingStartedPage} from '../pages/getting-started/getting-started';
-// import {ListPage} from '../pages/list/list';
-
-
 @Injectable()
 export class UniteMenu {
   pages: any;
   menuMap: any;
+  local: any;
   
   constructor() {
-
+    this.local = new Storage(LocalStorage);
   }
-  
+
   getMenu() {
-	return this.pages;
+   return this.local.get("pages").then((value) => {
+                if (value) {
+                  this.pages = JSON.parse(value);
+                }
+                else {
+                  this.local.set('pages', JSON.stringify(this.pages));
+                }
+                return this.pages;
+            })
   }
 
-  addMemu() {}
-  
-  removeMenu() {}
-  
+  addMenu(pageobj) {
+    this.pages.unshift({
+      title: pageobj.menuname,
+      component: pageobj.component,
+      addedMenu: true,
+    });
+     this.local.set('pages', JSON.stringify(this.pages));
+  }
+
+  removeMenu(index) {
+    this.pages.splice(index,1);
+    this.local.set('pages', JSON.stringify(this.pages)); 
+  }
+  updateMenu(pageobj){
+    this.pages[pageobj.index] = {
+      title: pageobj.menuname,
+      component: pageobj.component,
+      addedMenu: true,
+    };
+    this.local.set('pages', JSON.stringify(this.pages));
+  }
+
 }
 

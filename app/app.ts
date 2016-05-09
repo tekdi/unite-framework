@@ -1,9 +1,10 @@
-import {App, IonicApp, Platform} from 'ionic-angular';
+import {App, IonicApp, Platform, LocalStorage, Storage, Events} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {GettingStartedPage} from './pages/getting-started/getting-started';
 import {ListPage} from './pages/list/list';
 import {DetailsPage} from './pages/details/details';
 import {UniteMenu} from './unite-framework/unitemenu';
+import {AddmenuPage} from './pages/addmenu/addmenu';
 
 @App({
   templateUrl: 'build/app.html',
@@ -13,28 +14,28 @@ import {UniteMenu} from './unite-framework/unitemenu';
 class MyApp {
   rootPage: any = GettingStartedPage;
   pages: any;
-  uniteMenu:any;
+  uniteMenu: any;
+  local: any;
 
-  constructor(private app: IonicApp, private platform: Platform, uniteMenu: UniteMenu) {
+  constructor(private app: IonicApp, private platform: Platform, uniteMenu: UniteMenu, private events: Events) {
     this.initializeApp();
-	this.uniteMenu = uniteMenu;
-	this.uniteMenu.menuMap = {
-		'GettingStartedPage' : GettingStartedPage, 
-		'ListPage' : ListPage, 
-		'DetailsPage' : DetailsPage, 
-	};
+    this.uniteMenu = uniteMenu;
+    this.uniteMenu.menuMap = {
+      'GettingStartedPage': GettingStartedPage,
+      'ListPage': ListPage,
+      'DetailsPage': DetailsPage,
+      'AddmenuPage': AddmenuPage,
+    };
 
-	this.uniteMenu.pages = [
+    this.uniteMenu.pages = [
       { title: 'First Page', component: 'GettingStartedPage' },
       { title: 'List', component: 'ListPage' },
-      { title: 'Details', component: 'DetailsPage', options: {item : {id:3}} },
+      { title: 'Details', component: 'DetailsPage', options: { item: { id: 3 } } },
+      { title: 'Add Menu', component: 'AddmenuPage' }
     ];
-    	
-    console.log(this.pages);
-    
+    this.local = new Storage(LocalStorage);
     // used for an example of ngFor and navigation
-    this.pages = this.uniteMenu.getMenu();
-    console.log(this.pages);
+    this.pages = [];
 
   }
 
@@ -43,6 +44,18 @@ class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
+      this.uniteMenu.getMenu().then((value) => {
+        this.pages = value;
+      });
+      this.events.subscribe('page:added', (res) => {
+        this.uniteMenu.addMenu(res[0]);
+      });
+      this.events.subscribe('page:removed', (index) => {
+        this.uniteMenu.removeMenu(index[0]);
+      });
+      this.events.subscribe('page:updated', (res) => {
+        this.uniteMenu.updateMenu(res[0]);
+      });
     });
   }
 

@@ -15,7 +15,7 @@ export class DetailsPage {
 		this.selectedItem = navParams.get('item');
 		// API Definitions
 		this.unitelist = unitelist;
-		this.unitelist.url = 'http://jlike.cloudaccess.host/index.php?app=jlike&resource=annotations&option=com_api&format=raw&key=87aa58a73cc77f31411d226202e4a6b0&content_id=1&type=annotation&subtype=collaborators&client=com_content&plg_type=content&plg_name=jlike_articles&order=DESC&parent_id='+this.selectedItem.annotation_id;
+		this.unitelist.baseurl = 'http://jlike.cloudaccess.host/index.php?app=jlike&resource=annotations&option=com_api&format=raw&key=87aa58a73cc77f31411d226202e4a6b0&content_id=1&type=annotation&subtype=collaborators&client=com_content&plg_type=content&plg_name=jlike_articles&order=DESC&parent_id='+this.selectedItem.annotation_id;
 		this.unitelist.limit = 10;
 		// Loader Config
 		this.unitelist.loaderconfig.content = 'Hold Tight!';

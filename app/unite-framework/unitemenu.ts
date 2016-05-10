@@ -1,4 +1,4 @@
-import {LocalStorage,Storage} from 'ionic-angular';
+import {LocalStorage,Storage, SqlStorage} from 'ionic-angular';
 import {Injectable, Inject} from 'angular2/core';
 @Injectable()
 export class UniteMenu {
@@ -7,7 +7,7 @@ export class UniteMenu {
   local: any;
   
   constructor() {
-    this.local = new Storage(LocalStorage);
+    this.local = new Storage(SqlStorage);
   }
 
   getMenu() {

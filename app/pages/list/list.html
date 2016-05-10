@@ -4,10 +4,10 @@
   </button>
 	<ion-title>Lists</ion-title>
 </ion-navbar>
-
+<ion-searchbar *ngIf="enableSearchbar" [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
 <ion-content>
 	<ion-list>
-		<ion-refresher (refresh)="doRefresh($event)">
+		<ion-refresher *ngIf="enablePullToRefresh" (refresh)="doRefresh($event)">
 			<ion-refresher-content></ion-refresher-content>
 		</ion-refresher>
 		<ion-item *ngFor="#item of items" (click)="itemTapped($event, item)">

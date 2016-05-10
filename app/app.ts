@@ -1,4 +1,4 @@
-import {App, IonicApp, Platform, LocalStorage, Storage, Events} from 'ionic-angular';
+import {App, IonicApp, Platform, Events} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {GettingStartedPage} from './pages/getting-started/getting-started';
 import {ListPage} from './pages/list/list';
@@ -15,7 +15,6 @@ class MyApp {
   rootPage: any = GettingStartedPage;
   pages: any;
   uniteMenu: any;
-  local: any;
 
   constructor(private app: IonicApp, private platform: Platform, uniteMenu: UniteMenu, private events: Events) {
     this.initializeApp();
@@ -33,7 +32,6 @@ class MyApp {
       { title: 'Details', component: 'DetailsPage', options: { item: { id: 3 } } },
       { title: 'Add Menu', component: 'AddmenuPage' }
     ];
-    this.local = new Storage(LocalStorage);
     // used for an example of ngFor and navigation
     this.pages = [];
 

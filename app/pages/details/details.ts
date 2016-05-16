@@ -1,9 +1,10 @@
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {UniteList} from '../../unite-framework/unitelist';
+import {UniteToast} from '../../unite-framework/unitetoast';
 
 @Page({
   templateUrl: 'build/pages/details/details.html',
-   providers: [UniteList]
+   providers: [UniteList,UniteToast]
 })
 
 export class DetailsPage {

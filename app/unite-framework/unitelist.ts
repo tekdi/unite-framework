@@ -1,13 +1,12 @@
 import {Injectable, Inject} from 'angular2/core';
 import {Page, Loading, NavController, NavParams, Toast} from 'ionic-angular';
-import {Http} from 'angular2/http';
+import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import 'rxjs/add/operator/map';
-
+import {UniteToast} from '../unite-framework/unitetoast';
 @Injectable()
 export class UniteList {
   selectedItem: any;
   icons: string[];
-  items: Array<{ title: string, note: string, icon: string }>;
   baseurl: string;
   http: any;
   search: string;
@@ -20,10 +19,7 @@ export class UniteList {
   lastUpdatedName: string;
   loader: any;
   loaderconfig: any;
-	toast: any;
-	toastOptions:any;
-
-  constructor(http: Http, private nav: NavController, navParams: NavParams) {
+  constructor(http: Http, private nav: NavController, navParams: NavParams, private unitetoast: UniteToast) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 		this.limit = 20;
@@ -34,18 +30,7 @@ export class UniteList {
 		this.lastUpdatedName = 'last_updated';
 		this.loaderconfig = { content: "Please wait...", dismissOnPageChange: false };
 		this.http = http;
-    this.items = [];
-		this.toastOptions={
-			'message': 'Something went wrong!',
-			'duration': 3000,
-			'cssClass':'toast-message',
-			'showCloseButton':false,
-			'closeButtonText':"Close",
-			'enableBackdropDismiss':true,
-			'dismissOnPageChange': false
-		}
   }
-
   getData() {
 		let callingurl = this.baseurl;
     this.showLoader();
@@ -76,18 +61,11 @@ export class UniteList {
 
 				}, err => {
 					this.hideLoader();
-					this.toastOptions.message = "Something went wrong!";
-					this.presentToast();
+					this.unitetoast.toastOptions.message = "Something went wrong!";
+					this.unitetoast.showToast();
 				});
 		});
   }
-presentToast() {
-  this.toast = Toast.create(this.toastOptions);
-  this.nav.present(this.toast);
-}
-dismissToast(){
-	this.toast.dismiss();
-}
   showLoader() {
     this.loader = Loading.create(this.loaderconfig);
     this.nav.present(this.loader);

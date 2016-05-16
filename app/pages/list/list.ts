@@ -2,10 +2,12 @@ import {Page, NavController, NavParams} from 'ionic-angular';
 import {UniteList} from '../../unite-framework/unitelist';
 import {DetailsPage} from '../details/details';
 import {GettingStartedPage} from '../getting-started/getting-started';
+import {UniteToast} from '../../unite-framework/unitetoast';
+import {UniteItem} from '../../unite-framework/uniteitem';
 
 @Page({
 	templateUrl: 'build/pages/list/list.html',
-	providers: [UniteList],
+	providers: [UniteList, UniteToast, UniteItem],
 })
 
 export class ListPage {
@@ -13,16 +15,22 @@ export class ListPage {
 	icons: string[];
 	items: any;
 	unitelist: any;
-	baseurl: any;
-	searchQuery: any;
+	baseurl: string;
+	searchQuery: string;
 	enableSearchbar: boolean;
 	enablePullToRefresh: boolean;
-	constructor(private nav: NavController, navParams: NavParams, unitelist: UniteList) {
+	infinitescroll: any;
+	uniteitem: any;
+	unitetoast: any;
+	constructor(private nav: NavController, navParams: NavParams, unitelist: UniteList, uniteitem: UniteItem, unitetoast: UniteToast) {
 		// If we navigated to this page, we will have an item available as a nav param
 		this.selectedItem = navParams.get('item');
+		console.log(this.selectedItem);
 		this.items = [];
 		// API Definitions
+		this.unitetoast = unitetoast;
 		this.unitelist = unitelist;
+		this.uniteitem = uniteitem;
 		// http://jlike.cloudaccess.host/index.php?app=jlike&resource=annotations&option=com_api&format=raw&key=87aa58a73cc77f31411d226202e4a6b0&content_id=1&type=annotation&subtype=collaborators&client=com_content&plg_type=content&plg_name=jlike_articles&order=DESC&parent_id=0
 		this.unitelist.baseurl = 'http://jlike.cloudaccess.host/index.php?app=jlike&resource=annotations&option=com_api&format=raw&key=87aa58a73cc77f31411d226202e4a6b0&content_id=1&type=annotation&subtype=collaborators&client=com_content&plg_type=content&plg_name=jlike_articles&order=DESC&parent_id=0';
 		this.unitelist.limit = 10;
@@ -31,10 +39,41 @@ export class ListPage {
 		this.enablePullToRefresh = true;
 		// Loader Config
 		this.unitelist.loaderconfig.content = 'Hold Tight!';
+		//this.postData();
 		this.loadData(null);
 	}
-
+	postData() {
+		let datatobesend = 'title=' + 'Test title' + '&introtext=' + 'test introltext' + '&catid=' + 11;
+		let url = 'http://172.132.45.45/joomla/investsure/index.php?option=com_api&app=content&resource=articles&format=raw&key=62edf1d7654d77cc424ca8e5ea8a1140';
+		this.uniteitem.postData(url, datatobesend).then((value: any) => {
+			if (value) {
+				if (value == 'Error') {
+					this.unitetoast.toastOptions.message = "Something went wrong!";
+					this.unitetoast.showToast();
+				} else if (value.success && value.success == 'false') {
+					this.unitetoast.toastOptions.message = value.message;
+					this.unitetoast.showToast();
+				}
+			}
+			console.log('YEAH');
+			console.log(value);
+		});
+	}
+	clearSearch() {
+		this.unitelist.limitstart = 0;
+		this.items = [];
+		this.loadData(null);
+	}
 	loadData(infiniteScroll) {
+		if (infiniteScroll) {
+			if (infiniteScroll.state == 'refreshing') {
+				if (this.infinitescroll) {
+					this.infinitescroll.enable(true);
+				}
+			} else {
+				this.infinitescroll = infiniteScroll;
+			}
+		}
 		this.unitelist.getData().then((value: any) => {
 			if (value.data) {
 				this.items = this.items.concat(value.data.results);
@@ -46,14 +85,16 @@ export class ListPage {
 			}
 			//console.log(value);
 		});
-
 	}
 	getItems(searchbar) {
+		console.log(searchbar);
 		let q = searchbar.value;
-		this.unitelist.limitstart = 0;
-		this.unitelist.search = q;
-		this.items = [];
-		this.loadData(null);
+		if (q) {
+			this.unitelist.limitstart = 0;
+			this.unitelist.search = q;
+			this.items = [];
+			this.loadData(null);
+		}
 	}
 	doRefresh(refresher) {
 		this.unitelist.limitstart = 0;

@@ -4,7 +4,16 @@
   </button>
 	<ion-title>Lists</ion-title>
 </ion-navbar>
-<ion-searchbar *ngIf="enableSearchbar" [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
+<ion-toolbar>
+  <ion-searchbar primary
+  				 *ngIf="enableSearchbar"
+                 [(ngModel)]="searchQuery"
+                 (search)="getItems($event)"
+				 (clear)="clearSearch()"
+                 placeholder="Search">
+  </ion-searchbar>
+</ion-toolbar>
+<!--<ion-searchbar *ngIf="enableSearchbar" [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>-->
 <ion-content>
 	<ion-list>
 		<ion-refresher *ngIf="enablePullToRefresh" (refresh)="doRefresh($event)">

@@ -15,7 +15,6 @@ class MyApp {
   rootPage: any = GettingStartedPage;
   pages: any;
   uniteMenu: any;
-
   constructor(private app: IonicApp, private platform: Platform, uniteMenu: UniteMenu, private events: Events) {
     this.initializeApp();
     this.uniteMenu = uniteMenu;
@@ -28,7 +27,7 @@ class MyApp {
 
     this.uniteMenu.pages = [
       { title: 'First Page', component: 'GettingStartedPage' },
-      { title: 'List', component: 'ListPage' },
+      { title: 'List', component: 'ListPage', options: { item: { id: 3 } } },
       { title: 'Details', component: 'DetailsPage', options: { item: { id: 3 } } },
       { title: 'Add Menu', component: 'AddmenuPage' }
     ];
@@ -61,6 +60,6 @@ class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     let nav = this.app.getComponent('nav');
-    nav.setRoot(this.uniteMenu.menuMap[page.component]);
+    nav.setRoot(this.uniteMenu.menuMap[page.component], { item: { id: 3 } });
   }
 }

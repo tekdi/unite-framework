@@ -188,3 +188,56 @@ this.unitetoast.showToast();
 unite-framework provide us network-information provider to check availability of network.
 unite uses Netwok component from ionic-native, and also we need to add [network cordova plugin](http://ionicframework.com/docs/v2/native/network/).
 There is a method named getNetworkInfo() that returns boolean value true or false. If internet is connected it will return true otherwise return false.
+
+open app.ts and make the following changes!
+
+import {NetworkInformation} from './unite-framework/network-information';
+```typescript
+@App({
+  templateUrl: 'build/app.html',
+  providers: [UniteMenu, NetworkInformation],
+  config: {} // http://ionicframework.com/docs/v2/api/config/Config/
+})
+```
+in app.ts upadate the constructor arguments like
+constructor(private app: IonicApp, private platform: Platform, private networkInformation: NetworkInformation)
+
+Then open articles-list.ts and make the following changes to start using the power of Unite Toast!
+```typescript
+import {Page, NavController, NavParams} from 'ionic-angular';
+import {UniteList} from '../../unite-framework/unitelist';
+import {UniteToast} from '../../unite-framework/unitetoast';
+import {NetworkInformation} from '../../unite-framework/network-information';
+
+@Page({
+  templateUrl: 'build/pages/articles-list/articles-list.html',
+  providers: [UniteList,UniteToast],
+})
+```
+in constructor add paramters like
+```
+constructor(private networkInformation: NetworkInformation)
+```
+then we can use it like below
+```
+if (this.networkInformation.getNetworkInfo()) {
+			this.unitelist.getData().then((value: any) => {
+				if (value.data) {
+					this.items = this.items.concat(value.data.results);
+					this.enableifinitescroll = true;
+				}
+				if (infiniteScroll) {
+					infiniteScroll.complete();
+					if (!value.data){
+						infiniteScroll.enable(false);
+						this.enableifinitescroll = false;
+					}
+						
+				}
+				//console.log(value);
+			});
+		} else {
+			this.unitetoast.toastOptions.message = "Internet is disconnected!";
+			this.unitetoast.showToast();
+		}
+```

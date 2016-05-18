@@ -171,4 +171,14 @@ export class ListPage {
 
 We can change toaster config whenever needed.
 
+Use showToast() method of unite toast to show toast
+```
+this.unitetoast.showToast();
 
+```
+
+Use hideToast() method of unite toast to hide toast forcefully
+```
+this.unitetoast.showToast();
+
+```

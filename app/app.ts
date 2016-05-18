@@ -1,21 +1,22 @@
-import {App, IonicApp, Platform, Events} from 'ionic-angular';
+import {App, IonicApp, Platform, Events, MenuController} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {GettingStartedPage} from './pages/getting-started/getting-started';
 import {ListPage} from './pages/list/list';
 import {DetailsPage} from './pages/details/details';
 import {UniteMenu} from './unite-framework/unitemenu';
+import {NetworkInformation} from './unite-framework/network-information';
 import {AddmenuPage} from './pages/addmenu/addmenu';
 
 @App({
   templateUrl: 'build/app.html',
-  providers: [UniteMenu],
+  providers: [UniteMenu, NetworkInformation],
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 class MyApp {
   rootPage: any = GettingStartedPage;
   pages: any;
   uniteMenu: any;
-  constructor(private app: IonicApp, private platform: Platform, uniteMenu: UniteMenu, private events: Events) {
+  constructor(private app: IonicApp, private platform: Platform, uniteMenu: UniteMenu, private events: Events, private menu: MenuController, private networkInformation: NetworkInformation) {
     this.initializeApp();
     this.uniteMenu = uniteMenu;
     this.uniteMenu.menuMap = {
@@ -59,6 +60,7 @@ class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
+    this.menu.close();
     let nav = this.app.getComponent('nav');
     nav.setRoot(this.uniteMenu.menuMap[page.component], { item: { id: 3 } });
   }

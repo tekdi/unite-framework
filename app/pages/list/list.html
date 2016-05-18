@@ -5,11 +5,11 @@
 	<ion-title>Lists</ion-title>
 </ion-navbar>
 <ion-toolbar>
-  <ion-searchbar primary
-  				 *ngIf="enableSearchbar"
+  <ion-searchbar 
+  				       *ngIf="enableSearchbar"
                  [(ngModel)]="searchQuery"
                  (search)="getItems($event)"
-				 (clear)="clearSearch()"
+				 				(clear)="clearSearch()"
                  placeholder="Search">
   </ion-searchbar>
 </ion-toolbar>
@@ -20,14 +20,11 @@
 			<ion-refresher-content></ion-refresher-content>
 		</ion-refresher>
 		<ion-item *ngFor="#item of items" (click)="itemTapped($event, item)">
-			<ion-avatar item-left>
-				<img src="{{item.user.avatar}}">
-			</ion-avatar>
-			<h2>{{item.annotation_id}} {{item.user.name}}</h2>
-			<p [innerHTML]="item.annotation_html"></p>
+			<h2>{{item.title}}</h2>
+			<p [innerHTML]="item.introtext"></p>
 		</ion-item>
 	</ion-list>
-	<ion-infinite-scroll (infinite)="loadData($event)" threshold="5%">
+	<ion-infinite-scroll  *ngIf="enableifinitescroll" (infinite)="loadData($event)" threshold="10%">
 		<ion-infinite-scroll-content></ion-infinite-scroll-content>
 	</ion-infinite-scroll>
 </ion-content>

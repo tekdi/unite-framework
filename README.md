@@ -182,3 +182,9 @@ Use hideToast() method of unite toast to hide toast forcefully
 this.unitetoast.showToast();
 
 ```
+
+## How to use unite network-infromation to check internet connection.
+
+unite-framework provide us network-information provider to check availability of network.
+unite uses Netwok component from ionic-native, and also we need to add [network cordova plugin](http://ionicframework.com/docs/v2/native/network/).
+There is a method named getNetworkInfo() that returns boolean value true or false. If internet is connected it will return true otherwise return false.

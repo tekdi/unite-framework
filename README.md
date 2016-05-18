@@ -113,3 +113,6 @@ Use the data returned by the API in your template (pages/articles-list/articles-
 	</ion-infinite-scroll>
 </ion-content>
 ```
+## How to use unite toast
+
+unite toast uses ionic 2 native toast. We need to add [cordova toast plugin](http://ionicframework.com/docs/v2/native/toast/).

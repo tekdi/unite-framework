@@ -200,7 +200,9 @@ import {NetworkInformation} from './unite-framework/network-information';
 })
 ```
 in app.ts upadate the constructor arguments like
+```typescript
 constructor(private app: IonicApp, private platform: Platform, private networkInformation: NetworkInformation)
+```
 
 Then open articles-list.ts and make the following changes to start using the power of Unite Toast!
 ```typescript
@@ -215,11 +217,11 @@ import {NetworkInformation} from '../../unite-framework/network-information';
 })
 ```
 in constructor add paramters like
-```
+```typescript
 constructor(private networkInformation: NetworkInformation)
 ```
 then we can use it like below
-```
+```typescript
 if (this.networkInformation.getNetworkInfo()) {
 			this.unitelist.getData().then((value: any) => {
 				if (value.data) {

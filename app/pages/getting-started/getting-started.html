@@ -6,15 +6,27 @@
   <ion-title>Getting Started</ion-title>
 </ion-navbar>
 
-
-<ion-content padding class="getting-started">
-
-  <h3>Getting Started</h3>
-  <p>
-     Get it started!
-  </p>
-  <p>
-    <button primary menuToggle>Toggle Menu</button>
-  </p>
-
+<ion-content padding class="home">
+    Select / Make some images
+    <br>
+    <button dark (click)="openCamera()">                
+        Open camera
+    </button>
+    <br>
+    <button dark (click)="openAlbums()">                
+        Open albums
+    </button>
+    <br>
+    <button dark (click)="startUploading()">                
+        Start uploading
+    </button>
+      <div class="items">
+        <div>
+            <ion-row center  > 
+                <ion-col width-25>
+                    <div class="image" style="background-image: url('{{image}}')"></div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </div>
 </ion-content>

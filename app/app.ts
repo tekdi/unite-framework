@@ -4,12 +4,13 @@ import {GettingStartedPage} from './pages/getting-started/getting-started';
 import {ListPage} from './pages/list/list';
 import {DetailsPage} from './pages/details/details';
 import {UniteMenu} from './unite-framework/unitemenu';
+import {ImageUpload} from './unite-framework/image-upload';
 import {NetworkInformation} from './unite-framework/network-information';
 import {AddmenuPage} from './pages/addmenu/addmenu';
 
 @App({
   templateUrl: 'build/app.html',
-  providers: [UniteMenu, NetworkInformation],
+  providers: [UniteMenu, NetworkInformation,ImageUpload],
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 class MyApp {

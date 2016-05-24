@@ -89,22 +89,157 @@ Use the data returned by the API in your template (pages/articles-list/articles-
 
 ```html
 <ion-navbar *navbar>
-  <button menuToggle>
+	<button menuToggle>
     <ion-icon name="menu"></ion-icon>
   </button>
-  <ion-title>Lists</ion-title>
+	<ion-title>Lists</ion-title>
 </ion-navbar>
-
+<ion-searchbar *ngIf="enableSearchbar" [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
 <ion-content>
-	<ion-list *ngFor="#item of items">
-	  <ion-item (click)="itemTapped($event, item)">
-		<ion-avatar item-left>
-		  <img src="{{item.user.avatar}}">
-		</ion-avatar>
-		<h2>{{item.annotation_id}} {{item.user.name}}</h2>
-		<p [innerHTML]="item.annotation_html"></p>
-	  </ion-item>
+	<ion-list>
+		<ion-refresher *ngIf="enablePullToRefresh" (refresh)="doRefresh($event)">
+			<ion-refresher-content></ion-refresher-content>
+		</ion-refresher>
+		<ion-item *ngFor="#item of items" (click)="itemTapped($event, item)">
+			<ion-avatar item-left>
+				<img src="{{item.user.avatar}}">
+			</ion-avatar>
+			<h2>{{item.annotation_id}} {{item.user.name}}</h2>
+			<p [innerHTML]="item.annotation_html"></p>
+		</ion-item>
 	</ion-list>
-  <button (click)="loadData()">Load More</button>
+	<ion-infinite-scroll (infinite)="loadData($event)" threshold="5%">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 </ion-content>
+```
+## How to use unite toast
+
+unite toast uses ionic 2 native toast. We need to add [cordova toast plugin](http://ionicframework.com/docs/v2/native/toast/).
+
+Then open articles-list.ts and make the following changes to start using the power of Unite Toast!
+```typescript
+import {Page, NavController, NavParams} from 'ionic-angular';
+import {UniteList} from '../../unite-framework/unitelist';
+import {UniteToast} from '../../unite-framework/unitetoast';
+
+@Page({
+  templateUrl: 'build/pages/articles-list/articles-list.html',
+  providers: [UniteList,UniteToast],
+})
+```
+
+Update the class with necessary configuration
+```typescript
+export class ListPage {
+	selectedItem: any;
+	items: any;
+	unitelist: any;
+	baseurl: string;
+	searchQuery: string;
+	enableSearchbar: boolean;
+	enablePullToRefresh: boolean;
+	infinitescroll: any;
+	unitetoast: any;
+	enableifinitescroll:boolean;
+	constructor(private nav: NavController, navParams: NavParams, unitelist: UniteList, uniteitem: UniteItem, unitetoast: UniteToast) {
+		// If we navigated to this page, we will have an item available as a nav param
+		this.selectedItem = navParams.get('item');
+		this.items = [];
+		// API Definitions
+		this.unitetoast = unitetoast;
+		this.unitelist = unitelist;
+		this.uniteitem = uniteitem;
+		this.unitelist.baseurl = 'http://172.132.45.45/joomla/investsure/index.php?option=com_api&app=content&resource=articles&format=raw&key=62edf1d7654d77cc424ca8e5ea8a1140';
+		this.unitelist.limit = 10;
+		this.searchQuery = '';
+		this.enableSearchbar = true;
+		this.enablePullToRefresh = true;
+		this.enableifinitescroll = false;
+		// Loader Config
+		this.unitelist.loaderconfig.content = 'Hold Tight!';
+		
+		// Toaster Config
+		
+		this.unitetoast.toastOptions.message = "Something went wrong!" //The message to display.
+		this.unitetoast.toastOptions.duration = "3000" //Duration to show the toast, either 'short', 'long' or any number of milliseconds: '1500'.
+		this.unitetoast.toastOptions.position = "bottom" //Where to position the toast, either 'top', 'center', or 'bottom'.
+		
+		this.loadData(null);
+	}
+```
+
+We can change toaster config whenever needed.
+
+Use showToast() method of unite toast to show toast
+```
+this.unitetoast.showToast();
+
+```
+
+Use hideToast() method of unite toast to hide toast forcefully
+```
+this.unitetoast.showToast();
+
+```
+
+## How to use unite network-infromation to check internet connection.
+
+unite-framework provide us network-information provider to check availability of network.
+unite uses Netwok component from ionic-native, and also we need to add [network cordova plugin](http://ionicframework.com/docs/v2/native/network/).
+There is a method named getNetworkInfo() that returns boolean value true or false. If internet is connected it will return true otherwise return false.
+
+open app.ts and make the following changes!
+
+import {NetworkInformation} from './unite-framework/network-information';
+```typescript
+@App({
+  templateUrl: 'build/app.html',
+  providers: [UniteMenu, NetworkInformation],
+  config: {} // http://ionicframework.com/docs/v2/api/config/Config/
+})
+```
+in app.ts upadate the constructor arguments like
+```typescript
+constructor(private app: IonicApp, private platform: Platform, private networkInformation: NetworkInformation)
+```
+
+Then open articles-list.ts and make the following changes to start using the power of Unite Toast!
+```typescript
+import {Page, NavController, NavParams} from 'ionic-angular';
+import {UniteList} from '../../unite-framework/unitelist';
+import {UniteToast} from '../../unite-framework/unitetoast';
+import {NetworkInformation} from '../../unite-framework/network-information';
+
+@Page({
+  templateUrl: 'build/pages/articles-list/articles-list.html',
+  providers: [UniteList,UniteToast],
+})
+```
+in constructor add paramters like
+```typescript
+constructor(private networkInformation: NetworkInformation)
+```
+then we can use it like below
+```typescript
+if (this.networkInformation.getNetworkInfo()) {
+			this.unitelist.getData().then((value: any) => {
+				if (value.data) {
+					this.items = this.items.concat(value.data.results);
+					this.enableifinitescroll = true;
+				}
+				if (infiniteScroll) {
+					infiniteScroll.complete();
+					if (!value.data){
+						infiniteScroll.enable(false);
+						this.enableifinitescroll = false;
+					}
+						
+				}
+				//console.log(value);
+			});
+		} else {
+			this.unitetoast.toastOptions.message = "Internet is disconnected!";
+			this.unitetoast.showToast();
+		}
 ```

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Unite Framework by appcarvers</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Unite Framework</h1>
+        <h2>The Unite Framework is a slim framework for Ionic 2 which provides a lot of convenience for implementing common stuff like lists, push notifications and menus.</h2>
+        <a href="https://github.com/appcarvers/unite-framework" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>The Unite Framework is a slim framework for Ionic 2 which provides a lot of convenience for implementing common stuff like lists, push notifications and menus. Essentially, it is a starter template for <a href="http://ionic.io/2">Ionic 2</a>.</p>
+
+<h2>
+<a id="how-to-use-this-template" class="anchor" href="#how-to-use-this-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use this template</h2>
+
+<p><em>This template does not work on its own</em>. It is missing the Ionic library, and AngularJS.</p>
+
+<p>To use this, either create a new ionic project using the ionic node.js utility, or copy and paste this into an existing Cordova project and download a release of Ionic separately.</p>
+
+<h3>
+<a id="with-the-ionic-tool" class="anchor" href="#with-the-ionic-tool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>With the Ionic tool</h3>
+
+<p>Use the <code>ionic start</code> command to initialise a new Ionic 2 project using the Unite framework. The framework uses TypeScript code, so make sure you use the <code>--ts</code> flag as below.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ sudo npm install -g ionic@beta cordova
+$ ionic start my-unite-app https://github.com/appcarvers/unite-framework.git --v2 --ts</pre></div>
+
+<p>Then, to run it, cd into <code>my-unite-app</code> and run:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ ionic run android</pre></div>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<h3>
+<a id="creating-a-list-view" class="anchor" href="#creating-a-list-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating a list view</h3>
+
+<p>Create a new list view uing <code>ionic generate</code></p>
+
+<div class="highlight highlight-source-shell"><pre>$ ionic generate page articles-list --ts</pre></div>
+
+<p>Then open up the newly created app/pages/articles-list/articles-list.ts and make the following changes to start using the power of Unite!</p>
+
+<p>Import Unite Framework</p>
+
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">import</span> {Page, NavController, NavParams} <span class="pl-k">from</span> <span class="pl-s">'ionic-angular'</span>;
+<span class="pl-k">import</span> {UniteList} <span class="pl-k">from</span> <span class="pl-s">'../../unite-framework/unitelist'</span>;
+
+@Page({
+  templateUrl: <span class="pl-s">'build/pages/articles-list/articles-list.html'</span>,
+  providers: [UniteList],
+})</pre></div>
+
+<p>Update the class with necessary configuration in the constructor</p>
+
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">export</span> <span class="pl-k">class</span> <span class="pl-en">ArticlesListPage</span> {
+    <span class="pl-v">selectedItem</span>: <span class="pl-k">any</span>;
+    <span class="pl-v">icons</span>: <span class="pl-k">string</span>[];
+    <span class="pl-v">items</span>: <span class="pl-k">any</span>;
+    <span class="pl-v">unitelist</span>: <span class="pl-k">any</span>;
+
+    <span class="pl-en">constructor</span>(<span class="pl-k">private</span> <span class="pl-v">nav</span>: NavController, <span class="pl-v">navParams</span>: NavParams, <span class="pl-v">unitelist</span>: UniteList) {
+        <span class="pl-c">// If we navigated to this page, we will have an item available as a nav param</span>
+        <span class="pl-c1">this</span>.selectedItem <span class="pl-k">=</span> navParams.get(<span class="pl-s">'item'</span>);
+
+        <span class="pl-c1">this</span>.items <span class="pl-k">=</span> [];
+
+        <span class="pl-c">// API Definitions</span>
+        <span class="pl-c1">this</span>.unitelist <span class="pl-k">=</span> unitelist;
+        <span class="pl-c1">this</span>.unitelist.url <span class="pl-k">=</span> <span class="pl-s">'http://172.132.45.138/ekstep/index.php?app=jlike&amp;resource=annotations&amp;option=com_api&amp;format=raw&amp;key=ed086fefc3b111c666378912f44d71ca0a70a8b6&amp;content_id=17&amp;type=annotation&amp;subtype=collaborators&amp;client=com_ekcontent&amp;plg_type=content&amp;plg_name=jlike_ekcontent&amp;order=DESC&amp;parent_id=0'</span>;
+        <span class="pl-c1">this</span>.unitelist.limit <span class="pl-k">=</span> <span class="pl-c1">10</span>;
+
+        <span class="pl-c">// Loader Config</span>
+        <span class="pl-c1">this</span>.unitelist.loaderconfig.content <span class="pl-k">=</span> <span class="pl-s">'Hold Tight!'</span>;
+
+        <span class="pl-c1">this</span>.loadData();
+
+    }
+}</pre></div>
+
+<p>Next, add a new loadData() method to the class that will utilise the magic of Unite</p>
+
+<div class="highlight highlight-source-ts"><pre>    loadData() {
+        <span class="pl-c1">this</span>.unitelist.getData().then((value: <span class="pl-k">any</span>) <span class="pl-k">=&gt;</span> {
+            <span class="pl-c1">this</span>.items <span class="pl-k">=</span> <span class="pl-c1">this</span>.items.concat(value.data.results);
+            <span class="pl-c">//console.log(value);</span>
+        });
+
+    }
+</pre></div>
+
+<p>Use the data returned by the API in your template (pages/articles-list/articles-list.html)</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">ion</span><span class="pl-e">-navbar</span> *<span class="pl-e">navbar</span>&gt;
+    &lt;<span class="pl-ent">button</span> <span class="pl-e">menuToggle</span>&gt;
+    &lt;<span class="pl-ent">ion</span><span class="pl-e">-icon</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>menu<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">ion</span><span class="pl-e">-icon</span>&gt;
+  &lt;/<span class="pl-ent">button</span>&gt;
+    &lt;<span class="pl-ent">ion</span><span class="pl-e">-title</span>&gt;Lists&lt;/<span class="pl-ent">ion</span><span class="pl-e">-title</span>&gt;
+&lt;/<span class="pl-ent">ion</span><span class="pl-e">-navbar</span>&gt;
+&lt;<span class="pl-ent">ion</span><span class="pl-e">-searchbar</span> *<span class="pl-e">ngIf</span>=<span class="pl-s"><span class="pl-pds">"</span>enableSearchbar<span class="pl-pds">"</span></span> [(<span class="pl-e">ngModel</span>)]=<span class="pl-s"><span class="pl-pds">"</span>searchQuery<span class="pl-pds">"</span></span> (<span class="pl-e">input</span>)=<span class="pl-s"><span class="pl-pds">"</span>getItems($event)<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">ion</span><span class="pl-e">-searchbar</span>&gt;
+&lt;<span class="pl-ent">ion</span><span class="pl-e">-content</span>&gt;
+    &lt;<span class="pl-ent">ion</span><span class="pl-e">-list</span>&gt;
+        &lt;<span class="pl-ent">ion</span><span class="pl-e">-refresher</span> *<span class="pl-e">ngIf</span>=<span class="pl-s"><span class="pl-pds">"</span>enablePullToRefresh<span class="pl-pds">"</span></span> (<span class="pl-e">refresh</span>)=<span class="pl-s"><span class="pl-pds">"</span>doRefresh($event)<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">ion</span><span class="pl-e">-refresher-content</span>&gt;&lt;/<span class="pl-ent">ion</span><span class="pl-e">-refresher-content</span>&gt;
+        &lt;/<span class="pl-ent">ion</span><span class="pl-e">-refresher</span>&gt;
+        &lt;<span class="pl-ent">ion</span><span class="pl-e">-item</span> *<span class="pl-e">ngFor</span>=<span class="pl-s"><span class="pl-pds">"</span>#item of items<span class="pl-pds">"</span></span> (<span class="pl-e">click</span>)=<span class="pl-s"><span class="pl-pds">"</span>itemTapped($event, item)<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">ion</span><span class="pl-e">-avatar</span> <span class="pl-e">item-left</span>&gt;
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>{{item.user.avatar}}<span class="pl-pds">"</span></span>&gt;
+            &lt;/<span class="pl-ent">ion</span><span class="pl-e">-avatar</span>&gt;
+            &lt;<span class="pl-ent">h2</span>&gt;{{item.annotation_id}} {{item.user.name}}&lt;/<span class="pl-ent">h2</span>&gt;
+            &lt;<span class="pl-ent">p</span> [<span class="pl-e">innerHTML</span>]=<span class="pl-s"><span class="pl-pds">"</span>item.annotation_html<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">p</span>&gt;
+        &lt;/<span class="pl-ent">ion</span><span class="pl-e">-item</span>&gt;
+    &lt;/<span class="pl-ent">ion</span><span class="pl-e">-list</span>&gt;
+    &lt;<span class="pl-ent">ion</span><span class="pl-e">-infinite-scroll</span> (<span class="pl-e">infinite</span>)=<span class="pl-s"><span class="pl-pds">"</span>loadData($event)<span class="pl-pds">"</span></span> <span class="pl-e">threshold</span>=<span class="pl-s"><span class="pl-pds">"</span>5%<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">ion</span><span class="pl-e">-infinite-scroll-content</span>&gt;&lt;/<span class="pl-ent">ion</span><span class="pl-e">-infinite-scroll-content</span>&gt;
+    &lt;/<span class="pl-ent">ion</span><span class="pl-e">-infinite-scroll</span>&gt;
+&lt;/<span class="pl-ent">ion</span><span class="pl-e">-content</span>&gt;</pre></div>
+
+<h2>
+<a id="how-to-use-unite-toast" class="anchor" href="#how-to-use-unite-toast" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use unite toast</h2>
+
+<p>unite toast uses ionic 2 native toast. We need to add <a href="http://ionicframework.com/docs/v2/native/toast/">cordova toast plugin</a>.</p>
+
+<p>Then open articles-list.ts and make the following changes to start using the power of Unite Toast!</p>
+
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">import</span> {Page, NavController, NavParams} <span class="pl-k">from</span> <span class="pl-s">'ionic-angular'</span>;
+<span class="pl-k">import</span> {UniteList} <span class="pl-k">from</span> <span class="pl-s">'../../unite-framework/unitelist'</span>;
+<span class="pl-k">import</span> {UniteToast} <span class="pl-k">from</span> <span class="pl-s">'../../unite-framework/unitetoast'</span>;
+
+@Page({
+  templateUrl: <span class="pl-s">'build/pages/articles-list/articles-list.html'</span>,
+  providers: [UniteList,UniteToast],
+})</pre></div>
+
+<p>Update the class with necessary configuration</p>
+
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">export</span> <span class="pl-k">class</span> <span class="pl-en">ListPage</span> {
+    <span class="pl-v">selectedItem</span>: <span class="pl-k">any</span>;
+    <span class="pl-v">items</span>: <span class="pl-k">any</span>;
+    <span class="pl-v">unitelist</span>: <span class="pl-k">any</span>;
+    <span class="pl-v">baseurl</span>: <span class="pl-k">string</span>;
+    <span class="pl-v">searchQuery</span>: <span class="pl-k">string</span>;
+    <span class="pl-v">enableSearchbar</span>: <span class="pl-k">boolean</span>;
+    <span class="pl-v">enablePullToRefresh</span>: <span class="pl-k">boolean</span>;
+    <span class="pl-v">infinitescroll</span>: <span class="pl-k">any</span>;
+    <span class="pl-v">unitetoast</span>: <span class="pl-k">any</span>;
+    <span class="pl-v">enableifinitescroll</span>:<span class="pl-k">boolean</span>;
+    <span class="pl-en">constructor</span>(<span class="pl-k">private</span> <span class="pl-v">nav</span>: NavController, <span class="pl-v">navParams</span>: NavParams, <span class="pl-v">unitelist</span>: UniteList, <span class="pl-v">uniteitem</span>: UniteItem, <span class="pl-v">unitetoast</span>: UniteToast) {
+        <span class="pl-c">// If we navigated to this page, we will have an item available as a nav param</span>
+        <span class="pl-c1">this</span>.selectedItem <span class="pl-k">=</span> navParams.get(<span class="pl-s">'item'</span>);
+        <span class="pl-c1">this</span>.items <span class="pl-k">=</span> [];
+        <span class="pl-c">// API Definitions</span>
+        <span class="pl-c1">this</span>.unitetoast <span class="pl-k">=</span> unitetoast;
+        <span class="pl-c1">this</span>.unitelist <span class="pl-k">=</span> unitelist;
+        <span class="pl-c1">this</span>.uniteitem <span class="pl-k">=</span> uniteitem;
+        <span class="pl-c1">this</span>.unitelist.baseurl <span class="pl-k">=</span> <span class="pl-s">'http://172.132.45.45/joomla/investsure/index.php?option=com_api&amp;app=content&amp;resource=articles&amp;format=raw&amp;key=62edf1d7654d77cc424ca8e5ea8a1140'</span>;
+        <span class="pl-c1">this</span>.unitelist.limit <span class="pl-k">=</span> <span class="pl-c1">10</span>;
+        <span class="pl-c1">this</span>.searchQuery <span class="pl-k">=</span> <span class="pl-s">''</span>;
+        <span class="pl-c1">this</span>.enableSearchbar <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+        <span class="pl-c1">this</span>.enablePullToRefresh <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+        <span class="pl-c1">this</span>.enableifinitescroll <span class="pl-k">=</span> <span class="pl-c1">false</span>;
+        <span class="pl-c">// Loader Config</span>
+        <span class="pl-c1">this</span>.unitelist.loaderconfig.content <span class="pl-k">=</span> <span class="pl-s">'Hold Tight!'</span>;
+
+        <span class="pl-c">// Toaster Config</span>
+
+        <span class="pl-c1">this</span>.unitetoast.toastOptions.message <span class="pl-k">=</span> <span class="pl-s">"Something went wrong!"</span> <span class="pl-c">//The message to display.</span>
+        <span class="pl-c1">this</span>.unitetoast.toastOptions.duration <span class="pl-k">=</span> <span class="pl-s">"3000"</span> <span class="pl-c">//Duration to show the toast, either 'short', 'long' or any number of milliseconds: '1500'.</span>
+        <span class="pl-c1">this</span>.unitetoast.toastOptions.position <span class="pl-k">=</span> <span class="pl-s">"bottom"</span> <span class="pl-c">//Where to position the toast, either 'top', 'center', or 'bottom'.</span>
+
+        <span class="pl-c1">this</span>.loadData(<span class="pl-c1">null</span>);
+    }</pre></div>
+
+<p>We can change toaster config whenever needed.</p>
+
+<p>Use showToast() method of unite toast to show toast</p>
+
+<pre><code>this.unitetoast.showToast();
+
+</code></pre>
+
+<p>Use hideToast() method of unite toast to hide toast forcefully</p>
+
+<pre><code>this.unitetoast.showToast();
+
+</code></pre>
+
+<h2>
+<a id="how-to-use-unite-network-infromation-to-check-internet-connection" class="anchor" href="#how-to-use-unite-network-infromation-to-check-internet-connection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use unite network-infromation to check internet connection.</h2>
+
+<p>unite-framework provide us network-information provider to check availability of network.
+unite uses Netwok component from ionic-native, and also we need to add <a href="http://ionicframework.com/docs/v2/native/network/">network cordova plugin</a>.
+There is a method named getNetworkInfo() that returns boolean value true or false. If internet is connected it will return true otherwise return false.</p>
+
+<p>open app.ts and make the following changes!</p>
+
+<p>import {NetworkInformation} from './unite-framework/network-information';</p>
+
+<div class="highlight highlight-source-ts"><pre>@App({
+  templateUrl: <span class="pl-s">'build/app.html'</span>,
+  providers: [UniteMenu, NetworkInformation],
+  config: {} <span class="pl-c">// http://ionicframework.com/docs/v2/api/config/Config/</span>
+})</pre></div>
+
+<p>in app.ts upadate the constructor arguments like</p>
+
+<div class="highlight highlight-source-ts"><pre>constructor(private app: IonicApp, private platform: Platform, private networkInformation: NetworkInformation)</pre></div>
+
+<p>Then open articles-list.ts and make the following changes to start using the power of Unite Toast!</p>
+
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">import</span> {Page, NavController, NavParams} <span class="pl-k">from</span> <span class="pl-s">'ionic-angular'</span>;
+<span class="pl-k">import</span> {UniteList} <span class="pl-k">from</span> <span class="pl-s">'../../unite-framework/unitelist'</span>;
+<span class="pl-k">import</span> {UniteToast} <span class="pl-k">from</span> <span class="pl-s">'../../unite-framework/unitetoast'</span>;
+<span class="pl-k">import</span> {NetworkInformation} <span class="pl-k">from</span> <span class="pl-s">'../../unite-framework/network-information'</span>;
+
+@Page({
+  templateUrl: <span class="pl-s">'build/pages/articles-list/articles-list.html'</span>,
+  providers: [UniteList,UniteToast],
+})</pre></div>
+
+<p>in constructor add paramters like</p>
+
+<div class="highlight highlight-source-ts"><pre>constructor(private networkInformation: NetworkInformation)</pre></div>
+
+<p>then we can use it like below</p>
+
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">if</span> (<span class="pl-c1">this</span>.networkInformation.getNetworkInfo()) {
+            <span class="pl-c1">this</span>.unitelist.getData().then((value: <span class="pl-k">any</span>) <span class="pl-k">=&gt;</span> {
+                <span class="pl-k">if</span> (value.data) {
+                    <span class="pl-c1">this</span>.items <span class="pl-k">=</span> <span class="pl-c1">this</span>.items.concat(value.data.results);
+                    <span class="pl-c1">this</span>.enableifinitescroll <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+                }
+                <span class="pl-k">if</span> (infiniteScroll) {
+                    infiniteScroll.complete();
+                    <span class="pl-k">if</span> (<span class="pl-k">!</span>value.data){
+                        infiniteScroll.enable(<span class="pl-c1">false</span>);
+                        <span class="pl-c1">this</span>.enableifinitescroll <span class="pl-k">=</span> <span class="pl-c1">false</span>;
+                    }
+
+                }
+                <span class="pl-c">//console.log(value);</span>
+            });
+        } <span class="pl-k">else</span> {
+            <span class="pl-c1">this</span>.unitetoast.toastOptions.message <span class="pl-k">=</span> <span class="pl-s">"Internet is disconnected!"</span>;
+            <span class="pl-c1">this</span>.unitetoast.showToast();
+        }</pre></div>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/appcarvers/unite-framework/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/appcarvers/unite-framework/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/appcarvers/unite-framework"></a> is maintained by <a href="https://github.com/appcarvers">appcarvers</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

@@ -10,7 +10,6 @@ export class UniteItem {
 	http: Http;
 	loader: Loading;
 	loaderconfig: any;
-	local: any;
 	
 	constructor(http: Http) {		
 		this.loaderconfig = { content: "Please wait...", dismissOnPageChange: false };
@@ -18,7 +17,7 @@ export class UniteItem {
 	}
 
 	getData(url) {
-		return this.local.get(url).then((value) => {
+		return this.http.get(url).then((value) => {
 			if (value) {
 				return new Promise(resolve => {
 					return resolve(JSON.parse(value));
@@ -28,8 +27,7 @@ export class UniteItem {
 					this.http.get(url)
 					.map(res => res.json())
 					.subscribe(
-					data => {
-						this.local.set(url,JSON.stringify(data));
+					data => {						
 						resolve(data);
 					}, err => {
 						resolve('Error');

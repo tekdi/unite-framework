@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {MenuController, Events, NavController,IonicApp,NavParams,LoadingController} from 'ionic-angular';
-import {Http,Headers} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
@@ -17,7 +16,6 @@ import { ListPage } from '../list/list';
 export class LoginPage {
 	login:any;
 	submitted:boolean;
-	http:any;
 	payloaddata:any; 
 	unitetoast:any;
 	loader: any;
@@ -27,10 +25,9 @@ export class LoginPage {
 	uniteItem: UniteItem;
 	uniteToast: UniteToast;
     
-	constructor(private app: IonicApp,http: Http, events: Events, storage: Storage, private zone: NgZone, public nav: NavController, uniteItem: UniteItem, public loadingCtrl: LoadingController, uniteToast:UniteToast) {
+	constructor(private app: IonicApp, events: Events, storage: Storage, private zone: NgZone, public nav: NavController, uniteItem: UniteItem, public loadingCtrl: LoadingController, uniteToast:UniteToast) {
 		this.login = {};   
 		this.nav = nav;
-		this.http = http;
 		this.submitted = false;    
 		this.loaderconfig = { content: "Please Wait..." };
 		this.storage = storage;

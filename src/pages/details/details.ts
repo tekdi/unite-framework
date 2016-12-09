@@ -25,11 +25,13 @@ export class DetailsPage {
 			this.setApiParams(this.siteConfig);
 		})
 	}
+
 	setApiParams(siteConfig){
 		this.unitelist.loaderconfig.content = 'Please wait...';		
 		this.unitelist.baseurl = siteConfig['siteurl'] + "/index.php?app=jticket&resource=geteventdetails&option=com_api&format=raw" + '&key=' + siteConfig['authkey']+'&userid=' + siteConfig['userid']+ '&eventid=' +this.selectedItem.id;
 		this.loadData();
 	}
+	
 	loadData() {
 		this.unitelist.getData().then((value: any) => {
 			this.items = value.data;			

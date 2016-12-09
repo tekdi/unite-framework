@@ -4,13 +4,10 @@ import {LoadingController, NavParams, Toast, NavController} from 'ionic-angular'
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {UniteToast} from '../unite-framework/unitetoast';
-import { Storage } from '@ionic/storage';
 
 @Injectable()
 
 export class UniteList {
-	selectedItem: any;
-	icons: string[];
 	baseurl: string;
 	http: any;
 	search: string;
@@ -25,10 +22,8 @@ export class UniteList {
 	lastUpdatedName: string;
 	loader: any;
 	loaderconfig: any;
-	local: any;
-	storage:any;
-	
-	constructor(http: Http, private unitetoast: UniteToast, storage: Storage, public loadingCtrl: LoadingController) {			
+		
+	constructor(http: Http, private unitetoast: UniteToast, public loadingCtrl: LoadingController) {			
 		this.limit = 20;
 		this.limitstart = 0;
 		this.limitName = 'limit';
@@ -39,7 +34,6 @@ export class UniteList {
 		this.loaderconfig = { content: "Please wait...", dismissOnPageChange: false };
 		this.http = http;
 		this.baseurl = '';
-		this.storage = storage;
 	}
 	
 	getData() {
@@ -72,7 +66,6 @@ export class UniteList {
 					data => {							
 						this.limitstart += this.limit;
 						resolve(data);							
-						//this.local.set(callingurl,JSON.stringify(data));
 						this.hideLoader();
 					}, err => {
 						resolve('Error');

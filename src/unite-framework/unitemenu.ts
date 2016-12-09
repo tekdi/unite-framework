@@ -1,5 +1,6 @@
 import {LocalStorage,Storage, SqlStorage} from 'ionic-angular';
 import {Injectable, Inject} from '@angular/core';
+
 @Injectable()
 export class UniteMenu {
   pages: any;
@@ -35,6 +36,7 @@ export class UniteMenu {
     this.pages.splice(index,1);
     this.local.set('pages', JSON.stringify(this.pages)); 
   }
+
   updateMenu(pageobj){
     this.pages[pageobj.index] = {
       title: pageobj.menuname,
@@ -43,6 +45,5 @@ export class UniteMenu {
     };
     this.local.set('pages', JSON.stringify(this.pages));
   }
-
 }
 

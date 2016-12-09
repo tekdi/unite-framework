@@ -46,6 +46,7 @@ export class ListPage {
 		this.unitelist.baseurl = siteConfig['siteurl'] + "/index.php?app=jticket&resource=getticketlist&option=com_api&format=raw" + '&key=' + siteConfig['authkey']+'&userid=' + siteConfig['userid'];
 		this.loadData(null);
 	}
+	
 	loadData(infiniteScroll) {
 			if (infiniteScroll) {			
 				if (infiniteScroll.state == 'refreshing') {				

@@ -1,5 +1,5 @@
 /* global http */
-import {Injectable, Inject} from 'angular2/core';
+import {Injectable, Inject} from '@angular/core';
 import {IonicApp,Platform} from 'ionic-angular';
 import {Network, Connection} from 'ionic-native';
 

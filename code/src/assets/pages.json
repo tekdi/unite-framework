@@ -1,0 +1,21 @@
+// Pages List
+[  
+   {  
+      "page_id":"1",
+      "title":"Page 1",
+      "description":"",
+      "alias":"page-1"
+   },
+   {  
+      "page_id":"2",
+      "title":"Page 2",
+      "description":"",
+      "alias":"page-2"
+   },
+   {  
+      "page_id":"3",
+      "title":"Page 3",
+      "description":"",
+      "alias":"page-3"
+   }
+]

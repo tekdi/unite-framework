@@ -29,8 +29,8 @@ export class WidgetService {
                     });
     }
 
-    getWidgets(){
-        return this._httpClient.get('http://172.132.45.193/devunit/widgets.json');
+    getPages(){
+        return this._httpClient.get('/assets/pages.json');
     }
 
     getWidgetData(dataUrl, compoName, dataNode?){

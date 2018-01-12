@@ -7,8 +7,12 @@ import { AdComponent } from './ad.component';
 
 @Component({
     template : `
-                <div>I am at site component</div>
-                <ng-template ad-host></ng-template>
+                <div style="margin:25px 0 25px 0">
+                    <span *ngFor="let menu of pagesMenu" style="margin:0 15px 0 0;">
+                        <a [routerLink]="['/' + menu.alias] ">{{ menu.title }}</a>
+                    </span>
+                </div>
+                <div *ngIf="invalidPage">Invalid Page</div>
                 <ng-template ad-host></ng-template>
                 `,
     providers : [WidgetService]
@@ -16,6 +20,8 @@ import { AdComponent } from './ad.component';
 export class SiteComponent implements OnInit {
 
     @ViewChild(AdDirective) adHost: AdDirective;
+    pagesMenu   = [];
+    invalidPage = true;
 
     constructor(
                 private _acRoute : ActivatedRoute,
@@ -25,25 +31,40 @@ export class SiteComponent implements OnInit {
 
     ngOnInit() {
 
-        console.log('-----------------------------', this.adHost);
+        this.getAllPages();
 
+        this._acRoute.data.subscribe(data => {
+            console.log('url data inforrrrr', data);
 
-        this._acRoute.params.subscribe(data => {
-            console.log('url data ', data);
-            this._widgetService.getPageWidgets(1)
+            if(!data['page-id'])
+            {
+                this.invalidPage = true;
+                return;
+            }
+
+            this.invalidPage = false;
+
+            this._widgetService.getPageWidgets(data['page-id'])
                 .subscribe(pageWidgets => {
-                    console.log("page widgets ", pageWidgets);
                     this.getWidgetsData(pageWidgets);
                 });
         })
     }
 
-    getWidgetsData(widgets : Array<any>){
+    getAllPages()
+    {
+        this._widgetService.getPages()
+                            .subscribe((pageData : Array<any>) => {
+                                console.log("hello all, this is page data", pageData);
+                                this.pagesMenu = pageData;
+                            });
+    }
 
+    getWidgetsData(widgets : Array<any>)
+    {
         widgets.forEach(element => {
             this._widgetService.getWidgetData(element.data_source, element.renderer_name, element.data_node_name)
                                 .subscribe(fwData => {
-                                    console.log("widget final data ", fwData);
                                     this.renderDynamicComponent(fwData);
                                 })
         });

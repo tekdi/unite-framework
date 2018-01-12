@@ -7,7 +7,6 @@
 
 # dependencies
 /code/node_modules
-/code/src/environments/environment.ts
 /code/package-lock.json
 
 # IDEs and editors

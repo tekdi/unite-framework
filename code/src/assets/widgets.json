@@ -13,9 +13,19 @@
       "title":"Countries",
       "page_id":"1",
       "data_source":"//restcountries.eu/rest/v2/name/united",
+      "dataSource" : {
+                        "name" : "countries",
+                        "config" : {
+                            "type" : "chekcing config"
+                        }
+                    },
       "data_node_name":"",
-      "renderer_name":"list",
-      "params":"{image_name:title, url:url, thumbnail:thumbnailUrl}"
+      "renderer_name":"grid",
+      "params":{
+                    "name": "alpha3Code",
+                    "desc" : "name",
+                    "img" : "flag"
+                }
    },
    {  
       "widget_id":"3",

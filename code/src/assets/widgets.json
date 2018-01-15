@@ -3,45 +3,49 @@
       "widget_id":"1",
       "title":"",
       "page_id":"1",
-      "data_source":"//staging.osianama.com/index.php?option=com_api&app=osian&resource=homepage&format=raw",
-      "data_node_name":"data",
+      "dataSource" : {
+                    "name" : "osian",
+                    "config" : 
+                            {
+                                "site":"//staging.osianama.com/",
+                                "resource":"homepage"
+                            }
+                    },
       "renderer_name":"grid",
-      "params":"{col1:,col2:email,col3:body}"
+      "params":""
    },
    {  
       "widget_id":"2",
       "title":"Countries",
       "page_id":"1",
-      "data_source":"//restcountries.eu/rest/v2/name/united",
       "dataSource" : {
-                        "name" : "countries",
-                        "config" : {
-                            "type" : "chekcing config"
-                        }
-                    },
-      "data_node_name":"",
+            "name" : "countries",
+            "config" : {
+                "type" : "chekcing config"
+            }
+        },
       "renderer_name":"grid",
-      "params":{
-                    "name": "alpha3Code",
-                    "desc" : "name",
-                    "img" : "flag"
-                }
+      "params":""
    },
    {  
       "widget_id":"3",
       "title":"Users",
       "page_id":"1",
-      "data_source":"//restcountries.eu/rest/v2/name/united",
-      "data_node_name":"",
-      "renderer_name":"carousel",
-      "params":""
+      "dataSource" : {
+            "name" : "",
+            "config" : { }
+        },
+       "renderer_name":"carousel",
+       "params":""
    },
    {  
       "widget_id":"4",
       "title":"Todos",
       "page_id":"2",
-      "data_source":"https://jsonplaceholder.typicode.com/todos",
-      "data_node_name":"data",
+      "dataSource" : {
+                "name" : "",
+                "config" : { }
+        },
       "renderer_name":"",
       "params":""
    },
@@ -49,8 +53,10 @@
       "widget_id":"5",
       "title":"Widget 5",
       "page_id":"3",
-      "data_source":"",
-      "data_node_name":"",
+      "dataSource" : {
+            "name" : "",
+            "config" : { }
+        },
       "renderer_name":"",
       "params":""
    },
@@ -58,8 +64,10 @@
       "widget_id":"6",
       "title":"Widget 6",
       "page_id":"3",
-      "data_source":"",
-      "data_node_name":"",
+      "dataSource" : {
+        "name" : "",
+        "config" : { }
+        },
       "renderer_name":"",
       "params":""
    }

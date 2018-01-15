@@ -5,6 +5,9 @@ import { WidgetService } from './site.service';
 import { AdDirective } from './ad.directive';
 import { AdComponent } from './ad.component';
 
+import { FactoryLayouts } from './layout.collection';
+import { factoryMapper } from './mapper.collection';
+
 @Component({
     template : `
                 <div style="margin:25px 0 25px 0">
@@ -73,17 +76,36 @@ export class SiteComponent implements OnInit {
 
     getDataSource(element)
     {
-        var ds = this._widgetService.getDataSource(element.dataSource);
+        if(element["dataSource"]["name"] !== undefined)
+        {
+            var mapperInfo = factoryMapper[element["dataSource"]["name"]][element['renderer_name']];
+            var layoutInfo = FactoryLayouts[element['renderer_name']];
 
-        if(ds.__proto__.hasOwnProperty('getData'))
-        {
-            ds.getData().subscribe(sourceData => {
-                console.log("source data chekcing ", sourceData);
-            });
-        }
-        else
-        {
-            console.error("getData not found for dataSource ", ds);
+            console.log("mapper Info ", mapperInfo);
+            console.log("layout infor ", layoutInfo);
+
+            var ds = this._widgetService.getDataSource(element.dataSource);
+
+            if(ds && ds.__proto__.hasOwnProperty('getData'))
+            {
+                ds.getData().subscribe(sourceData => {
+
+                    if(mapperInfo && layoutInfo)
+                    {
+                        var checkArr = {};
+                        
+                        checkArr['data'] = sourceData;
+                        checkArr['mapper'] = mapperInfo;
+                        checkArr['component'] = layoutInfo;
+
+                        this.renderDynamicComponent(checkArr);
+                    }
+                });
+            }
+            else
+            {
+                console.error("getData not found for dataSource ", ds);
+            }
         }
     }
 

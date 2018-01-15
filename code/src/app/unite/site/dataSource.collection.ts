@@ -1,5 +1,5 @@
-import { CountriesDataService } from "./datasource/countries.dataservice";
+import { CountriesDataSource } from "./datasource/countries.datasource";
 
 export const DataSource = {
-    'countries' : CountriesDataService
+    'countries' : CountriesDataSource
 }

@@ -1,10 +1,14 @@
 
 export const factoryMapper =
 {
-    courtries : 
+    "countries" : 
         {
             'list' : {},
-            'grid' : {},
+            'grid' : {
+                'name' : 'alpha3Code',
+                'img' : 'flag',
+                'desc' : 'name'
+            },
             'carousel' : {}
         }
 }

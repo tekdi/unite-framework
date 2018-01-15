@@ -6,9 +6,9 @@ import { CarouselModule } from 'ngx-bootstrap';
 
 import { WidgetService } from './site.service';
 import { SiteComponent } from './site.component';
-import { GridComponent } from './layouts/gridComponent/grid.component';
-import { ListComponent } from './layouts/listComponent/list.component';
-import { CarouselComponent } from './layouts/carouselComponent/carousel.component';
+import { GridLayout } from './layouts/gridLayout/grid.layout';
+import { ListLayout } from './layouts/listLayout/list.layout';
+import { CarouselLayout } from './layouts/carouselLayout/carousel.layout';
 
 import { AdDirective } from './ad.directive';
 
@@ -21,13 +21,13 @@ import { AdDirective } from './ad.directive';
   ],
   declarations: [
                   SiteComponent,
-                  GridComponent,
-                  ListComponent,
-                  CarouselComponent,
+                  GridLayout,
+                  ListLayout,
+                  CarouselLayout,
                   AdDirective
                 ],
   exports:[SiteComponent],
-  entryComponents: [GridComponent, ListComponent, CarouselComponent],
+  entryComponents: [GridLayout, ListLayout, CarouselLayout],
   providers : [WidgetService]
 })
 export class SiteModule {

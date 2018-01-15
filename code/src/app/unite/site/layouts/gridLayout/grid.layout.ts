@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./grid.component.html"
+    templateUrl : "./grid.layout.html"
 })
-export class GridComponent{
+export class GridLayout{
     @Input() data : Array<any>;
 }

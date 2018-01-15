@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/Rx';
 
-import { GridComponent } from './layouts/gridComponent/grid.component';
-import { ListComponent } from './layouts/listComponent/list.component';
-import { CarouselComponent } from './layouts/carouselComponent/carousel.component';
+import { GridLayout } from './layouts/gridLayout/grid.layout';
+import { ListLayout } from './layouts/listLayout/list.layout';
+import { CarouselLayout } from './layouts/carouselLayout/carousel.layout';
 
-const componentObj =  { 'grid' : GridComponent, 'list' : ListComponent, 'carousel' : CarouselComponent };
+const componentObj =  { 'grid' : GridLayout, 'list' : ListLayout, 'carousel' : CarouselLayout };
 
 @Injectable()
 export class WidgetService {

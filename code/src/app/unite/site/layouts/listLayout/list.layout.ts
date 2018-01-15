@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./list.component.html"
+    templateUrl : "./list.layout.html"
 })
-export class ListComponent{
+export class ListLayout{
     @Input() data : Array<any>;
 }

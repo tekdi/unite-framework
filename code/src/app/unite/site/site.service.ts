@@ -2,13 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/Rx';
 
-import { GridLayout } from './layouts/gridLayout/grid.layout';
-import { ListLayout } from './layouts/listLayout/list.layout';
-import { CarouselLayout } from './layouts/carouselLayout/carousel.layout';
-
-const componentObj =  { 'grid' : GridLayout, 'list' : ListLayout, 'carousel' : CarouselLayout };
-
 import { DataSource } from './dataSource.collection';
+import { FactoryLayouts } from './layout.collection';
+const componentObj = FactoryLayouts;
 
 @Injectable()
 export class WidgetService {

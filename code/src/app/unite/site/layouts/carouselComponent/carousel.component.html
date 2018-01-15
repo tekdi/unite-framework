@@ -1,0 +1,11 @@
+<!-- index.html -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<carousel [interval]="1000" [noWrap]="noWrapSlides" [(activeSlide)]="activeSlideIndex">
+    <slide *ngFor="let unit of data">
+      <img src="{{unit.flag}}" alt="{{unit.name}}" style="display: block; width: 50%; height: 300px;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>{{unit.name}}</h3>
+        <p></p>
+      </div>
+    </slide>
+  </carousel>

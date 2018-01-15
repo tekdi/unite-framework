@@ -55,20 +55,36 @@ export class SiteComponent implements OnInit {
     {
         this._widgetService.getPages()
                             .subscribe((pageData : Array<any>) => {
-                                console.log("hello all, this is page data", pageData);
                                 this.pagesMenu = pageData;
                             });
     }
 
     getWidgetsData(widgets : Array<any>)
     {
-        widgets.forEach(element => {
-            this._widgetService.getWidgetData(element.data_source, element.renderer_name, element.data_node_name)
-                                .subscribe(fwData => {
-                                    this.renderDynamicComponent(fwData);
-                                })
-        });
+        console.log("widgets chekcing = ", widgets);
 
+        widgets.forEach(element => {
+                if(element['dataSource'])
+                {
+                    this.getDataSource(element);
+                }
+            });
+    }
+
+    getDataSource(element)
+    {
+        var ds = this._widgetService.getDataSource(element.dataSource);
+
+        if(ds.__proto__.hasOwnProperty('getData'))
+        {
+            ds.getData().subscribe(sourceData => {
+                console.log("source data chekcing ", sourceData);
+            });
+        }
+        else
+        {
+            console.error("getData not found for dataSource ", ds);
+        }
     }
 
     renderDynamicComponent(fwData){
@@ -79,5 +95,6 @@ export class SiteComponent implements OnInit {
 
         let componentRef = viewContainerRef.createComponent(componentFactory);
         (<AdComponent>componentRef.instance).data = fwData.data;
+        (<AdComponent>componentRef.instance).mapper = fwData.mapper;
     }
 }

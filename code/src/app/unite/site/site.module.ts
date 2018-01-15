@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
+import { CarouselModule } from 'ngx-bootstrap';
 
 import { WidgetService } from './site.service';
 import { SiteComponent } from './site.component';
 import { GridComponent } from './layouts/gridComponent/grid.component';
 import { ListComponent } from './layouts/listComponent/list.component';
+import { CarouselComponent } from './layouts/carouselComponent/carousel.component';
 
 import { AdDirective } from './ad.directive';
 
@@ -14,16 +16,18 @@ import { AdDirective } from './ad.directive';
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    CarouselModule
   ],
   declarations: [
                   SiteComponent,
                   GridComponent,
                   ListComponent,
+                  CarouselComponent,
                   AdDirective
                 ],
   exports:[SiteComponent],
-  entryComponents: [GridComponent, ListComponent],
+  entryComponents: [GridComponent, ListComponent, CarouselComponent],
   providers : [WidgetService]
 })
 export class SiteModule {

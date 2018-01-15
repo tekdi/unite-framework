@@ -4,8 +4,9 @@ import 'rxjs/Rx';
 
 import { GridComponent } from './layouts/gridComponent/grid.component';
 import { ListComponent } from './layouts/listComponent/list.component';
+import { CarouselComponent } from './layouts/carouselComponent/carousel.component';
 
-const componentObj =  { 'grid' : GridComponent, 'list' : ListComponent };
+const componentObj =  { 'grid' : GridComponent, 'list' : ListComponent, 'carousel' : CarouselComponent };
 
 import { DataSource } from './dataSource.collection';
 

@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./grid.component.html"
+    templateUrl : "./grid.layout.html"
 })
-export class GridComponent{
+export class GridLayout{
     @Input() data : Array<any>;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);

@@ -8,13 +8,22 @@ import { CarouselComponent } from './layouts/carouselComponent/carousel.componen
 
 const componentObj =  { 'grid' : GridComponent, 'list' : ListComponent, 'carousel' : CarouselComponent };
 
+import { DataSource } from './dataSource.collection';
+
 @Injectable()
 export class WidgetService {
 
+    dataSouceCollection = DataSource;
+
     constructor(private _httpClient : HttpClient){}
 
-    getPageWidgets(pageId){
+    getPages()
+    {
+        return this._httpClient.get('/assets/pages.json');
+    }
 
+    getPageWidgets(pageId)
+    {
         return this._httpClient
                     .get("/assets/widgets.json")
                     .map((data : Array<any>) => {
@@ -30,11 +39,17 @@ export class WidgetService {
                     });
     }
 
-    getPages(){
-        return this._httpClient.get('/assets/pages.json');
+    getDataSource(source)
+    {
+        if(this.dataSouceCollection[source.name])
+        {
+            let ds = this.dataSouceCollection[source.name];
+            return new ds(source.config, this._httpClient);
+        }
     }
 
-    getWidgetData(dataUrl, compoName, dataNode?){
+    getWidgetData(dataUrl, widgetObj, dataNode?)
+    {
         return this._httpClient
                     .get(dataUrl)
                     .map((data) => {
@@ -54,7 +69,8 @@ export class WidgetService {
                         var checkArr = {};
 
                         checkArr['data'] = data;
-                        checkArr['component'] = componentObj[compoName];
+                        checkArr['mapper'] = widgetObj['params'];
+                        checkArr['component'] = componentObj[widgetObj.renderer_name];
 
                         return checkArr;
                     })

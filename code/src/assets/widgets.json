@@ -2,7 +2,7 @@
    {  
       "widget_id":"1",
       "title":"",
-      "page_id":"1",
+      "page_id":"2",
       "dataSource" : {
                     "name" : "osian",
                     "config" : 
@@ -30,7 +30,7 @@
    {  
       "widget_id":"3",
       "title":"Users",
-      "page_id":"1",
+      "page_id":"2",
       "dataSource" : {
             "name" : "",
             "config" : { }

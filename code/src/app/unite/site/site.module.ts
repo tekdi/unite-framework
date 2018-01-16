@@ -9,6 +9,7 @@ import { WidgetService } from './site.service';
 import { SiteComponent } from './site.component';
 import { Layouts } from './layout.collection';
 import { AdDirective } from './ad.directive';
+import { UniteMapperPipe } from './mapper.pipe';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { AdDirective } from './ad.directive';
   declarations: [
                   SiteComponent,
                   AdDirective,
+                  UniteMapperPipe,
                   Layouts
                 ],
   exports:[SiteComponent],

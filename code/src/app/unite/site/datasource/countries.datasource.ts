@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
 @Injectable()
-export class CountriesDataService
+export class CountriesDataSource
 {
     baseUrl = "//restcountries.eu/rest/v2/name/united";
 

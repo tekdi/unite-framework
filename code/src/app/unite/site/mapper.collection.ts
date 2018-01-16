@@ -37,5 +37,13 @@ export const factoryMapper =
             'title' : 'name',
             'description' :''
         },
+    },
+    "tjlms-courses":
+    {
+        'carousel' : {
+                'image_url' : 'course_image',
+                'caption' : 'course_title',
+                'description' :'course_description'
+        },
     }
 }

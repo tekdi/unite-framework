@@ -151,5 +151,19 @@
           },
         "renderer_name":"blog",
         "params":""
+    },
+    {  
+        "widget_id":"13",
+        "title":"Vowel Courses",
+        "page_id":"6",
+        "dataSource" : {
+          "name" : "tjlms-courses",
+          "config" : {
+              "baseUrl":"https://intranet.tekdi.net/api",
+              "token": "f433ad6704bf118f4858fa233c6670c1d351f1a9"
+           }
+          },
+        "renderer_name":"carousel",
+        "params":""
     }
 ]

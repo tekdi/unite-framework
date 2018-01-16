@@ -28,6 +28,12 @@
     "title":"Courses",
     "description":"",
     "alias":"courses"
+   },
+   {
+    "page_id":"6",
+    "title":"Vowel Courses",
+    "description":"",
+    "alias":"vowel-courses"
    }
 
 ]

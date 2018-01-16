@@ -5,7 +5,7 @@
       <img [src]="unit | uniteMapper: localMap['image_url']" [alt]="unit | uniteMapper: localMap['caption']" style="display: block; width: 50%; height: 300px;">
       <div class="carousel-caption d-none d-md-block">
         <h3>{{unit | uniteMapper: localMap['caption']}}</h3>
-        <p>{{unit | uniteMapper: localMap['description']}}</p>
+        <p [innerHTML]="unit | uniteMapper: localMap['description']"></p>
       </div>
     </slide>
   </carousel>

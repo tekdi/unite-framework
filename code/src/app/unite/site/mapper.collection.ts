@@ -5,9 +5,9 @@ export const factoryMapper =
         {
             'list' : {},
             'grid' : {
-                'name' : 'alpha3Code',
+                'name' : 'timezones.0',
                 'img' : 'flag',
-                'desc' : 'name'
+                'desc' : 'translations.es'
             },
             'carousel' : {}
         }

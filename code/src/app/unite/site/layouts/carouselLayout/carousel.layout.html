@@ -1,11 +1,11 @@
 <!-- index.html -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <carousel [interval]="1500">
-    <slide *ngFor="let unit of data">
-      <img src="{{unit.image_url}}" alt="{{unit.caption}}" style="display: block; width: 50%; height: 300px;">
+    <slide *ngFor="let unit of localData">
+      <img [src]="unit | uniteMapper: localMap['image_url']" [alt]="unit | uniteMapper: localMap['caption']" style="display: block; width: 50%; height: 300px;">
       <div class="carousel-caption d-none d-md-block">
-        <h3>{{unit.caption}}</h3>
-        <p>Description:{{unit.description}}</p>
+        <h3>{{unit | uniteMapper: localMap['caption']}}</h3>
+        <p>{{unit | uniteMapper: localMap['description']}}</p>
       </div>
     </slide>
   </carousel>

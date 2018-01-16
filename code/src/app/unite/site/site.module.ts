@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
 import { CarouselModule } from 'ngx-bootstrap';
+import { ProgressbarModule } from 'ngx-bootstrap';
 
 import { WidgetService } from './site.service';
 import { SiteComponent } from './site.component';
@@ -14,7 +15,8 @@ import { AdDirective } from './ad.directive';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    CarouselModule
+    CarouselModule,
+    ProgressbarModule
   ],
   declarations: [
                   SiteComponent,

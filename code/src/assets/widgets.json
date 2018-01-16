@@ -70,5 +70,60 @@
         },
       "renderer_name":"",
       "params":""
-   }
+   },
+   {  
+    "widget_id":"7",
+    "title":"Profile Update",
+    "page_id":"4",
+    "dataSource" : {
+      "name" : "",
+      "config" : { }
+      },
+    "renderer_name":"profile_info",
+    "params":""
+    },
+    {  
+        "widget_id":"8",
+        "title":"Profile Completeness",
+        "page_id":"4",
+        "dataSource" : {
+          "name" : "",
+          "config" : { }
+          },
+        "renderer_name":"progressbar",
+        "params":""
+    },
+    {  
+        "widget_id":"9",
+        "title":"Address List",
+        "page_id":"4",
+        "dataSource" : {
+          "name" : "",
+          "config" : { }
+          },
+        "renderer_name":"blog",
+        "params":""
+    },
+    {  
+        "widget_id":"10",
+        "title":"Education",
+        "page_id":"4",
+        "dataSource" : {
+          "name" : "",
+          "config" : { }
+          },
+        "renderer_name":"blog",
+        "params":""
+    },
+    {  
+        "widget_id":"11",
+        "title":"Experience",
+        "page_id":"4",
+        "dataSource" : {
+          "name" : "",
+          "config" : { }
+          },
+        "renderer_name":"blog",
+        "params":""
+    }
 ]

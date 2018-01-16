@@ -45,5 +45,15 @@ export const factoryMapper =
                 'caption' : 'course_title',
                 'description' :'course_description'
         },
+        'iconlist' : {
+            'image_url' : 'course_image',
+            'caption' : 'course_title',
+            'description' :'course_description'
+        },
+        'grid' : {
+            'img' : 'course_image',
+            'name' : 'course_title',
+            'desc' :'course_description'
+        }
     }
 }

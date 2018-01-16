@@ -2,7 +2,7 @@
    {  
       "widget_id":"1",
       "title":"",
-      "page_id":"2",
+      "page_id":"",
       "dataSource" : {
                     "name" : "osian",
                     "config" : 
@@ -88,7 +88,7 @@
     {  
         "widget_id":"8",
         "title":"Profile Completeness",
-        "page_id":"4",
+        "page_id":"",
         "dataSource" : {
           "name" : "profile",
           "config" : { 
@@ -155,7 +155,7 @@
     {  
         "widget_id":"13",
         "title":"Vowel Courses",
-        "page_id":"6",
+        "page_id":"4",
         "dataSource" : {
           "name" : "tjlms-courses",
           "config" : {
@@ -164,6 +164,34 @@
            }
           },
         "renderer_name":"carousel",
+        "params":""
+    },
+    {  
+        "widget_id":"13",
+        "title":"Vowel Courses",
+        "page_id":"4",
+        "dataSource" : {
+          "name" : "tjlms-courses",
+          "config" : {
+              "baseUrl":"https://intranet.tekdi.net/api",
+              "token": "f433ad6704bf118f4858fa233c6670c1d351f1a9"
+           }
+          },
+        "renderer_name":"iconlist",
+        "params":""
+    },
+    {  
+        "widget_id":"14",
+        "title":"Vowel Courses",
+        "page_id":"4",
+        "dataSource" : {
+          "name" : "tjlms-courses",
+          "config" : {
+              "baseUrl":"https://intranet.tekdi.net/api",
+              "token": "f433ad6704bf118f4858fa233c6670c1d351f1a9"
+           }
+          },
+        "renderer_name":"grid",
         "params":""
     }
 ]

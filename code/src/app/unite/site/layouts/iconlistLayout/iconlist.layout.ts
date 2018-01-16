@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./blog.layout.html",
-    styleUrls: ['./blog.layout.css']
+    templateUrl : "./iconlist.layout.html",
+    styleUrls: ['./iconlist.layout.css']
 })
-export class BlogLayout{
+export class IconListLayout{
     @Input() data : Array<any>;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);

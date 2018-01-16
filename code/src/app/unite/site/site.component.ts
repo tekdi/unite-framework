@@ -10,12 +10,14 @@ import { factoryMapper } from './mapper.collection';
 
 @Component({
     template : `
-                <div style="margin:25px 0 25px 0">
-                    <span *ngFor="let menu of pagesMenu" style="margin:0 15px 0 0;">
-                        <a [routerLink]="['/' + menu.alias] ">{{ menu.title }}</a>
-                    </span>
+                <div class="container">
+					<ul class="nav navbar-nav pull-right">
+						<li *ngFor="let menu of pagesMenu"  class="list-inline">
+							<a [routerLink]="['/' + menu.alias] ">{{ menu.title }}</a>
+						</li>
+                    </ul>
                 </div>
-                <div *ngIf="invalidPage">Invalid Page</div>
+                <div *ngIf="invalidPage" class="container">Invalid Page</div>
                 <ng-template ad-host></ng-template>
                 `,
     providers : [WidgetService]

@@ -9,6 +9,10 @@ export const factoryMapper =
                 'img' : 'flag',
                 'desc' : 'translations.es'
             },
-            'carousel' : {}
+            'carousel' : {
+                'image_url' : 'flag',
+                'caption' : 'name',
+                'description' :''
+            }
         }
 }

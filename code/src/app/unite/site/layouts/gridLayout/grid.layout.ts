@@ -13,7 +13,6 @@ export class GridLayout{
     localMap;
 
     mapProperties(data, mapObj) {
-        console.log("data chekcing ", data);
         this.localMap = mapObj;
         this.localData = data;
     }

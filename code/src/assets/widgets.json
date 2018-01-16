@@ -30,9 +30,9 @@
    {  
       "widget_id":"3",
       "title":"Users",
-      "page_id":"2",
+      "page_id":"1",
       "dataSource" : {
-            "name" : "",
+            "name" : "countries",
             "config" : { }
         },
        "renderer_name":"carousel",

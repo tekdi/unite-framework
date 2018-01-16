@@ -73,13 +73,16 @@
    },
    {  
     "widget_id":"7",
-    "title":"Profile Update",
-    "page_id":"4",
+    "title":"Personal Details",
+    "page_id":"5",
     "dataSource" : {
-      "name" : "",
-      "config" : { }
+      "name" : "personal",
+      "config" : { 
+            "baseUrl":"https://dev.open-sunbird.org",
+            "endPoint":"/api/user/v1/read/b14e7747-e66d-49f3-8152-7a6706f0b530"
+        }
       },
-    "renderer_name":"profile_info",
+    "renderer_name":"personal",
     "params":""
     },
     {  
@@ -87,8 +90,11 @@
         "title":"Profile Completeness",
         "page_id":"4",
         "dataSource" : {
-          "name" : "",
-          "config" : { }
+          "name" : "profile",
+          "config" : { 
+            "baseUrl":"https://dev.open-sunbird.org",
+            "endPoint":"/api/user/v1/read/b14e7747-e66d-49f3-8152-7a6706f0b530"
+            }
           },
         "renderer_name":"progressbar",
         "params":""
@@ -96,10 +102,13 @@
     {  
         "widget_id":"9",
         "title":"Address List",
-        "page_id":"4",
+        "page_id":"5",
         "dataSource" : {
-          "name" : "",
-          "config" : { }
+          "name" : "address",
+          "config" : { 
+            "baseUrl":"https://dev.open-sunbird.org",
+            "endPoint":"/api/user/v1/read/b14e7747-e66d-49f3-8152-7a6706f0b530"
+            }
           },
         "renderer_name":"blog",
         "params":""
@@ -107,10 +116,12 @@
     {  
         "widget_id":"10",
         "title":"Education",
-        "page_id":"4",
+        "page_id":"",
         "dataSource" : {
-          "name" : "",
-          "config" : { }
+          "name" : "sunbird",
+          "config" : { 
+                "url":""
+            }
           },
         "renderer_name":"blog",
         "params":""
@@ -118,10 +129,25 @@
     {  
         "widget_id":"11",
         "title":"Experience",
-        "page_id":"4",
+        "page_id":"",
         "dataSource" : {
-          "name" : "",
-          "config" : { }
+          "name" : "sunbird",
+          "config" : {
+              "url":""
+           }
+          },
+        "renderer_name":"blog",
+        "params":""
+    },
+    {  
+        "widget_id":"12",
+        "title":"Experience",
+        "page_id":"",
+        "dataSource" : {
+          "name" : "sunbird-courses",
+          "config" : {
+              "url":""
+           }
           },
         "renderer_name":"blog",
         "params":""

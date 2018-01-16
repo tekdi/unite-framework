@@ -22,6 +22,12 @@
     "title":"Sunbird Profile Page",
     "description":"",
     "alias":"sunbird-profile-page"
- }
+   },
+   {
+    "page_id":"5",
+    "title":"Courses",
+    "description":"",
+    "alias":"courses"
+   }
 
 ]

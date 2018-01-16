@@ -1,0 +1,14 @@
+<div>
+<h2>Icon List</h2>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<div>
+    <div *ngFor="let unit of localData">
+      <img [src]="unit | uniteMapper: localMap['image_url']" [alt]="unit | uniteMapper: localMap['caption']" style="display: block; width: 10%; height: 120px;float:left">
+      <div class="">
+        <h3>{{unit | uniteMapper: localMap['caption']}}</h3>
+        <p [innerHTML]="unit | uniteMapper: localMap['description']"></p>
+      </div>
+      <div class="clearfix"></div>
+    </div> 
+</div>
+</div>

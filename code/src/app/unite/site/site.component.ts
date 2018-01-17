@@ -13,15 +13,10 @@ import { factoryMapper } from './mapper.collection';
                 <div class="nvbar navbar-inverse">
 					<div class="container">
 						<div class="navbar-header">
-						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span> 
-						  </button>
-						  <a class="navbar-brand" href="#">Unite FW</a>
+							<a class="navbar-brand" href="/#">Unite</a>
 						</div>
-						<div class="collapse navbar-collapse" id="myNavbar">
-							<ul class="nav navbar-nav navbar-right">
+						<div class=" navbar-right">
+							<ul class="nav navbar-nav">
 								<li *ngFor="let menu of pagesMenu"  role="presentation">
 									<a [routerLink]="['/' + menu.alias] ">{{ menu.title }}</a>
 								</li>

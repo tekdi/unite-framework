@@ -1,1 +1,12 @@
-<div></div>
+<div class="container">
+	<h2>Personal Details</h2>
+	<div class="row row-eq-height text-center">
+
+        <img [src]="localData | uniteMapper: localMap['img'] " alt="" style="max-height:80px">
+        <div>{{ localData | uniteMapper: localMap['fname'] }} {{ localData | uniteMapper: localMap['lname'] }}</div>
+        <br/>
+        <div> Username : {{ localData | uniteMapper: localMap['username'] }} </div>
+        <div>dob : {{ localData | uniteMapper: localMap['dob'] }}</div> 
+
+    </div>
+</div>

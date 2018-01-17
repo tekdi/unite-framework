@@ -1,0 +1,311 @@
+{
+    "id": "api.user.read",
+    "ver": "v1",
+    "ts": "2018-01-17 05:59:41:237+0000",
+    "params": {
+        "resmsgid": null,
+        "msgid": "6f94802b-fb2e-41c4-b3ce-f21d573a1a76",
+        "err": null,
+        "status": "success",
+        "errmsg": null
+    },
+    "responseCode": "OK",
+    "result": {
+        "response": {
+            "lastName": "More",
+            "webPages": [],
+            "tcStatus": null,
+            "loginId": "test_system_admin_1",
+            "education": [
+                {
+                    "updatedBy": null,
+                    "yearOfPassing": 2016,
+                    "degree": "BE",
+                    "updatedDate": null,
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "addressId": null,
+                    "duration": null,
+                    "courseName": null,
+                    "createdDate": "2018-01-16 08:19:56:485+0000",
+                    "isDeleted": null,
+                    "createdBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "boardOrUniversity": "Uni Shivaji, Kolhapur, Maharashtra",
+                    "grade": "A",
+                    "percentage": 76,
+                    "name": "TKIET, Warananagar, Kolhapur, Maharashtra",
+                    "id": "0124198185454551049"
+                }
+            ],
+            "gender": "Male",
+            "regOrgId": null,
+            "subject": [
+                "Physics",
+                "Math",
+                "English"
+            ],
+            "roles": [
+                "PUBLIC"
+            ],
+            "language": [
+                "Marathi"
+            ],
+            "updatedDate": "2018-01-16 08:22:03:661+0000",
+            "completeness": 100,
+            "skills": [
+                {
+                    "skillName": "java",
+                    "addedAt": "2018-01-16",
+                    "endorsersList": [
+                        {
+                            "endorseDate": "2018-01-16",
+                            "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530"
+                        }
+                    ],
+                    "addedBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "endorsementcount": 0,
+                    "id": "1c8aaa2cd37d0201375eb7a10caff63db0fbf0065e122dc2d5e7671cf08ad6a9",
+                    "skillNameToLowercase": "java",
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530"
+                },
+                {
+                    "skillName": "API's design",
+                    "addedAt": "2018-01-10",
+                    "endorsersList": [
+                        {
+                            "endorseDate": "2018-01-10",
+                            "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530"
+                        }
+                    ],
+                    "addedBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "endorsementcount": 0,
+                    "id": "18b152847e77ac4c9d374bd69d41f743777be74983ebfc4b45224d1a73c4bebb",
+                    "skillNameToLowercase": "api's design",
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530"
+                },
+                {
+                    "skillName": "graph Database - Neo4g",
+                    "addedAt": "2018-01-10",
+                    "endorsersList": [
+                        {
+                            "endorseDate": "2018-01-10",
+                            "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530"
+                        }
+                    ],
+                    "addedBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "endorsementcount": 0,
+                    "id": "f7753730dbaf83231b3f2756a3417af8949ba6e9024fb90b48a4c53ab2be7bd3",
+                    "skillNameToLowercase": "graph database - neo4g",
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530"
+                }
+            ],
+            "isDeleted": null,
+            "organisations": [
+                {
+                    "organisationId": "0123150108807004166",
+                    "updatedBy": null,
+                    "addedByName": null,
+                    "addedBy": "e9280b815c0e41972bf754e9409b66d778b8e11bb91844892869a1e828d7d2f2a",
+                    "roles": [
+                        "ORG_ADMIN",
+                        "CONTENT_CREATOR"
+                    ],
+                    "approvedBy": "e9280b815c0e41972bf754e9409b66d778b8e11bb91844892869a1e828d7d2f2a",
+                    "updatedDate": null,
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "approvaldate": "2017-08-22 06:47:22:534+0000",
+                    "isDeleted": false,
+                    "isRejected": false,
+                    "id": "0123157259937300488",
+                    "position": null,
+                    "isApproved": true,
+                    "orgjoindate": "2017-08-22 06:47:22:534+0000",
+                    "orgLeftDate": null
+                },
+                {
+                    "organisationId": "01230654824904294426",
+                    "updatedBy": null,
+                    "addedByName": null,
+                    "addedBy": "e9280b815c0e41972bf754e9409b66d778b8e11bb91844892869a1e828d7d2f2a",
+                    "roles": [
+                        "CONTENT_CREATOR",
+                        "ORG_ADMIN"
+                    ],
+                    "approvedBy": "e9280b815c0e41972bf754e9409b66d778b8e11bb91844892869a1e828d7d2f2a",
+                    "updatedDate": null,
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "approvaldate": "2017-08-16 09:34:19:102+0000",
+                    "isDeleted": false,
+                    "isRejected": false,
+                    "id": "0123115682496430081",
+                    "position": null,
+                    "isApproved": true,
+                    "orgjoindate": "2017-08-16 09:34:19:102+0000",
+                    "orgLeftDate": null
+                },
+                {
+                    "organisationId": "0123131115383275520",
+                    "updatedBy": null,
+                    "addedByName": null,
+                    "addedBy": "e9280b815c0e41972bf754e9409b66d778b8e11bb91844892869a1e828d7d2f2a",
+                    "roles": [
+                        "ORG_ADMIN",
+                        "CONTENT_CREATOR"
+                    ],
+                    "approvedBy": "e9280b815c0e41972bf754e9409b66d778b8e11bb91844892869a1e828d7d2f2a",
+                    "updatedDate": null,
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "approvaldate": "2017-08-22 06:48:25:226+0000",
+                    "isDeleted": false,
+                    "isRejected": false,
+                    "id": "0123157300601405449",
+                    "position": null,
+                    "isApproved": true,
+                    "orgjoindate": "2017-08-22 06:48:25:226+0000",
+                    "orgLeftDate": null
+                }
+            ],
+            "provider": null,
+            "countryCode": null,
+            "id": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+            "tempPassword": null,
+            "email": "te*****************@test.com",
+            "rootOrg": {
+                "dateTime": null,
+                "preferredLanguage": "English",
+                "approvedBy": null,
+                "channel": "ROOT_ORG",
+                "description": "Sunbird",
+                "updatedDate": "2017-08-24 06:02:10:846+0000",
+                "addressId": null,
+                "orgType": null,
+                "provider": null,
+                "orgCode": "sunbird",
+                "theme": null,
+                "id": "ORG_001",
+                "communityId": null,
+                "isApproved": null,
+                "slug": "sunbird",
+                "identifier": "ORG_001",
+                "thumbnail": null,
+                "orgName": "Sunbird",
+                "updatedBy": "user1",
+                "externalId": null,
+                "isRootOrg": true,
+                "rootOrgId": null,
+                "approvedDate": null,
+                "imgUrl": null,
+                "homeUrl": null,
+                "isDefault": null,
+                "contactDetail": "[{\"phone\":\"213124234234\",\"email\":\"test@test.com\"},{\"phone\":\"+91213124234234\",\"email\":\"test1@test.com\"}]",
+                "createdDate": null,
+                "createdBy": null,
+                "parentOrgId": null,
+                "hashTagId": "b00bc992ef25f1a9a8d63291e20efc8d",
+                "noOfMembers": 1,
+                "status": null
+            },
+            "identifier": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+            "profileVisibility": {},
+            "thumbnail": null,
+            "updatedBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+            "address": [
+                {
+                    "country": null,
+                    "updatedBy": null,
+                    "city": "Bangalore",
+                    "updatedDate": null,
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "zipcode": "560103",
+                    "addType": "current",
+                    "createdDate": "2017-08-11 09:11:45:911+0000",
+                    "isDeleted": null,
+                    "createdBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "addressLine1": "212 winding hill dr",
+                    "addressLine2": "Frazer town",
+                    "id": "01230801069863731226",
+                    "state": "Karnataka"
+                },
+                {
+                    "country": null,
+                    "updatedBy": null,
+                    "city": "Bangalore1",
+                    "updatedDate": null,
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "zipcode": "560135",
+                    "addType": "permanent",
+                    "createdDate": "2017-08-11 09:11:45:918+0000",
+                    "isDeleted": null,
+                    "createdBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "addressLine1": "2121 winding hill dr",
+                    "addressLine2": "Frazer town1",
+                    "id": "01230801854968627227",
+                    "state": "Karnataka1"
+                }
+            ],
+            "jobProfile": [
+                {
+                    "jobName": "jobName1",
+                    "orgName": "MH ORG",
+                    "role": "teacher",
+                    "updatedBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "address": {
+                        "country": null,
+                        "updatedBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                        "city": "Bangalore1",
+                        "updatedDate": "2018-01-16 08:22:03:666+0000",
+                        "userId": null,
+                        "zipcode": "560135",
+                        "addType": null,
+                        "createdDate": "2017-08-11 09:11:45:951+0000",
+                        "isDeleted": null,
+                        "createdBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                        "addressLine1": "2121 winding hill dr",
+                        "addressLine2": "Frazer town1",
+                        "id": "01230801286427443235",
+                        "state": "Karnataka1"
+                    },
+                    "endDate": "2018-01-12",
+                    "isVerified": null,
+                    "subject": [
+                        "Hindi",
+                        "History",
+                        "Marathi"
+                    ],
+                    "joiningDate": "2018-01-02",
+                    "updatedDate": "2018-01-16 08:22:03:669+0000",
+                    "isCurrentJob": null,
+                    "verifiedBy": null,
+                    "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "boardName": null,
+                    "orgId": "123",
+                    "addressId": "01230801286427443235",
+                    "createdDate": "2017-08-11 09:11:45:955+0000",
+                    "isDeleted": null,
+                    "createdBy": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+                    "verifiedDate": null,
+                    "isRejected": null,
+                    "id": "01230801576714240034"
+                }
+            ],
+            "profileSummary": "test description",
+            "tcUpdatedDate": null,
+            "avatar": "https://sunbirddev.blob.core.windows.net/user/b14e7747-e66d-49f3-8152-7a6706f0b530/File-0123751458174976004",
+            "userName": "test_system_admin_1",
+            "rootOrgId": "ORG_001",
+            "userId": "b14e7747-e66d-49f3-8152-7a6706f0b530",
+            "emailVerified": null,
+            "firstName": "Nilesh",
+            "createdDate": "2017-08-11 09:11:45:901+0000",
+            "createdBy": null,
+            "phone": "******2231",
+            "dob": "1993-11-15",
+            "grade": [
+                "Kindergarten",
+                "Grade 5"
+            ],
+            "currentLoginTime": null,
+            "location": "Bengaluru",
+            "status": 1
+        }
+    }
+}

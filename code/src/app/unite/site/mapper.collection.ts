@@ -26,8 +26,16 @@ export const factoryMapper =
     "personal":
     {
         'personal' : {
-            'name' : '',
+            'fname' : 'firstName',
+            'lname' : 'lastName',
+            'img' : 'avatar',
+            'username' : 'userName',
+            'dob' : 'dob'
+        },
+        'grid' : {
             'img' : '',
+            'name' : 'lastName',
+            'desc' :'loginId'
         }
     },
     "address":
@@ -36,7 +44,7 @@ export const factoryMapper =
             'image_url' : '',
             'title' : 'name',
             'description' :''
-        },
+        }
     },
     "tjlms-courses":
     {

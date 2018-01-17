@@ -41,7 +41,6 @@ export class SiteComponent implements OnInit {
         this.getAllPages();
 
         this._acRoute.data.subscribe(data => {
-            console.log('url data inforrrrr', data);
 
             if(!data['page-id'])
             {

@@ -4,16 +4,19 @@ import { HttpClient } from '@angular/common/http'
 @Injectable()
 export class SunbirdPersonalDataSource
 {
-    dataUrl = "";
+    dataUrl;
 
     constructor(config, private _httpClient? : HttpClient )
     {
-        this.dataUrl = config.baseUrl + config.endPoint;
-        console.log("inside Countries Data service ", config);
+        this.dataUrl = '';
     }
 
     getData()
     {
-        return this._httpClient.get(this.dataUrl);
+        console.log("inside personal details " );
+        return this._httpClient.get("/assets/profileSunbird.json")
+                                .map(data => {
+                                    return data['result']['response']
+                                });
     }
 }

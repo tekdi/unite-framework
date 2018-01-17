@@ -3,11 +3,13 @@ import { SunbirdAddressDataSource } from "./datasource/sunbirdaddress.datasource
 import { SunbirdProfileDataSource }  from "./datasource/sunbirdprofilecompleteness.datasource";
 import { SunbirdPersonalDataSource }  from "./datasource/sunbirdpersonal.datasource";
 import { TJLmsCoursesDataSource }  from "./datasource/tjlmscourses.datasource";
+import { EkLessonsDataSource } from './datasource/ekLessons.datasource';
 
 export const DataSource = {
     'countries' : CountriesDataSource,
     'address' :  SunbirdAddressDataSource,
     'profile' :  SunbirdProfileDataSource,
     'personal' :  SunbirdPersonalDataSource,
-    'tjlms-courses' :  TJLmsCoursesDataSource
+    'tjlms-courses' :  TJLmsCoursesDataSource,
+    'ek-lessons' : EkLessonsDataSource
 }

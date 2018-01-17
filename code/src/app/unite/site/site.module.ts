@@ -35,13 +35,26 @@ export class SiteModule {
     this._wdService.getPages()
                     .subscribe((pageData : Array<any>) => {
                         let dynamicRouteArr = [];
+                        let defaultPageRedirect = {};
+
                         pageData.forEach(element => {
                           let pageRoutes = {}
                           pageRoutes['path'] = element.alias;
                           pageRoutes['component'] = SiteComponent;
                           pageRoutes['data'] = {'page-id' : element.page_id};
+
+                          if(element['default'])
+                          {
+                            defaultPageRedirect = { path: '',
+                                                redirectTo: '/' + element.alias,
+                                                pathMatch: 'full'
+                                              }
+                          }
+
                           dynamicRouteArr.push(pageRoutes);
                         });
+
+                        dynamicRouteArr.push(defaultPageRedirect);
 
                         let finalRoutes = dynamicRouteArr.concat(this._routes.config);
                         this._routes.resetConfig(finalRoutes);

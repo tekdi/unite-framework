@@ -10,16 +10,13 @@ import { factoryMapper } from './mapper.collection';
 
 @Component({
     template : `
-                <div class="container">
-					<div class="row">
-						<div class="col-xs-12">
-							<p></p>
+                <div class="mainnav">
+					<div class="container">
 							<ul class="nav nav-pills pull-right">
 								<li *ngFor="let menu of pagesMenu"  role="presentation">
 									<a [routerLink]="['/' + menu.alias] ">{{ menu.title }}</a>
 								</li>
 							</ul>
-						</div>
 					</div>
                 </div>
                 <div *ngIf="invalidPage" class="container">Invalid Page</div>

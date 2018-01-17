@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.mainnav{border-bottom:1px solid #ccc;}
+.mainnav .nav-pills{margin:10px 0;}
 
 .row-eq-height {
   display: -webkit-box;

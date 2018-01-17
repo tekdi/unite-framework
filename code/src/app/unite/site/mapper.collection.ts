@@ -36,6 +36,11 @@ export const factoryMapper =
             'img' : '',
             'name' : 'lastName',
             'desc' :'loginId'
+        },
+        'iconlist' : {
+            'image_url' : '',
+            'caption' : 'addressLine2',
+            'description' :'city'
         }
     },
     "address":

@@ -1,22 +1,25 @@
 import {Injectable} from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class EkLessonsDataSource
 {
     dataUrl;
-    dataNode
+    dataNode;
+    apiBase;
 
     constructor(config, private _httpClient? : HttpClient )
     {
         console.log("this is config ", config );
         this.dataNode = config['dataNode'];
         this.dataUrl = '';
+        this.apiBase = environment.apiBase;
     }
 
     getData()
     {
-        return this._httpClient.get("http://unitecmsdemo.cloudaccess.host/assets/ekstepLessons.json")
+        return this._httpClient.get( this.apiBase + "/assets/ekstepLessons.json")
                                 .map(data => {
 
                                     if(this.dataNode)

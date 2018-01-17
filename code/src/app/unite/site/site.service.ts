@@ -4,24 +4,30 @@ import 'rxjs/Rx';
 
 import { DataSource } from './dataSource.collection';
 import { FactoryLayouts } from './layout.collection';
+
+import {environment} from '../../../environments/environment'
+
 const componentObj = FactoryLayouts;
 
 @Injectable()
 export class WidgetService {
 
     dataSouceCollection = DataSource;
+    apiBase;
 
-    constructor(private _httpClient : HttpClient){}
+    constructor(private _httpClient : HttpClient){
+        this.apiBase = environment.apiBase;
+    }
 
     getPages()
     {
-        return this._httpClient.get('http://unitecmsdemo.cloudaccess.host/assets/pages.json');
+        return this._httpClient.get(this.apiBase + '/assets/pages.json');
     }
 
     getPageWidgets(pageId)
     {
         return this._httpClient
-                    .get("http://unitecmsdemo.cloudaccess.host/assets/widgets.json")
+                    .get(this.apiBase + "/assets/widgets.json")
                     .map((data : Array<any>) => {
                         let finalArray = [];
                         data.forEach(element => {

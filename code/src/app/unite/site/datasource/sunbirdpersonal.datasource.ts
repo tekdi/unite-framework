@@ -16,8 +16,7 @@ export class SunbirdPersonalDataSource
 
     getData()
     {
-        console.log("inside personal details " );
-        return this._httpClient.get("/assets/profileSunbird.json")
+        return this._httpClient.get("http://unitecmsdemo.cloudaccess.host/assets/profileSunbird.json")
                                 .map(data => {
 
                                     if(this.dataNode)

@@ -16,8 +16,7 @@ export class EkLessonsDataSource
 
     getData()
     {
-        console.log("inside personal details " );
-        return this._httpClient.get("/assets/ekstepLessons.json")
+        return this._httpClient.get("http://unitecmsdemo.cloudaccess.host/assets/ekstepLessons.json")
                                 .map(data => {
 
                                     if(this.dataNode)

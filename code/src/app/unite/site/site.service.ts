@@ -15,13 +15,13 @@ export class WidgetService {
 
     getPages()
     {
-        return this._httpClient.get('/assets/pages.json');
+        return this._httpClient.get('http://unitecmsdemo.cloudaccess.host/assets/pages.json');
     }
 
     getPageWidgets(pageId)
     {
         return this._httpClient
-                    .get("/assets/widgets.json")
+                    .get("http://unitecmsdemo.cloudaccess.host/assets/widgets.json")
                     .map((data : Array<any>) => {
                         let finalArray = [];
                         data.forEach(element => {

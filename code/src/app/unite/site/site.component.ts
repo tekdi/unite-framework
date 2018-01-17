@@ -10,15 +10,26 @@ import { factoryMapper } from './mapper.collection';
 
 @Component({
     template : `
-                <div class="mainnav">
+                <div class="nvbar navbar-inverse">
 					<div class="container">
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span> 
+						  </button>
+						  <a class="navbar-brand" href="#">Unite FW</a>
+						</div>
+						<div class="collapse navbar-collapse" id="myNavbar">
 							<ul class="nav navbar-nav navbar-right">
 								<li *ngFor="let menu of pagesMenu"  role="presentation">
 									<a [routerLink]="['/' + menu.alias] ">{{ menu.title }}</a>
 								</li>
 							</ul>
+						</div>
 					</div>
                 </div>
+               
                 <div *ngIf="invalidPage" class="container">Invalid Page</div>
                 <ng-template ad-host></ng-template>
                 `,

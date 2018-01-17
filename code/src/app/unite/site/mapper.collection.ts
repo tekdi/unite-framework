@@ -68,5 +68,13 @@ export const factoryMapper =
             'name' : 'course_title',
             'desc' :'course_description'
         }
+    },
+    "ek-lessons":
+    {
+        'grid' : {
+            'img' : 'appIcon',
+            'name' : 'name',
+            'desc' :'language.0'
+            }
     }
 }

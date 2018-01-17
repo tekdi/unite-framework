@@ -40,13 +40,13 @@
    },
    {  
       "widget_id":"4",
-      "title":"Todos",
+      "title":"Lessons",
       "page_id":"2",
       "dataSource" : {
-                "name" : "",
+                "name" : "ek-lessons",
                 "config" : { }
         },
-      "renderer_name":"",
+      "renderer_name":"grid",
       "params":""
    },
    {  

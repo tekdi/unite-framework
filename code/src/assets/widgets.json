@@ -50,28 +50,6 @@
       "params":""
    },
    {  
-      "widget_id":"5",
-      "title":"Widget 5",
-      "page_id":"3",
-      "dataSource" : {
-            "name" : "",
-            "config" : { }
-        },
-      "renderer_name":"",
-      "params":""
-   },
-   {  
-      "widget_id":"6",
-      "title":"Widget 6",
-      "page_id":"3",
-      "dataSource" : {
-        "name" : "",
-        "config" : { }
-        },
-      "renderer_name":"",
-      "params":""
-   },
-   {  
     "widget_id":"7",
     "title":"Personal Details",
     "page_id":"5",
@@ -167,7 +145,7 @@
         "params":""
     },
     {  
-        "widget_id":"13",
+        "widget_id":"14",
         "title":"Vowel Courses",
         "page_id":"4",
         "dataSource" : {
@@ -181,7 +159,7 @@
         "params":""
     },
     {  
-        "widget_id":"14",
+        "widget_id":"15",
         "title":"Vowel Courses",
         "page_id":"4",
         "dataSource" : {
@@ -192,6 +170,20 @@
            }
           },
         "renderer_name":"grid",
+        "params":""
+    },
+    {  
+        "widget_id":"16",
+        "title":"Profile Name",
+        "page_id":"3",
+        "dataSource" : {
+          "name" : "personal",
+          "config" : {
+              "baseUrl":"",
+              "token": ""
+           }
+          },
+        "renderer_name":"personal",
         "params":""
     }
 ]

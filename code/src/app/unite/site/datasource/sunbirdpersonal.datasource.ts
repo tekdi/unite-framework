@@ -5,9 +5,12 @@ import { HttpClient } from '@angular/common/http'
 export class SunbirdPersonalDataSource
 {
     dataUrl;
+    dataNode
 
     constructor(config, private _httpClient? : HttpClient )
     {
+        console.log("this is config ", config );
+        this.dataNode = config['dataNode'];
         this.dataUrl = '';
     }
 
@@ -16,6 +19,20 @@ export class SunbirdPersonalDataSource
         console.log("inside personal details " );
         return this._httpClient.get("/assets/profileSunbird.json")
                                 .map(data => {
+
+                                    if(this.dataNode)
+                                    {
+                                        let dataNode2 = this.dataNode.split(".");
+                                        
+                                        let myFinalValue = data;
+
+                                        dataNode2.forEach(element => {
+                                            myFinalValue = myFinalValue[element];
+                                        });
+
+                                        return myFinalValue;
+                                    }
+
                                     return data['result']['response']
                                 });
     }

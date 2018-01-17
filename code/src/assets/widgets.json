@@ -185,5 +185,19 @@
           },
         "renderer_name":"personal",
         "params":""
+    },
+    {  
+        "widget_id":"17",
+        "title":"Address Info",
+        "page_id":"3",
+        "dataSource" : {
+          "name" : "personal",
+          "config" : {
+              "dataNode" : "result.response.address"
+           }
+          },
+        "renderer_name":"iconlist",
+        "params":""
     }
+
 ]

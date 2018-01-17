@@ -100,6 +100,7 @@ export class SiteComponent implements OnInit {
                         checkArr['data'] = sourceData;
                         checkArr['mapper'] = mapperInfo;
                         checkArr['component'] = layoutInfo;
+                        checkArr['widName'] = element['title'];
 
                         this.renderDynamicComponent(checkArr);
                     }
@@ -119,6 +120,7 @@ export class SiteComponent implements OnInit {
         //viewContainerRef.clear();
 
         let componentRef = viewContainerRef.createComponent(componentFactory);
+        (<AdComponent>componentRef.instance).widName = fwData.widName;
         (<AdComponent>componentRef.instance).data = fwData.data;
         (<AdComponent>componentRef.instance).mapper = fwData.mapper;
     }

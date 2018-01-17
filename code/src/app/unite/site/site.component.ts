@@ -12,7 +12,7 @@ import { factoryMapper } from './mapper.collection';
     template : `
                 <div class="mainnav">
 					<div class="container">
-							<ul class="nav nav-pills pull-right">
+							<ul class="nav navbar-nav navbar-right">
 								<li *ngFor="let menu of pagesMenu"  role="presentation">
 									<a [routerLink]="['/' + menu.alias] ">{{ menu.title }}</a>
 								</li>

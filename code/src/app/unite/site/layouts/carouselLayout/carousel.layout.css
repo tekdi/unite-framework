@@ -9,10 +9,16 @@
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 15px;
+    padding: 15px 15px 50px;
     background: #333333;
     background: rgba(0, 0, 0, 0.75);
 }
+
+.carousel-item{text-align:center;}
+.carousel-item img{width:auto; height:300px; }
+.carousel-indicators{background: #333333;
+    background: rgba(0, 0, 0, 0.75);}
+
 /* .carousel-control {
     position: absolute;
     top: 40%;
@@ -33,10 +39,6 @@
     opacity: 0.5;
     filter: alpha(opacity=50);
 }*/
-
-.carousel-item{text-align:center;}
-.carousel-item img{width:auto; height:300px; }
-.carousel-indicators{display:none !important;}
 
  /*.carousel-control.right {
     right: 15px;

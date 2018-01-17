@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.mainnav{border-bottom:1px solid #ccc;}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap:wrap;
+}
+.row-eq-height > div {margin:10px 0;}

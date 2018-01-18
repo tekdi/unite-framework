@@ -18,7 +18,7 @@ import { factoryMapper } from './mapper.collection';
 						<div class=" navbar-right">
 							<ul class="nav navbar-nav">
 								<li *ngFor="let menu of pagesMenu"  role="presentation">
-									<a [routerLink]="['/' + menu.alias] ">{{ menu.title }}</a>
+									<a [routerLink]="['/' + menu.alias] " routerLinkActive="active" >{{ menu.title }}</a>
 								</li>
 							</ul>
 						</div>

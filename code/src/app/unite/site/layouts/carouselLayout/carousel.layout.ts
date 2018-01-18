@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CarouselLayout{
     @Input() data : Array<any>;
+    @Input() widName;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);
     };

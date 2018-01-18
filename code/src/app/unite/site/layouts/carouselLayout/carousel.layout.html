@@ -1,6 +1,6 @@
 <!-- index.html -->
 <div>
-	<h2 class="container">Carousel</h2>
+	<h2 class="container">{{widName}}</h2>
 	<carousel [interval]="1500">
 		<slide *ngFor="let unit of localData">
 		  <img [src]="unit | uniteMapper: localMap['image_url']" [alt]="unit | uniteMapper: localMap['caption']" >

@@ -5,6 +5,7 @@ import { IconListLayout } from "./layouts/iconlistLayout/iconlist.layout";
 import { ProgressbarLayout } from "./layouts/progressbarLayout/progressbar.layout";
 import { PersonalLayout } from "./layouts/personalLayout/personal.layout";
 import { PinLayout } from "./layouts/pinLayout/pin.layout";
+import { LinechartLayout } from "./layouts/linechartLayout/linechart.layout";
 
 export const FactoryLayouts = {
     'grid' : GridLayout,
@@ -13,7 +14,8 @@ export const FactoryLayouts = {
     'progressbar': ProgressbarLayout,
     'personal':PersonalLayout,
     'iconlist':IconListLayout,
-    'pin' : PinLayout
+    'pin' : PinLayout,
+    'linechart' : LinechartLayout
 }
 export const Layouts = [
                             GridLayout,
@@ -22,5 +24,6 @@ export const Layouts = [
                             ProgressbarLayout,
                             PersonalLayout,
                             IconListLayout,
-                            PinLayout
+                            PinLayout,
+                            LinechartLayout
                         ];

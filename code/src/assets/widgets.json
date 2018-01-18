@@ -51,16 +51,14 @@
    },
    {  
     "widget_id":"7",
-    "title":"Personal Details",
+    "title":"SunBird Graph",
     "page_id":"5",
     "dataSource" : {
-      "name" : "personal",
-      "config" : { 
-            "baseUrl":"https://dev.open-sunbird.org",
-            "endPoint":"/api/user/v1/read/b14e7747-e66d-49f3-8152-7a6706f0b530"
+      "name" : "sb-graph",
+      "config" : {
         }
       },
-    "renderer_name":"personal",
+    "renderer_name":"linechart",
     "params":""
     },
     {  
@@ -80,7 +78,7 @@
     {  
         "widget_id":"9",
         "title":"Address List",
-        "page_id":"5",
+        "page_id":"",
         "dataSource" : {
           "name" : "address",
           "config" : { 

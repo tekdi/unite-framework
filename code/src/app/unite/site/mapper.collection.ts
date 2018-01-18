@@ -80,7 +80,8 @@ export const factoryMapper =
     "sb-graph" :
     {
         "linechart" : {
-
+            "dataset" : "graphData",
+            "label" : "label"
         }
     }
 }

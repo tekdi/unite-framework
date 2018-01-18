@@ -17,32 +17,7 @@ export class LinechartLayout {
 
     mapProperties(data, mapObj) {
         this.localMap = mapObj;
-
-
-        let chekData : Array<any>= data['series'];
-
-        let finalGraphD = [];
-        for (var key in chekData)
-        {
-            if (chekData.hasOwnProperty(key))
-            {
-
-                let  bucket = chekData[key]['buckets'];
-
-                let graphObj = {};
-                graphObj['label'] = chekData[key]['name'];
-                graphObj['data'] = [];
-
-                bucket.forEach(element => {
-                  graphObj['data'].push(element.value);
-                });
-                console.log(key + " -> ", graphObj);
-
-                finalGraphD.push(graphObj);
-            }
-        }
-
-        this.localData = finalGraphD;
+        this.localData = data;
     }
 
 

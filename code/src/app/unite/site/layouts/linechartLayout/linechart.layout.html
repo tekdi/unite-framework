@@ -4,8 +4,8 @@
 	<div class="col-md-10">
 		<div style="display: block;">
 			<canvas baseChart width="400" height="200" 
-					[datasets]="localData"
-					[labels]="lineChartLabels"
+					[datasets]="localData | uniteMapper: localMap['dataset']"
+					[labels]="localData | uniteMapper: localMap['label']"
 					[options]="lineChartOptions"
 					[colors]="lineChartColors"
 					[legend]="lineChartLegend"

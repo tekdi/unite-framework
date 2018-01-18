@@ -7,6 +7,7 @@ import { AdComponent } from './ad.component';
 
 import { FactoryLayouts } from './layout.collection';
 import { factoryMapper } from './mapper.collection';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     template : `
@@ -44,7 +45,8 @@ export class SiteComponent implements OnInit {
     constructor(
                 private _acRoute : ActivatedRoute,
                 private _widgetService : WidgetService,
-                private componentFactoryResolver: ComponentFactoryResolver
+                private componentFactoryResolver: ComponentFactoryResolver,
+                private titleService: Title
             ) { }
 
     ngOnInit() {
@@ -60,7 +62,7 @@ export class SiteComponent implements OnInit {
             }
 
             this.invalidPage = false;
-
+            this.titleService.setTitle( data['page-title'] );
             this._widgetService.getPageWidgets(data['page-id'])
                 .subscribe(pageWidgets => {
                     this.getWidgetsData(pageWidgets);

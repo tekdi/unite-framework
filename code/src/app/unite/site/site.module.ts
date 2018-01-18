@@ -43,7 +43,7 @@ export class SiteModule {
                           let pageRoutes = {}
                           pageRoutes['path'] = element.alias;
                           pageRoutes['component'] = SiteComponent;
-                          pageRoutes['data'] = {'page-id' : element.page_id};
+                          pageRoutes['data'] = {'page-id' : element.page_id, 'page-title' : element.title};
 
                           if(element['default'])
                           {

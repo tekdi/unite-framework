@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
 import { CarouselModule } from 'ngx-bootstrap';
 import { ProgressbarModule } from 'ngx-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 
 import { WidgetService } from './site.service';
 import { SiteComponent } from './site.component';
@@ -17,6 +18,7 @@ import { UniteMapperPipe } from './mapper.pipe';
     HttpClientModule,
     RouterModule,
     CarouselModule,
+    ChartsModule,
     ProgressbarModule
   ],
   declarations: [
@@ -41,7 +43,7 @@ export class SiteModule {
                           let pageRoutes = {}
                           pageRoutes['path'] = element.alias;
                           pageRoutes['component'] = SiteComponent;
-                          pageRoutes['data'] = {'page-id' : element.page_id};
+                          pageRoutes['data'] = {'page-id' : element.page_id, 'page-title' : element.title};
 
                           if(element['default'])
                           {

@@ -18,6 +18,12 @@
      "description":"",
      "alias":"sb-profile"
      },
+     {
+      "page_id":"5",
+      "title":"Sunbird graph",
+      "description":"",
+      "alias":"sb-graph"
+      },
    {
     "page_id":"1",
     "title":"Countries",

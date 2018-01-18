@@ -7,6 +7,7 @@ import { AdComponent } from './ad.component';
 
 import { FactoryLayouts } from './layout.collection';
 import { factoryMapper } from './mapper.collection';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     template : `
@@ -18,28 +19,34 @@ import { factoryMapper } from './mapper.collection';
 						<div class=" navbar-right">
 							<ul class="nav navbar-nav">
 								<li *ngFor="let menu of pagesMenu"  role="presentation">
-									<a [routerLink]="['/' + menu.alias] ">{{ menu.title }}</a>
+									<a [routerLink]="['/' + menu.alias] " routerLinkActive="active" >{{ menu.title }}</a>
 								</li>
 							</ul>
 						</div>
 					</div>
                 </div>
-               
                 <div *ngIf="invalidPage" class="container">Invalid Page</div>
                 <ng-template ad-host></ng-template>
+
+                <div *ngFor="let widgets of totalWidgets">
+                    <div class="loader"></div>
+                </div>
                 `,
-    providers : [WidgetService]
+    providers : [WidgetService],
+    styleUrls: ['./site.component.css']
 })
 export class SiteComponent implements OnInit {
 
     @ViewChild(AdDirective) adHost: AdDirective;
     pagesMenu   = [];
     invalidPage = true;
+    totalWidgets = [];
 
     constructor(
                 private _acRoute : ActivatedRoute,
                 private _widgetService : WidgetService,
-                private componentFactoryResolver: ComponentFactoryResolver
+                private componentFactoryResolver: ComponentFactoryResolver,
+                private titleService: Title
             ) { }
 
     ngOnInit() {
@@ -55,7 +62,7 @@ export class SiteComponent implements OnInit {
             }
 
             this.invalidPage = false;
-
+            this.titleService.setTitle( data['page-title'] );
             this._widgetService.getPageWidgets(data['page-id'])
                 .subscribe(pageWidgets => {
                     this.getWidgetsData(pageWidgets);
@@ -76,6 +83,7 @@ export class SiteComponent implements OnInit {
         console.log("widgets chekcing = ", widgets);
 
         widgets.forEach(element => {
+                this.totalWidgets.push(1);
                 if(element['dataSource'])
                 {
                     this.getDataSource(element);
@@ -129,5 +137,6 @@ export class SiteComponent implements OnInit {
         (<AdComponent>componentRef.instance).widName = fwData.widName;
         (<AdComponent>componentRef.instance).data = fwData.data;
         (<AdComponent>componentRef.instance).mapper = fwData.mapper;
+        this.totalWidgets.pop();
     }
 }

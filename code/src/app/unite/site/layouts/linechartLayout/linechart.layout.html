@@ -1,0 +1,20 @@
+<div class="container">
+<h2>{{widName}}</h2>
+<div class="row">
+	<div class="col-md-10">
+		<div style="display: block;">
+			<canvas baseChart width="400" height="200" 
+					[datasets]="localData | uniteMapper: localMap['dataset']"
+					[labels]="localData | uniteMapper: localMap['label']"
+					[options]="lineChartOptions"
+					[colors]="lineChartColors"
+					[legend]="lineChartLegend"
+					[chartType]="lineChartType"
+					(chartHover)="chartHovered($event)"
+					(chartClick)="chartClicked($event)"
+					>
+			</canvas>
+		</div>
+	</div>
+</div>
+</div>

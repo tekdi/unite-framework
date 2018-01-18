@@ -76,5 +76,12 @@ export const factoryMapper =
             'name' : 'name',
             'desc' :'language.0'
             }
+    },
+    "sb-graph" :
+    {
+        "linechart" : {
+            "dataset" : "graphData",
+            "label" : "label"
+        }
     }
 }

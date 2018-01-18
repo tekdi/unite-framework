@@ -4,6 +4,7 @@ import { SunbirdProfileDataSource }  from "./datasource/sunbirdprofilecompletene
 import { SunbirdPersonalDataSource }  from "./datasource/sunbirdpersonal.datasource";
 import { TJLmsCoursesDataSource }  from "./datasource/tjlmscourses.datasource";
 import { EkLessonsDataSource } from './datasource/ekLessons.datasource';
+import { SBGraphDataSource } from './datasource/sunbirdgraph.datasource';
 
 export const DataSource = {
     'countries' : CountriesDataSource,
@@ -11,5 +12,6 @@ export const DataSource = {
     'profile' :  SunbirdProfileDataSource,
     'personal' :  SunbirdPersonalDataSource,
     'tjlms-courses' :  TJLmsCoursesDataSource,
-    'ek-lessons' : EkLessonsDataSource
+    'ek-lessons' : EkLessonsDataSource,
+    'sb-graph' : SBGraphDataSource
 }

@@ -24,17 +24,22 @@ import { factoryMapper } from './mapper.collection';
 						</div>
 					</div>
                 </div>
-               
                 <div *ngIf="invalidPage" class="container">Invalid Page</div>
                 <ng-template ad-host></ng-template>
+
+                <div *ngFor="let widgets of totalWidgets">
+                    <div class="loader"></div>
+                </div>
                 `,
-    providers : [WidgetService]
+    providers : [WidgetService],
+    styleUrls: ['./site.component.css']
 })
 export class SiteComponent implements OnInit {
 
     @ViewChild(AdDirective) adHost: AdDirective;
     pagesMenu   = [];
     invalidPage = true;
+    totalWidgets = [];
 
     constructor(
                 private _acRoute : ActivatedRoute,
@@ -76,6 +81,7 @@ export class SiteComponent implements OnInit {
         console.log("widgets chekcing = ", widgets);
 
         widgets.forEach(element => {
+                this.totalWidgets.push(1);
                 if(element['dataSource'])
                 {
                     this.getDataSource(element);
@@ -129,5 +135,6 @@ export class SiteComponent implements OnInit {
         (<AdComponent>componentRef.instance).widName = fwData.widName;
         (<AdComponent>componentRef.instance).data = fwData.data;
         (<AdComponent>componentRef.instance).mapper = fwData.mapper;
+        this.totalWidgets.pop();
     }
 }

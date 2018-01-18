@@ -29,11 +29,5 @@
     "title":"Countries",
     "description":"",
     "alias":"countries"
-    },
-    {
-    "page_id":"5",
-    "title":"My Profile",
-    "description":"",
-    "alias":"myprofile"
     }
 ]

@@ -22,7 +22,6 @@ export class LinechartLayout {
 
 
     public lineChartData:Array<any> = this.localData;
-      public lineChartLabels:Array<any> = ['2018-01-04', '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-8', '2018-01-09', '2018-01-10', '2018-01-11', '2018-01-12', '2018-01-13', '2018-01-14', '2018-01-15', '2018-01-16', '2018-01-17' ];
       public lineChartOptions:any = {
         responsive: true
       };
@@ -68,10 +67,10 @@ export class LinechartLayout {
      
       // events
       public chartClicked(e:any):void {
-        console.log(e);
+        //This can be used further
       }
      
       public chartHovered(e:any):void {
-        console.log(e);
+        //This can be used further
       }
 }

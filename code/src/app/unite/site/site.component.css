@@ -17,4 +17,8 @@
 .nav.navbar-nav .active
 {
     color: white;
+    outline: -webkit-focus-ring-color auto 5px;
+    outline-color: white;
+    outline-style: auto;
+    outline-width: 5px;
 }

@@ -56,6 +56,7 @@
     "dataSource" : {
       "name" : "sb-graph",
       "config" : {
+          "dsName" : "graph"
         }
       },
     "renderer_name":"linechart",
@@ -81,7 +82,8 @@
         "page_id":"",
         "dataSource" : {
           "name" : "address",
-          "config" : { 
+          "config" : {
+            "dsName" : "address",
             "baseUrl":"https://dev.open-sunbird.org",
             "endPoint":"/api/user/v1/read/b14e7747-e66d-49f3-8152-7a6706f0b530"
             }
@@ -177,8 +179,9 @@
         "dataSource" : {
           "name" : "personal",
           "config" : {
-              "baseUrl":"",
-              "token": ""
+                "dsName" : "personal",
+                "baseUrl":"",
+                "token": ""
            }
           },
         "renderer_name":"personal",

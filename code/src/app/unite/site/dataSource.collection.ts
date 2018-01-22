@@ -1,17 +1,18 @@
-import { CountriesDataSource } from "./datasource/countries.datasource";
-import { SunbirdAddressDataSource } from "./datasource/sunbirdaddress.datasource";
-import { SunbirdProfileDataSource }  from "./datasource/sunbirdprofilecompleteness.datasource";
-import { SunbirdPersonalDataSource }  from "./datasource/sunbirdpersonal.datasource";
-import { TJLmsCoursesDataSource }  from "./datasource/tjlmscourses.datasource";
-import { EkLessonsDataSource } from './datasource/ekLessons.datasource';
-import { SBGraphDataSource } from './datasource/sunbirdgraph.datasource';
+import { CountriesDataSource } from "./datasource/countries/countries.datasource";
+import { TJLmsCoursesDataSource }  from "./datasource/tjlms/tjlmscourses.datasource";
+import { EkLessonsDataSource } from './datasource/ekLessons/ekLessons.datasource';
+// import { SBGraphDataSource } from './datasource/sunbird/sunbirdgraph.datasource';
+// import { SunbirdAddressDataSource } from "./datasource/sunbird/sunbirdaddress.datasource";
+// import { SunbirdProfileDataSource }  from "./datasource/sunbird/sunbirdprofilecompleteness.datasource";
+// import { SunbirdPersonalDataSource }  from "./datasource/sunbird/sunbirdpersonal.datasource";
+import { SunbirdDataSource } from './datasource/sunbird/sunbird.datasource';
 
 export const DataSource = {
     'countries' : CountriesDataSource,
-    'address' :  SunbirdAddressDataSource,
-    'profile' :  SunbirdProfileDataSource,
-    'personal' :  SunbirdPersonalDataSource,
+    'address' :  SunbirdDataSource,
+    'profile' :  SunbirdDataSource,
+    'personal' :  SunbirdDataSource,
     'tjlms-courses' :  TJLmsCoursesDataSource,
     'ek-lessons' : EkLessonsDataSource,
-    'sb-graph' : SBGraphDataSource
+    'sb-graph' : SunbirdDataSource
 }

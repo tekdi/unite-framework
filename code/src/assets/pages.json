@@ -3,14 +3,14 @@
     "page_id":"4",
     "title":"Vowel Courses",
     "description":"",
-    "alias":"vowel-courses",
-    "default": true
+    "alias":"vowel-courses"
    },
    {
     "page_id":"2",
     "title":"Ekstep Lessons",
     "description":"",
-    "alias":"ek-lessons"
+    "alias":"ek-lessons",
+    "default": true
     },
     {
      "page_id":"3",

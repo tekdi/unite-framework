@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
+import { HttpClient } from '@angular/common/http'
+import { environment } from '../../../../../../environments/environment';
 
 @Injectable()
-export class EkLessonsDataSource
+export class SunbirdPersonalDataSource
 {
     dataUrl;
     dataNode;
@@ -19,7 +19,7 @@ export class EkLessonsDataSource
 
     getData()
     {
-        return this._httpClient.get( this.apiBase + "/assets/ekstepLessons.json")
+        return this._httpClient.get( this.apiBase +  "/assets/profileSunbird.json")
                                 .map(data => {
 
                                     if(this.dataNode)
@@ -35,7 +35,7 @@ export class EkLessonsDataSource
                                         return myFinalValue;
                                     }
 
-                                    return data['result']['content'];
+                                    return data['result']['response']
                                 });
     }
 }

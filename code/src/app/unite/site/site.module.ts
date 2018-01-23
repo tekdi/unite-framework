@@ -34,6 +34,11 @@ import { UniteMapperPipe } from './mapper.pipe';
 export class SiteModule {
 
   constructor(private _wdService : WidgetService, private _routes : Router){
+    this._wdService.getGlobalConfigs()
+                     .subscribe((configData : Array<any>) => {
+                       console.log('Config Data',configData);
+                     });
+
     this._wdService.getPages()
                     .subscribe((pageData : Array<any>) => {
                         let dynamicRouteArr = [];

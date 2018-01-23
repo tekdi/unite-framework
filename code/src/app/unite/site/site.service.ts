@@ -77,4 +77,9 @@ export class WidgetService {
                         return checkArr;
                     })
     }
+
+    getGlobalConfigs()
+    {
+        return this._httpClient.get(this.apiBase + '/assets/config.json');
+    }
 }

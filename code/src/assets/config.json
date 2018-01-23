@@ -1,0 +1,12 @@
+{
+    "config":{
+        "site_name": "Unite Framework",
+        "site_meta_desc": "Integrate Anything!! Literally!!",
+        "site_meta_keywords": "Unite Framwork, CMS",
+        "site_robots":"Index,Follow",
+        "site_timezone":"GMT",
+        "language": "en-GB",
+        "ui": "bs4"
+    }
+}
+

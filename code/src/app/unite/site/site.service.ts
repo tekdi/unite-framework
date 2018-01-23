@@ -78,7 +78,7 @@ export class WidgetService {
                     })
     }
 
-    getConfigs()
+    getGlobalConfigs()
     {
         return this._httpClient.get(this.apiBase + '/assets/config.json');
     }

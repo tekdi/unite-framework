@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class BS4ProgressbarLayout{
+export class BS4ProgressbarRenderer{
     @Input() data : Array<any>;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);

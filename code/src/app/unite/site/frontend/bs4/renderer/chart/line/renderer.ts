@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class BS4LinechartLayout {
+export class BS4LinechartRenderer {
     @Input() data : Array<any>;
     @Input() widName;
     @Input() set mapper(value){

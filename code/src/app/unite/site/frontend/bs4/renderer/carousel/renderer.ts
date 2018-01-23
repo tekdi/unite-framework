@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class BS4CarouselLayout{
+export class BS4CarouselRenderer{
     @Input() data : Array<any>;
     @Input() widName;
     @Input() set mapper(value){

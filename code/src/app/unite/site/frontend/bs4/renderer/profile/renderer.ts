@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class BS4PersonalLayout{
+export class BS4PersonalRenderer{
     @Input() data : Array<any>;
     @Input() widName;
     @Input() set mapper(value){

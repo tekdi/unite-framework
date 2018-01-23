@@ -1,0 +1,11 @@
+<div class="container">
+	<h2>{{widName}}</h2>
+	<div class="row row-eq-height text-center">
+		<div *ngFor="let unit of localData" class="col-md-3 col-sm-3 col-xs-6">
+			<div style="overflow:hidden;">
+				<img [src]="unit | uniteMapper: localMap['img'] " alt="" style="max-height:80px">
+			</div>
+			<h5>{{ unit | uniteMapper: localMap['name'] }}</h5>
+		</div>
+    </div>
+</div>

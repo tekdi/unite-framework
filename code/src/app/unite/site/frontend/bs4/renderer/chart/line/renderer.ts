@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./linechart.layout.html",
-    styleUrls: ['./linechart.layout.css']
+    templateUrl : "./renderer.html",
+    styleUrls: ['./renderer.css']
 })
-export class LinechartLayout {
+export class BS4LinechartLayout {
     @Input() data : Array<any>;
     @Input() widName;
     @Input() set mapper(value){

@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./grid.layout.html"
+    templateUrl : "./renderer.html"
 })
-export class GridLayout{
+export class BS4GridRenderer{
     @Input() data : Array<any>;
     @Input() widName;
     @Input() set mapper(value){

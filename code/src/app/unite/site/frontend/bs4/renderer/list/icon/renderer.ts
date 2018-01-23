@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./iconlist.layout.html",
-    styleUrls: ['./iconlist.layout.css']
+    templateUrl : "./renderer.html",
+    styleUrls: ['./renderer.css']
 })
-export class IconListLayout{
+export class BS4IconListRenderer{
     @Input() data : Array<any>;
     @Input() widName;
     @Input() set mapper(value){

@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./personal.layout.html",
-    styleUrls: ['./personal.layout.css']
+    templateUrl : "./renderer.html",
+    styleUrls: ['./renderer.css']
 })
-export class PersonalLayout{
+export class BS4PersonalRenderer{
     @Input() data : Array<any>;
     @Input() widName;
     @Input() set mapper(value){

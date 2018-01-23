@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./list.layout.html"
+    templateUrl : "./renderer.html"
 })
-export class ListLayout{
+export class BS4ListRenderer{
     @Input() data : Array<any>;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);

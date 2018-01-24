@@ -5,6 +5,7 @@ import { RouterModule, Router } from '@angular/router';
 import { CarouselModule } from 'ngx-bootstrap';
 import { ProgressbarModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
+import { SuiModule } from 'ng2-semantic-ui';
 
 import { WidgetService } from './site.service';
 import { SiteComponent } from './site.component';
@@ -19,7 +20,8 @@ import { UniteMapperPipe } from './mapper.pipe';
     RouterModule,
     CarouselModule,
     ChartsModule,
-    ProgressbarModule
+    ProgressbarModule,
+    SuiModule
   ],
   declarations: [
                   SiteComponent,

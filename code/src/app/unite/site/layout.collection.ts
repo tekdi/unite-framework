@@ -1,29 +1,26 @@
-import { GridLayout } from "./layouts/gridLayout/grid.layout";
-import { CarouselLayout  } from "./layouts/carouselLayout/carousel.layout";
-import { ListLayout } from "./layouts/listLayout/list.layout";
-import { IconListLayout } from "./layouts/iconlistLayout/iconlist.layout";
-import { ProgressbarLayout } from "./layouts/progressbarLayout/progressbar.layout";
-import { PersonalLayout } from "./layouts/personalLayout/personal.layout";
-import { PinLayout } from "./layouts/pinLayout/pin.layout";
-import { LinechartLayout } from "./layouts/linechartLayout/linechart.layout";
+import { BS4GridRenderer } from "./frontend/bs4/renderer/cardGrid/renderer";
+import { BS4ListRenderer } from "./frontend/bs4/renderer/list/ordered/renderer";
+import { BS4CarouselRenderer } from "./frontend/bs4/renderer/carousel/renderer";
+import { BS4IconListRenderer } from "./frontend/bs4/renderer/list/icon/renderer";
+import { BS4ProgressbarRenderer } from "./frontend/bs4/renderer/chart/progressBar/renderer";
+import { BS4PersonalRenderer } from "./frontend/bs4/renderer/profile/renderer";
+import { BS4LinechartRenderer } from "./frontend/bs4/renderer/chart/line/renderer";
 
 export const FactoryLayouts = {
-    'grid' : GridLayout,
-    'list' : ListLayout,
-    'carousel': CarouselLayout,
-    'progressbar': ProgressbarLayout,
-    'personal':PersonalLayout,
-    'iconlist':IconListLayout,
-    'pin' : PinLayout,
-    'linechart' : LinechartLayout
+    'grid' : BS4GridRenderer,
+    'list' : BS4ListRenderer,
+    'carousel': BS4CarouselRenderer,
+    'progressbar': BS4ProgressbarRenderer,
+    'personal':BS4PersonalRenderer,
+    'iconlist':BS4IconListRenderer,
+    'linechart' : BS4LinechartRenderer
 }
 export const Layouts = [
-                            GridLayout,
-                            ListLayout,
-                            CarouselLayout,
-                            ProgressbarLayout,
-                            PersonalLayout,
-                            IconListLayout,
-                            PinLayout,
-                            LinechartLayout
+                            BS4GridRenderer,
+                            BS4ListRenderer,
+                            BS4CarouselRenderer,
+                            BS4ProgressbarRenderer,
+                            BS4PersonalRenderer,
+                            BS4IconListRenderer,
+                            BS4LinechartRenderer
                         ];

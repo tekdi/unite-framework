@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl : "./progressbar.layout.html",
-    styleUrls: ['./progressbar.layout.css']
+    templateUrl : "./renderer.html",
+    styleUrls: ['./renderer.css']
 })
-export class ProgressbarLayout{
+export class BS4ProgressbarRenderer{
     @Input() data : Array<any>;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);

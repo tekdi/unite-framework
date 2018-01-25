@@ -12,7 +12,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
     templateUrl : './frontend/sunbird/layouts/index.html',
     providers : [WidgetService],
-    styleUrls: ['./site.component.css']
+    styleUrls: []
 })
 export class SiteComponent implements OnInit {
 

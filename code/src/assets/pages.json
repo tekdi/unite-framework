@@ -1,33 +1,33 @@
 [
    {
     "page_id":"4",
-    "title":"Vowel Courses",
+    "title":"Home",
     "description":"",
-    "alias":"vowel-courses"
+    "alias":"home"
    },
    {
     "page_id":"2",
-    "title":"Ekstep Lessons",
+    "title":"Courses",
     "description":"",
-    "alias":"ek-lessons",
+    "alias":"courses",
     "default": true
     },
     {
-     "page_id":"3",
-     "title":"Sunbird Profile",
-     "description":"",
-     "alias":"sb-profile"
-     },
-     {
       "page_id":"5",
-      "title":"Sunbird graph",
+      "title":"Graph",
       "description":"",
-      "alias":"sb-graph"
+      "alias":"graph"
       },
    {
     "page_id":"1",
     "title":"Countries",
     "description":"",
     "alias":"countries"
-    }
+    },
+    {
+        "page_id":"3",
+        "title":"Profile",
+        "description":"",
+        "alias":"profile"
+        }
 ]

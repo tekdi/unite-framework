@@ -1,0 +1,16 @@
+<h3>{{widName}}</h3>
+<div class="ui middle aligned divided list">
+		<div class="item" *ngFor="let unit of localData">
+			<div class="ui grid row">
+				<div class="four wide column">
+						<img class="ui  image" [src]="unit | uniteMapper: localMap['image_url']" [alt]="unit | uniteMapper: localMap['caption']" *ngIf="unit | uniteMapper: localMap['image_url']">
+				</div>
+				<div class="content twelve wide column middle aligned">
+					<a class="header">{{unit | uniteMapper: localMap['caption']}}</a>
+					<div [innerHTML]="unit | uniteMapper: localMap['description']"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+

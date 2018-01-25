@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="ui grid container">
+	<h2 class="container">{{widName}}</h2>
+	<carousel [interval]="15000">
+		<slide *ngFor="let unit of localData" class="col-xs-12">
+		  <img [src]="unit | uniteMapper: localMap['image_url']" [alt]="unit | uniteMapper: localMap['caption']" >
+		  <div class="carousel-caption d-none d-md-block">
+			<h3>{{unit | uniteMapper: localMap['caption']}}</h3>
+			<p [innerHTML]="unit | uniteMapper: localMap['description']"></p>
+		  </div>
+		</slide>
+	</carousel>
+</div>

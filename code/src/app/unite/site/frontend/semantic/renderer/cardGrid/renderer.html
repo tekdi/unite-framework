@@ -1,0 +1,22 @@
+<h2>{{widName}}</h2>
+<div class="ui link five cards">
+	<div *ngFor="let unit of localData" class="card">
+			<div class="image">
+				<img [src]="unit | uniteMapper: localMap['img'] " alt="">
+			</div>
+			<div class="content">
+				<div class="header">{{ unit | uniteMapper: localMap['name'] }}</div>
+				<div class="description">
+						{{ unit | uniteMapper: localMap['desc'] | slice:0:80 }}
+				</div>
+			</div>
+			<div class="extra content"  >
+				<span class="left floated">
+						{{ unit | uniteMapper: localMap['metaLeft'] }}
+				</span>
+				<span class="right floated ">
+						{{ unit | uniteMapper: localMap['metaRight'] }}
+				</span>
+			</div>
+	</div>
+</div>

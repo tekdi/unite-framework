@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
     templateUrl : "./renderer.html"
 })
-export class BS4GridRenderer{
+export class SunbirdGridRenderer{
     @Input() data : Array<any>;
     @Input() widName;
     @Input() set mapper(value){

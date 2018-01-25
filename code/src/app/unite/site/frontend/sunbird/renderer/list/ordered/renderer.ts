@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
     templateUrl : "./renderer.html"
 })
-export class BS4ListRenderer{
+export class SunbirdListRenderer{
     @Input() data : Array<any>;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);

@@ -6,6 +6,8 @@ import { CarouselModule } from 'ngx-bootstrap';
 import { ProgressbarModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { SuiModule } from 'ng2-semantic-ui';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 import { WidgetService } from './site.service';
 import { SiteComponent } from './site.component';
@@ -21,7 +23,10 @@ import { UniteMapperPipe } from './mapper.pipe';
     CarouselModule,
     ChartsModule,
     ProgressbarModule,
-    SuiModule
+    SuiModule,
+    BrowserAnimationsModule,
+    MatButtonModule, 
+    MatCheckboxModule
   ],
   declarations: [
                   SiteComponent,

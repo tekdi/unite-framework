@@ -31,7 +31,7 @@ import { SunbirdListRenderer } from "./frontend/sunbird/renderer/list/ordered/re
 import { SunbirdCarouselRenderer } from "./frontend/sunbird/renderer/carousel/renderer";
 import { SunbirdIconListRenderer } from "./frontend/sunbird/renderer/list/icon/renderer";
 import { SunbirdProgressbarRenderer } from "./frontend/sunbird/renderer/chart/progressBar/renderer";
-import { SunbirdPersonalRenderer } from "./frontend/sunbird/renderer/profile/renderer";
+import { SunbirdPersonalRenderer } from "./frontend/sunbird/renderer/personal/renderer";
 import { SunbirdLinechartRenderer } from "./frontend/sunbird/renderer/chart/line/renderer";
 
 export const FactoryLayouts = {

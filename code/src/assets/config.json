@@ -6,7 +6,7 @@
         "site_robots":"Index,Follow",
         "site_timezone":"GMT",
         "language": "en-GB",
-        "ui": "bs4"
+        "ui": "sunbird"
     }
 }
 

@@ -15,6 +15,7 @@ export class SunbirdIconListRenderer{
     localMap;
 
     mapProperties(data, mapObj) {
+console.log('data here',data);
         this.localMap = mapObj;
         this.localData = data;
     }

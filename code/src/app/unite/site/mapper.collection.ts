@@ -17,45 +17,26 @@ export const factoryMapper =
                 'description' :''
             }
         },
-
-    "profile" : 
-        {
-            'progressbar' : {
-                'title' : '',
-                'percentage' : '',
-            }
-        },
     "personal":
     {
         'personal' : {
             'fname' : 'firstName',
             'lname' : 'lastName',
             'img' : 'avatar',
-            'username' : 'userName',
-            'dob' : 'dob'
-        },
-        'grid' : {
-            'img' : '',
-            'name' : 'lastName',
-            'desc' :'loginId',
-            'metaLeft' : '',
-            'metaRight':  ''
-            
-        },
-        'iconlist' : {
-            'image_url' : '',
-            'caption' : 'addressLine2',
-            'description' :'city'
+            'username' : 'loginId',
+            'lastLogin' : 'lastLogin'
         }
     },
     "address":
     {
-        'blog' : {
+        'iconlist' : {
             'image_url' : '',
-            'title' : 'name',
-            'description' :''
+            'caption' : 'addType',
+            'description1' :'addressLine1',
+            'description2' :'addressLine2'
         }
     },
+
     "tjlms-courses":
     {
         'carousel' : {

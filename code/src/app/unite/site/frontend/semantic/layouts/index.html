@@ -1,0 +1,27 @@
+<div class="ui grid container">
+    <div class="row">
+        <div class="three wide column">
+            <div class="ui menu secondary">
+                <a class="item header" href="/">
+                    Unite Framework
+                </a>
+            </div>
+        </div>
+        <div class="thirteen wide column">
+            <div class="ui menu secondary pointing center aligned">
+                <a class="item" *ngFor="let menu of pagesMenu" [routerLink]="['/' + menu.alias] " routerLinkActive="active">
+                    {{ menu.title }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ui grid container" *ngIf="invalidPage">
+    Page not found..!!
+</div>
+<div class="ui grid container">
+    <ng-template ad-host></ng-template>
+    <div *ngFor="let widgets of totalWidgets">
+        <div class="loader"></div>
+    </div>
+</div>

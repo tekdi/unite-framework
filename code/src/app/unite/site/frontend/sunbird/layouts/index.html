@@ -1,0 +1,61 @@
+<div class="ui grid">
+    <div class="center aligned twelve column row padding-top-2rem headerBackground">
+        <div class="one wide column"></div>
+        <div class="two wide column">
+            <a ui-sref="Home" href="/">
+                <img class="image centered header-logo" ng-src="https://dev.open-sunbird.org/common/images/sunbird_logo.png" src="https://dev.open-sunbird.org/common/images/sunbird_logo.png">
+            </a>
+        </div>
+        <div class="six wide column padding-top-1rem">
+            <div>
+                <div class="ui fluid icon input left action" id="search-input-container">
+                    <div class="searchdropdown ui basic floating dropdown button" apply-script="" id="headerSearch"  tabindex="0">
+                        <div class="text">All</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu transition hidden" tabindex="-1">
+                            <div class="item active selected" value="All">All</div>
+                            <div class="item" value="Courses">Courses</div>
+                            <div class="item" value="Library">Library</div>
+                            <div class="item" value="Organisations">Organisations</div>
+                            <div class="item" value="Users">Users</div>
+                        </div>
+                    </div>
+                    <div class="searchfilterinput ui search">
+                        <div class="searchicon ui icon input">
+                            <input type="text" id="keyword" name="filter_search"  placeholder="Search courses, library" title="Search" autocomplete="off" spellcheck="false" dir="auto" class="searchinput"> 
+                            <i class="circular search link icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="one wide column">
+            <div class="content dropdown-content alarm-icon-header"></div>
+        </div>
+        <div class="one wide column">
+            <i class="float-ContentLeft alarm-icon-header alarm icon large alaramIconColor"></i>
+            <div class="ui floating dropdown right top pointing header-user-container padding-top-circular-human-icon" id="dropdown-menu-list-header" tabindex="0">
+                <img ng-src="https://dev.open-sunbird.org/common/images/user_logo.png" class="ui circular image logged-in-user" src="https://dev.open-sunbird.org/common/images/user_logo.png">
+                <div class="menu transition hidden" tabindex="-1">
+                    <!-- ngIf: firstName -->
+                    <div class="item headerDropdownProfile ng-binding ng-scope" ng-if="firstName">Nilesh&nbsp;More</div><!-- end ngIf: firstName -->
+                    <!-- ngIf: firstName --><div ng-if="firstName" class="ui divider ng-scope"></div><!-- end ngIf: firstName --><a class="item ng-binding" href="#!/profile" ui-sref-active="active" ui-sref="Profile">Profile</a> <!-- ngIf: initializePermissionDirective && organisationIds[0] --><!-- end ngIf: initializePermissionDirective && organisationIds[0] --> <!-- ngIf: initializePermissionDirective --><!-- end ngIf: initializePermissionDirective --> <!-- ngIf: initializePermissionDirective --><!-- end ngIf: initializePermissionDirective --> <!-- ngIf: initializePermissionDirective --><!-- end ngIf: initializePermissionDirective -->  <a class="item ng-binding" ng-click="logout();">Logout</a></div></div></div>
+    </div>
+</div> 
+
+<div class="ui menu secondary pointing center aligned">
+    <a class="item" *ngFor="let menu of pagesMenu" [routerLink]="['/' + menu.alias] " routerLinkActive="active">
+    {{ menu.title }}
+    </a>
+</div>
+<br />
+<div class="ui grid container" *ngIf="invalidPage">
+    Page not found..!!
+</div>
+<div class="ui grid container">
+    <ng-template ad-host></ng-template>
+    <div *ngFor="let widgets of totalWidgets">
+        <div class="loader"></div>
+    </div>
+</div>
+       

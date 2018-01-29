@@ -1,12 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
-  flex-wrap:wrap;
-}
-.row-eq-height > div {margin:10px 0;border-bottom:1px solid #ccc;    padding: 15px 0;}
-
-h5{word-wrap: break-word;}
+/*@import "../node_modules/bootstrap/dist/css/bootstrap.css";*/
+@import "./app/unite/site/frontend/sunbird/assets/semantic/semantic.css";
+@import "./app/unite/site/frontend/sunbird/assets/style.css";
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/

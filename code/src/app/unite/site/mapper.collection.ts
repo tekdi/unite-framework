@@ -7,7 +7,9 @@ export const factoryMapper =
             'grid' : {
                 'name' : 'timezones.0',
                 'img' : 'flag',
-                'desc' : 'translations.es'
+                'desc' : 'translations.es',
+                'metaLeft' : '',
+                'metaRight':  ''
             },
             'carousel' : {
                 'image_url' : 'flag',
@@ -35,7 +37,10 @@ export const factoryMapper =
         'grid' : {
             'img' : '',
             'name' : 'lastName',
-            'desc' :'loginId'
+            'desc' :'loginId',
+            'metaLeft' : '',
+            'metaRight':  ''
+            
         },
         'iconlist' : {
             'image_url' : '',
@@ -66,7 +71,9 @@ export const factoryMapper =
         'grid' : {
             'img' : 'course_image',
             'name' : 'course_title',
-            'desc' :'course_description'
+            'desc' :'course_description',
+            'metaLeft' : '',
+            'metaRight':  ''
         }
     },
     "ek-lessons":
@@ -74,7 +81,9 @@ export const factoryMapper =
         'grid' : {
             'img' : 'appIcon',
             'name' : 'name',
-            'desc' :'language.0'
+            'desc' :'description',
+            'metaLeft' : 'language.0',
+            'metaRight':  'createdBy'
             }
     },
     "sb-graph" :

@@ -10,30 +10,9 @@ import { factoryMapper } from './mapper.collection';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-    template : `
-                <div class="nvbar navbar-inverse">
-					<div class="container">
-						<div class="navbar-header">
-							<a class="navbar-brand" href="/#">Unite</a>
-						</div>
-						<div class=" navbar-right">
-							<ul class="nav navbar-nav">
-								<li *ngFor="let menu of pagesMenu"  role="presentation">
-									<a [routerLink]="['/' + menu.alias] " routerLinkActive="active" >{{ menu.title }}</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-                </div>
-                <div *ngIf="invalidPage" class="container">Invalid Page</div>
-                <ng-template ad-host></ng-template>
-
-                <div *ngFor="let widgets of totalWidgets">
-                    <div class="loader"></div>
-                </div>
-                `,
+    templateUrl : './frontend/sunbird/layouts/index.html',
     providers : [WidgetService],
-    styleUrls: ['./site.component.css']
+    styleUrls: []
 })
 export class SiteComponent implements OnInit {
 

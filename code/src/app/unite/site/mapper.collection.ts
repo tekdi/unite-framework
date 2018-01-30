@@ -36,6 +36,24 @@ export const factoryMapper =
             'description2' :'addressLine2'
         }
     },
+    "education":
+    {
+        'iconlist' : {
+            'image_url' : '',
+            'caption' : 'degree',
+            'description1' :'grade',
+            'description2' :'boardOrUniversity'
+        }
+    },
+    "experience":
+    {
+        'iconlist' : {
+            'image_url' : '',
+            'caption' : 'jobName',
+            'description1' :'orgName',
+            'description2' :'role'
+        }
+    },
 
     "tjlms-courses":
     {

@@ -41,8 +41,9 @@ export class WidgetService {
                     });
     }
 
-    getDataSource(source)
+    getDataSource(source, routeInfo?)
     {
+        console.log("heres router ingfor ", routeInfo);
         if(this.dataSouceCollection[source.name])
         {
             let ds = this.dataSouceCollection[source.name];

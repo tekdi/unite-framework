@@ -8,6 +8,7 @@ import { AdComponent } from './ad.component';
 import { FactoryLayouts } from './layout.collection';
 import { factoryMapper } from './mapper.collection';
 import { Title } from '@angular/platform-browser';
+import {PlatformLocation } from '@angular/common';
 
 @Component({
     templateUrl : './frontend/sunbird/layouts/index.html',
@@ -20,33 +21,47 @@ export class SiteComponent implements OnInit {
     pagesMenu   = [];
     invalidPage = true;
     totalWidgets = [];
+    thisRoute;
 
     constructor(
                 private _acRoute : ActivatedRoute,
                 private _widgetService : WidgetService,
                 private componentFactoryResolver: ComponentFactoryResolver,
-                private titleService: Title
+                private titleService: Title,
+                private platformLocation: PlatformLocation
             ) { }
 
     ngOnInit() {
 
+
+        //console.log("this is my current page url ", this.platformLocation);
+
+        // This call is for rendering pages as header menus
         this.getAllPages();
 
-        this._acRoute.data.subscribe(data => {
+        console.log("ajsldjfasf ", this._acRoute.snapshot.url);
 
-            if(!data['page-id'])
-            {
-                this.invalidPage = true;
-                return;
-            }
+        this._acRoute.params.subscribe(paramData => {
+            this.thisRoute = paramData.page;
 
-            this.invalidPage = false;
-            this.titleService.setTitle( data['page-title'] );
-            this._widgetService.getPageWidgets(data['page-id'])
-                .subscribe(pageWidgets => {
-                    this.getWidgetsData(pageWidgets);
-                });
-        })
+           // console.log("---------------------", this.thisRoute);
+
+            this._acRoute.data.subscribe(data => {
+
+                if(!data['page-id'])
+                {
+                    this.invalidPage = true;
+                    return;
+                }
+
+                this.invalidPage = false;
+                this.titleService.setTitle( data['page-title'] );
+                this._widgetService.getPageWidgets(data['page-id'])
+                    .subscribe(pageWidgets => {
+                        this.getWidgetsData(pageWidgets, paramData.page);
+                    });
+            });
+        });
     }
 
     getAllPages()
@@ -57,30 +72,28 @@ export class SiteComponent implements OnInit {
                             });
     }
 
-    getWidgetsData(widgets : Array<any>)
+    getWidgetsData(widgets : Array<any>, baseRoute)
     {
-        console.log("widgets chekcing = ", widgets);
+        //console.log("widgets chekcing = ", widgets);
 
         widgets.forEach(element => {
                 this.totalWidgets.push(1);
                 if(element['dataSource'])
                 {
-                    this.getDataSource(element);
+                    this.getDataSource(element, baseRoute);
                 }
             });
     }
 
-    getDataSource(element)
+    getDataSource(element, baseRoute)
     {
+       // console.log("chekicng routes insdie getDataSourvce ===== ", baseRoute);
         if(element["dataSource"]["name"] !== undefined)
         {
             var mapperInfo = factoryMapper[element["dataSource"]["name"]][element['renderer_name']];
             var layoutInfo = FactoryLayouts[element['renderer_name']];
 
-            console.log("mapper Info ", mapperInfo);
-            console.log("layout infor ", layoutInfo);
-
-            var ds = this._widgetService.getDataSource(element.dataSource);
+            var ds = this._widgetService.getDataSource(element.dataSource, this.thisRoute);
 
             if(ds && ds.__proto__.hasOwnProperty('getData'))
             {
@@ -89,11 +102,16 @@ export class SiteComponent implements OnInit {
                     if(mapperInfo && layoutInfo)
                     {
                         var checkArr = {};
-                        
-                        checkArr['data'] = sourceData;
+
+                        checkArr['data'] = sourceData['data'] ? sourceData['data'] :sourceData;
                         checkArr['mapper'] = mapperInfo;
                         checkArr['component'] = layoutInfo;
                         checkArr['widName'] = element['title'];
+
+                        if(sourceData['routes'])
+                        {
+                            this.addDynamicRoutes(sourceData['routes']);
+                        }
 
                         this.renderDynamicComponent(checkArr);
                     }
@@ -101,9 +119,13 @@ export class SiteComponent implements OnInit {
             }
             else
             {
-                console.error("getData not found for dataSource ", ds);
+                //console.error("getData not found for dataSource ", ds);
             }
         }
+    }
+
+    addDynamicRoutes(dyRoutes){
+        console.log("this are dynamic routes ", dyRoutes);
     }
 
     renderDynamicComponent(fwData){

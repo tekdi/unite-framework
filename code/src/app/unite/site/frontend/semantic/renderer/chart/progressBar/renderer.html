@@ -1,0 +1,17 @@
+<div>
+  <h2>Progress Bar </h2>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <div>
+      <div *ngFor="let unit of localData">
+        <div class="">
+          <h3>Caption {{unit | uniteMapper: localMap['caption']}}</h3>
+          <div class="">
+                 <progressbar class="progress progress-striped active" [max]="100" [value]="" type="danger">
+                   <i>{{unit | uniteMapper: localMap['course_progress']}}</i>
+                 </progressbar>
+             </div>
+        </div>
+        <div class="clearfix"></div>
+      </div> 
+  </div>
+  </div>

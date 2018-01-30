@@ -1,18 +1,36 @@
 import {Injectable} from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
+import { CountriesListDataSource } from './collections/countrieslist.datasource';
+
+const rsCollection =    {
+                            'default' : CountriesListDataSource,
+                            'list' : CountriesListDataSource
+                        }
+
+const dyRoutes = [
+    {path : "/:chekcing", dsName : "", layout: ""},
+    {path : "", dsName : "", layout: ""}
+]
 
 @Injectable()
 export class CountriesDataSource
 {
-    baseUrl = "//restcountries.eu/rest/v2/name/united";
+    private dsConfigObj;
 
-    constructor(config, private _httpClient? : HttpClient )
+    constructor(config, private _httpClient? : HttpClient, mainSeg?)
     {
-        console.log("inside Countries Data service ", config);
+        let dsConfig = (config['dsName'] && rsCollection[config['dsName']])
+                        ? rsCollection[config['dsName']]
+                        : rsCollection['default'];
+
+        this.dsConfigObj = new dsConfig(config, _httpClient);
     }
 
     getData()
     {
-        return this._httpClient.get(this.baseUrl);
+        return this.dsConfigObj.getData().map(beforeData => {
+            console.log("inside main datata of countries ", beforeData);
+            return {data : beforeData, routes : dyRoutes};
+        });
     }
 }

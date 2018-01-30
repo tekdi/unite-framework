@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from '../../../../../../environments/environment';
 
 @Injectable()
-export class SunbirdPersonalDataSource
+export class SunbirdEducationDataSource
 {
     dataUrl;
     dataNode;

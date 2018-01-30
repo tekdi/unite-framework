@@ -44,45 +44,9 @@
 </div> 
 
 <div class="ui menu secondary pointing center aligned">
-    <a class="item" *ngFor="let menu of pagesMenu" [routerLink]="['/' + menu.alias] " routerLinkActive="active">
-    {{ menu.title }}
+    <span>lakhan here</span>
+    <a class="item" *ngFor="let unit of localData" [routerLink]="['/' + unit | uniteMapper: localMap['alias']] " routerLinkActive="active">
+    {{ unit | uniteMapper: localMap['title'] }}
     </a>
 </div>
-
-<div>
-    <div class="ui margin-bottom-10 margin-top-15 breadCrumbsBackground ng-scope" >
-        <div class="ui grid">
-            <div class="one wide column"></div>
-            <div class="ten wide column">
-                <div class="breadcrumppadding ui padded breadcrumb">
-                    <span>
-                        <a class="breadcrumb-fontColor section">Home</a>
-                        <i class="right chevron icon divider ng-scope"></i>
-                    </span>
-                    <span>
-                        <span class="breadcrumb-fontColor active section">Page</span>
-                     </span>
-                </div>
-            </div>
-            <div class="one wide column"></div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-<div class="ui grid container" *ngIf="invalidPage">
-    Page not found..!!
-</div>
-<div class="ui grid container">
-    <ng-template ad-host></ng-template>
-    <div *ngFor="let widgets of totalWidgets">
-        <div class="loader"></div>
-    </div>
-</div>
-       
+<br />

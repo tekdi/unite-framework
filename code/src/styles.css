@@ -3,3 +3,6 @@
 @import "./app/unite/site/frontend/sunbird/assets/semantic/semantic.css";
 @import "./app/unite/site/frontend/sunbird/assets/style.css";
 /*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+ng-component{
+    width:100%;
+}

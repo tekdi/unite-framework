@@ -13,6 +13,7 @@ export const DataSource = {
     'address' :  SunbirdDataSource,
     'education' :  SunbirdDataSource,
     'experience' :  SunbirdDataSource,
+    'summary' :  SunbirdDataSource,
     'profile' :  SunbirdDataSource,
     'tjlms-courses' :  TJLmsCoursesDataSource,
     'ek-lessons' : EkLessonsDataSource,

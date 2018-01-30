@@ -33,7 +33,7 @@ import { SunbirdIconListRenderer } from "./frontend/sunbird/renderer/list/icon/r
 import { SunbirdProgressbarRenderer } from "./frontend/sunbird/renderer/chart/progressBar/renderer";
 import { SunbirdPersonalRenderer } from "./frontend/sunbird/renderer/personal/renderer";
 import { SunbirdLinechartRenderer } from "./frontend/sunbird/renderer/chart/line/renderer";
-
+import { SunbirdDividerRenderer } from "./frontend/sunbird/renderer/divider/renderer";
 export const FactoryLayouts = {
     'grid' : SunbirdGridRenderer,
     'list' : SunbirdListRenderer,
@@ -41,7 +41,9 @@ export const FactoryLayouts = {
     'progressbar': SunbirdProgressbarRenderer,
     'personal':SunbirdPersonalRenderer,
     'iconlist':SunbirdIconListRenderer,
-    'linechart' : SunbirdLinechartRenderer
+    'linechart' : SunbirdLinechartRenderer,
+    'divider': SunbirdDividerRenderer
+
 }
 export const Layouts = [
                             SunbirdGridRenderer,
@@ -50,5 +52,6 @@ export const Layouts = [
                             SunbirdProgressbarRenderer,
                             SunbirdPersonalRenderer,
                             SunbirdIconListRenderer,
-                            SunbirdLinechartRenderer
+                            SunbirdLinechartRenderer,
+                            SunbirdDividerRenderer
                         ];

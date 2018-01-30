@@ -1,20 +1,5 @@
 [  
    {  
-      "widget_id":"1",
-      "title":"",
-      "page_id":"",
-      "dataSource" : {
-                    "name" : "osian",
-                    "config" : 
-                            {
-                                "site":"//staging.osianama.com/",
-                                "resource":"homepage"
-                            }
-                    },
-      "renderer_name":"grid",
-      "params":""
-   },
-   {  
       "widget_id":"2",
       "title":"Countries",
       "page_id":"1",
@@ -63,74 +48,6 @@
     "params":""
     },
     {  
-        "widget_id":"8",
-        "title":"Profile Completeness",
-        "page_id":"",
-        "dataSource" : {
-          "name" : "profile",
-          "config" : { 
-            "baseUrl":"https://dev.open-sunbird.org",
-            "endPoint":"/api/user/v1/read/b14e7747-e66d-49f3-8152-7a6706f0b530"
-            }
-          },
-        "renderer_name":"progressbar",
-        "params":""
-    },
-    {  
-        "widget_id":"9",
-        "title":"Address List",
-        "page_id":"",
-        "dataSource" : {
-          "name" : "address",
-          "config" : {
-            "dsName" : "address",
-            "baseUrl":"https://dev.open-sunbird.org",
-            "endPoint":"/api/user/v1/read/b14e7747-e66d-49f3-8152-7a6706f0b530"
-            }
-          },
-        "renderer_name":"blog",
-        "params":""
-    },
-    {  
-        "widget_id":"10",
-        "title":"Education",
-        "page_id":"",
-        "dataSource" : {
-          "name" : "sunbird",
-          "config" : { 
-                "url":""
-            }
-          },
-        "renderer_name":"blog",
-        "params":""
-    },
-    {  
-        "widget_id":"11",
-        "title":"Experience",
-        "page_id":"",
-        "dataSource" : {
-          "name" : "sunbird",
-          "config" : {
-              "url":""
-           }
-          },
-        "renderer_name":"blog",
-        "params":""
-    },
-    {  
-        "widget_id":"12",
-        "title":"Experience",
-        "page_id":"",
-        "dataSource" : {
-          "name" : "sunbird-courses",
-          "config" : {
-              "url":""
-           }
-          },
-        "renderer_name":"blog",
-        "params":""
-    },
-    {  
         "widget_id":"13",
         "title":"Vowel Courses",
         "page_id":"4",
@@ -174,14 +91,15 @@
     },
     {  
         "widget_id":"16",
-        "title":"Profile Name",
+        "title":"Personal Information",
         "page_id":"3",
         "dataSource" : {
           "name" : "personal",
           "config" : {
+                "dataNode": "result.response",
                 "dsName" : "personal",
-                "baseUrl":"",
-                "token": ""
+                "baseUrl":"https://dev.open-sunbird.org/",
+                "endPoint": "/api/user/v1/read/b14e7747-e66d-49f3-8152-7a6706f0b530"
            }
           },
         "renderer_name":"personal",
@@ -189,16 +107,18 @@
     },
     {  
         "widget_id":"17",
-        "title":"Address Info",
+        "title":"Addresses",
         "page_id":"3",
         "dataSource" : {
-          "name" : "personal",
+          "name" : "address",
           "config" : {
-              "dataNode" : "result.response.address"
+              "dataNode":"result.response.address",
+              "dsName" : "address",
+              "baseUrl":"https://dev.open-sunbird.org/",
+              "endPoint": "/api/user/v1/read/b14e7747-e66d-49f3-8152-7a6706f0b530"
            }
           },
         "renderer_name":"iconlist",
         "params":""
     }
-
 ]

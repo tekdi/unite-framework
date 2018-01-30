@@ -12,6 +12,7 @@ const rsCollection =    {
                             'address'   : SunbirdAddressDataSource,
                             'education' : SunbirdEducationDataSource,
                             'experience' : SunbirdExperienceDataSource,
+                            'summary' : SunbirdExperienceDataSource,
                             'graph'     : SBGraphDataSource
                         }
 

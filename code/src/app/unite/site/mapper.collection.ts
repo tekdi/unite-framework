@@ -54,6 +54,12 @@ export const factoryMapper =
             'description2' :'role'
         }
     },
+    "summary":
+    {
+        'divider' : {
+            'description' : '',
+        }
+    },
 
     "tjlms-courses":
     {

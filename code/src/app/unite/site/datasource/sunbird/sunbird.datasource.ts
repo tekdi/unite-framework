@@ -2,6 +2,7 @@ import { SunbirdPersonalDataSource } from './collections/personal.datasource';
 import { SunbirdAddressDataSource } from './collections/address.datasource';
 import { SunbirdEducationDataSource } from './collections/education.datasource';
 import { SunbirdExperienceDataSource } from './collections/experience.datasource';
+import { SunbirdSummaryDataSource } from "./collections/summary.datasource";
 import { SBGraphDataSource } from './collections/graph.datasource';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -11,8 +12,8 @@ const rsCollection =    {
                             'personal'  : SunbirdPersonalDataSource,
                             'address'   : SunbirdAddressDataSource,
                             'education' : SunbirdEducationDataSource,
-                            'experience' : SunbirdExperienceDataSource,
-                            'summary' : SunbirdExperienceDataSource,
+                            'experience': SunbirdExperienceDataSource,
+                            'summary'   : SunbirdSummaryDataSource,
                             'graph'     : SBGraphDataSource
                         }
 

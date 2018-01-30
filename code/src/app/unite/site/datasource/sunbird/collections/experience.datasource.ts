@@ -3,13 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from '../../../../../../environments/environment';
 
 @Injectable()
-export class SunbirdPersonalDataSource
+export class SunbirdExperienceDataSource
 {
     dataUrl;
     dataNode;
     apiBase;
     sbHeaders : HttpHeaders;
-    sbGetProfileUrl = ''
     sbApiHeader = {};
 
 
@@ -17,7 +16,6 @@ export class SunbirdPersonalDataSource
     {
         this.dataNode = config['dataNode'];
         this.apiBase = environment.apiBase;
-
         var AuthorizationTo = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkMTc1MDIwNDdlODc0ODZjOTM0ZDQ1ODdlYTQ4MmM3MyJ9.7LWocwCn5rrCScFQYOne8_Op2EOo-xTCK5JCFarHKSs';
         var xToken = config.xToken;
 
@@ -40,13 +38,11 @@ export class SunbirdPersonalDataSource
     {
         return this._httpClient.get(this.dataUrl, {headers: this.sbApiHeader})
                                 .map(data => {
-
                                     if(this.dataNode)
                                     {
                                         let dataNode2 = this.dataNode.split(".");
                                         
                                         let myFinalValue = data;
-
                                         dataNode2.forEach(element => {
                                             myFinalValue = myFinalValue[element];
                                         });

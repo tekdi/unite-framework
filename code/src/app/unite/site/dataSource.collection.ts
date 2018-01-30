@@ -9,9 +9,11 @@ import { SunbirdDataSource } from './datasource/sunbird/sunbird.datasource';
 
 export const DataSource = {
     'countries' : CountriesDataSource,
-    'address' :  SunbirdDataSource,
-    'profile' :  SunbirdDataSource,
     'personal' :  SunbirdDataSource,
+    'address' :  SunbirdDataSource,
+    'education' :  SunbirdDataSource,
+    'experience' :  SunbirdDataSource,
+    'profile' :  SunbirdDataSource,
     'tjlms-courses' :  TJLmsCoursesDataSource,
     'ek-lessons' : EkLessonsDataSource,
     'sb-graph' : SunbirdDataSource

@@ -1,6 +1,8 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import {ListDataService} from './collections/list.dataservice';
-import {DetailsDataService} from './collections/detail.dataservice';
-import { HttpClient } from "@angular/common/http";
+import { DetailsDataService } from './collections/detail.dataservice';
 
 const ServiceCollection = {
     'default' : ListDataService,
@@ -8,22 +10,24 @@ const ServiceCollection = {
     'countryDetails' : DetailsDataService
 }
 
+@Injectable()
 export class CountriesDataSource {
 
-    constructor(private config, private _httpClient? : HttpClient){
-
+    constructor(private config, private _httpClient : HttpClient){
+        console.log("I am here in ds constreuctsadfadsf");
     }
 
-    getData(serviceName?)
+    getData(serviceName)
     {
         let dsName = serviceName && ServiceCollection.hasOwnProperty(serviceName) 
                         ? ServiceCollection[serviceName]
                         : ServiceCollection['default'];
 
         let dsObj = new dsName(this.config, this._httpClient);
-        return dsName.getData().map(finalData => {
-                return finalData;
-            })
+        return dsObj.getData().map(asdf => {
+            console.log("Inside mapaaa");
+            return asdf;
+        });
     }
 
     setRoutes(baseSegment)

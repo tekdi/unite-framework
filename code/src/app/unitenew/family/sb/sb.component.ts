@@ -6,7 +6,7 @@ import { sbTemplatesMapper } from './templates/templates.collections';
     template : `
                     <div> I am SB main component </div>
                     <ng-template [selectTemplate]="sbTemplates"></ng-template>
-                `
+                `,
 })
 export class SbComp{
 

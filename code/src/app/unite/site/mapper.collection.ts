@@ -96,6 +96,10 @@ export const factoryMapper =
         "linechart" : {
             "dataset" : "graphData",
             "label" : "label"
+        },
+        "progressbar" : {
+            "dataset" : "graphData",
+            "label" : "label"
         }
     }
 }

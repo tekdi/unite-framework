@@ -173,5 +173,18 @@
           },
         "renderer_name":"divider",
         "params":""
+    },
+    {  
+        "widget_id":"21",
+        "title":"Profile Completeness",
+        "page_id":"3",
+        "dataSource" : {
+            "name" : "sb-graph",
+            "config" : {
+                "dsName" : "graph"
+              }
+            },
+        "renderer_name":"progressbar",
+        "params":""
     }
 ]

@@ -55,6 +55,7 @@ export class UniteRouting{
                     finalDsRoute['service'] = roElement.service;
                     finalDsRoute['defaultRenderer'] = roElement.renderer;
                     finalDsRoute['source'] = menuElement.dataSource;
+                    finalDsRoute['widgets'] = roElement.widgets;
 
                     finalMenu.push(finalDsRoute);
                 });
@@ -72,7 +73,8 @@ export class UniteRouting{
         {
             let segArr = uniteUrl.split('/');
             let segCount = segArr.length;
-            let respObj = {}
+            let respObj = {};
+            let mainDynamicSegObj = {};
 
             for(let roElement of this.finalMenus)
             {
@@ -116,13 +118,36 @@ export class UniteRouting{
                                     source : roElement['source'],
                                     service : roElement['service'],
                                     defaultRenderer : roElement['defaultRenderer'],
+                                    widgets : roElement['widgets'],
                                     param : dynamicSegObj
                                 };
 
+                        mainDynamicSegObj = dynamicSegObj;
                         break;
                     }
                 }
             };
+
+            if (respObj && respObj.hasOwnProperty('widgets') && respObj['widgets'] !== undefined)
+            {
+                let tempRtrn = [];
+                let tempRespObj = respObj;
+                let tempWidgets = respObj['widgets']
+
+                delete tempRespObj["widgets"];
+
+                if(respObj.hasOwnProperty('showDefault') && !respObj['showDefault'])
+                {
+                    tempRtrn.push(tempRespObj);
+                }
+
+                tempWidgets.forEach(element => {
+                    element['param'] = mainDynamicSegObj
+                    tempRtrn.push(element);
+                });
+
+                return tempRtrn;
+            }
 
             return [respObj];
         }

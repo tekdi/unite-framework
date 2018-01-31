@@ -11,7 +11,33 @@ const ServiceCollection =  {
                             'mockService' : SunbirdMockDataService,
                             'sbprofile'   : SunbirdProfileDataService,
                             'sbcourses' : SunbirdCoursesDataService
-                        }
+                        }; 
+
+
+const widgets = {
+    'co1' : [
+        {
+            widName : 'Latest Courses',
+            source : "sunbird",
+            service : 'sbcourses',
+            defaultConfig : {
+                latest : true
+            },
+            renderer : 'carousel'
+        },
+        {
+            widName : 'Popular Courses',
+            source : "sunbird",
+            service : 'sbcourses',
+            defaultConfig : {
+                popular : true
+            },
+            renderer : 'carousel'
+        }
+    ],
+    'co2' : []
+}
+
 
 @Injectable()
 export class SunbirdDataSource
@@ -35,7 +61,6 @@ export class SunbirdDataSource
 
         let dsObj = new dsName(this.config, this._httpClient);
         return dsObj.getData().map(asdf => {
-            console.log("Inside mapaaa");
             return asdf;
         });
     }
@@ -44,7 +69,7 @@ export class SunbirdDataSource
     {
         let myRouteObj = [
             {path : "", service : "mockService", renderer : "sbHome"},
-            {path : "courses", service : "sbcourses", renderer : "carousel"},
+            {path : "courses", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
             {path : "profile", service : "sbprofile", renderer : "personal"}
 
         ]

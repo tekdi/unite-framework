@@ -11,7 +11,8 @@ import { SunbirdHomeRenderer } from './home/home.renderer';
 export const renderMapper = {
         grid : SunbirdGridRenderer,
         list : SunbirdListRenderer,
-        'sbHome' : SunbirdHomeRenderer
+        carousel : SunbirdListRenderer,
+        sbHome : SunbirdHomeRenderer
         // iconlist : SunbirdIconListRenderer,
         // carousel : SunbirdCarouselRenderer,
         // progressBar : SunbirdProgressbarRenderer,

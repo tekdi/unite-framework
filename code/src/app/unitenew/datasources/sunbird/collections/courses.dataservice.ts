@@ -19,6 +19,14 @@ export class SunbirdCoursesDataService
 
     getData()
     {
-        return this._httpClient.get("/assets/sunbirdCourses.json");
+        let headers = {"Content-Type": "application/json"}
+        
+        return this._httpClient.post(
+            this.config.defaultConfig.baseUrl + "/private/service/v1/content/composite/v1/search", 
+            this.config.defaultConfig.search_filter, 
+            {"headers": headers})
+        .map(data => { 
+            return data['result']['content']
+        });
     }
 }

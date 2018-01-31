@@ -21,18 +21,32 @@ const widgets = {
             source : "sunbird",
             service : 'sbcourses',
             defaultConfig : {
-                latest : true
+                latest : true,
+                baseUrl: "https://staging.open-sunbird.org",
+                search_filter: '{"request":{"filters":{"contentType":["Course"],"objectType":["Content"],"status":["Live"]},"sort_by":{"lastPublishedOn":"desc"},"limit":10}}'
             },
-            renderer : 'carousel'
+            renderer : 'carousel',
+            mapper :{
+                'image_url': 'appIcon', 
+                'caption': 'name',
+                'description': 'description'
+            }
         },
         {
             widName : 'Popular Courses',
             source : "sunbird",
             service : 'sbcourses',
             defaultConfig : {
-                popular : true
+                popular : true,
+                baseUrl: "https://staging.open-sunbird.org",
+                search_filter: '{"request":{"filters":{"contentType":["Course"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating"]}}'
             },
-            renderer : 'carousel'
+            renderer : 'carousel',
+            mapper :{
+                'image_url': 'appIcon', 
+                'caption': 'name',
+                'description': 'description'
+            }
         }
     ],
     'co2' : [

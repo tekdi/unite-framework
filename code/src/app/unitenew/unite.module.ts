@@ -1,7 +1,8 @@
 import { NgModule, SystemJsNgModuleLoader } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 
-import { PlatformLocation } from '@angular/common';
+
+import { PlatformLocation, CommonModule } from '@angular/common';
 
 import { SiteBranch } from './branch/site/site.branch';
 import { AdminBranch } from './branch/admin/admin.branch';
@@ -26,6 +27,7 @@ const uniteRoutes : Routes = [
 @NgModule({
     declarations : [SiteBranch, AdminBranch],
     imports : [
+        CommonModule,
         HttpClientModule,
         RouterModule.forChild(uniteRoutes)
     ],

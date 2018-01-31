@@ -56,6 +56,7 @@ export class UniteRouting{
                     finalDsRoute['defaultRenderer'] = roElement.renderer;
                     finalDsRoute['source'] = menuElement.dataSource;
                     finalDsRoute['widgets'] = roElement.widgets;
+                    finalDsRoute['showDefault'] = roElement.showDefault;
 
                     finalMenu.push(finalDsRoute);
                 });

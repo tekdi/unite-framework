@@ -86,6 +86,7 @@ export class RendererSelector {
 
                 (<DynamicComponent>thisCompRef.instance).data = data;
                 (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper: {};
+                (<DynamicComponent>thisCompRef.instance).widName = widInfo.widName;
             });
         }
     }

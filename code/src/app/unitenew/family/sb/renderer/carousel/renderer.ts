@@ -17,5 +17,7 @@ export class SunbirdCarouselRenderer{
     mapProperties(data, mapObj) {
         this.localMap = mapObj;
         this.localData = data;
+
+        console.log("chexkingsadfjlkdsajf ", data);
     }
 }

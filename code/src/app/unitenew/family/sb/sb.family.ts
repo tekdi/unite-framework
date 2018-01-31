@@ -1,3 +1,5 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes, ActivatedRoute} from '@angular/router'
 
@@ -18,7 +20,7 @@ const r : Routes = [
     ];
 
 @NgModule({
-    imports : [RouterModule.forChild(r)],
+    imports : [CommonModule,RouterModule.forChild(r)],
     declarations : [SbComp, sbTemplates, sbRenderers, TemplateSelector, RendererSelector, UniteMapperPipe],
     entryComponents : [sbTemplates, sbRenderers],
     providers : []

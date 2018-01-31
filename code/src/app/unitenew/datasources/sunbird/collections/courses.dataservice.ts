@@ -13,7 +13,7 @@ export class SunbirdCoursesDataService
     sbApiHeader = {};
 
 
-    constructor(config, private _httpClient? : HttpClient )
+    constructor(private config, private _httpClient? : HttpClient )
     {
     }
 

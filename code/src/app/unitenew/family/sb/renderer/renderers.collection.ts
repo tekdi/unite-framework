@@ -12,21 +12,21 @@ export const renderMapper = {
         grid : SunbirdGridRenderer,
         list : SunbirdListRenderer,
         carousel : SunbirdListRenderer,
-        sbHome : SunbirdHomeRenderer
-        // iconlist : SunbirdIconListRenderer,
+        sbHome : SunbirdHomeRenderer,
+        iconlist : SunbirdIconListRenderer,
         // carousel : SunbirdCarouselRenderer,
         // progressBar : SunbirdProgressbarRenderer,
-        // personal : SunbirdPersonalRenderer,
+        personal : SunbirdPersonalRenderer,
         // chart : SunbirdLinechartRenderer
 }
 
 export const sbRenderers = [
                                 SunbirdGridRenderer,
                                 SunbirdHomeRenderer,
-                                // SunbirdIconListRenderer,
+                                SunbirdIconListRenderer,
                                 SunbirdListRenderer,
                                 // SunbirdCarouselRenderer,
                                 // SunbirdProgressbarRenderer,
-                                // SunbirdPersonalRenderer,
+                                SunbirdPersonalRenderer
                                 // SunbirdLinechartRenderer
                         ]

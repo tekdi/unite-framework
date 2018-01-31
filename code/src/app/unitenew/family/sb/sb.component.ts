@@ -3,10 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { sbTemplatesMapper } from './templates/templates.collections';
 
 @Component({
-    template : `
-                    <div> I am SB main component </div>
-                    <ng-template [selectTemplate]="sbTemplates"></ng-template>
-                `,
+    template : `<ng-template [selectTemplate]="sbTemplates"></ng-template>`
 })
 export class SbComp{
 

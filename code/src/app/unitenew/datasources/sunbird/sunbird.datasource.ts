@@ -39,7 +39,7 @@ const widgets = {
             defaultConfig : {
                 popular : true,
                 baseUrl: "https://staging.open-sunbird.org",
-                search_filter: '{"request":{"filters":{"contentType":["Course"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating"]}}'
+                search_filter: '{"request":{"filters":{"contentType":["Course"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating", "appIcon"]}}'
             },
             renderer : 'carousel',
             mapper :{

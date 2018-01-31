@@ -61,6 +61,15 @@ export const factoryMapper =
         }
     },
 
+    "sbcourses":
+    {
+        'carousel' : {
+                'image_url' : 'appIcon',
+                'caption' : '',
+                'description' :''
+        }
+    },
+
     "tjlms-courses":
     {
         'carousel' : {

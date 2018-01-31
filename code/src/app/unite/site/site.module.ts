@@ -8,6 +8,7 @@ import { ChartsModule } from 'ng2-charts';
 import { SuiModule } from 'ng2-semantic-ui';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { SlickModule } from 'ngx-slick';
 
 import { WidgetService } from './site.service';
 import { SiteComponent } from './site.component';
@@ -26,7 +27,8 @@ import { UniteMapperPipe } from './mapper.pipe';
     SuiModule,
     BrowserAnimationsModule,
     MatButtonModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    SlickModule.forRoot()
   ],
   declarations: [
                   SiteComponent,

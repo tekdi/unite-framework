@@ -61,6 +61,15 @@ export const factoryMapper =
         }
     },
 
+    "sbcourses":
+    {
+        'carousel' : {
+                'image_url' : 'appIcon',
+                'caption' : '',
+                'description' :''
+        }
+    },
+
     "tjlms-courses":
     {
         'carousel' : {
@@ -89,11 +98,20 @@ export const factoryMapper =
             'desc' :'description',
             'metaLeft' : 'language.0',
             'metaRight':  'createdBy'
-            }
+        },
+        'carousel' : {
+            'image_url' : 'appIcon',
+            'caption' : 'name',
+            'description' :'description'
+        }
     },
     "sb-graph" :
     {
         "linechart" : {
+            "dataset" : "graphData",
+            "label" : "label"
+        },
+        "progressbar" : {
             "dataset" : "graphData",
             "label" : "label"
         }

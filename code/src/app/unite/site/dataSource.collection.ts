@@ -17,5 +17,6 @@ export const DataSource = {
     'profile' :  SunbirdDataSource,
     'tjlms-courses' :  TJLmsCoursesDataSource,
     'ek-lessons' : EkLessonsDataSource,
-    'sb-graph' : SunbirdDataSource
+    'sb-graph' : SunbirdDataSource,
+    'sbcourses' : SunbirdDataSource
 }

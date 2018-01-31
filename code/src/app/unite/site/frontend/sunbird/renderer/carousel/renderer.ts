@@ -18,4 +18,6 @@ export class SunbirdCarouselRenderer{
         this.localMap = mapObj;
         this.localData = data;
     }
+    slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
+    
 }

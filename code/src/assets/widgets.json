@@ -6,10 +6,10 @@
       "dataSource" : {
             "name" : "countries",
             "config" : {
-                "type" : "chekcing config"
+                "type" : "checking config"
             }
         },
-      "renderer_name":"carousal",
+      "renderer_name":"grid",
       "params":""
    },
    {  
@@ -31,7 +31,7 @@
                 "name" : "ek-lessons",
                 "config" : { }
         },
-      "renderer_name":"carousal",
+      "renderer_name":"carousel",
       "params":""
    },
    {  

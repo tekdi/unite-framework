@@ -89,7 +89,12 @@ export const factoryMapper =
             'desc' :'description',
             'metaLeft' : 'language.0',
             'metaRight':  'createdBy'
-            }
+        },
+        'carousel' : {
+            'image_url' : 'appIcon',
+            'caption' : 'name',
+            'description' :'description'
+        }
     },
     "sb-graph" :
     {

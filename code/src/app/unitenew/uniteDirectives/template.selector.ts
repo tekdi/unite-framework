@@ -1,5 +1,6 @@
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
-import { OneTemplate } from '../family/mat/templates/1/one.template'
+//import { OneTemplate } from '../family/sb/templates/1/one.template'
+import { GlobalConfig } from '../configs/global.configs';
 
 @Directive({
   selector: '[selectTemplate]'
@@ -7,10 +8,18 @@ import { OneTemplate } from '../family/mat/templates/1/one.template'
 export class TemplateSelector {
 
     @Input('selectTemplate') set config(value){
+      this.renderTemplate(value);
     }
-    constructor(public viewContainerRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver) {
+    constructor(
+                  private _vcRef: ViewContainerRef,
+                  private _cfResolver: ComponentFactoryResolver,
+                  private _glConfig : GlobalConfig
+              ) { }
 
-        let componentFactory = this.componentFactoryResolver.resolveComponentFactory(OneTemplate);
-        this.viewContainerRef.createComponent(componentFactory);
-     }
+    renderTemplate(value)
+    {
+        let siteConfig = this._glConfig.getGlobalConfig('site');
+        let componentFactory = this._cfResolver.resolveComponentFactory(value[siteConfig.template]);
+        this._vcRef.createComponent(componentFactory);
+    }
 }

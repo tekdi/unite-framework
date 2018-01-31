@@ -6,14 +6,21 @@ import { AppComponent } from './app.component';
 
 import { UniteModule } from './unite/unite.module';
 
+const r : Routes = [
+                {
+                  path : "",
+                  loadChildren : "./unitenew/unite.module#UniteModule",
+                  data: {'basePath' : ''}
+                }
+              ];
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    UniteModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot(r)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -40,8 +40,6 @@ export class RendererSelector {
                             ? this._pfLocation.pathname.replace(basePath, "").replace(/^\/+|\/+$/g, '')
                             : this._pfLocation.pathname.replace(/^\/+|\/+$/g, '');
 
-        console.log("-09-0-0-0-0-0-0-0-00 ", servicePath);
-
         let menuInfo = this._uniteRoute.parseUniteUrl(servicePath);
 
         console.log("menu informations ", menuInfo);
@@ -57,7 +55,11 @@ export class RendererSelector {
                     let thisCompRef = this._vcRef.createComponent(componentFactory);
 
                     this.loadServiceData(widInfo, thisCompRef);
-                } 
+                }
+                else
+                {
+                    console.log("ERROR :: renderer not found ", widRenderer);
+                }
             });
         }
         else
@@ -67,16 +69,23 @@ export class RendererSelector {
     }
 
     loadServiceData(widInfo, thisCompRef){
+
+        console.log("chekcing wid info000 = ", widInfo);
+
         if(this.dataCollection.hasOwnProperty(widInfo.source))
         {
-            let config = {urlData : widInfo.param};
+            let config = {
+                            urlData : widInfo.param,
+                            defaultConfig : widInfo['defaultConfig'] ? widInfo['defaultConfig'] : {}
+                        };
+
             let dataSourceClass = this.dataCollection[widInfo.source];
 
             let dataSourceObj   = new dataSourceClass(config, this._httpClient);
             dataSourceObj.getData(widInfo.service).subscribe(data => {
 
                 (<DynamicComponent>thisCompRef.instance).data = data;
-                (<DynamicComponent>thisCompRef.instance).mapper = {};
+                (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper: {};
             });
         }
     }

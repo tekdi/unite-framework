@@ -59,6 +59,7 @@ export class UniteRouting{
                     finalDsRoute['showDefault'] = roElement.hasOwnProperty('showDefault')
                                                 ? (roElement['showDefault'] ? true : false) 
                                                 : true;
+                    finalDsRoute['mapper'] = roElement['mapper'];
 
                     finalMenu.push(finalDsRoute);
                 });
@@ -123,7 +124,8 @@ export class UniteRouting{
                                     defaultRenderer : roElement['defaultRenderer'],
                                     widgets : roElement['widgets'],
                                     param : dynamicSegObj,
-                                    showDefault : roElement['showDefault']
+                                    showDefault : roElement['showDefault'],
+                                    mapper : roElement['mapper']
                                 };
 
                         mainDynamicSegObj = dynamicSegObj;

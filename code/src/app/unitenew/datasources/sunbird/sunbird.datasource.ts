@@ -21,18 +21,66 @@ const widgets = {
             source : "sunbird",
             service : 'sbcourses',
             defaultConfig : {
-                latest : true
+                latest : true,
+                baseUrl: "https://staging.open-sunbird.org",
+                search_filter: '{"request":{"filters":{"contentType":["Course"],"objectType":["Content"],"status":["Live"]},"sort_by":{"lastPublishedOn":"desc"},"limit":10}}'
             },
-            renderer : 'carousel'
+            renderer : 'carousel',
+            mapper :{
+                'image_url': 'appIcon', 
+                'caption': 'name',
+                'description': 'description'
+            }
         },
         {
             widName : 'Popular Courses',
             source : "sunbird",
             service : 'sbcourses',
             defaultConfig : {
-                popular : true
+                popular : true,
+                baseUrl: "https://staging.open-sunbird.org",
+                search_filter: '{"request":{"filters":{"contentType":["Course"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating", "appIcon"]}}'
             },
-            renderer : 'carousel'
+            renderer : 'carousel',
+            mapper :{
+                'image_url': 'appIcon', 
+                'caption': 'name',
+                'description': 'description'
+            }
+        }
+    ],
+    'co3' : [
+        {
+            widName : 'Popular Worksheets',
+            source : "sunbird",
+            service : 'sbcourses',
+            defaultConfig : {
+                popular : true,
+                baseUrl: "https://staging.open-sunbird.org",
+                search_filter: '{"request":{"filters":{"contentType":["Worksheet"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating", "appIcon"]}}'
+            },
+            renderer : 'carousel',
+            mapper :{
+                'image_url': 'appIcon', 
+                'caption': 'name',
+                'description': 'description'
+            }
+        },
+        {
+            widName : 'Popular Stories',
+            source : "sunbird",
+            service : 'sbcourses',
+            defaultConfig : {
+                popular : true,
+                baseUrl: "https://staging.open-sunbird.org",
+                search_filter: '{"request":{"filters":{"contentType":["Story"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating", "appIcon"]}}'
+            },
+            renderer : 'carousel',
+            mapper :{
+                'image_url': 'appIcon', 
+                'caption': 'name',
+                'description': 'description'
+            }
         }
     ],
     'co2' : [
@@ -167,6 +215,7 @@ export class SunbirdDataSource
         let myRouteObj = [
             {path : "", service : "mockService", renderer : "sbHome"},
             {path : "courses", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
+            {path : "library", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co3']},
             {path : "profile", service : "sbprofile", renderer : "personal", showDefault: false, widgets : widgets['co2']}
         ]
 

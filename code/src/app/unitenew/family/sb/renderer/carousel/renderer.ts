@@ -20,4 +20,5 @@ export class SunbirdCarouselRenderer{
 
         console.log("chexkingsadfjlkdsajf ", data);
     }
+    slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
 }

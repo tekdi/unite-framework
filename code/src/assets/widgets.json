@@ -9,7 +9,7 @@
                 "type" : "chekcing config"
             }
         },
-      "renderer_name":"grid",
+      "renderer_name":"carousal",
       "params":""
    },
    {  
@@ -31,7 +31,7 @@
                 "name" : "ek-lessons",
                 "config" : { }
         },
-      "renderer_name":"grid",
+      "renderer_name":"carousal",
       "params":""
    },
    {  
@@ -86,7 +86,7 @@
               "token": "f433ad6704bf118f4858fa233c6670c1d351f1a9"
            }
           },
-        "renderer_name":"grid",
+        "renderer_name":"carousal",
         "params":""
     },
     {  

@@ -14,13 +14,14 @@ import { sbTemplates } from './templates/templates.collections';
 import { sbRenderers } from './renderer/renderers.collection';
 
 import { UniteMapperPipe } from '../../pipes/mapper.pipe';
+import { SlickModule } from 'ngx-slick';
 
 const r : Routes = [ 
     {path : "", component : SbComp} 
     ];
 
 @NgModule({
-    imports : [CommonModule,RouterModule.forChild(r)],
+    imports : [CommonModule, SlickModule, RouterModule.forChild(r)],
     declarations : [SbComp, sbTemplates, sbRenderers, TemplateSelector, RendererSelector, UniteMapperPipe],
     entryComponents : [sbTemplates, sbRenderers],
     providers : []

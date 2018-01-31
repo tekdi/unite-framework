@@ -50,25 +50,70 @@ const widgets = {
         }
     ],
     'co2' : [
+         {
+             widName : 'Personal Information',
+             source : "sunbird",
+             service : 'sbprofile',
+             defaultConfig : {
+                 dataNode: "result.response"
+             },
+             mapper :{
+                 'fname' : 'firstName',
+                 'location' : 'location',
+                 'lname' : 'lastName',
+                 'img' : 'avatar',
+                 'username' : 'loginId',
+                 'lastLogin' : 'lastLogin'
+             },
+             renderer : 'personal'
+         },
+         {
+             widName : 'Address',
+             source : "sunbird",
+             service : 'sbprofile',
+             defaultConfig : {
+                 dataNode: "result.response.address"
+             },
+             mapper :{
+                 'image_url': 'icon', 
+                 'caption': 'addType',
+                 'description1': 'addressLine1',
+                 'description2': 'addressLine2',
+             },
+             renderer : 'iconlist'
+         },
         {
-            widName : 'Address',
+            widName : 'Education',
             source : "sunbird",
             service : 'sbprofile',
             defaultConfig : {
-                popular : true,
-                dataNode: "result.response.address"
+                dataNode: "result.response.education"
             },
             mapper :{
-                'image_url': 'avatar', 
-                'caption': 'addType',
-                'description1': 'addressLine1',
-                'description2': 'addressLine2',
+                'image_url' : 'icon',
+                'caption' : 'degree',
+                'description1' :'grade',
+                'description2' :'boardOrUniversity'
+            },
+            renderer : 'iconlist'
+        },
+        {
+            widName : 'Experience',
+            source : "sunbird",
+            service : 'sbprofile',
+            defaultConfig : {
+                dataNode: "result.response.jobProfile"
+            },
+            mapper :{
+                'image_url' : 'icon',
+                'caption' : 'jobName',
+                'description1' :'orgName',
+                'description2' :'role'
             },
             renderer : 'iconlist'
         },
     ]
 }
-
 
 @Injectable()
 export class SunbirdDataSource

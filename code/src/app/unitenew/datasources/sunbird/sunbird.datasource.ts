@@ -78,11 +78,6 @@ export class SunbirdDataSource
 
     constructor(private config, private _httpClient? : HttpClient )
     {
-        // let dsConfig = (config['dsName'] && rsCollection[config['dsName']])
-        //                 ? rsCollection[config['dsName']]
-        //                 : rsCollection['default'];
-
-        // this.dsConfigObj = new dsConfig(config, _httpClient);
     }
 
     getData(serviceName)
@@ -103,7 +98,6 @@ export class SunbirdDataSource
             {path : "", service : "mockService", renderer : "sbHome"},
             {path : "courses", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
             {path : "profile", service : "sbprofile", renderer : "personal", showDefault: false, widgets : widgets['co2']}
-
         ]
 
         return myRouteObj;

@@ -40,6 +40,8 @@ export class RendererSelector {
                             ? this._pfLocation.pathname.replace(basePath, "").replace(/^\/+|\/+$/g, '')
                             : this._pfLocation.pathname.replace(/^\/+|\/+$/g, '');
 
+        console.log("-09-0-0-0-0-0-0-0-00 ", servicePath);
+
         let menuInfo = this._uniteRoute.parseUniteUrl(servicePath);
 
         console.log("menu informations ", menuInfo);

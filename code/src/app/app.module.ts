@@ -8,9 +8,9 @@ import { UniteModule } from './unite/unite.module';
 
 const r : Routes = [
                 {
-                  path : "",
+                  path : "unite",
                   loadChildren : "./unitenew/unite.module#UniteModule",
-                  data: {'basePath' : ''}
+                  data: {'basePath' : 'unite'}
                 }
               ];
 

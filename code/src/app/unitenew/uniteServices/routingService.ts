@@ -15,6 +15,13 @@ export class UniteRouting{
                     "title":"Countries List",
                     "description":"",
                     "alias":"countries"
+                },
+                 {
+                    "menuId":"2",
+                    "dataSource" : "sunbird",
+                    "title":"Sunbird Site",
+                    "description":"",
+                    "alias":"sb-site"
                 }
             ]
     }
@@ -55,11 +62,12 @@ export class UniteRouting{
         });
 
         this.finalMenus = finalMenu;
+        console.log("This are the final dymaic menus ==== ", this.finalMenus);
     }
 
     parseUniteUrl(uniteUrl)
     {
-        console.log("parse unite url 1 ", uniteUrl);
+        console.log("parse unite url 1 ", this.finalMenus);
         if(uniteUrl)
         {
             let segArr = uniteUrl.split('/');

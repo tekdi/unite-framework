@@ -6,10 +6,12 @@ import { SunbirdIconListRenderer } from "./list/icon/renderer";
 import { SunbirdProgressbarRenderer } from "./chart/progressBar/renderer";
 import { SunbirdPersonalRenderer } from "./personal/renderer";
 import { SunbirdLinechartRenderer } from "./chart/line/renderer";
+import { SunbirdHomeRenderer } from './home/home.renderer';
 
 export const renderMapper = {
         grid : SunbirdGridRenderer,
         list : SunbirdListRenderer,
+        'sbHome' : SunbirdHomeRenderer
         // iconlist : SunbirdIconListRenderer,
         // carousel : SunbirdCarouselRenderer,
         // progressBar : SunbirdProgressbarRenderer,
@@ -19,6 +21,7 @@ export const renderMapper = {
 
 export const sbRenderers = [
                                 SunbirdGridRenderer,
+                                SunbirdHomeRenderer,
                                 // SunbirdIconListRenderer,
                                 SunbirdListRenderer,
                                 // SunbirdCarouselRenderer,

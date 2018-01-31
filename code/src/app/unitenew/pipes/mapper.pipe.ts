@@ -11,7 +11,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'uniteMapper'})
 export class UniteMapperPipe implements PipeTransform {
     transform(value, node: string): string {
-
         if(node.indexOf('.') !== -1)
         {
             let dataNode = node.split(".");

@@ -15,8 +15,8 @@ export class SunbirdProfileDataService
 
     constructor(private config, private _httpClient? : HttpClient )
     {
-        console.log(config);
-        this.dataNode = config['dataNode'];
+        
+        this.dataNode = config.defaultConfig['dataNode'];
         this.apiBase = environment.apiBase;
 
         var AuthorizationTo = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkMTc1MDIwNDdlODc0ODZjOTM0ZDQ1ODdlYTQ4MmM3MyJ9.7LWocwCn5rrCScFQYOne8_Op2EOo-xTCK5JCFarHKSs';
@@ -39,8 +39,8 @@ export class SunbirdProfileDataService
 
     getData()
     {
-        return this._httpClient.get("/assets/profileSunbird.json");
-        /*return this._httpClient.get(this.dataUrl, {headers: this.sbApiHeader})
+        //return this._httpClient.get("/assets/profileSunbird.json");
+        return this._httpClient.get("/assets/profileSunbird.json")
                                 .map(data => {
 
                                     if(this.dataNode)
@@ -57,6 +57,6 @@ export class SunbirdProfileDataService
                                     }
 
                                     return data['result']['response']
-                                });*/
+                                });
     }
 }

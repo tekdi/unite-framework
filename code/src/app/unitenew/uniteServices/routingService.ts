@@ -9,13 +9,13 @@ export class UniteRouting{
 
     constructor(){
         this.menus = [
-                {
-                    "menuId":"1",
-                    "dataSource" : "countries",
-                    "title":"Countries List",
-                    "description":"",
-                    "alias":"countries"
-                },
+                // {
+                //     "menuId":"1",
+                //     "dataSource" : "countries",
+                //     "title":"Countries List",
+                //     "description":"",
+                //     "alias":"countries"
+                // },
                  {
                     "menuId":"2",
                     "dataSource" : "sunbird",
@@ -56,7 +56,9 @@ export class UniteRouting{
                     finalDsRoute['defaultRenderer'] = roElement.renderer;
                     finalDsRoute['source'] = menuElement.dataSource;
                     finalDsRoute['widgets'] = roElement.widgets;
-                    finalDsRoute['showDefault'] = roElement.showDefault;
+                    finalDsRoute['showDefault'] = roElement.hasOwnProperty('showDefault')
+                                                ? (roElement['showDefault'] ? true : false) 
+                                                : true;
 
                     finalMenu.push(finalDsRoute);
                 });
@@ -120,7 +122,8 @@ export class UniteRouting{
                                     service : roElement['service'],
                                     defaultRenderer : roElement['defaultRenderer'],
                                     widgets : roElement['widgets'],
-                                    param : dynamicSegObj
+                                    param : dynamicSegObj,
+                                    showDefault : roElement['showDefault']
                                 };
 
                         mainDynamicSegObj = dynamicSegObj;
@@ -135,10 +138,13 @@ export class UniteRouting{
                 let tempRespObj = respObj;
                 let tempWidgets = respObj['widgets']
 
+                console.log("_(_()_()_()_()_(()_)_()_()_)_()_", respObj);
+
                 delete tempRespObj["widgets"];
 
-                if(respObj.hasOwnProperty('showDefault') && !respObj['showDefault'])
+                if(respObj.hasOwnProperty('showDefault') && respObj['showDefault'])
                 {
+                    console.log("-0-0-0-0-=0-0-=0-=0-=0-=0-0000-=0-=0-=0-=00");
                     tempRtrn.push(tempRespObj);
                 }
 

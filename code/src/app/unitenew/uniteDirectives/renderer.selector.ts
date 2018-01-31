@@ -78,13 +78,14 @@ export class RendererSelector {
                             urlData : widInfo.param,
                             defaultConfig : widInfo['defaultConfig'] ? widInfo['defaultConfig'] : {}
                         };
+
             let dataSourceClass = this.dataCollection[widInfo.source];
 
             let dataSourceObj   = new dataSourceClass(config, this._httpClient);
             dataSourceObj.getData(widInfo.service).subscribe(data => {
 
                 (<DynamicComponent>thisCompRef.instance).data = data;
-                (<DynamicComponent>thisCompRef.instance).mapper = {};
+                (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper: {};
             });
         }
     }

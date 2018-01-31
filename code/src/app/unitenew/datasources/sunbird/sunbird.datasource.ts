@@ -102,6 +102,18 @@ const widgets = {
              renderer : 'personal'
          },
          {
+            widName : 'Summary',
+            source : "sunbird",
+            service : 'sbprofile',
+            defaultConfig : {
+                dataNode: "result.response"
+            },
+            mapper :{
+                'description' : 'profileSummary',
+            },
+            renderer : 'divider'
+        },
+         {
              widName : 'Address',
              source : "sunbird",
              service : 'sbprofile',
@@ -146,6 +158,34 @@ const widgets = {
             },
             renderer : 'iconlist'
         },
+        {
+            widName : 'Profile Completeness',
+            source : "sunbird",
+            service : 'sbprofile',
+            defaultConfig : {
+                dataNode: "result.response"
+            },
+            mapper :{
+                'value' :'completeness',
+            },
+            renderer : 'progressBar'
+        },
+        {
+            widName : 'Addition Information',
+            source : "sunbird",
+            service : 'sbprofile',
+            defaultConfig : {
+                dataNode: "result.response"
+            },
+            mapper :{
+                'email' :'email',
+                'phone' :'phone',
+                'gender' :'gender',
+                'dob' :'dob',
+                'location' :'location',
+            },
+            renderer : 'additionalinfo'
+        }
     ]
 }
 

@@ -13,8 +13,9 @@ export class SunbirdProfileDataService
     sbApiHeader = {};
 
 
-    constructor(config, private _httpClient? : HttpClient )
+    constructor(private config, private _httpClient? : HttpClient )
     {
+        console.log(config);
         this.dataNode = config['dataNode'];
         this.apiBase = environment.apiBase;
 
@@ -38,7 +39,8 @@ export class SunbirdProfileDataService
 
     getData()
     {
-        return this._httpClient.get(this.dataUrl, {headers: this.sbApiHeader})
+        return this._httpClient.get("/assets/profileSunbird.json");
+        /*return this._httpClient.get(this.dataUrl, {headers: this.sbApiHeader})
                                 .map(data => {
 
                                     if(this.dataNode)
@@ -55,6 +57,6 @@ export class SunbirdProfileDataService
                                     }
 
                                     return data['result']['response']
-                                });
+                                });*/
     }
 }

@@ -17,7 +17,5 @@ export class SunbirdPersonalRenderer{
     mapProperties(data, mapObj) {
         this.localMap = mapObj;
         this.localData = data;
-
-        console.log("kitnneeeeeeyyy bbaaarrrrrrrrrr!!!! ", data);
     }
 }

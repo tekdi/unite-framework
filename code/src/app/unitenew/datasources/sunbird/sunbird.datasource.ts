@@ -49,6 +49,40 @@ const widgets = {
             }
         }
     ],
+    'co3' : [
+        {
+            widName : 'Popular Worksheets',
+            source : "sunbird",
+            service : 'sbcourses',
+            defaultConfig : {
+                popular : true,
+                baseUrl: "https://staging.open-sunbird.org",
+                search_filter: '{"request":{"filters":{"contentType":["Worksheet"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating", "appIcon"]}}'
+            },
+            renderer : 'carousel',
+            mapper :{
+                'image_url': 'appIcon', 
+                'caption': 'name',
+                'description': 'description'
+            }
+        },
+        {
+            widName : 'Popular Stories',
+            source : "sunbird",
+            service : 'sbcourses',
+            defaultConfig : {
+                popular : true,
+                baseUrl: "https://staging.open-sunbird.org",
+                search_filter: '{"request":{"filters":{"contentType":["Story"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating", "appIcon"]}}'
+            },
+            renderer : 'carousel',
+            mapper :{
+                'image_url': 'appIcon', 
+                'caption': 'name',
+                'description': 'description'
+            }
+        }
+    ],
     'co2' : [
          {
              widName : 'Personal Information',
@@ -141,6 +175,7 @@ export class SunbirdDataSource
         let myRouteObj = [
             {path : "", service : "mockService", renderer : "sbHome"},
             {path : "courses", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
+            {path : "library", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co3']},
             {path : "profile", service : "sbprofile", renderer : "personal", showDefault: false, widgets : widgets['co2']}
         ]
 

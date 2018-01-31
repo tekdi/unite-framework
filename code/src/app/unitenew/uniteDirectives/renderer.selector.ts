@@ -10,6 +10,7 @@ interface DynamicComponent {
     data: any;
     mapper: any;
     widName: any;
+    metadata: any;
   }
 
 @Directive({
@@ -74,10 +75,19 @@ export class RendererSelector {
 
         if(this.dataCollection.hasOwnProperty(widInfo.source))
         {
+
+
             let config = {
                             urlData : widInfo.param,
                             defaultConfig : widInfo['defaultConfig'] ? widInfo['defaultConfig'] : {}
                         };
+
+
+            let metadata = {
+                source : widInfo.source,
+                service : widInfo.service,
+                config : config
+            }
 
             let dataSourceClass = this.dataCollection[widInfo.source];
 
@@ -87,6 +97,8 @@ export class RendererSelector {
                 (<DynamicComponent>thisCompRef.instance).data = data;
                 (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper: {};
                 (<DynamicComponent>thisCompRef.instance).widName = widInfo.widName;
+                (<DynamicComponent>thisCompRef.instance).metadata = metadata;
+
             });
         }
     }

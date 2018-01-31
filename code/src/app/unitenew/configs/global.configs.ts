@@ -5,8 +5,8 @@ export class GlobalConfig{
     baserUnitePath;
     gbConfig = {
         site : {
-            family : "bs4",
-            template : '1'
+            family : "sb",
+            template : 'one'
         },
         admin : {
             family : "mat",

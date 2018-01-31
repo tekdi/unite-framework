@@ -56,6 +56,12 @@ const widgets = {
             defaultConfig : {
                 popular : true
             },
+            mapper :{
+                'image_url': '', 
+                'caption': 'addType',
+                'description1': 'addressLine1',
+                'description2': 'addressLine2',
+            },
             renderer : 'iconlist'
         },
         {

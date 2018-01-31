@@ -102,7 +102,7 @@ export class SunbirdDataSource
         let myRouteObj = [
             {path : "", service : "mockService", renderer : "sbHome"},
             {path : "courses", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
-            {path : "profile", service : "sbprofile", renderer : "list", showDefault: true, widgets : widgets['co2']}
+            {path : "profile", service : "sbprofile", renderer : "personal", showDefault: false, widgets : widgets['co2']}
 
         ]
 

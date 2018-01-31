@@ -9,7 +9,7 @@ import { SbComp } from './sb.component';
 
 import { UniteRouting } from '../../uniteServices/routingService';
 
-import { SuiModule } from 'ng2-semantic-ui';
+import { SuiModule, SuiProgressModule } from 'ng2-semantic-ui';
 import { sbTemplates } from './templates/templates.collections';
 import { sbRenderers } from './renderer/renderers.collection';
 
@@ -21,7 +21,7 @@ const r : Routes = [
     ];
 
 @NgModule({
-    imports : [CommonModule, SlickModule, RouterModule.forChild(r)],
+    imports : [CommonModule, SlickModule, SuiProgressModule, RouterModule.forChild(r)],
     declarations : [SbComp, sbTemplates, sbRenderers, TemplateSelector, RendererSelector, UniteMapperPipe],
     entryComponents : [sbTemplates, sbRenderers],
     providers : []

@@ -11,10 +11,9 @@ jobs:
       - checkout
       - type: shell
         command: |
-          ls
           cd code
           ls
-          npm install
           sudo npm install @angular/cli
+          npm install
           ng -v
           ng build --prod

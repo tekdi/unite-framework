@@ -24,6 +24,11 @@
 	</div>
 
 	<div *ngIf="!localData">
-		Loading.......
+		<div class="loader">
+			<div class="lds-ripple">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 	</div>
 </ngx-slick>

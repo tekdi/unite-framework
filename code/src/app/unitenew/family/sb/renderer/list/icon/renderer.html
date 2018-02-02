@@ -15,9 +15,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="item" *ngIf="!localData">
-					Loding.......
-				</div>
+				<div *ngIf="!localData">
+						<div class="loader">
+							<div class="lds-ripple">
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+					</div>
 			</div>
 		</div>
 	</div>

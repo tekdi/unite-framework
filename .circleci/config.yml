@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/angular-cli-circleci
+    docker:
+      - image: circleci/node:6-browsers
+    branches:
+      only:
+        - v2
+    steps:
+      - checkout
+      - run:
+          name: Install Angular CLI
+          command: 'sudo npm install -g @angular/cli'
+      - type: shell
+        command: |
+          cd code
+          ls
+          npm install
+          ng -v
+          ng build

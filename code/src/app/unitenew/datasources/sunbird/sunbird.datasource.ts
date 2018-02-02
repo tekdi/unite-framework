@@ -213,10 +213,11 @@ export class SunbirdDataSource
     setRoutes(baseSegment)
     {
         let myRouteObj = [
-            {path : "", service : "mockService", renderer : "sbHome"},
-            {path : "courses", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
-            {path : "library", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co3']},
-            {path : "profile", service : "sbprofile", renderer : "personal", showDefault: false, widgets : widgets['co2']}
+            {title:"Home", path : "", service : "mockService", renderer : "sbHome"},
+            {title:"Courses", path : "courses", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
+            {title:"Courses New", path : "courses/new", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
+            {title :"Library", path : "library", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co3']},
+            {title : "Profile", path : "profile", service : "sbprofile", renderer : "personal", showDefault: false, widgets : widgets['co2']}
         ]
 
         return myRouteObj;

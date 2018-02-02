@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalConfig{
     baserUnitePath;
+    baserFamilyPath;
     gbConfig = {
         site : {
             family : "sb",

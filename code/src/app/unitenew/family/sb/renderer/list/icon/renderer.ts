@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 export class SunbirdIconListRenderer{
     @Input() data : Array<any>;
     @Input() widName;
+    loading = true;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);
     };
@@ -20,5 +21,6 @@ export class SunbirdIconListRenderer{
         console.log('Local Data ===>>',data);
         this.localMap = mapObj;
         this.localData = data;
+        this.loading = false;
     }
 }

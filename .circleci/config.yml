@@ -15,6 +15,6 @@ jobs:
           cd code
           ls
           npm install
-          npm install @angular/cli
+          sudo npm install @angular/cli
           ng -v
           ng build --prod

@@ -3,14 +3,14 @@ jobs:
   build:
     working_directory: ~/angular-cli-circleci
     docker:
-      - image: circleci/node:6-browsers
+      - image: circleci/node:8.9.4-browsers
     branches:
       only:
         - v2
     steps:
       - checkout
       - run:
-          name: Update npm
+          name: Install Angular CLI
           command: 'sudo npm install -g @angular/cli'
       - type: shell
         command: |
@@ -18,4 +18,4 @@ jobs:
           ls
           npm install
           ng -v
-          ng build --prod
+          ng build

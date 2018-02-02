@@ -1,6 +1,14 @@
 <div class="ui grid">
     <div class="twelve wide column padding-bottom-none">
         <div class="margin-top-20 ui raised segment">
+                <div *ngIf="!localData">
+                        <div class="loader">
+                            <div class="lds-ripple">
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
                 <div class="header announcementCard-header">
                     <span class="header cardsHeading"> {{widName}} Additional Information</span>
                 </div>

@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Install Angular CLI
-          command: 'sudo npm install -g @angular/cli'
+          command: 'npm install -g @angular/cli'
       - type: shell
         command: |
           cd code

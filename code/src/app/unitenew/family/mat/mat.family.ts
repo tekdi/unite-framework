@@ -6,23 +6,27 @@ import { RendererSelector } from '../../uniteDirectives/renderer.selector';
 import { MatComp } from './mat.component';
 
 import { UniteRouting } from '../../uniteServices/routingService'
-import { matRenderers } from './templates/templates.collections';
-import { GridRenderer } from './renderers/grid/grid.renderer';
-
+import { matTemplates } from './templates/templates.collections';
+import { matRenderers } from './renderers/renderers.collection';
 
 const r : Routes = [ 
-    {path : "", component : MatComp} 
+    {path : "**", component : MatComp} 
     ];
 
 @NgModule({
     imports : [RouterModule.forChild(r)],
-    declarations : [MatComp, TemplateSelector, RendererSelector, matRenderers, GridRenderer],
-    entryComponents : [matRenderers, GridRenderer],
+    declarations : [
+                        MatComp,
+                        TemplateSelector,
+                        RendererSelector,
+                        matRenderers,
+                        matTemplates
+                    ],
+    entryComponents : [matRenderers, matTemplates],
     providers : []
 })
 export class MatFamily{
     constructor(){
-
         console.log("this is MAT family....");
     }
 }

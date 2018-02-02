@@ -13,5 +13,6 @@ jobs:
         command: |
           ls 
           git checkout v2
-          ng -v
-          node -v
+          cd code
+          npm install
+          

@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/angular-cli-circleci
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:6-browsers
     branches:
       only:
         - v2

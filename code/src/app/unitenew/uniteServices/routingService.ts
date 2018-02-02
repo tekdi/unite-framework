@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
+import { GlobalConfig } from '../configs/global.configs';
 
 @Injectable()
 export class UniteRouting{
@@ -7,7 +8,7 @@ export class UniteRouting{
     menus;
     finalMenus;
 
-    constructor(){
+    constructor(private _gbConfig : GlobalConfig){
         this.menus = [
                 // {
                 //     "menuId":"1",
@@ -73,7 +74,7 @@ export class UniteRouting{
 
     parseUniteUrl(uniteUrl)
     {
-        console.log("parse unite url 1 ", this.finalMenus);
+        console.log("parse unite url 1 ", uniteUrl, this.finalMenus);
         if(uniteUrl)
         {
             let segArr = uniteUrl.split('/');
@@ -159,6 +160,28 @@ export class UniteRouting{
 
             return [respObj];
         }
+    }
+
+    getAllMenus()
+    {
+        let finalUniteBasePath = "";
+        let menusToReturn = [];
+        let finalMenus = this.finalMenus;
+
+        finalUniteBasePath += this._gbConfig.baserUnitePath['basePath'] ? this._gbConfig.baserUnitePath.basePath + "/" : "";
+        finalUniteBasePath += this._gbConfig.baserFamilyPath['basePath'] ? this._gbConfig.baserFamilyPath.basePath + "/" : '';
+
+        finalMenus.forEach(element => {
+            let thisElement = element;
+            if(thisElement.path.indexOf(':') == -1)
+            {
+                thisElement.path = "/" + finalUniteBasePath + thisElement.path;
+                menusToReturn.push(thisElement);
+            }
+        });
+
+        return menusToReturn;
+
     }
 
 

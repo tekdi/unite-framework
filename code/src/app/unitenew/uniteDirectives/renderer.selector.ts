@@ -36,10 +36,18 @@ export class RendererSelector {
 
     renderWidgetsForPage(availableRenderes){
         let basePath = this._glbConfig.baserUnitePath.basePath;
+        let baseFamilypath = this._glbConfig.baserFamilyPath.basePath;
 
-        let servicePath = basePath
-                            ? this._pfLocation.pathname.replace(basePath, "").replace(/^\/+|\/+$/g, '')
-                            : this._pfLocation.pathname.replace(/^\/+|\/+$/g, '');
+        console.log("chekicng for baseeeeeeeeee pathhhhhhhhh ", basePath, this._pfLocation.pathname);
+
+        let servicePath = this._pfLocation.pathname;
+        // servicePath     = basePath
+        //                     ? this._pfLocation.pathname.replace(basePath, "").replace(/^\/+|\/+$/g, '')
+        //                     : this._pfLocation.pathname.replace(/^\/+|\/+$/g, '');
+
+        // servicePath     = baseFamilypath
+        //                     ? servicePath.replace(baseFamilypath, "").replace(/^\/+|\/+$/g, '')
+        //                     : servicePath.replace(/^\/+|\/+$/g, '');
 
         let menuInfo = this._uniteRoute.parseUniteUrl(servicePath);
 

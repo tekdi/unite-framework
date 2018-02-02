@@ -1,4 +1,4 @@
-<div class="ui grid">
+<!--<div class="ui grid">
     <div class="center aligned twelve column row padding-top-2rem headerBackground">
         <div class="one wide column"></div>
         <div class="two wide column">
@@ -43,16 +43,18 @@
                      <a class="item">Logout</a>
                     </div></div></div>
     </div>
-</div> 
+</div> -->
 
 <div class="ui menu secondary pointing center aligned">
-    <!--<a class="item" *ngFor="let menu of pagesMenu" [routerLink]="['/' + menu.alias] " routerLinkActive="active">
-    {{ menu.title }}
-    </a>-->
-    <a class="item" routerLink="/sb-site">Home</a>
+
+    <ng-container *ngFor="let menu of uniteMenus">
+        <a class="item" [href]="menu.path">{{menu.widName}}</a>
+    </ng-container>
+
+    <!--<a class="item" routerLink="/sb-site">Home</a>
     <a class="item" routerLink="/sb-site/courses">Courses</a>
     <a class="item" routerLink="/sb-site/library">Library</a>
-    <a class="item" routerLink="/sb-site/profile">Profile</a>
+    <a class="item" routerLink="/sb-site/profile">Profile</a>-->
 </div>
 
 <div>

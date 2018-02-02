@@ -17,7 +17,7 @@ import { UniteMapperPipe } from '../../pipes/mapper.pipe';
 import { SlickModule } from 'ngx-slick';
 
 const r : Routes = [ 
-    {path : "", component : SbComp} 
+    {path : "**", component : SbComp} 
     ];
 
 @NgModule({

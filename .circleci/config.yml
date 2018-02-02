@@ -1,9 +1,9 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/angular-cli-circleci
+    working_directory: /project/workplace/
     docker:
-      - image: circleci/node:6-browsers
+      - image: lakhanmandloi/sunbird-ubuntu-fuller
     branches:
       only:
         - v2

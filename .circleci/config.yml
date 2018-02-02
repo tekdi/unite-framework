@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /project/workplace/
     docker:
-      - image: lakhanmandloi/sunbird-ubuntu-fuller
+      - image: lakhanmandloi/angular-aws
     branches:
       only:
         - v2
@@ -23,4 +23,3 @@ jobs:
           ng -v
           ng build
           aws s3 sync dist/ s3://unite-framework --delete
-          

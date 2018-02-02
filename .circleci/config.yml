@@ -9,11 +9,13 @@ jobs:
         - v2
     steps:
       - checkout
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
       - type: shell
         command: |
           cd code
           ls
-          sudo npm install @angular/cli
           npm install
           ng -v
           ng build --prod

@@ -11,8 +11,9 @@ jobs:
       - checkout
       - type: shell
         command: |
-          ls 
-          git checkout v2
+          ls
           cd code
+          ls
           npm install
-          
+          ng -v
+          ng build --prod

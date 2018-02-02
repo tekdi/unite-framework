@@ -15,7 +15,9 @@ jobs:
       - type: shell
         command: |
           cd code
+          aws help s3
           ls
           npm install
           ng -v
           ng build
+          

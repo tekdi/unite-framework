@@ -57,7 +57,6 @@ export class RendererSelector {
         {
             menuInfo.forEach(widInfo => {
                 let widRenderer = widInfo['renderer'] ? widInfo['renderer'] : widInfo['defaultRenderer'];
-
                 if(availableRenderes.hasOwnProperty(widRenderer))
                 {
                     let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
@@ -100,13 +99,12 @@ export class RendererSelector {
             let dataSourceClass = this.dataCollection[widInfo.source];
 
             let dataSourceObj   = new dataSourceClass(config, this._httpClient);
-            dataSourceObj.getData(widInfo.service).subscribe(data => {
-
+            dataSourceObj.getData(widInfo.service).subscribe(data =>
+            {
                 (<DynamicComponent>thisCompRef.instance).data = data;
                 (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper: {};
                 (<DynamicComponent>thisCompRef.instance).widName = widInfo.widName;
                 (<DynamicComponent>thisCompRef.instance).metadata = metadata;
-
             });
         }
     }

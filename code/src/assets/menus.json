@@ -1,0 +1,9 @@
+[
+  {
+    "menuId":"2",
+    "dataSource" : "sunbird",
+    "title":"Sunbird Site",
+    "description":"",
+    "alias":"sb-site"
+  }
+]

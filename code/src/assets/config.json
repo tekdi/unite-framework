@@ -1,12 +1,20 @@
 {
-    "config":{
-        "site_name": "Unite Framework",
-        "site_meta_desc": "Integrate Anything!! Literally!!",
-        "site_meta_keywords": "Unite Framwork, CMS",
-        "site_robots":"Index,Follow",
-        "site_timezone":"GMT",
-        "language": "en-GB",
-        "ui": "sunbird"
+    "site" :{
+        "family" : "sb",
+        "template": "one",
+        "name": "Unite Framework Frontend",
+        "meta_desc": "Integrate Anything!! Literally!!",
+        "meta_keywords": "Unite Framwork, CMS",
+        "robots":"Index,Follow",
+        "timezone":"GMT",
+        "language": "en-GB"
+    },
+    "admin" :{
+        "family" : "mat",
+        "template": "two",
+        "name": "Unite Framework Administrator",
+        "meta_desc": "Integrate Anything!! Literally!!",
+        "timezone":"GMT",
+        "language": "en-GB"
     }
 }
-

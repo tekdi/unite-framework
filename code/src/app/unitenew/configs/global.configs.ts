@@ -17,5 +17,4 @@ export class GlobalConfig{
                     return data[branch];
                 });
     }
-
 }

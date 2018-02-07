@@ -18,10 +18,18 @@ export class TemplateSelector {
 
     renderTemplate(value)
     {
+        console.log('Values',value);
         //@Todo - Need to improve this code
         this._glConfig.getGlobalConfig('site').subscribe(data => {
-            let componentFactory = this._cfResolver.resolveComponentFactory(value[data.template]);
-            this._vcRef.createComponent(componentFactory);
+            //let template = value[data.template] ? value[data.template] :'one';
+            if(value[data.template])
+            {
+                let componentFactory = this._cfResolver.resolveComponentFactory(value[data.template]);
+                this._vcRef.createComponent(componentFactory);
+            }
+            else{
+                console.log('ERROR : Template not found...');
+            }
         });
     }
 }

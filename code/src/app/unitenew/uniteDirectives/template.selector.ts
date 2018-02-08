@@ -21,7 +21,6 @@ export class TemplateSelector {
         console.log('Values',value);
         //@Todo - Need to improve this code
         this._glConfig.getGlobalConfig('site').subscribe(data => {
-            //let template = value[data.template] ? value[data.template] :'one';
             if(value[data.template])
             {
                 let componentFactory = this._cfResolver.resolveComponentFactory(value[data.template]);

@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-import { UniteModule } from './unite/unite.module';
-
 const r : Routes = [
                 {
                   path : "",

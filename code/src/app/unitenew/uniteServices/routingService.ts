@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+//import { Observable } from "rxjs/Observable";
 import { GlobalConfig } from '../configs/global.configs';
+import { Menues } from '../configs/menus.configs';
 
 @Injectable()
 export class UniteRouting{
@@ -8,28 +9,14 @@ export class UniteRouting{
     menus;
     finalMenus;
 
-    constructor(private _gbConfig : GlobalConfig){
-        this.menus = [
-                // {
-                //     "menuId":"1",
-                //     "dataSource" : "countries",
-                //     "title":"Countries List",
-                //     "description":"",
-                //     "alias":"countries"
-                // },
-                 {
-                    "menuId":"2",
-                    "dataSource" : "sunbird",
-                    "title":"Sunbird Site",
-                    "description":"",
-                    "alias":"sb-site"
-                }
-            ]
+    constructor(private _gbConfig : GlobalConfig,private _menu     : Menues ){
     }
 
-    getMenus () : Observable<any>
-    {
-        return this.menus;
+    getMenus(dataSources){
+        this._menu.getMenus().subscribe(data =>{
+            this.menus = data;
+            this.createDynamicMenus(dataSources);
+        });
     }
 
     createDynamicMenus(dataSources)

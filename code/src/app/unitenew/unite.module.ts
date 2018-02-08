@@ -8,6 +8,7 @@ import { SiteBranch } from './branch/site/site.branch';
 import { AdminBranch } from './branch/admin/admin.branch';
 
 import { GlobalConfig } from './configs/global.configs';
+import { Menues } from './configs/menus.configs';
 import { UniteRouting } from './uniteServices/routingService';
 
 import { dataSources } from './datasources/sources.collection';
@@ -37,13 +38,12 @@ const uniteRoutes : Routes = [
         HttpClientModule,
         RouterModule.forChild(uniteRoutes)
     ],
-    providers : [GlobalConfig, SystemJsNgModuleLoader, UniteRouting]
+    providers : [Menues,GlobalConfig, SystemJsNgModuleLoader, UniteRouting]
 })
 export class UniteModule{
 
     constructor( private _uniteRouting : UniteRouting )
     {
-        this._uniteRouting.createDynamicMenus(dataSources);
+        this._uniteRouting.getMenus(dataSources);
     }
-
 }

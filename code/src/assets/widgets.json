@@ -1,221 +1,283 @@
-{
-    "co1" : [
-        {
-            "widName" : "Latest Courses",
-            "source" : "sunbird",
-            "service" : "sbcourses",
-            "defaultConfig" : {
-                "baseUrl" : "https://staging.open-sunbird.org",
-                "search_filter": {
+[
+    {
+        "widName" : "Personal Information",
+        "page_id" : "5",
+        "source"  : "sunbird",
+        "service" : "sbprofile",
+        "defaultConfig" : {
+            "dataNode": "result.response"
+        },
+        "mapper" :{
+            "fname" : "firstName",
+            "location" : "location",
+            "lname": "lastName",
+            "img" : "avatar",
+            "username" : "loginId",
+            "lastLogin" : "lastLogin"
+        },
+        "renderer" : "personal"
+    },
+    {
+        "widName" : "Summary",
+        "page_id" : "5",
+        "source"  : "sunbird",
+        "service" : "sbprofile",
+        "defaultConfig" : {
+            "dataNode" : "result.response"
+        },
+        "mapper" :{
+            "description" : "profileSummary"
+        },
+        "renderer" : "divider"
+    },
+    {
+        "widName" : "Address",
+        "source"  : "sunbird",
+        "page_id" : "5",
+        "service" : "sbprofile",
+        "defaultConfig" : {
+            "dataNode" : "result.response.address"
+        },
+        "mapper" :{
+            "image_url": "icon", 
+            "caption": "addType",
+            "description1": "addressLine1",
+            "description2": "addressLine2"
+        },
+        "renderer" : "iconlist"
+    },
+    {
+        "widName" : "Education",
+        "page_id" : "5",
+        "source"  : "sunbird",
+        "service" : "sbprofile",
+        "defaultConfig" : {
+            "dataNode": "result.response.education"
+        },
+        "mapper" :{
+            "image_url" : "icon",
+            "caption" : "degree",
+            "description1" :"grade",
+            "description2" :"boardOrUniversity"
+        },
+        "renderer" : "iconlist"
+    },
+    {
+        "widName" : "Experience",
+        "page_id" : "5",
+        "source"  : "sunbird",
+        "service" : "sbprofile",
+        "defaultConfig" : {
+            "dataNode" : "result.response.jobProfile"
+        },
+        "mapper" :{
+            "image_url" : "icon",
+            "caption" : "jobName",
+            "description1" : "orgName",
+            "description2" : "role"
+        },
+        "renderer" : "iconlist"
+    },
+    {
+        "widName" : "Profile Completeness",
+        "page_id" : "5",
+        "source"  : "sunbird",
+        "service" : "sbprofile",
+        "defaultConfig" : {
+            "dataNode" : "result.response"
+        },
+        "mapper" :{
+            "value" : "completeness"
+        },
+        "renderer" : "progressBar"
+    },
+    {
+        "widName" : "Addition Information",
+        "page_id" : "5",
+        "source"  : "sunbird",
+        "service" : "sbprofile",
+        "defaultConfig" : {
+            "dataNode" : "result.response"
+        },
+        "mapper" :{
+            "email"    : "email",
+            "phone"    : "phone",
+            "gender"   : "gender",
+            "dob"      : "dob",
+            "location" : "location"
+        },
+        "renderer" : "additionalinfo"
+    },
+    {
+        "widName" : "Latest Courses",
+        "page_id" : "2",
+        "source" : "sunbird",
+        "service" : "sbcourses",
+        "defaultConfig" : {
+            "baseUrl": "https://staging.open-sunbird.org",
+            "search_filter": {
                         "request":{
-                                "filters":{
-                                        "contentType":["Course"],
-                                        "objectType":["Content"],
-                                        "status":["Live"]
-                                },
-                                "sort_by":{
-                                        "lastPublishedOn":"desc"
-                                },
+                            "filters":{
+                                "contentType":["Course"],
+                                "objectType":["Content"],
+                                "status":["Live"]
+                            },
+                        "sort_by":{
+                            "lastPublishedOn":"desc"
+                        },
                         "limit":10
                     }
                 }
-            },
-            "renderer" : "carousel",
-            "mapper" :{
-                "image_url": "appIcon", 
-                "caption": "name",
-                "description": "description"
+        },
+        "renderer" : "carousel",
+        "mapper" :{
+            "image_url": "appIcon", 
+            "caption": "name",
+            "description": "description"
+        }
+    },
+    {
+        "widName" : "Popular Courses",
+        "page_id":"2",
+        "source"  : "sunbird",
+        "service" : "sbcourses",
+        "defaultConfig" : {
+            "baseUrl": "https://staging.open-sunbird.org",
+            "search_filter": {
+                "request":{
+                    "filters":{
+                        "contentType":["Course"],
+                        "objectType":["Content"],
+                        "status":["Live"]
+                    },
+                    "sort_by":{
+                        "me_averageRating":"desc"
+                    },
+                    "limit":10, 
+                    "exists":["me_averageRating", "appIcon"]
+                }
             }
         },
-        {
-            "widName" : "Popular Courses",
-            "source" : "sunbird",
-            "service" : "sbcourses",
-            "defaultConfig" : {
-                "baseUrl": "https://staging.open-sunbird.org",
-                "search_filter": {
-                    "request":{
-                        "filters":{
-                            "contentType":["Course"],
-                            "objectType":["Content"],
-                            "status":["Live"]
-                        },
+        "renderer" : "carousel",
+        "mapper" :{
+            "image_url": "appIcon", 
+            "caption": "name",
+            "description": "description"
+        }
+    },
+    {
+        "widName" : "Latest Courses",
+        "page_id" : "3",
+        "source" : "sunbird",
+        "service" : "sbcourses",
+        "defaultConfig" : {
+            "baseUrl": "https://staging.open-sunbird.org",
+            "search_filter": {
+                        "request":{
+                            "filters":{
+                                "contentType":["Course"],
+                                "objectType":["Content"],
+                                "status":["Live"]
+                            },
                         "sort_by":{
-                            "me_averageRating":"desc"
+                            "lastPublishedOn":"desc"
                         },
-                        "limit":10, 
-                        "exists":["me_averageRating", "appIcon"]
+                        "limit":10
                     }
                 }
-            },
-            "renderer" : "carousel",
-            "mapper" :{
-                "image_url": "appIcon", 
-                "caption": "name",
-                "description": "description"
-            }
+        },
+        "renderer" : "carousel",
+        "mapper" :{
+            "image_url": "appIcon", 
+            "caption": "name",
+            "description": "description"
         }
-    ],
-    "co3" : [
-        {
-            "widName" : "Popular Worksheets",
-            "source" : "sunbird",
-            "service" : "sbcourses",
-            "defaultConfig" : {
-                "baseUrl": "https://staging.open-sunbird.org",
-                "search_filter": {
-                    "request":{
-                        "filters":{
-                            "contentType":["Worksheet"],
-                            "objectType":["Content"],
-                            "status":["Live"]
-                        },
-                        "sort_by":{
-                            "me_averageRating":"desc"
-                        },
-                        "limit":10, 
-                        "exists":["me_averageRating", "appIcon"]
-                    }
+    },
+    {
+        "widName" : "Popular Courses",
+        "page_id":"3",
+        "source"  : "sunbird",
+        "service" : "sbcourses",
+        "defaultConfig" : {
+            "baseUrl": "https://staging.open-sunbird.org",
+            "search_filter": {
+                "request":{
+                    "filters":{
+                        "contentType":["Course"],
+                        "objectType":["Content"],
+                        "status":["Live"]
+                    },
+                    "sort_by":{
+                        "me_averageRating":"desc"
+                    },
+                    "limit":10, 
+                    "exists":["me_averageRating", "appIcon"]
                 }
-            },
-            "renderer" : "carousel",
-            "mapper" :{
-                "image_url": "appIcon", 
-                "caption": "name",
-                "description": "description"
             }
         },
-        {
-            "widName" : "Popular Stories",
-            "source"  : "sunbird",
-            "service" : "sbcourses",
-            "defaultConfig" : {
-                "baseUrl": "https://staging.open-sunbird.org",
-                "search_filter": {
-                    "request":{
-                        "filters":{
-                            "contentType":["Story"],
-                            "objectType":["Content"],
-                            "status":["Live"]
-                        },
-                        "sort_by":{
-                            "me_averageRating":"desc"
-                        },
-                        "limit":10, 
-                        "exists":["me_averageRating", "appIcon"]
-                    }
+        "renderer" : "carousel",
+        "mapper" :{
+            "image_url": "appIcon", 
+            "caption": "name",
+            "description": "description"
+        }
+    },
+    {
+        "widName" : "Popular Worksheets",
+        "page_id":"4",
+        "source" : "sunbird",
+        "service" : "sbcourses",
+        "defaultConfig" : {
+            "baseUrl": "https://staging.open-sunbird.org",
+            "search_filter": {
+                "request":{
+                    "filters":{
+                        "contentType":["Worksheet"],
+                        "objectType":["Content"],
+                        "status":["Live"]
+                    },
+                    "sort_by":{
+                        "me_averageRating":"desc"
+                    },
+                "limit":10, 
+                "exists":["me_averageRating", "appIcon"]
                 }
-            },
-            "renderer" : "carousel",
-            "mapper" :{
-                "image_url": "appIcon", 
-                "caption": "name",
-                "description": "description"
             }
+        },
+        "renderer" : "carousel",
+        "mapper" :{
+            "image_url": "appIcon", 
+            "caption": "name",
+            "description": "description"
         }
-    ],
-    "co2" : [
-        {
-            "widName" : "Personal Information",
-            "source"  : "sunbird",
-            "service" : "sbprofile",
-            "defaultConfig" : {
-                 "dataNode": "result.response"
-             },
-             "mapper" :{
-                 "fname" : "firstName",
-                 "location" : "location",
-                 "lname": "lastName",
-                 "img" : "avatar",
-                 "username" : "loginId",
-                 "lastLogin" : "lastLogin"
-             },
-             "renderer" : "personal"
+    },
+    {
+        "widName" : "Popular Stories",
+        "page_id" : "4",
+        "source" : "sunbird",
+        "service" : "sbcourses",
+        "defaultConfig" : {
+            "baseUrl": "https://staging.open-sunbird.org",
+            "search_filter": {
+                "request":{
+                    "filters":{
+                        "contentType":["Story"],
+                        "objectType":["Content"],
+                        "status":["Live"]
+                    },
+                    "sort_by":{
+                        "me_averageRating":"desc"
+                    },
+                    "limit":10, 
+                    "exists":["me_averageRating", "appIcon"]
+                }
+            }
         },
-        {
-            "widName" : "Summary",
-            "source"  : "sunbird",
-            "service" : "sbprofile",
-            "defaultConfig" : {
-                "dataNode" : "result.response"
-            },
-            "mapper" :{
-                "description" : "profileSummary"
-            },
-            "renderer" : "divider"
-        },
-        {
-            "widName" : "Address",
-            "source"  : "sunbird",
-            "service" : "sbprofile",
-            "defaultConfig" : {
-                 "dataNode" : "result.response.address"
-            },
-            "mapper" :{
-                 "image_url": "icon", 
-                 "caption": "addType",
-                 "description1": "addressLine1",
-                 "description2": "addressLine2"
-            },
-            "renderer" : "iconlist"
-        },
-        {
-            "widName" : "Education",
-            "source"  : "sunbird",
-            "service" : "sbprofile",
-            "defaultConfig" : {
-                "dataNode": "result.response.education"
-            },
-            "mapper" :{
-                "image_url" : "icon",
-                "caption" : "degree",
-                "description1" :"grade",
-                "description2" :"boardOrUniversity"
-            },
-            "renderer" : "iconlist"
-        },
-        {
-            "widName" : "Experience",
-            "source"  : "sunbird",
-            "service" : "sbprofile",
-            "defaultConfig" : {
-                "dataNode" : "result.response.jobProfile"
-            },
-            "mapper" :{
-                "image_url" : "icon",
-                "caption" : "jobName",
-                "description1" : "orgName",
-                "description2" : "role"
-            },
-            "renderer" : "iconlist"
-        },
-        {
-            "widName" : "Profile Completeness",
-            "source"  : "sunbird",
-            "service" : "sbprofile",
-            "defaultConfig" : {
-                "dataNode" : "result.response"
-            },
-            "mapper" :{
-                "value" : "completeness"
-            },
-            "renderer" : "progressBar"
-        },
-        {
-            "widName" : "Addition Information",
-            "source"  : "sunbird",
-            "service" : "sbprofile",
-            "defaultConfig" : {
-                "dataNode" : "result.response"
-            },
-            "mapper" :{
-                "email"    : "email",
-                "phone"    : "phone",
-                "gender"   : "gender",
-                "dob"      : "dob",
-                "location" : "location"
-            },
-            "renderer" : "additionalinfo"
+        "renderer" : "carousel",
+        "mapper" :{
+            "image_url": "appIcon", 
+            "caption": "name",
+            "description": "description"
         }
-    ]
-}
+    }
+]

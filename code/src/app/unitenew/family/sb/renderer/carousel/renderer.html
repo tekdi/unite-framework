@@ -3,7 +3,7 @@
 	<div ngxSlickItem *ngFor="let unit of localData" class="slide">
 		<div class="ui link cards">
 			<div class="sliderCards ui card margin-right-20 margin-top-15">
-				<a href="#" class="image imageInCardsResponsive">
+				<a [href]="unit | uniteLinker: localMap['link']" class="image imageInCardsResponsive">
 					<img [src]="unit | uniteMapper: localMap['image_url']" [alt]="unit | uniteMapper: localMap['caption']">
 					<div class="cardImageText center aligned">
 						<span class="sliderCardHeading text-cencapitalize ng-binding">{{unit | uniteMapper: localMap['caption']}}</span>

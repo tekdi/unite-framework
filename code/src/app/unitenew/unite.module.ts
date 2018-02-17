@@ -39,7 +39,8 @@ const uniteRoutes : Routes = [
         HttpClientModule,
         RouterModule.forChild(uniteRoutes)
     ],
-    providers : [Menues,Widgets,GlobalConfig, SystemJsNgModuleLoader, UniteRouting]
+    providers : [Menues,Widgets,GlobalConfig, SystemJsNgModuleLoader, UniteRouting, UniteMapperPipe]
+
 })
 export class UniteModule{
 

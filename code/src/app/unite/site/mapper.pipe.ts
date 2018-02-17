@@ -21,7 +21,7 @@ export class UniteMapperPipe implements PipeTransform {
             dataNode.forEach(element => {
                 myFinalValue = myFinalValue[element];
             });
-            
+
             return myFinalValue;
         }
         else

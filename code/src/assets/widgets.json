@@ -133,7 +133,13 @@
         "mapper" :{
             "image_url": "appIcon", 
             "caption": "name",
-            "description": "description"
+            "description": "description",
+            "link" : {
+                "page_id" : "6",
+                "urlParams" : {
+                    "courseId" : "IL_UNIQUE_ID"
+                }
+            }
         }
     },
     {

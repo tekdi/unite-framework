@@ -13,6 +13,7 @@ import { sbTemplates } from './templates/templates.collections';
 import { sbRenderers } from './renderer/renderers.collection';
 
 import { UniteMapperPipe } from '../../pipes/mapper.pipe';
+import { UniteLinkerPipe } from '../../pipes/linker.pipe';
 import { SlickModule } from 'ngx-slick';
 
 const r : Routes = [ 
@@ -21,7 +22,15 @@ const r : Routes = [
 
 @NgModule({
     imports : [CommonModule, SlickModule, SuiProgressModule, RouterModule.forChild(r)],
-    declarations : [SbComp, sbTemplates, sbRenderers, TemplateSelector, RendererSelector, UniteMapperPipe],
+    declarations : [
+                    SbComp,
+                    sbTemplates,
+                    sbRenderers,
+                    TemplateSelector,
+                    RendererSelector,
+                    UniteMapperPipe,
+                    UniteLinkerPipe
+                    ],
     entryComponents : [sbTemplates, sbRenderers],
     providers : []
 })

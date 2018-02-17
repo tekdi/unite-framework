@@ -45,23 +45,5 @@ export class UniteLinkerPipe implements PipeTransform {
                 }
             }
         }
-
-        // if(node.indexOf('.') !== -1)
-        // {
-        //     let dataNode = node.split(".");
-
-        //     let myFinalValue = value;
-            
-        //     dataNode.forEach(element => {
-        //         myFinalValue = myFinalValue[element];
-        //     });
-            
-        //     return myFinalValue;
-        // }
-        // else
-        // {
-        //     return value[node];
-        // }
-        return "checking";
     }
   }

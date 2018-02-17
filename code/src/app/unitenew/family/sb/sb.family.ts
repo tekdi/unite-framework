@@ -4,6 +4,7 @@ import {RouterModule, Routes, ActivatedRoute} from '@angular/router'
 
 import { TemplateSelector } from '../../uniteDirectives/template.selector';
 import { RendererSelector } from '../../uniteDirectives/renderer.selector';
+import { UniteLinkDirective } from '../../uniteDirectives/makelink.directive';
 import { SbComp } from './sb.component';
 
 import { UniteRouting } from '../../uniteServices/routingService';
@@ -29,7 +30,8 @@ const r : Routes = [
                     TemplateSelector,
                     RendererSelector,
                     UniteMapperPipe,
-                    UniteLinkerPipe
+                    UniteLinkerPipe,
+                    UniteLinkDirective
                     ],
     entryComponents : [sbTemplates, sbRenderers],
     providers : []

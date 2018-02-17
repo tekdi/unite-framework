@@ -9,6 +9,7 @@ import { AdminBranch } from './branch/admin/admin.branch';
 
 import { GlobalConfig } from './configs/global.configs';
 import { Menues } from './configs/menus.configs';
+import { Widgets } from './configs/widgets.config';
 import { UniteRouting } from './uniteServices/routingService';
 
 import { dataSources } from './datasources/sources.collection';
@@ -38,7 +39,7 @@ const uniteRoutes : Routes = [
         HttpClientModule,
         RouterModule.forChild(uniteRoutes)
     ],
-    providers : [Menues,GlobalConfig, SystemJsNgModuleLoader, UniteRouting]
+    providers : [Menues,Widgets,GlobalConfig, SystemJsNgModuleLoader, UniteRouting]
 })
 export class UniteModule{
 

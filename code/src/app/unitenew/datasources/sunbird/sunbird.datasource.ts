@@ -1,7 +1,6 @@
 import { SunbirdProfileDataService } from './collections/profile.dataservice';
 import { SunbirdCoursesDataService } from './collections/courses.dataservice';
 import { SunbirdMockDataService } from './collections/mock.dataservice';
-
 import { SBGraphDataSource } from './collections/graph.datasource';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -11,190 +10,13 @@ const ServiceCollection =  {
                             'mockService' : SunbirdMockDataService,
                             'sbprofile'   : SunbirdProfileDataService,
                             'sbcourses' : SunbirdCoursesDataService
-                        }; 
-
-
-const widgets = {
-    'co1' : [
-        {
-            widName : 'Latest Courses',
-            source : "sunbird",
-            service : 'sbcourses',
-            defaultConfig : {
-                latest : true,
-                baseUrl: "https://staging.open-sunbird.org",
-                search_filter: '{"request":{"filters":{"contentType":["Course"],"objectType":["Content"],"status":["Live"]},"sort_by":{"lastPublishedOn":"desc"},"limit":10}}'
-            },
-            renderer : 'carousel',
-            mapper :{
-                'image_url': 'appIcon', 
-                'caption': 'name',
-                'description': 'description'
-            }
-        },
-        {
-            widName : 'Popular Courses',
-            source : "sunbird",
-            service : 'sbcourses',
-            defaultConfig : {
-                popular : true,
-                baseUrl: "https://staging.open-sunbird.org",
-                search_filter: '{"request":{"filters":{"contentType":["Course"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating", "appIcon"]}}'
-            },
-            renderer : 'carousel',
-            mapper :{
-                'image_url': 'appIcon', 
-                'caption': 'name',
-                'description': 'description'
-            }
-        }
-    ],
-    'co3' : [
-        {
-            widName : 'Popular Worksheets',
-            source : "sunbird",
-            service : 'sbcourses',
-            defaultConfig : {
-                popular : true,
-                baseUrl: "https://staging.open-sunbird.org",
-                search_filter: '{"request":{"filters":{"contentType":["Worksheet"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating", "appIcon"]}}'
-            },
-            renderer : 'carousel',
-            mapper :{
-                'image_url': 'appIcon', 
-                'caption': 'name',
-                'description': 'description'
-            }
-        },
-        {
-            widName : 'Popular Stories',
-            source : "sunbird",
-            service : 'sbcourses',
-            defaultConfig : {
-                popular : true,
-                baseUrl: "https://staging.open-sunbird.org",
-                search_filter: '{"request":{"filters":{"contentType":["Story"],"objectType":["Content"],"status":["Live"]},"sort_by":{"me_averageRating":"desc"},"limit":10, "exists":["me_averageRating", "appIcon"]}}'
-            },
-            renderer : 'carousel',
-            mapper :{
-                'image_url': 'appIcon', 
-                'caption': 'name',
-                'description': 'description'
-            }
-        }
-    ],
-    'co2' : [
-         {
-             widName : 'Personal Information',
-             source : "sunbird",
-             service : 'sbprofile',
-             defaultConfig : {
-                 dataNode: "result.response"
-             },
-             mapper :{
-                 'fname' : 'firstName',
-                 'location' : 'location',
-                 'lname' : 'lastName',
-                 'img' : 'avatar',
-                 'username' : 'loginId',
-                 'lastLogin' : 'lastLogin'
-             },
-             renderer : 'personal'
-         },
-         {
-            widName : 'Summary',
-            source : "sunbird",
-            service : 'sbprofile',
-            defaultConfig : {
-                dataNode: "result.response"
-            },
-            mapper :{
-                'description' : 'profileSummary',
-            },
-            renderer : 'divider'
-        },
-         {
-             widName : 'Address',
-             source : "sunbird",
-             service : 'sbprofile',
-             defaultConfig : {
-                 dataNode: "result.response.address"
-             },
-             mapper :{
-                 'image_url': 'icon', 
-                 'caption': 'addType',
-                 'description1': 'addressLine1',
-                 'description2': 'addressLine2',
-             },
-             renderer : 'iconlist'
-         },
-        {
-            widName : 'Education',
-            source : "sunbird",
-            service : 'sbprofile',
-            defaultConfig : {
-                dataNode: "result.response.education"
-            },
-            mapper :{
-                'image_url' : 'icon',
-                'caption' : 'degree',
-                'description1' :'grade',
-                'description2' :'boardOrUniversity'
-            },
-            renderer : 'iconlist'
-        },
-        {
-            widName : 'Experience',
-            source : "sunbird",
-            service : 'sbprofile',
-            defaultConfig : {
-                dataNode: "result.response.jobProfile"
-            },
-            mapper :{
-                'image_url' : 'icon',
-                'caption' : 'jobName',
-                'description1' :'orgName',
-                'description2' :'role'
-            },
-            renderer : 'iconlist'
-        },
-        {
-            widName : 'Profile Completeness',
-            source : "sunbird",
-            service : 'sbprofile',
-            defaultConfig : {
-                dataNode: "result.response"
-            },
-            mapper :{
-                'value' :'completeness',
-            },
-            renderer : 'progressBar'
-        },
-        {
-            widName : 'Addition Information',
-            source : "sunbird",
-            service : 'sbprofile',
-            defaultConfig : {
-                dataNode: "result.response"
-            },
-            mapper :{
-                'email' :'email',
-                'phone' :'phone',
-                'gender' :'gender',
-                'dob' :'dob',
-                'location' :'location',
-            },
-            renderer : 'additionalinfo'
-        }
-    ]
-}
-
+                        };
+                        
 @Injectable()
 export class SunbirdDataSource
 {
     private dsConfigObj;
-
-    constructor(private config, private _httpClient? : HttpClient )
+    constructor(private config, private _httpClient? : HttpClient)
     {
     }
 
@@ -213,13 +35,12 @@ export class SunbirdDataSource
     setRoutes(baseSegment)
     {
         let myRouteObj = [
-            {title:"Home", path : "", service : "mockService", renderer : "sbHome"},
-            {title:"Courses", path : "courses", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
-            {title:"Courses New", path : "courses/new", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co1']},
-            {title :"Library", path : "library", service : "sbcourses", renderer : "carousel", showDefault: false, widgets : widgets['co3']},
-            {title : "Profile", path : "profile", service : "sbprofile", renderer : "personal", showDefault: false, widgets : widgets['co2']}
+            {title:"Home", path : "", id:"1"},
+            {title:"Courses", path : "courses", id:"2"},
+            {title:"New Course", path : "courses/new", id:"3"},
+            {title :"Library", path : "library", id:"4"},
+            {title : "Profile", path : "profile", id:"5"}
         ]
-
         return myRouteObj;
     }
 }

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 //import { Observable } from "rxjs/Observable";
 import { GlobalConfig } from '../configs/global.configs';
 import { Menues } from '../configs/menus.configs';
+import { Widgets } from '../configs/widgets.config';
 
 @Injectable()
 export class UniteRouting{
@@ -9,7 +10,7 @@ export class UniteRouting{
     menus;
     finalMenus;
 
-    constructor(private _gbConfig : GlobalConfig,private _menu     : Menues ){
+    constructor(private _gbConfig : GlobalConfig,private _menu: Menues, private _widget : Widgets ){
     }
 
     getMenus(dataSources){
@@ -40,15 +41,16 @@ export class UniteRouting{
                     finalDsRoute['path'] = roElement['path'] && roElement['path'] !== ""
                                             ? menuElement.alias + "/" + roElement.path
                                             : menuElement.alias ;
-                    finalDsRoute['service'] = roElement.service;
-                    finalDsRoute['defaultRenderer'] = roElement.renderer;
-                    finalDsRoute['source'] = menuElement.dataSource;
-                    finalDsRoute['widgets'] = roElement.widgets;
-                    finalDsRoute['showDefault'] = roElement.hasOwnProperty('showDefault')
-                                                ? (roElement['showDefault'] ? true : false) 
-                                                : true;
-                    finalDsRoute['mapper'] = roElement['mapper'];
-                    finalDsRoute['widName'] = roElement['title'];
+                    finalDsRoute['page_id'] = roElement['id'];
+                    //finalDsRoute['service'] = roElement.service;
+                    //finalDsRoute['defaultRenderer'] = roElement.renderer;
+                    //finalDsRoute['source'] = menuElement.dataSource;
+                    //finalDsRoute['widgets'] = roElement.widgets;
+                    //finalDsRoute['showDefault'] = roElement.hasOwnProperty('showDefault')
+                    //                            ? (roElement['showDefault'] ? true : false) 
+                    //                            : true;
+                    //finalDsRoute['mapper'] = roElement['mapper'];
+                    finalDsRoute['menuName'] = roElement['title'];
 
                     finalMenu.push(finalDsRoute);
                 });
@@ -57,6 +59,8 @@ export class UniteRouting{
 
         this.finalMenus = finalMenu;
         console.log("This are the final dymaic menus ==== ", this.finalMenus);
+        this.getAllWidgets();
+        //console.log('Let Wale Widgets', widgets);
     }
 
     parseUniteUrl(uniteUrl)
@@ -115,7 +119,7 @@ export class UniteRouting{
                                     param : dynamicSegObj,
                                     showDefault : roElement['showDefault'],
                                     mapper : roElement['mapper'],
-                                    widName : roElement['widName']
+                                    widName : roElement['menuName']
                                 };
 
                         mainDynamicSegObj = dynamicSegObj;
@@ -169,5 +173,38 @@ export class UniteRouting{
 
         return menusToReturn;
 
+    }
+
+    getAllWidgets()
+    {
+        this._widget.getWidgets().subscribe(data =>{
+            this.mapWidgetsWithPages(data);
+        });
+    }
+
+    mapWidgetsWithPages(widgets)
+    {
+        let i = 0;
+        this.finalMenus.forEach(menuElement => {
+            
+            if(menuElement.page_id)
+            {
+                let widgetsArray = [];
+                widgets.forEach(widget => {
+                    let menuPage = parseInt(menuElement.page_id);
+                    let widgetPage = parseInt(widget.page_id);
+                    
+                    if(menuPage == widgetPage)
+                    {
+                        widgetsArray.push(widget);
+                    }
+                });
+                
+                this.finalMenus[i]['widgets']= widgetsArray;
+                console.log('Final Menu',this.finalMenus);
+            }
+            i++;
+        });
+        console.log('Final Menues After Mapping',this.finalMenus);
     }
 }

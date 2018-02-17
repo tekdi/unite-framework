@@ -14,6 +14,7 @@ import { UniteRouting } from './uniteServices/routingService';
 
 import { dataSources } from './datasources/sources.collection';
 import { UniteMapperPipe } from './pipes/mapper.pipe';
+import { UniteLinkerPipe } from './pipes/linker.pipe';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -39,7 +40,8 @@ const uniteRoutes : Routes = [
         HttpClientModule,
         RouterModule.forChild(uniteRoutes)
     ],
-    providers : [Menues,Widgets,GlobalConfig, SystemJsNgModuleLoader, UniteRouting]
+    providers : [Menues,Widgets,GlobalConfig, SystemJsNgModuleLoader, UniteRouting, UniteMapperPipe, UniteLinkerPipe]
+
 })
 export class UniteModule{
 

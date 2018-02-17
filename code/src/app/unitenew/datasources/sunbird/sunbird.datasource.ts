@@ -39,7 +39,8 @@ export class SunbirdDataSource
             {title:"Courses", path : "courses", id:"2"},
             {title:"New Course", path : "courses/new", id:"3"},
             {title :"Library", path : "library", id:"4"},
-            {title : "Profile", path : "profile", id:"5"}
+            {title : "Profile", path : "profile", id:"5"},
+            {title : "Single Course", path : "course/:courseId", id :"6"}
         ]
         return myRouteObj;
     }

@@ -184,26 +184,18 @@ export class UniteRouting{
 
     mapWidgetsWithPages(widgets)
     {
-        let i = 0;
-        this.finalMenus.forEach(menuElement => {
-            
-            if(menuElement.page_id)
-            {
+        this.finalMenus.forEach((menuElement, index) => {    
+            if(menuElement.page_id) {
                 let widgetsArray = [];
                 widgets.forEach(widget => {
-                    let menuPage = parseInt(menuElement.page_id);
-                    let widgetPage = parseInt(widget.page_id);
-                    
-                    if(menuPage == widgetPage)
-                    {
+                    if (parseInt(menuElement.page_id) == parseInt(widget.page_id)) {
                         widgetsArray.push(widget);
                     }
                 });
                 
-                this.finalMenus[i]['widgets']= widgetsArray;
+                this.finalMenus[index]['widgets']= widgetsArray;
                 console.log('Final Menu',this.finalMenus);
             }
-            i++;
         });
         console.log('Final Menues After Mapping',this.finalMenus);
     }

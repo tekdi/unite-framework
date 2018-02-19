@@ -194,7 +194,6 @@ export class UniteRouting{
                 });
                 
                 this.finalMenus[index]['widgets']= widgetsArray;
-                console.log('Final Menu',this.finalMenus);
             }
         });
         console.log('Final Menues After Mapping',this.finalMenus);

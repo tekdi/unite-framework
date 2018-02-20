@@ -99,7 +99,20 @@ export class RendererSelector {
             let dataSourceClass = this.dataCollection[widInfo.source];
 
             let dataSourceObj   = new dataSourceClass(config, this._httpClient);
-            dataSourceObj.getData(widInfo.service).subscribe(data =>
+            dataSourceObj.getData(widInfo.service).map(data => {
+                console.log('Default config ahet.......====',widInfo['defaultConfig']);               
+                if(widInfo['defaultConfig']['dataNode'])
+                               {
+                                  let dataNode2 = widInfo['defaultConfig']['dataNode'].split(".");
+                                  let myFinalValue = data;
+                                    dataNode2.forEach(element => {
+                                            myFinalValue = myFinalValue[element];
+                                    });
+                                    return myFinalValue;
+                                 }
+                                return data;
+            })
+            .subscribe(data =>
             {
                 (<DynamicComponent>thisCompRef.instance).data = data;
                 (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper: {};

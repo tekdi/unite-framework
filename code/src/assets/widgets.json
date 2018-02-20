@@ -309,7 +309,7 @@
             }
         },
         "mapper" :{
-            "name" : "title",
+            "title" : "result.content.name",
             "star" : "me_totalRatings"
         },
         "renderer" : "rating"

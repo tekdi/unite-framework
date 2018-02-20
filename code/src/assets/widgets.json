@@ -285,5 +285,33 @@
             "caption": "name",
             "description": "description"
         }
+    },
+    {
+        "widName" : "Course Information",
+        "page_id" : "6",
+        "source"  : "sunbird",
+        "service" : "course",
+        "defaultConfig" : {
+            "baseUrl": "https://staging.open-sunbird.org",
+            "search_filter": {
+                "request":{
+                    "filters":{
+                        "contentType":["Story"],
+                        "objectType":["Content"],
+                        "status":["Live"]
+                    },
+                    "sort_by":{
+                        "me_averageRating":"desc"
+                    },
+                    "limit":10, 
+                    "exists":["me_averageRating", "appIcon"]
+                }
+            }
+        },
+        "mapper" :{
+            "name" : "title",
+            "star" : "me_totalRatings"
+        },
+        "renderer" : "rating"
     }
 ]

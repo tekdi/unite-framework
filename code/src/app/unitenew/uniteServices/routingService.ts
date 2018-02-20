@@ -39,8 +39,8 @@ export class UniteRouting{
                     let pathStr = roElement.path;
 
                     finalDsRoute['path'] = roElement['path'] && roElement['path'] !== ""
-                                            ? menuElement.alias + "/" + roElement.path
-                                            : menuElement.alias ;
+                                            ? "/" + menuElement.alias + "/" + roElement.path
+                                            : "/" + menuElement.alias ;
                     finalDsRoute['page_id'] = roElement['id'];
                     //finalDsRoute['service'] = roElement.service;
                     //finalDsRoute['defaultRenderer'] = roElement.renderer;
@@ -51,6 +51,8 @@ export class UniteRouting{
                     //                            : true;
                     //finalDsRoute['mapper'] = roElement['mapper'];
                     finalDsRoute['menuName'] = roElement['title'];
+
+                    console.log("findsroute -=-=-=-=--=-=-", finalDsRoute);
 
                     finalMenu.push(finalDsRoute);
                 });

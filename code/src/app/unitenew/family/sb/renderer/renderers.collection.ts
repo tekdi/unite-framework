@@ -9,6 +9,7 @@ import { SunbirdDividerRenderer } from "./divider/renderer";
 import { SunbirdAdditionInformationRenderer } from "./additionalinfo/renderer";
 import { SunbirdLinechartRenderer } from "./chart/line/renderer";
 import { SunbirdHomeRenderer } from './home/home.renderer';
+import { SunbirdRatingRenderer } from './chart/rating/renderer';
 
 export const renderMapper = {
         grid : SunbirdGridRenderer,
@@ -19,7 +20,8 @@ export const renderMapper = {
         divider : SunbirdDividerRenderer,
         progressBar : SunbirdProgressbarRenderer,
         personal : SunbirdPersonalRenderer,
-        additionalinfo : SunbirdAdditionInformationRenderer
+        additionalinfo : SunbirdAdditionInformationRenderer,
+        rating : SunbirdRatingRenderer
         // chart : SunbirdLinechartRenderer
 }
 
@@ -32,6 +34,7 @@ export const sbRenderers = [
                                 SunbirdDividerRenderer,
                                 SunbirdProgressbarRenderer,
                                 SunbirdPersonalRenderer,
-                                SunbirdAdditionInformationRenderer
+                                SunbirdAdditionInformationRenderer,
+                                SunbirdRatingRenderer
                                 // SunbirdLinechartRenderer
                         ]

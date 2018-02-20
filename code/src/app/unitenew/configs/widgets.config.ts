@@ -9,8 +9,6 @@ export class Widgets{
     }
 
     getWidgets() {
-        return this._httpClient.get("/assets/widgets.json").map(data => {
-            return data;
-        });
+        return this._httpClient.get("/assets/widgets.json");
     }
 }

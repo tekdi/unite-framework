@@ -40,23 +40,6 @@ export class SunbirdProfileDataService
     getData()
     {
         //return this._httpClient.get("/assets/profileSunbird.json");
-        return this._httpClient.get("/assets/profileSunbird.json")
-                                .map(data => {
-
-                                    if(this.dataNode)
-                                    {
-                                        let dataNode2 = this.dataNode.split(".");
-                                        
-                                        let myFinalValue = data;
-
-                                        dataNode2.forEach(element => {
-                                            myFinalValue = myFinalValue[element];
-                                        });
-
-                                        return myFinalValue;
-                                    }
-
-                                    return data['result']['response']
-                                });
+        return this._httpClient.get("/assets/profileSunbird.json");
     }
 }

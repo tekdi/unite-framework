@@ -4,10 +4,10 @@
   </div>
   <br/>
   <div>
-    <h1>  Course Name: {{ localData | uniteMapper: localMap['title']}}</h1>
+    <h1>{{ localData | uniteMapper: localMap['title']}}</h1>
   </div>
   <div>
-    Star Count : {{ localData | uniteMapper: localMap['star']}}
+  {{ localData | uniteMapper: localMap['star']}}
   </div>
   <!--sui-progress [value]="localData | uniteMapper: localMap['value']" [showProgress]="10" [maximum]="100" [precision]="0">
   </sui-progress-->

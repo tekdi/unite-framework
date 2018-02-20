@@ -1,5 +1,6 @@
 import { SunbirdProfileDataService } from './collections/profile.dataservice';
 import { SunbirdCoursesDataService } from './collections/courses.dataservice';
+import { SunbirdCourseDataService } from './collections/course.dataservice';
 import { SunbirdMockDataService } from './collections/mock.dataservice';
 import { SBGraphDataSource } from './collections/graph.datasource';
 import { Injectable } from '@angular/core';
@@ -9,7 +10,8 @@ const ServiceCollection =  {
                             'default' : SunbirdMockDataService,
                             'mockService' : SunbirdMockDataService,
                             'sbprofile'   : SunbirdProfileDataService,
-                            'sbcourses' : SunbirdCoursesDataService
+                            'sbcourses' : SunbirdCoursesDataService,
+                            'course': SunbirdCourseDataService,
                         };
                         
 @Injectable()

@@ -168,7 +168,7 @@ export class UniteRouting{
             let thisElement = element;
             if(thisElement.path.indexOf(':') == -1)
             {
-                thisElement.path = "/" + finalUniteBasePath + thisElement.path;
+                thisElement.path = finalUniteBasePath + thisElement.path;
                 menusToReturn.push(thisElement);
             }
         });

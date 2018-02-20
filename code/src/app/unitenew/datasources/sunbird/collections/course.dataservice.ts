@@ -15,8 +15,8 @@ export class SunbirdCourseDataService {
     constructor(private config, private _httpClient?: HttpClient) {
     }
 
-    getData(courseName) {
+    getData() {
         return this._httpClient.get(
-            this.config.defaultConfig.baseUrl + "/private/service/v1/content/course/v1/hierarchy/do_212282810256941056178");
+            this.config.defaultConfig.baseUrl + "/private/service/v1/content/course/v1/hierarchy/" + this.config.urlData.courseId);
     }
 }

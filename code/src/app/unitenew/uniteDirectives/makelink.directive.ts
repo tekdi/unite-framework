@@ -21,7 +21,8 @@ export class UniteLinkDirective {
 
             if(thisLink)
             {
-                this._elRef.nativeElement.href = thisLink;
+                console.log("lksajdfkdsaflksadfsadf", thisLink.replace(/^\/|\/$/g, ''));
+                this._elRef.nativeElement.href = thisLink.replace(/^\/|\/$/g, '');
             }
         }
     }

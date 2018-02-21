@@ -1,0 +1,42 @@
+{
+  "name": "widget",
+  "plural": "widgets",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "widName": {
+      "type": "string",
+      "required": true
+    },
+    "source": {
+      "type": "string",
+      "required": true
+    },
+    "service": {
+      "type": "string",
+      "required": true
+    },
+    "page_id": {
+      "type": "number",
+      "required": true
+    },
+    "renderer": {
+      "type": "string"
+    },
+    "defaultConfig": {
+      "type": "object",
+      "required": true
+    },
+    "mapper": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

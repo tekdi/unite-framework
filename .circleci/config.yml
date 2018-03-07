@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /project/workplace/
     docker:
-      - image: lakhanmandloi/angular-aws
+      - image: lakhanmandloi/docker-alpine-angular-aws
     branches:
       only:
         - v2

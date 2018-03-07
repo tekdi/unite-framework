@@ -11,9 +11,11 @@ jobs:
       - checkout
       - type: shell
         command: |
-          cd code
+          cd web
           ls
           ng -v
           npm install
           ng build
           aws s3 sync dist/ s3://unite-framework --delete
+          npm run doc
+          aws s3 sync documentation/ s3://unite-framework-docs --delete

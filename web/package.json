@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json"
+    "doc": "./node_modules/.bin/compodoc -p tsconfig.json --hideGenerator --theme 'material' --name 'Unite Framework' "
   },
   "private": true,
   "dependencies": {

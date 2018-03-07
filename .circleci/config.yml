@@ -18,4 +18,4 @@ jobs:
           ng build
           aws s3 sync dist/ s3://unite-framework --delete
           npm run doc
-          aws s3 sync dist/ s3://unite-framework-docs --delete
+          aws s3 sync documentation/ s3://unite-framework-docs --delete

@@ -41,3 +41,23 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Server files
+/server/*.csv
+/server/*.dat
+/server/*.iml
+/server/*.log
+/server/*.out
+/server/*.pid
+/server/*.seed
+/server/*.swo
+/server/*.swp
+/server/*.tgz
+/server/*.xml
+/server/.DS_Store
+/server/.idea
+/server/.project
+/server/.strong-pm
+/server/coverage
+/server/node_modules
+/server/npm-debug.log

@@ -1,7 +1,7 @@
 [
     {
         "widName" : "Personal Information",
-        "page_id" : "5",
+        "page_id" : "5a9fc127335ce35b44f752b7",
         "source"  : "sunbird",
         "service" : "sbprofile",
         "defaultConfig" : {
@@ -19,7 +19,7 @@
     },
     {
         "widName" : "Summary",
-        "page_id" : "5",
+        "page_id" : "5a9fc127335ce35b44f752b7",
         "source"  : "sunbird",
         "service" : "sbprofile",
         "defaultConfig" : {
@@ -33,7 +33,7 @@
     {
         "widName" : "Address",
         "source"  : "sunbird",
-        "page_id" : "5",
+        "page_id" : "5a9fc127335ce35b44f752b7",
         "service" : "sbprofile",
         "defaultConfig" : {
             "dataNode" : "result.response.address"
@@ -48,7 +48,7 @@
     },
     {
         "widName" : "Education",
-        "page_id" : "5",
+        "page_id" : "5a9fc127335ce35b44f752b7",
         "source"  : "sunbird",
         "service" : "sbprofile",
         "defaultConfig" : {
@@ -64,7 +64,7 @@
     },
     {
         "widName" : "Experience",
-        "page_id" : "5",
+        "page_id" : "5a9fc127335ce35b44f752b7",
         "source"  : "sunbird",
         "service" : "sbprofile",
         "defaultConfig" : {
@@ -80,7 +80,7 @@
     },
     {
         "widName" : "Profile Completeness",
-        "page_id" : "5",
+        "page_id" : "5a9fc127335ce35b44f752b7",
         "source"  : "sunbird",
         "service" : "sbprofile",
         "defaultConfig" : {
@@ -93,7 +93,7 @@
     },
     {
         "widName" : "Addition Information",
-        "page_id" : "5",
+        "page_id" : "5a9fc127335ce35b44f752b7",
         "source"  : "sunbird",
         "service" : "sbprofile",
         "defaultConfig" : {
@@ -110,7 +110,7 @@
     },
     {
         "widName" : "Latest Courses",
-        "page_id" : "2",
+        "page_id" : "5a9fc127335ce35b44f752b5",
         "source" : "sunbird",
         "service" : "sbcourses",
         "defaultConfig" : {
@@ -135,7 +135,7 @@
             "caption": "name",
             "description": "description",
             "link" : {
-                "page_id" : "6",
+                "page_id" : "5a9fc127335ce35b44f752b8",
                 "urlParams" : {
                     "courseId" : "IL_UNIQUE_ID"
                 }
@@ -144,7 +144,7 @@
     },
     {
         "widName" : "Popular Courses",
-        "page_id":"2",
+        "page_id":"5a9fc127335ce35b44f752b5",
         "source"  : "sunbird",
         "service" : "sbcourses",
         "defaultConfig" : {
@@ -230,7 +230,7 @@
     },
     {
         "widName" : "Popular Worksheets",
-        "page_id":"4",
+        "page_id":"5a9fc127335ce35b44f752b6",
         "source" : "sunbird",
         "service" : "sbcourses",
         "defaultConfig" : {
@@ -259,7 +259,7 @@
     },
     {
         "widName" : "Popular Stories",
-        "page_id" : "4",
+        "page_id" : "5a9fc127335ce35b44f752b6",
         "source" : "sunbird",
         "service" : "sbcourses",
         "defaultConfig" : {
@@ -288,7 +288,7 @@
     },
     {
         "widName" : "Course Information",
-        "page_id" : "6",
+        "page_id" : "5a9fc127335ce35b44f752b8",
         "source"  : "sunbird",
         "service" : "course",
         "defaultConfig" : {
@@ -316,7 +316,7 @@
     },
     {
         "widName" : "Course Structure",
-        "page_id" : "6",
+        "page_id" : "5a9fc127335ce35b44f752b8",
         "source"  : "sunbird",
         "service" : "course",
         "defaultConfig" : {

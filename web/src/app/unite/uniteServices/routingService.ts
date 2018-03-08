@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { GlobalConfig } from '../configs/global.configs';
 import { Menues } from '../configs/menus.configs';
 import { Widgets } from '../configs/widgets.config';
+import { MenusService } from "../services/menus.service";
 
 @Injectable()
 export class UniteRouting{
@@ -10,13 +11,29 @@ export class UniteRouting{
     menus;
     finalMenus;
 
-    constructor(private _gbConfig : GlobalConfig,private _menu: Menues, private _widget : Widgets ){
+    constructor(private _gbConfig: GlobalConfig, private _menu: Menues, private _widget: Widgets, private _menusService: MenusService ){
     }
 
     getMenus(dataSources){
-        this._menu.getMenus().subscribe(data =>{
+        this._menusService.getMenus().subscribe(data =>{
+        // this._menu.getMenus().subscribe(data =>{
             this.menus = data;
-            this.createDynamicMenus(dataSources);
+            let finalMenu = [];
+            console.log("datadddddddddddd");
+            console.log(data);
+            this.menus.forEach(menu => {
+                let menuArray = {};
+                console.log(menu['routeUrl']);
+                menuArray['path'] = menu['routeUrl'];
+                menuArray['page_id'] = menu['id'];
+                menuArray['menuName'] = menu['name'];
+                finalMenu.push(menuArray);
+            });
+
+            this.finalMenus = finalMenu;
+            console.log("finalMenus");
+            console.log(this.finalMenus);
+            this.getAllWidgets();
         });
     }
 
@@ -58,7 +75,8 @@ export class UniteRouting{
                 });
             }
         });
-
+        console.log("finalMenu");
+        console.log(finalMenu);
         this.finalMenus = finalMenu;
         console.log("This are the final dymaic menus ==== ", this.finalMenus);
         this.getAllWidgets();
@@ -180,6 +198,8 @@ export class UniteRouting{
     getAllWidgets()
     {
         this._widget.getWidgets().subscribe(data =>{
+            console.log("getWidgets");
+            console.log(data);
             this.mapWidgetsWithPages(data);
         });
     }
@@ -190,7 +210,7 @@ export class UniteRouting{
             if(menuElement.page_id) {
                 let widgetsArray = [];
                 widgets.forEach(widget => {
-                    if (parseInt(menuElement.page_id) == parseInt(widget.page_id)) {
+                    if (menuElement.page_id == widget.page_id) {
                         widgetsArray.push(widget);
                     }
                 });

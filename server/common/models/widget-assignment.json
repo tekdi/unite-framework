@@ -1,0 +1,29 @@
+{
+  "name": "WidgetAssignment",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "widget": {
+      "type": "belongsTo",
+      "model": "Widget",
+      "foreignKey": ""
+    },
+    "route": {
+      "type": "belongsTo",
+      "model": "Route",
+      "foreignKey": ""
+    },
+    "menu": {
+      "type": "belongsTo",
+      "model": "Menu",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

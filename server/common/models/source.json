@@ -1,5 +1,5 @@
 {
-  "name": "Widget",
+  "name": "Source",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -10,38 +10,31 @@
       "type": "string",
       "required": true
     },
-    "ordering": {
-      "type": "string"
-    },
     "config": {
       "type": "object"
-    },
-    "renderer": {
-      "type": "string"
-    },
-    "position": {
-      "type": "string"
-    },
-    "mapper": {
-      "type": "object"
-    },
-    "class": {
-      "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "source": {
+    "extension": {
       "type": "belongsTo",
-      "model": "Source",
+      "model": "Extension",
       "foreignKey": "",
       "options": {
         "nestRemoting": true
       }
     },
-    "widgetAssignments": {
+    "widgets": {
       "type": "hasMany",
-      "model": "WidgetAssignment",
+      "model": "Widget",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "menus": {
+      "type": "hasMany",
+      "model": "Menu",
       "foreignKey": "",
       "options": {
         "nestRemoting": true

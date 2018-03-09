@@ -2,5 +2,25 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "UniteMySQL": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "unite_apis",
+    "password": "root",
+    "name": "UniteMySQL",
+    "user": "root",
+    "connector": "mysql"
+  },
+  "uniteMongoDB": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017/umongodb",
+    "database": "umongodb",
+    "password": "",
+    "name": "uniteMongoDB",
+    "user": "",
+    "connector": "mongodb"
   }
 }

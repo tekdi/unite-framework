@@ -14,33 +14,49 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "uniteMongoDB"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "uniteMongoDB",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "uniteMongoDB",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "uniteMongoDB",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "uniteMongoDB",
     "public": false
   },
-  "widget": {
-    "dataSource": "db",
+  "Extension": {
+    "dataSource": "uniteMongoDB",
     "public": true
   },
-  "menu": {
-    "dataSource": "db",
+  "Source": {
+    "dataSource": "uniteMongoDB",
+    "public": true
+  },
+  "Widget": {
+    "dataSource": "uniteMongoDB",
+    "public": true
+  },
+  "Route": {
+    "dataSource": "uniteMongoDB",
+    "public": true
+  },
+  "Menu": {
+    "dataSource": "uniteMongoDB",
+    "public": true
+  },
+  "WidgetAssignment": {
+    "dataSource": "uniteMongoDB",
     "public": true
   }
 }

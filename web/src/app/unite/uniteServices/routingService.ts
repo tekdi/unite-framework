@@ -5,18 +5,19 @@ import { Menues } from '../configs/menus.configs';
 import { Widgets } from '../configs/widgets.config';
 import { MenusService, WidgetsService } from "../services";
 
+
 @Injectable()
 export class UniteRouting{
 
     menus;
     finalMenus;
-
     constructor(
         private _gbConfig: GlobalConfig, 
         private _menu: Menues, 
         private _widget: Widgets, 
         private _menusService: MenusService,
         private _widgetsService: WidgetsService ){
+
     }
 
     getMenus(dataSources){

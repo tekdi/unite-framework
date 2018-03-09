@@ -40,6 +40,7 @@ const uniteRoutes : Routes = [
         HttpClientModule,
         RouterModule.forChild(uniteRoutes)
     ],
+
     providers: [
         Menues,
         Widgets, 
@@ -51,7 +52,6 @@ const uniteRoutes : Routes = [
         MenusService,
         WidgetsService
     ]
-
 })
 export class UniteModule{
 

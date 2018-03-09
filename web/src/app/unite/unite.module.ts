@@ -19,6 +19,7 @@ import { UniteLinkerPipe } from './pipes/linker.pipe';
 import { HttpClientModule } from '@angular/common/http';
 
 import 'rxjs/Rx';
+import { MenusService, WidgetsService } from "./services";
 
 const uniteRoutes : Routes = [
     {path : "admin", component : AdminBranch},
@@ -28,8 +29,7 @@ const uniteRoutes : Routes = [
             {path: 'bs4', loadChildren : "./family/bs4/bs4.family#Bs4Family", data : {basePath : 'bs4'}},
             {path: '', loadChildren : "./family/sb/sb.family#SbFamily", data : {basePath : ''}},
             /*{path: 'mdb', loadChildren : "./family/mdb/mdb.family#MdbFamily"}*/
-        ],
-        
+        ], 
     }
 ]
 
@@ -40,7 +40,17 @@ const uniteRoutes : Routes = [
         HttpClientModule,
         RouterModule.forChild(uniteRoutes)
     ],
-    providers : [Menues,Widgets,GlobalConfig, SystemJsNgModuleLoader, UniteRouting, UniteMapperPipe, UniteLinkerPipe]
+    providers: [
+        Menues,
+        Widgets, 
+        GlobalConfig, 
+        SystemJsNgModuleLoader, 
+        UniteRouting, 
+        UniteMapperPipe, 
+        UniteLinkerPipe, 
+        MenusService,
+        WidgetsService
+    ]
 
 })
 export class UniteModule{

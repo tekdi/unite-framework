@@ -179,61 +179,36 @@ export class UniteRouting{
         let oldWidget = [];
 
         this.menus.forEach((menu, index) => {
-        // console.log("NEW MENU");
-        // console.log(menu); 
-            console.log("AAAAAAAAAAAAAAAAAAAA");
-            console.log(menu);
             let widgetsArray = [];
             widgets.forEach(widget => {
                 let oldWidget = [];
-//                console.log("NEW WIDGET");
-//               console.log(widget);
-            //    console.log(widget.widget.config.service);
-               // console.log(widget.widget.source.name);
-                if (true) {
-                    let routes = menu.source.extension.routes;
-                    for (let index = 0; index < routes.length; index++) {
-                        let route = routes[index];
-                    
-                        if (route.id == widget.routeId && menu.id == widget.menuId) {
-              //              widget.widget.config.push(menu.source.config);
-                            console.log("menu.source.config");
-                            console.log(menu.source.config);
-                            widget.widget.config.baseUrl = menu.source.config.baseUrl;
-                            widget.widget.config.dataNode = menu.source.config.dataNode;
-                            oldWidget['service'] = widget.widget.config.service;
-                            oldWidget['source'] = widget.widget.source.name;
-                            oldWidget['widName'] = widget.widget.name;
-                            oldWidget['renderer'] = widget.widget.renderer;
-                            oldWidget['mapper'] = widget.widget.mapper;
-                            oldWidget['defaultConfig'] = widget.widget.config;
-                            oldWidget['page_id'] = widget.routeId;
-                            widgetsArray.push(oldWidget);
-                            return;
-                        }
+
+                let routes = menu.source.extension.routes;
+                for (let index = 0; index < routes.length; index++) {
+                    let route = routes[index];
+                
+                    if (route.id == widget.routeId && menu.id == widget.menuId) {
+                        console.log("menu.source.config");
+                        console.log(menu.source.config);
+                        widget.widget.config.baseUrl = menu.source.config.baseUrl;
+                        widget.widget.config.dataNode = menu.source.config.dataNode;
+                        oldWidget['service'] = widget.widget.config.service;
+                        oldWidget['source'] = widget.widget.source.name;
+                        oldWidget['widName'] = widget.widget.name;
+                        oldWidget['renderer'] = widget.widget.renderer;
+                        oldWidget['mapper'] = widget.widget.mapper;
+                        oldWidget['defaultConfig'] = widget.widget.config;
+                        oldWidget['page_id'] = widget.routeId;
+                        widgetsArray.push(oldWidget);
+                        return;
                     }
-                    // menu.source.extension.routes.forEach(route => {
-                    //     if (route.id == widget.routeId && menu.id == widget.menuId) {
-                    //         //console.log(widget);
-                    //         oldWidget['service'] = widget.widget.config.service;
-                    //         oldWidget['source'] = widget.widget.source.name;
-                    //         oldWidget['widName'] = widget.widget.name;
-                    //         oldWidget['mapper'] = widget.widget.mapper;
-                    //         oldWidget['defaultConfig'] = widget.widget.config;
-                    //         oldWidget['page_id'] = widget.routeId;
-                    //         widgetsArray.push(oldWidget);
-                    //     }
-                    // });
                 }
             });
-            
-       //     this.menus[index]['widgets'] = widgetsArray;
+
             this.finalMenus[index]['widgets'] = widgetsArray;
-            // this.finalMenus['widgets'].push(oldWidget);
         }); 
 
         console.log('FINAL NEW MENUS After Mapping', this.finalMenus);  
-        console.log('FINAL NEW MENUS After Mapping AAAAAAAAAAAAAA', this.menus);  
     }
 
     mapWidgetsWithPages(widgets)

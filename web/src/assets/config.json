@@ -16,5 +16,8 @@
         "meta_desc": "Integrate Anything!! Literally!!",
         "timezone":"GMT",
         "language": "en-GB"
+    },
+    "server" :{
+        "host" : "http://172.132.45.94:3000/"
     }
 }

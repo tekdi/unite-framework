@@ -3,15 +3,21 @@ import { Injectable } from "@angular/core";
 import { GlobalConfig } from '../configs/global.configs';
 import { Menues } from '../configs/menus.configs';
 import { Widgets } from '../configs/widgets.config';
-import { MenusService } from "../services/menus.service";
+import { MenusService, WidgetsService } from "../services";
+
 
 @Injectable()
 export class UniteRouting{
 
     menus;
     finalMenus;
+    constructor(
+        private _gbConfig: GlobalConfig, 
+        private _menu: Menues, 
+        private _widget: Widgets, 
+        private _menusService: MenusService,
+        private _widgetsService: WidgetsService ){
 
-    constructor(private _gbConfig: GlobalConfig, private _menu: Menues, private _widget: Widgets, private _menusService: MenusService ){
     }
 
     getMenus(dataSources){
@@ -35,52 +41,6 @@ export class UniteRouting{
             console.log(this.finalMenus);
             this.getAllWidgets();
         });
-    }
-
-    createDynamicMenus(dataSources)
-    {
-        let finalMenu = [];
-
-        this.menus.forEach(menuElement => {
-
-            if(dataSources.hasOwnProperty(menuElement.dataSource))
-            {
-                let dsName = dataSources[menuElement.dataSource];
-                let dsObj  = new dsName;
-                let dsRoutes = dsObj.setRoutes("");
-
-                dsRoutes.forEach(roElement => {
-                    
-                    let finalDsRoute = {};
-
-                    let pathStr = roElement.path;
-
-                    finalDsRoute['path'] = roElement['path'] && roElement['path'] !== ""
-                                            ? "/" + menuElement.alias + "/" + roElement.path
-                                            : "/" + menuElement.alias ;
-                    finalDsRoute['page_id'] = roElement['id'];
-                    //finalDsRoute['service'] = roElement.service;
-                    //finalDsRoute['defaultRenderer'] = roElement.renderer;
-                    //finalDsRoute['source'] = menuElement.dataSource;
-                    //finalDsRoute['widgets'] = roElement.widgets;
-                    //finalDsRoute['showDefault'] = roElement.hasOwnProperty('showDefault')
-                    //                            ? (roElement['showDefault'] ? true : false) 
-                    //                            : true;
-                    //finalDsRoute['mapper'] = roElement['mapper'];
-                    finalDsRoute['menuName'] = roElement['title'];
-
-                    console.log("findsroute -=-=-=-=--=-=-", finalDsRoute);
-
-                    finalMenu.push(finalDsRoute);
-                });
-            }
-        });
-        console.log("finalMenu");
-        console.log(finalMenu);
-        this.finalMenus = finalMenu;
-        console.log("This are the final dymaic menus ==== ", this.finalMenus);
-        this.getAllWidgets();
-        //console.log('Let Wale Widgets', widgets);
     }
 
     parseUniteUrl(uniteUrl)
@@ -192,7 +152,6 @@ export class UniteRouting{
         });
 
         return menusToReturn;
-
     }
 
     getAllWidgets()
@@ -200,12 +159,62 @@ export class UniteRouting{
         this._widget.getWidgets().subscribe(data =>{
             console.log("getWidgets");
             console.log(data);
-            this.mapWidgetsWithPages(data);
+            console.log("THIS MENUS");
+            console.log(this.menus);
+        //    this.mapWidgetsWithPages(data);
+            this._widgetsService.getWidgets().subscribe(data1 =>{
+
+                console.log("DATA1111111111111111");
+                console.log(data1);
+                this.mapNewWidgets(data1);    
+            });
         });
+    }
+
+    mapNewWidgets(widgets) {
+
+        console.log("newMenusnewMenusnewMenus");
+        console.log(this.menus);
+        console.log(widgets);
+        let oldWidget = [];
+
+        this.menus.forEach((menu, index) => {
+            let widgetsArray = [];
+            widgets.forEach(widget => {
+                let oldWidget = [];
+
+                let routes = menu.source.extension.routes;
+                for (let index = 0; index < routes.length; index++) {
+                    let route = routes[index];
+                
+                    if (route.id == widget.routeId && menu.id == widget.menuId) {
+                        console.log("menu.source.config");
+                        console.log(menu.source.config);
+                        widget.widget.config.baseUrl = menu.source.config.baseUrl;
+                        widget.widget.config.dataNode = menu.source.config.dataNode;
+                        oldWidget['service'] = widget.widget.config.service;
+                        oldWidget['source'] = widget.widget.source.name;
+                        oldWidget['widName'] = widget.widget.name;
+                        oldWidget['renderer'] = widget.widget.renderer;
+                        oldWidget['mapper'] = widget.widget.mapper;
+                        oldWidget['defaultConfig'] = widget.widget.config;
+                        oldWidget['page_id'] = widget.routeId;
+                        widgetsArray.push(oldWidget);
+                        return;
+                    }
+                }
+            });
+
+            this.finalMenus[index]['widgets'] = widgetsArray;
+        }); 
+
+        console.log('FINAL NEW MENUS After Mapping', this.finalMenus);  
     }
 
     mapWidgetsWithPages(widgets)
     {
+        console.log("FINAL MENUS");
+        console.log(this.finalMenus);
         this.finalMenus.forEach((menuElement, index) => {    
             if(menuElement.page_id) {
                 let widgetsArray = [];

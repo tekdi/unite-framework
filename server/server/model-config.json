@@ -14,33 +14,49 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "default"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "default",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "default",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "default",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "default",
     "public": false
   },
-  "widget": {
-    "dataSource": "db",
+  "Extension": {
+    "dataSource": "default",
     "public": true
   },
-  "menu": {
-    "dataSource": "db",
+  "Source": {
+    "dataSource": "default",
+    "public": true
+  },
+  "Widget": {
+    "dataSource": "default",
+    "public": true
+  },
+  "Route": {
+    "dataSource": "default",
+    "public": true
+  },
+  "Menu": {
+    "dataSource": "default",
+    "public": true
+  },
+  "WidgetAssignment": {
+    "dataSource": "default",
     "public": true
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Menu",
+  "name": "Route",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -10,39 +10,21 @@
       "type": "string",
       "required": true
     },
-    "parent": {
-      "type": "string",
-      "required": true,
-      "default": "0"
-    },
-    "ordering": {
-      "type": "string"
-    },
-    "alias": {
-      "type": "string",
-      "required": true
-    },
     "routeUrl": {
       "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "source": {
+    "extension": {
       "type": "belongsTo",
-      "model": "Source",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true
-      }
+      "model": "Extension",
+      "foreignKey": ""
     },
     "widgetAssignments": {
       "type": "hasMany",
       "model": "WidgetAssignment",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true
-      }
+      "foreignKey": ""
     }
   },
   "acls": [],

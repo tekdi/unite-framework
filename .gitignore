@@ -60,4 +60,5 @@ Thumbs.db
 /server/.strong-pm
 /server/coverage
 /server/node_modules
+/server/client
 /server/npm-debug.log

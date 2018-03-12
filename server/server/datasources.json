@@ -1,6 +1,12 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
+  "default": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017/umongodb",
+    "database": "umongodb",
+    "password": "",
+    "name": "default",
+    "user": "",
+    "connector": "mongodb"
   }
 }

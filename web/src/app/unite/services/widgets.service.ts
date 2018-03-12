@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class WidgetsService extends BaseService {
-  url = 'http://172.132.45.94:3000/api/WidgetAssignments?filter[include][widget]=source';
+  url = 'api/WidgetAssignments?filter[include][widget]=source';
 
   constructor(_httpClient: HttpClient) {
     super(_httpClient);

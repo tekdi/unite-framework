@@ -14,7 +14,7 @@ export class GlobalConfig{
     getGlobalConfig (branch) {
 
         return this._httpClient.get("/assets/config.json").map(data => {
-                    return data[branch];
-                });
+            return data[branch];
+        });
     }
 }

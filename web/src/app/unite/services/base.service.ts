@@ -13,7 +13,8 @@ export class BaseService {
   }
 
   get(url) {
-    return this._httpClient.get(config.server.host + url);
+    console.log("config", config['server']['host']);
+    return this._httpClient.get(config['server']['host'] + url);
   }
 
   post() {

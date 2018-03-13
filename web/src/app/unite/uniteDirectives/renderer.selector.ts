@@ -62,7 +62,7 @@ export class RendererSelector {
                     let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
                     let thisCompRef = this._vcRef.createComponent(componentFactory);
 
-                    this.loadServiceData(widInfo, thisCompRef);
+                    this.loadData(widInfo, thisCompRef);
                 }
                 else
                 {
@@ -76,49 +76,67 @@ export class RendererSelector {
         }
     }
 
-    loadServiceData(widInfo, thisCompRef){
-
-        console.log("chekcing wid info000 = ", widInfo);
+    loadData(widInfo, thisCompRef){
 
         if(this.dataCollection.hasOwnProperty(widInfo.source))
         {
-
-
             let config = {
-                            urlData : widInfo.param,
-                            defaultConfig : widInfo['defaultConfig'] ? widInfo['defaultConfig'] : {}
-                        };
-
+                urlData: widInfo.param ? widInfo.param : {},
+                defaultConfig : widInfo['defaultConfig'] ? widInfo['defaultConfig'] : {}
+            };
 
             let metadata = {
                 source : widInfo.source,
-                service : widInfo.service,
+                service: widInfo.service ? widInfo.service : '',
                 config : config
             }
 
             let dataSourceClass = this.dataCollection[widInfo.source];
+            let dataSourceObj = new dataSourceClass(config, this._httpClient);
+            
+            console.log("widInfo DDDDDDDDDD", widInfo);            
 
-            let dataSourceObj   = new dataSourceClass(config, this._httpClient);
-            dataSourceObj.getData(widInfo.service).map(data => {
-                console.log('Default config ahet.......====',widInfo['defaultConfig']);               
-                if(widInfo['defaultConfig']['dataNode'])
-                               {
-                                  let dataNode2 = widInfo['defaultConfig']['dataNode'].split(".");
-                                  let myFinalValue = data;
-                                    dataNode2.forEach(element => {
-                                            myFinalValue = myFinalValue[element];
-                                    });
-                                    return myFinalValue;
-                                 }
-                                return data;
-            })
-            .subscribe(data =>
-            {
-                (<DynamicComponent>thisCompRef.instance).data = data;
-                (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper: {};
-                (<DynamicComponent>thisCompRef.instance).widName = widInfo.widName;
-                (<DynamicComponent>thisCompRef.instance).metadata = metadata;
-            });
+            if (widInfo.service) {
+                this.getServiceData(widInfo, dataSourceObj, thisCompRef, metadata);
+            }
+            else if (widInfo.defaultConfig.data) {
+                this.getJsonData(widInfo, dataSourceObj, thisCompRef, metadata);
+            }
+            else if (widInfo.defaultConfig.html) {
+                this.getHtmlData(widInfo, dataSourceObj, thisCompRef, metadata);
+            }
         }
+    }
+
+    getServiceData(widInfo, dataSourceObj, thisCompRef, metadata) {
+        dataSourceObj.getData(widInfo.service).map(data => {
+            if (widInfo['defaultConfig']['dataNode']) {
+                let dataNode2 = widInfo['defaultConfig']['dataNode'].split(".");
+                let myFinalValue = data;
+                dataNode2.forEach(element => {
+                    myFinalValue = myFinalValue[element];
+                });
+                return myFinalValue;
+            }
+            return data;
+        })
+        .subscribe(data => {
+            this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, data);
+        });
+    }
+    
+    getJsonData(widInfo, dataSourceObj, thisCompRef, metadata) {
+        this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.defaultConfig.data);
+    }
+
+    getHtmlData(widInfo, dataSourceObj, thisCompRef, metadata) {
+        this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.defaultConfig.html);
+    }
+
+    setDynamicComponentInputs(widInfo, thisCompRef, metadata, data) {
+        (<DynamicComponent>thisCompRef.instance).data = data;
+        (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper : {};
+        (<DynamicComponent>thisCompRef.instance).widName = widInfo.widName;
+        (<DynamicComponent>thisCompRef.instance).metadata = metadata;
     }
 }

@@ -191,7 +191,6 @@ export class UniteRouting{
                         console.log("menu.source.config");
                         console.log(menu.source.config);
                         widget.widget.config.baseUrl = menu.source.config.baseUrl;
-                        widget.widget.config.dataNode = menu.source.config.dataNode;
                         oldWidget['service'] = widget.widget.config.service;
                         oldWidget['source'] = widget.widget.source.name;
                         oldWidget['widName'] = widget.widget.name;

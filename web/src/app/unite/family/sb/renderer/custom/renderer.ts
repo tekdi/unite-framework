@@ -4,10 +4,9 @@ import { Component, Input } from '@angular/core';
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class SunbirdIconListRenderer{
-    @Input() data : Array<any>;
+export class SunbirdCustomRenderer{
+    @Input() data;
     @Input() widName;
-    loading = true;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);
     };
@@ -15,12 +14,8 @@ export class SunbirdIconListRenderer{
     localData;
     localMap;
 
-    mapProperties(data, mapObj)
-    {
-        console.log('Mapper Object ICONLIST ===>>',mapObj);
-        console.log('Local Data ICONLIST ===>>',data);
+    mapProperties(data, mapObj) {
         this.localMap = mapObj;
         this.localData = data;
-        this.loading = false;
     }
 }

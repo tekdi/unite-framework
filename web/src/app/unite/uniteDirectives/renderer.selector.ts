@@ -126,8 +126,6 @@ export class RendererSelector {
     }
     
     getJsonData(widInfo, dataSourceObj, thisCompRef, metadata) {
-        debugger;
-        console.log("GETHTML ", widInfo.defaultConfig.data);
         this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.defaultConfig.data);
     }
 

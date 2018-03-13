@@ -14,9 +14,8 @@ export class SunbirdCustomRenderer{
     localData;
     localMap;
 
-    mapProperties(data1, mapObj) {
+    mapProperties(data, mapObj) {
         this.localMap = mapObj;
-        this.localData = data1;
-        console.log("HTMLLLLLLLLLLLLLLL", data1);
+        this.localData = data;
     }
 }

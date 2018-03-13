@@ -1,4 +1,4 @@
-
+import { SunbirdCustomRenderer } from './custom/renderer';
 import { SunbirdGridRenderer } from "./cardGrid/renderer";
 import { SunbirdListRenderer } from "./list/ordered/renderer";
 import { SunbirdCarouselRenderer } from "./carousel/renderer";
@@ -21,7 +21,8 @@ export const renderMapper = {
         progressBar : SunbirdProgressbarRenderer,
         personal : SunbirdPersonalRenderer,
         additionalinfo : SunbirdAdditionInformationRenderer,
-        rating : SunbirdRatingRenderer
+        rating : SunbirdRatingRenderer,
+        custom: SunbirdCustomRenderer
         // chart : SunbirdLinechartRenderer
 }
 
@@ -35,6 +36,7 @@ export const sbRenderers = [
                                 SunbirdProgressbarRenderer,
                                 SunbirdPersonalRenderer,
                                 SunbirdAdditionInformationRenderer,
-                                SunbirdRatingRenderer
+                                SunbirdRatingRenderer,
+                                SunbirdCustomRenderer
                                 // SunbirdLinechartRenderer
                         ]

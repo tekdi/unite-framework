@@ -39,10 +39,10 @@
             "dataNode" : "result.response.address"
         },
         "mapper" :{
-            "image_url": "icon", 
-            "caption": "addType",
-            "description1": "addressLine1",
-            "description2": "addressLine2"
+            "image_url": "result.response.address.icon", 
+            "caption": "result.response.address.addType",
+            "description1": "result.response.address.addressLine1",
+            "description2": "result.response.address.addressLine2"
         },
         "renderer" : "iconlist"
     },
@@ -55,10 +55,10 @@
             "dataNode": "result.response.education"
         },
         "mapper" :{
-            "image_url" : "icon",
-            "caption" : "degree",
-            "description1" :"grade",
-            "description2" :"boardOrUniversity"
+            "image_url" : "result.response.education.icon",
+            "caption" : "result.response.education.degree",
+            "description1" :"result.response.education.grade",
+            "description2" :"result.response.education.boardOrUniversity"
         },
         "renderer" : "iconlist"
     },

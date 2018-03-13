@@ -97,7 +97,7 @@ export class RendererSelector {
             let dataSourceObj = new dataSourceClass(config, this._httpClient);
             
             console.log("widInfo DDDDDDDDDD", widInfo);            
-debugger;
+
             if (widInfo.service) {
                 this.getServiceData(widInfo, dataSourceObj, thisCompRef, metadata);
             }

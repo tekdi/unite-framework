@@ -78,8 +78,6 @@ export class RendererSelector {
 
     loadData(widInfo, thisCompRef){
 
-        console.log("chekcing wid info000 = ", widInfo);
-
         if(this.dataCollection.hasOwnProperty(widInfo.source))
         {
             let config = {
@@ -105,7 +103,7 @@ export class RendererSelector {
                 this.getJsonData(widInfo, dataSourceObj, thisCompRef, metadata);
             }
             else if (widInfo.defaultConfig.html) {
-                this.getJsonData(widInfo, dataSourceObj, thisCompRef, metadata);
+                this.getHtmlData(widInfo, dataSourceObj, thisCompRef, metadata);
             }
         }
     }
@@ -128,6 +126,8 @@ export class RendererSelector {
     }
     
     getJsonData(widInfo, dataSourceObj, thisCompRef, metadata) {
+        debugger;
+        console.log("GETHTML ", widInfo.defaultConfig.data);
         this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.defaultConfig.data);
     }
 

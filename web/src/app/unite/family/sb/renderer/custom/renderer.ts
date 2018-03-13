@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./renderer.css']
 })
 export class SunbirdCustomRenderer{
-    @Input() data : Array<any>;
+    @Input() data;
     @Input() widName;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);
@@ -14,9 +14,9 @@ export class SunbirdCustomRenderer{
     localData;
     localMap;
 
-    mapProperties(data, mapObj) {
+    mapProperties(data1, mapObj) {
         this.localMap = mapObj;
-        this.localData = data;
-        console.log(data);
+        this.localData = data1;
+        console.log("HTMLLLLLLLLLLLLLLL", data1);
     }
 }

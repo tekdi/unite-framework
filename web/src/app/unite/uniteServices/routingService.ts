@@ -57,6 +57,9 @@ export class UniteRouting{
             {
                 let roArray = roElement.path.split("/");
                 let roLength = roArray.length;
+                console.log("roLength", roLength);
+                console.log("roArray", roArray);
+                
                 let roDynamicSegmentCount   = (roElement.path.match(/\/:/g)||[]).length;
                 let roStaticSegmentCount    = roLength - roDynamicSegmentCount;
                 let dynamicSegObj = {};

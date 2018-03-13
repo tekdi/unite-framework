@@ -2,8 +2,8 @@
   "default": {
     "host": "localhost",
     "port": 27017,
-    "url": "mongodb://localhost:27017/umongodb",
-    "database": "umongodb",
+    "url": "mongodb://localhost:27017/umongodb1",
+    "database": "umongodb1",
     "password": "",
     "name": "default",
     "user": "",

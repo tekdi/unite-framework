@@ -159,19 +159,13 @@ export class UniteRouting{
 
     getAllWidgets()
     {
-        this._widget.getWidgets().subscribe(data =>{
-            console.log("getWidgets");
-            console.log(data);
-            console.log("THIS MENUS");
-            console.log(this.menus);
-        //    this.mapWidgetsWithPages(data);
+        //this._widget.getWidgets().subscribe(data =>{
             this._widgetsService.getWidgets().subscribe(data1 =>{
-
                 console.log("DATA1111111111111111");
                 console.log(data1);
                 this.mapNewWidgets(data1);    
             });
-        });
+        //});
     }
 
     mapNewWidgets(widgets) {

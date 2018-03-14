@@ -1,0 +1,45 @@
+<div class="ui grid">
+	<div class="twelve wide column padding-bottom-none">
+		<div class="margin-top-20 ui raised segment">
+			<div class="header announcementCard-header">
+				<span class="header cardsHeading">{{widName}}</span>
+			</div>
+			<div class="profileitems ui relaxed divided items">
+				<div class="item" *ngFor="let unit of localData">
+					<img class="ui avatar image" [src]="unit | uniteMapper: localMap['image_url']" [alt]="unit | uniteMapper: localMap['caption']" *ngIf="unit | uniteMapper: localMap['image_url']">
+					<div class="content twelve wide column middle aligned">
+						<p class="header capitalizeTextInfo">{{unit | uniteMapper: localMap['caption']}}</p>
+						<div class="description">
+								<div [innerHTML]="unit | uniteMapper: localMap['description1']"></div>
+								<div [innerHTML]="unit | uniteMapper: localMap['description2']"></div>
+						</div>
+					</div>
+				</div>
+				<div *ngIf="!localData">
+						<div class="loader">
+							<div class="lds-ripple">
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

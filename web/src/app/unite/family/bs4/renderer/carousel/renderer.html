@@ -1,0 +1,35 @@
+<h2>{{ widName }}</h2>
+<ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+	<div ngxSlickItem *ngFor="let unit of localData" class="slide">
+		<div class="ui link cards">
+			<div class="sliderCards ui card margin-right-20 margin-top-15">
+				
+				<a [uniteData]="unit" [uniteLink]="localMap['link']"  class="image imageInCardsResponsive">
+					<img [src]="unit | uniteMapper: localMap['image_url']" [alt]="unit | uniteMapper: localMap['caption']">
+					<div class="cardImageText center aligned">
+						<span class="sliderCardHeading text-cencapitalize ng-binding">{{unit | uniteMapper: localMap['caption']}}</span>
+					</div>
+				</a>
+				<div class="sliderCards content">
+					<div class="sliderCardDesc fixedRatingCard" [innerHTML]="unit | uniteMapper: localMap['description']"></div>
+					<div class="courseHeader-rating ui star rating padding-top-10 disabled" data-rating="" data-max-rating="5">
+						<i class="icon"></i>
+						<i class="icon"></i>
+						<i class="icon"></i>
+						<i class="icon"></i>
+						<i class="icon"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="!localData">
+		<div class="loader">
+			<div class="lds-ripple">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+</ngx-slick>

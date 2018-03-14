@@ -1,0 +1,51 @@
+<div class="ui grid">
+    <div class="twelve wide column padding-bottom-none">
+        <div class="margin-top-20 ui raised segment">
+                <div *ngIf="!localData">
+                        <div class="loader">
+                            <div class="lds-ripple">
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="header announcementCard-header">
+                    <span class="header cardsHeading"> {{widName}} Additional Information</span>
+                </div>
+                <div class="profileitems profile-des ui relaxed aligned list ">
+                    <div class="item" *ngIf="localData">
+                        <div class="iniformationcontent content">Email ID </div>
+                        <div class=" right floated content" [innerHTML]="localData | uniteMapper: localMap['email']"></div>
+                    </div> 
+                    <div class="item" *ngIf="localData">
+                        <div class="iniformationcontent content">Phone Number </div>
+                        <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['phone']"></div>
+                    </div>
+                    <div class="item" *ngIf="localData">
+                         <div class="iniformationcontent content">Gender </div>
+                        <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['gender']"></div>
+                    </div>
+                    <div class="item" *ngIf="localData">
+                        <div class="iniformationcontent content">Birthdate (dd/mm/yyyy)</div>
+                        <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['dob']"></div>
+                    </div>
+                    <div class="item" *ngIf="localData">
+                            <div class="iniformationcontent content">Language(s) known</div>
+                            <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['']"></div>
+                    </div>
+                    <div class="item" *ngIf="localData">
+                            <div class="iniformationcontent content">Current location</div>
+                            <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['location']"></div>
+                    </div>
+                    <div class="item" *ngIf="localData">
+                            <div class="iniformationcontent content"></div>
+                            <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['']"></div>
+                    </div>
+                    <div class="item" *ngIf="localData">
+                            <div class="iniformationcontent content"></div>
+                            <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['']"></div>
+                    </div>        
+                </div>
+            </div>
+       </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-sm-3">
+			<h1 class="logo">
+                <a href="index.html" title="DIKSHA">
+                    <img src="https://diksha.gov.in/images/logo.png" alt="DIKSHA logo">
+                </a>
+            </h1>
+        </div>   
+		<div class="col-sm-9 hidden-xs">
+			<div class="menu pull-right bg-white" id="nav-bar">
+			    <!--nav class="collapse menu" id="menu" aria-expanded="true"-->
+                    <ul class="nav navbar-nav">
+                    <li *ngFor="let menu of uniteMenus">
+                        <a [href]="menu.path" [title]="menu.menuName"><span>{{menu.menuName}}</span></a>
+                    </li>
+                    </ul>
+                <!--/nav-->
+            </div>
+        </div>
+    </div>
+</div>  

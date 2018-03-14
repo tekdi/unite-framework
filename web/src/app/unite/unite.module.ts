@@ -24,7 +24,7 @@ import { MenusService, WidgetsService } from "./services";
 const uniteRoutes : Routes = [
     {path : "admin", component : AdminBranch},
     {path : "", component : SiteBranch,
-        children: [            
+        children: [
             {path: 'mat', loadChildren : "./family/mat/mat.family#MatFamily", data : {basePath : 'mat'}},
             {path: 'bs4', loadChildren : "./family/bs4/bs4.family#Bs4Family", data : {basePath : 'bs4'}},
             {path: '', loadChildren : "./family/sb/sb.family#SbFamily", data : {basePath : ''}},

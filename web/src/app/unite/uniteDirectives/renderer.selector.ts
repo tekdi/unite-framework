@@ -52,13 +52,17 @@ export class RendererSelector {
         let menuInfo = this._uniteRoute.parseUniteUrl(servicePath);
 
         console.log("menu informations ", menuInfo);
+        console.log("availableRenderes ", availableRenderes);
 
         if(menuInfo && menuInfo.length !== 0)
         {
             menuInfo.forEach(widInfo => {
                 let widRenderer = widInfo['renderer'] ? widInfo['renderer'] : widInfo['defaultRenderer'];
+                console.log("widInfo", widInfo);
+                console.log("widRenderer", widRenderer);
                 if(availableRenderes.hasOwnProperty(widRenderer))
                 {
+                    console.log("availableRenderes ------------>", availableRenderes[widRenderer]);
                     let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
                     let thisCompRef = this._vcRef.createComponent(componentFactory);
 
@@ -77,6 +81,7 @@ export class RendererSelector {
     }
 
     loadData(widInfo, thisCompRef){
+        console.log("widInfo", widInfo);
 
         if(this.dataCollection.hasOwnProperty(widInfo.source))
         {

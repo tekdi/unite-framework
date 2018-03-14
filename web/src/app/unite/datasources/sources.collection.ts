@@ -1,3 +1,4 @@
+import { DikshaDataSource } from './diksha/diksha.datasource';
 import { CountriesDataSource } from './countries/countries.datasource';
 import { SunbirdDataSource } from './sunbird/sunbird.datasource';
 import { TJVersioncheckerDataSource } from './tj-versionchecker/tj-versionchecker.datasource';
@@ -5,5 +6,6 @@ import { TJVersioncheckerDataSource } from './tj-versionchecker/tj-versionchecke
 export const dataSources = {
     'countries' :  CountriesDataSource,
     'sunbird'   : SunbirdDataSource,
-    'tjversionchecker'   : TJVersioncheckerDataSource
+    'tjversionchecker'   : TJVersioncheckerDataSource,
+    'Diksha': DikshaDataSource
 }

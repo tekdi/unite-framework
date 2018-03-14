@@ -4,6 +4,6 @@ export const renderMapper = {
         custom: SunbirdCustomRenderer
 }
 
-export const bs4Renderers = [
+export const bs3Renderers = [
                                 SunbirdCustomRenderer
                             ]

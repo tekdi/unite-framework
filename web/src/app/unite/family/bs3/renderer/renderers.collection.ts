@@ -1,9 +1,12 @@
-import { SunbirdCustomRenderer } from './custom/renderer';
+import { CustomRenderer } from './custom/renderer';
+import { CarouselRenderer } from './carousel/renderer';
 
 export const renderMapper = {
-        custom: SunbirdCustomRenderer
+        custom: CustomRenderer,
+        carousel : CarouselRenderer
 }
 
 export const bs3Renderers = [
-                                SunbirdCustomRenderer
+                                CustomRenderer,
+                                CarouselRenderer
                             ]

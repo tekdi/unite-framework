@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class SunbirdCarouselRenderer{
+export class CarouselRenderer{
     @Input() data : Array<any>;
     @Input() widName;
     @Input() set mapper(value){
@@ -17,7 +17,5 @@ export class SunbirdCarouselRenderer{
     mapProperties(data, mapObj) {
         this.localMap = mapObj;
         this.localData = data;
-
-        console.log("chexkingsadfjlkdsajf ", data);
     }
 }

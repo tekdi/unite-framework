@@ -1,1 +1,10 @@
-sudhir from courosel
+<div class="owl-carousel journey-carousel">
+    <!-- Journey Item-->
+	<div class="milestone" *ngFor="let item of data">
+        <img alt="" title="" [src]="item.image_url" />
+        <div class="milestone-details">
+            <div class="milestone-date">{{item.title}}</div>
+            <div class="milestone-desc" [innerHtml]="item.description"></div>
+        </div>
+    </div>
+</div>

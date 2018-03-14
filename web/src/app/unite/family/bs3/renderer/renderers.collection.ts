@@ -6,7 +6,7 @@ export const renderMapper = {
         carousel : CarouselRenderer
 }
 
-export const bs4Renderers = [
+export const bs3Renderers = [
                                 CustomRenderer,
                                 CarouselRenderer
                             ]

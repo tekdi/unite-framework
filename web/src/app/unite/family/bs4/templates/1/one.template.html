@@ -9,14 +9,16 @@
         </div>   
 		<div class="col-sm-9 hidden-xs">
 			<div class="menu pull-right bg-white" id="nav-bar">
-			    <!--nav class="collapse menu" id="menu" aria-expanded="true"-->
-                    <ul class="nav navbar-nav">
+			        <ul class="nav navbar-nav">
                     <li *ngFor="let menu of uniteMenus">
                         <a [href]="menu.path" [title]="menu.menuName"><span>{{menu.menuName}}</span></a>
                     </li>
                     </ul>
-                <!--/nav-->
             </div>
         </div>
     </div>
 </div>  
+<div class="ui grid container">
+        <ng-template [ad-renderer]="renderMapper"></ng-template>
+</div>
+    

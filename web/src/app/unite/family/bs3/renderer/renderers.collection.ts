@@ -6,11 +6,13 @@ import { UnorderedRenderer } from './list/unordered/renderer';
 export const renderMapper = {
         custom: CustomRenderer,
         carousel : CarouselRenderer,
-        unorderedlist : UnorderedRenderer
+        unorderedlist : UnorderedRenderer,
+        statesmap : StatesmapRenderer
 }
 
 export const bs3Renderers = [
                                 CustomRenderer,
                                 CarouselRenderer,
-                                UnorderedRenderer
+                                UnorderedRenderer,
+                                StatesmapRenderer
                             ]

@@ -32,7 +32,9 @@ export class RendererSelector {
                 private _glbConfig : GlobalConfig,
                 private _uniteRoute : UniteRouting,
                 private _httpClient : HttpClient
-                ) { }
+                ) { 
+        console.log("renderWidgetsForPage");
+                }
 
     renderWidgetsForPage(availableRenderes){
         let basePath = this._glbConfig.baserUnitePath.basePath;

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes, ActivatedRoute} from '@angular/router'
+import { OwlModule } from 'ngx-owl-carousel';
 
 import { TemplateSelector } from '../../uniteDirectives/template.selector';
 import { RendererSelector } from '../../uniteDirectives/renderer.selector';
@@ -20,7 +21,7 @@ const r : Routes = [
     ];
 
 @NgModule({
-    imports : [CommonModule, RouterModule.forChild(r)],
+    imports : [CommonModule,OwlModule, RouterModule.forChild(r)],
     declarations : [
                     bs3Comp,
                     bs3Templates,

@@ -1,3 +1,4 @@
+<header class="header bg-white" id="header">
 <div class="container">
 	<div class="row">
 		<div class="col-xs-8 col-sm-3">
@@ -13,12 +14,29 @@
                     <li *ngFor="let menu of uniteMenus">
                         <a [href]="menu.path" [title]="menu.menuName"><span>{{menu.menuName}}</span></a>
                     </li>
-                    </ul>
+                    <li><a href="/private/index" target="_blank" title="Login" class="login strong"><span>LOGIN</span></a></li>
+                    <li><a href="take-a-tour.html" title="Take a tour" class="btn btn-primary"><span>TAKE A TOUR</span></a></li>    
+                </ul>
             </div>
         </div>
     </div>
 </div>  
-<div class="ui grid container">
-        <ng-template [ad-renderer]="renderMapper"></ng-template>
+</header>
+<div class="container">
+    <ng-template [ad-renderer]="renderMapper"></ng-template>
 </div>
-    
+<!-- Footer -->
+<footer class="top-space" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-7 col-xxs-12 padding10">
+                <address><span>Contact for queries: <a href="mailto:diksha-support@ncte-India.org" class="text-white" target="_top" title="Contact Us">  diksha-support@ncte-India.org</a></span></address>
+            </div>
+            <div class="col-xs-5 col-xxs-12 text-right padding10">
+                <a href="term-of-use.html" title="Terms of Use" target="_blank" class="text-white">Terms of Use</a> &nbsp; | &nbsp;
+                <span>&copy; 2018, DIKSHA</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /Footer -->

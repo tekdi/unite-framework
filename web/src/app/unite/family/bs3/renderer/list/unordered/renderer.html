@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row">
+	   <div class="col-xs-12">
+	    <h2>{{widName}}</h2>
+		   <ul>
+		   <li *ngFor="let item of localData">
+			  <a title="Visit Link" class="no-underline" target="_blank" [href]="item.link">
+                  {{item.item}}
+              </a>
+           </li>
+           </ul>
+        </div>
+    </div>
+    <hr/>
+</div>

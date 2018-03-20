@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import * as config from 'assets/config.json';
 
-
 @Injectable()
 export class BaseService {
 

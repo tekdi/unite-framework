@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConfigService } from './../services';
+import { Config } from './../classes';
+import * as configData from 'assets/config.json';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [],
-  providers: [ConfigService]
+  providers: [Config]
 })
 export class BootModule {
-
-  constructor(private _configService: ConfigService) {
-  }
-
-  getConfig() {
-    return this._configService.getConfig().subscribe(response => {
-      
-    });
+  constructor(public config: Config) { 
+    config.baserUnitePath;
+    config.baserFamilyPath;
+    config.gbConfig;
+    config.site = configData['site'];
+    config.admin = configData['admin'];
+    config.server = configData['server'];
   }
 }

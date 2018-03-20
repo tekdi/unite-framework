@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     templateUrl : "./renderer.html",
@@ -13,9 +14,11 @@ export class CustomRenderer{
 
     localData;
     localMap;
+constructor(private sanitizer: DomSanitizer){
 
+}
     mapProperties(data, mapObj) {
         this.localMap = mapObj;
-        this.localData = data;
+        this.localData = this.sanitizer.bypassSecurityTrustHtml(data);
     }
 }

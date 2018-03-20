@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "code"
+    "name": "Unite Framework"
   },
   "apps": [
     {
@@ -18,11 +18,7 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "styles.css",
-        "../node_modules/owl.carousel/dist/assets/owl.carousel.css",
-        "../node_modules/owl.carousel/dist/assets/owl.theme.default.css"
-      ],
+      "styles": ["styles.css"],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/owl.carousel/dist/owl.carousel.js"

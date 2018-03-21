@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Config } from './../classes';
-// import * as configData from 'assets/config.json';
 
 @NgModule({
   imports: [
@@ -12,7 +11,7 @@ import { Config } from './../classes';
 })
 
 export class BootModule {
-  constructor(public config: Config) {
-    config.setConfig();
+  constructor(private _config: Config) {
+    _config.setConfig();
   }
 }

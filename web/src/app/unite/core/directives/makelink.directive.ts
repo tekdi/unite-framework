@@ -1,5 +1,5 @@
 import { Directive, Input, ElementRef } from '@angular/core';
-import { UniteLinkerPipe } from '../pipes/linker.pipe';
+import { UniteLinkerPipe } from './../../core/pipes/linker.pipe';
 
 @Directive({
   selector: '[uniteLink]'

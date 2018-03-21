@@ -1,22 +1,21 @@
-import { Config } from './classes';
 import { NgModule, SystemJsNgModuleLoader } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { PlatformLocation, CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import 'rxjs/Rx';
 
-import { BootModule } from './boot/boot.module';
 import { SiteBranch } from './branch/site/site.branch';
 import { AdminBranch } from './branch/admin/admin.branch';
-
 import { UniteRouting } from './uniteServices/routingService';
-
 import { dataSources } from './datasources/sources.collection';
-import { UniteMapperPipe } from './pipes/mapper.pipe';
-import { UniteLinkerPipe } from './pipes/linker.pipe';
 
-import { HttpClientModule } from '@angular/common/http';
-
-import 'rxjs/Rx';
-import { MenusService, WidgetsService } from "./services";
+import { 
+        BootModule, 
+        UniteMapperPipe, 
+        UniteLinkerPipe, 
+        Config, MenusService, 
+        WidgetsService 
+    } from '@unite/core';
 
 const uniteRoutes : Routes = [
     {path : "admin", component : AdminBranch},

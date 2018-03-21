@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Config } from './../classes';
+import { Config } from './../../core/classes';
 
 @NgModule({
   imports: [

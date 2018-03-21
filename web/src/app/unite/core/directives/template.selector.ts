@@ -1,6 +1,5 @@
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
 import { Config } from './../classes';
-//import { OneTemplate } from '../family/sb/templates/1/one.template'
 
 @Directive({
   selector: '[selectTemplate]'
@@ -17,11 +16,10 @@ export class TemplateSelector {
     ) { }
 
     renderTemplate(value) {
-        console.log("TEMPLATE");
-        console.log(this._config.site.template);
-        console.log('Values',value);
-        if (value[this._config.site.template]) {
-            let componentFactory = this._cfResolver.resolveComponentFactory(value[this._config.site.template]);
+
+        console.log('Values', this._config.site);
+        if (value['one']) {
+            let componentFactory = this._cfResolver.resolveComponentFactory(value['one']);
             this._vcRef.createComponent(componentFactory);
         }
         else {

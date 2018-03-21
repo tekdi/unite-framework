@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { matTemplatesMapper } from './templates/templates.collections';
-import { Config } from './../../classes';
+import { Config } from './../../core/classes';
 
 @Component({
     template : `

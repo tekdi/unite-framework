@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { sbTemplatesMapper } from './templates/templates.collections';
-import { Config } from './../../classes';
+import { Config } from './../../core/classes';
 
 @Component({
     template : `<ng-template [selectTemplate]="sbTemplates"></ng-template>`,

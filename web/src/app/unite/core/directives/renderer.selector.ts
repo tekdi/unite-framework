@@ -1,8 +1,8 @@
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { UniteRouting } from '../uniteServices/routingService';
-import { dataSources } from '../datasources/sources.collection';
+import { UniteRouting } from './../../uniteServices/routingService';
+import { dataSources } from './../../datasources/sources.collection';
 import { HttpClient } from '@angular/common/http';
 import { Config } from './../classes';
 
@@ -39,20 +39,8 @@ export class RendererSelector {
     }
 
     renderWidgetsForPage(availableRenderes){
-        let basePath = this._config.baserUnitePath.basePath;
-        let baseFamilypath = this._config.baserFamilyPath.basePath;
-
-        console.log("chekicng for baseeeeeeeeee pathhhhhhhhh ", basePath, this._pfLocation.pathname);
-
         let servicePath = this._pfLocation.pathname;
-        // servicePath     = basePath
-        //                     ? this._pfLocation.pathname.replace(basePath, "").replace(/^\/+|\/+$/g, '')
-        //                     : this._pfLocation.pathname.replace(/^\/+|\/+$/g, '');
-
-        // servicePath     = baseFamilypath
-        //                     ? servicePath.replace(baseFamilypath, "").replace(/^\/+|\/+$/g, '')
-        //                     : servicePath.replace(/^\/+|\/+$/g, '');
-
+        console.log("SERVICE PATH", servicePath);
         let menuInfo = this._uniteRoute.parseUniteUrl(servicePath);
 
         console.log("menu informations ", menuInfo);
@@ -69,7 +57,6 @@ export class RendererSelector {
                     console.log("availableRenderes ------------>", availableRenderes[widRenderer]);
                     let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
                     let thisCompRef = this._vcRef.createComponent(componentFactory);
-
                     this.loadData(widInfo, thisCompRef);
                 }
                 else

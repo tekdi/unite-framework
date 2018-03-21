@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, TemplateRef, NgModuleFactoryLoader, SystemJsNgModuleLoader, Injector } from '@angular/core';
 import { AdDirective } from "../branch.ad";
 import { ActivatedRoute } from '@angular/router';
-import { Config } from './../../classes';
-
+import { Config } from './../../core/classes/config';
 @Component({
     templateUrl : './site.branch.html',
     providers : [{

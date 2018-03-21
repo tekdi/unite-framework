@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes, ActivatedRoute} from '@angular/router'
 import { OwlModule } from 'ngx-owl-carousel';
 
-import { TemplateSelector } from '../../uniteDirectives/template.selector';
-import { RendererSelector } from '../../uniteDirectives/renderer.selector';
-import { UniteLinkDirective } from '../../uniteDirectives/makelink.directive';
+import { TemplateSelector } from '../../core/directives/template.selector';
+import { RendererSelector } from '../../core/directives/renderer.selector';
+import { UniteLinkDirective } from '../../core/directives/makelink.directive';
 import { bs3Comp } from './bs3.component';
 
 import { UniteRouting } from '../../uniteServices/routingService';
@@ -13,8 +13,8 @@ import { UniteRouting } from '../../uniteServices/routingService';
 import { bs3Templates } from './templates/templates.collections';
 import { bs3Renderers } from './renderer/renderers.collection';
 
-import { UniteMapperPipe } from '../../pipes/mapper.pipe';
-import { UniteLinkerPipe } from '../../pipes/linker.pipe';
+import { UniteMapperPipe } from '../../core/pipes/mapper.pipe';
+import { UniteLinkerPipe } from '../../core/pipes/linker.pipe';
 
 const r : Routes = [ 
     {path : "**", component : bs3Comp} 

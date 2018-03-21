@@ -1,4 +1,4 @@
-import { Config } from './../../classes';
+import { Config } from './../../core/classes';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { bs3TemplatesMapper } from './templates/templates.collections';

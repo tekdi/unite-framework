@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { MenusService, WidgetsService } from "../services";
-import { Config } from './../classes';
+import { MenusService, WidgetsService } from "../core/services";
+import { Config } from './../core/classes';
 
 @Injectable()
 export class UniteRouting{
@@ -132,8 +132,8 @@ export class UniteRouting{
         let menusToReturn = [];
         let finalMenus = this.finalMenus;
 
-        finalUniteBasePath += this._config.baserUnitePath['basePath'] ? this._config.baserUnitePath.basePath + "/" : "";
-        finalUniteBasePath += this._config.baserFamilyPath['basePath'] ? this._config.baserFamilyPath.basePath + "/" : '';
+        finalUniteBasePath += this._config.baserUnitePath['basePath'] ? this._config.baserUnitePath['basePath'] + "/" : "";
+        finalUniteBasePath += this._config.baserFamilyPath['basePath'] ? this._config.baserFamilyPath['basePath'] + "/" : '';
         console.log("FINAL UNITE BASE PATH", finalUniteBasePath);
         console.log('%c CLASS CONFIG', 'color: green; font-weight: bold;');
         console.log(this._config);

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import {RouterModule, Routes} from '@angular/router'
 
-import { TemplateSelector } from '../../uniteDirectives/template.selector';
-import { RendererSelector } from '../../uniteDirectives/renderer.selector';
+import { TemplateSelector } from '../../core/directives/template.selector';
+import { RendererSelector } from '../../core/directives/renderer.selector';
 import { MatComp } from './mat.component';
 
 import { UniteRouting } from '../../uniteServices/routingService'

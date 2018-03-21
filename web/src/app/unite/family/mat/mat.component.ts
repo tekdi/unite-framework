@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { matTemplatesMapper } from './templates/templates.collections';
-import { GlobalConfig } from "../../configs/global.configs";
+import { Config } from './../../classes';
 
 @Component({
     template : `
@@ -11,8 +11,9 @@ import { GlobalConfig } from "../../configs/global.configs";
 })
 export class MatComp{
     matTemplatesMapper;
-    constructor(private _acRoutes : ActivatedRoute, private _glbConfig : GlobalConfig){
-        this._glbConfig.baserFamilyPath = this._acRoutes.snapshot.data;
+
+    constructor(private _acRoutes : ActivatedRoute, private _config: Config) {
+        this._config.baserFamilyPath = this._acRoutes.snapshot.data;
         this.matTemplatesMapper = matTemplatesMapper;
     }
 }

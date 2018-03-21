@@ -1,6 +1,6 @@
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
+import { BootModule } from './../boot/boot.module';
 //import { OneTemplate } from '../family/sb/templates/1/one.template'
-import { GlobalConfig } from '../configs/global.configs';
 
 @Directive({
   selector: '[selectTemplate]'
@@ -11,24 +11,21 @@ export class TemplateSelector {
       this.renderTemplate(value);
     }
     constructor(
-                  private _vcRef: ViewContainerRef,
-                  private _cfResolver: ComponentFactoryResolver,
-                  private _glConfig : GlobalConfig
-              ) { }
+        private _vcRef: ViewContainerRef,
+        private _cfResolver: ComponentFactoryResolver,
+        private _bootModule: BootModule
+    ) { }
 
-    renderTemplate(value)
-    {
+    renderTemplate(value) {
+        let config = this._bootModule;
+
         console.log('Values',value);
-        //@Todo - Need to improve this code
-        this._glConfig.getGlobalConfig('site').subscribe(data => {
-            if(value[data.template])
-            {
-                let componentFactory = this._cfResolver.resolveComponentFactory(value[data.template]);
-                this._vcRef.createComponent(componentFactory);
-            }
-            else{
-                console.log('ERROR : Template not found...');
-            }
-        });
+        if (value[this._bootModule.config.site.template]) {
+            let componentFactory = this._cfResolver.resolveComponentFactory(value[this._bootModule.config.site.template]);
+            this._vcRef.createComponent(componentFactory);
+        }
+        else {
+            console.log('ERROR : Template not found...');
+        }
     }
 }

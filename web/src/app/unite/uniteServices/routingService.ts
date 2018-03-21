@@ -1,10 +1,6 @@
 import { Injectable } from "@angular/core";
-//import { Observable } from "rxjs/Observable";
 import { GlobalConfig } from '../configs/global.configs';
-import { Menues } from '../configs/menus.configs';
-import { Widgets } from '../configs/widgets.config';
 import { MenusService, WidgetsService } from "../services";
-
 
 @Injectable()
 export class UniteRouting{
@@ -12,9 +8,7 @@ export class UniteRouting{
     menus;
     finalMenus;
     constructor(
-        private _gbConfig: GlobalConfig, 
-        private _menu: Menues, 
-        private _widget: Widgets, 
+        private _gbConfig: GlobalConfig,
         private _menusService: MenusService,
         private _widgetsService: WidgetsService ){
 
@@ -22,7 +16,6 @@ export class UniteRouting{
 
     getMenus(dataSources){
         this._menusService.getMenus().subscribe(data =>{
-        // this._menu.getMenus().subscribe(data =>{
             this.menus = data;
             let finalMenu = [];
             console.log("datadddddddddddd");
@@ -43,8 +36,7 @@ export class UniteRouting{
         });
     }
 
-    parseUniteUrl(uniteUrl)
-    {
+    parseUniteUrl(uniteUrl) {
         console.log("parse unite url 1 ", uniteUrl, this.finalMenus);
         if(uniteUrl)
         {
@@ -136,8 +128,7 @@ export class UniteRouting{
         }
     }
 
-    getAllMenus()
-    {
+    getAllMenus() {
         let finalUniteBasePath = "";
         let menusToReturn = [];
         let finalMenus = this.finalMenus;
@@ -157,15 +148,12 @@ export class UniteRouting{
         return menusToReturn;
     }
 
-    getAllWidgets()
-    {
-        //this._widget.getWidgets().subscribe(data =>{
-            this._widgetsService.getWidgets().subscribe(data1 =>{
-                console.log("DATA1111111111111111");
-                console.log(data1);
-                this.mapNewWidgets(data1);    
-            });
-        //});
+    getAllWidgets() {
+        this._widgetsService.getWidgets().subscribe(data1 =>{
+            console.log("DATA1111111111111111");
+            console.log(data1);
+            this.mapNewWidgets(data1);    
+        });
     }
 
     mapNewWidgets(widgets) {
@@ -207,8 +195,7 @@ export class UniteRouting{
         console.log('FINAL NEW MENUS After Mapping', this.finalMenus);  
     }
 
-    mapWidgetsWithPages(widgets)
-    {
+    mapWidgetsWithPages(widgets) {
         console.log("FINAL MENUS");
         console.log(this.finalMenus);
         this.finalMenus.forEach((menuElement, index) => {    

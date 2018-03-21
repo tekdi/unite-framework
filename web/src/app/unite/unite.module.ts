@@ -1,3 +1,4 @@
+import { Config } from './classes';
 import { NgModule, SystemJsNgModuleLoader } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { PlatformLocation, CommonModule } from '@angular/common';
@@ -6,7 +7,6 @@ import { BootModule } from './boot/boot.module';
 import { SiteBranch } from './branch/site/site.branch';
 import { AdminBranch } from './branch/admin/admin.branch';
 
-import { GlobalConfig } from './configs/global.configs';
 import { UniteRouting } from './uniteServices/routingService';
 
 import { dataSources } from './datasources/sources.collection';
@@ -40,7 +40,6 @@ const uniteRoutes : Routes = [
     ],
 
     providers: [
-        GlobalConfig, 
         SystemJsNgModuleLoader, 
         UniteRouting, 
         UniteMapperPipe, 
@@ -50,12 +49,7 @@ const uniteRoutes : Routes = [
     ]
 })
 export class UniteModule{
-
-    constructor(private _uniteRouting: UniteRouting, private _bootModule: BootModule )
-    {
+    constructor(private _uniteRouting: UniteRouting, private _config: Config ) {
         this._uniteRouting.getMenus(dataSources);
-        console.log("GET CONFIG");
-        console.log(_bootModule);
-        console.log(_bootModule.config.admin);
     }
 }

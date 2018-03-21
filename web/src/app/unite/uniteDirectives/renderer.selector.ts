@@ -1,10 +1,10 @@
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { GlobalConfig } from '../configs/global.configs';
 import { UniteRouting } from '../uniteServices/routingService';
 import { dataSources } from '../datasources/sources.collection';
 import { HttpClient } from '@angular/common/http';
+import { Config } from './../classes';
 
 interface DynamicComponent {
     data: any;
@@ -25,20 +25,22 @@ export class RendererSelector {
         this.renderWidgetsForPage(value);
     }
 
-    constructor(private _vcRef: ViewContainerRef,
-                private _cfResolver: ComponentFactoryResolver,
-                private _pfLocation : PlatformLocation,
-                private _acRoute : ActivatedRoute,
-                private _glbConfig : GlobalConfig,
-                private _uniteRoute : UniteRouting,
-                private _httpClient : HttpClient
-                ) { 
+    constructor(
+        private _vcRef: ViewContainerRef,
+        private _cfResolver: ComponentFactoryResolver,
+        private _pfLocation : PlatformLocation,
+        private _acRoute : ActivatedRoute,
+        private _uniteRoute : UniteRouting,
+        private _httpClient : HttpClient,
+        private _config: Config
+        ) 
+    { 
         console.log("renderWidgetsForPage");
-                }
+    }
 
     renderWidgetsForPage(availableRenderes){
-        let basePath = this._glbConfig.baserUnitePath.basePath;
-        let baseFamilypath = this._glbConfig.baserFamilyPath.basePath;
+        let basePath = this._config.baserUnitePath.basePath;
+        let baseFamilypath = this._config.baserFamilyPath.basePath;
 
         console.log("chekicng for baseeeeeeeeee pathhhhhhhhh ", basePath, this._pfLocation.pathname);
 

@@ -20,7 +20,6 @@ export class CoursesDataService
     getData()
     {
         let headers = {"Content-Type": "application/json"}
-        
         return this._httpClient.post(
             this.config.defaultConfig.baseUrl + "/private/service/v1/content/composite/v1/search", 
             this.config.defaultConfig.search_filter, 

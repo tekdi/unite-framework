@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { GlobalConfig } from '../configs/global.configs';
 import { MenusService, WidgetsService } from "../services";
+import { Config } from './../classes';
 
 @Injectable()
 export class UniteRouting{
@@ -8,9 +8,9 @@ export class UniteRouting{
     menus;
     finalMenus;
     constructor(
-        private _gbConfig: GlobalConfig,
         private _menusService: MenusService,
-        private _widgetsService: WidgetsService ){
+        private _widgetsService: WidgetsService,
+        private _config: Config ){
 
     }
 
@@ -18,8 +18,7 @@ export class UniteRouting{
         this._menusService.getMenus().subscribe(data =>{
             this.menus = data;
             let finalMenu = [];
-            console.log("datadddddddddddd");
-            console.log(data);
+
             this.menus.forEach(menu => {
                 let menuArray = {};
                 console.log(menu['routeUrl']);
@@ -133,9 +132,11 @@ export class UniteRouting{
         let menusToReturn = [];
         let finalMenus = this.finalMenus;
 
-        finalUniteBasePath += this._gbConfig.baserUnitePath['basePath'] ? this._gbConfig.baserUnitePath.basePath + "/" : "";
-        finalUniteBasePath += this._gbConfig.baserFamilyPath['basePath'] ? this._gbConfig.baserFamilyPath.basePath + "/" : '';
-
+        finalUniteBasePath += this._config.baserUnitePath['basePath'] ? this._config.baserUnitePath.basePath + "/" : "";
+        finalUniteBasePath += this._config.baserFamilyPath['basePath'] ? this._config.baserFamilyPath.basePath + "/" : '';
+        console.log("FINAL UNITE BASE PATH", finalUniteBasePath);
+        console.log('%c CLASS CONFIG', 'color: green; font-weight: bold;');
+        console.log(this._config);
         finalMenus.forEach(element => {
             let thisElement = element;
             if(thisElement.path.indexOf(':') == -1)
@@ -149,20 +150,15 @@ export class UniteRouting{
     }
 
     getAllWidgets() {
-        this._widgetsService.getWidgets().subscribe(data1 =>{
-            console.log("DATA1111111111111111");
-            console.log(data1);
-            this.mapNewWidgets(data1);    
+        this._widgetsService.getWidgets().subscribe(response =>{
+            console.log("getAllWidgets RESPONSE");
+            console.log(response);
+            this.mapNewWidgets(response);    
         });
     }
 
     mapNewWidgets(widgets) {
-
-        console.log("newMenusnewMenusnewMenus");
-        console.log(this.menus);
-        console.log(widgets);
         let oldWidget = [];
-
         this.menus.forEach((menu, index) => {
             let widgetsArray = [];
             widgets.forEach(widget => {
@@ -171,10 +167,7 @@ export class UniteRouting{
                 let routes = menu.source.extension.routes;
                 for (let index = 0; index < routes.length; index++) {
                     let route = routes[index];
-                
                     if (route.id == widget.routeId && menu.id == widget.menuId) {
-                        console.log("menu.source.config");
-                        console.log(menu.source.config);
                         widget.widget.config.baseUrl = menu.source.config.baseUrl;
                         oldWidget['service'] = widget.widget.config.service;
                         oldWidget['source'] = widget.widget.source.name;

@@ -27,10 +27,11 @@ export class UniteLinkerPipe implements PipeTransform {
 
             for (var index = 0; index < pages.length; index++)
             {
-                if(node.page_id == pages[index]['page_id'])
+                // Node id is menu id
+                if(node.id == pages[index]['id'])
                 {
                     let page        = pages[index];
-                    let pagePath    = page.path;
+                    let pagePath = page.routeUrl;
                     let pagePathArr = pagePath.split("/");
                     let nodePathParam = node['urlParams'];
 

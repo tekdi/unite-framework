@@ -93,7 +93,7 @@ export class UniteRouting{
                                     param : dynamicSegObj,
                                     showDefault : roElement['showDefault'],
                                     mapper : roElement['mapper'],
-                                    widName : roElement['menuName']
+                                    widgetName : roElement['menuName']
                                 };
 
                         mainDynamicSegObj = dynamicSegObj;

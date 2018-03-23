@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SunbirdRatingRenderer{
     @Input() data : Array<any>;
+    @Input() widgetName;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);
     };

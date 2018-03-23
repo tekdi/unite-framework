@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SunbirdGridRenderer{
     @Input() data : Array<any>;
-    @Input() widName;
+    @Input() widgetName;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);
     };

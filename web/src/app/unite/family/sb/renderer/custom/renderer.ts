@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SunbirdCustomRenderer{
     @Input() data;
-    @Input() widName;
+    @Input() widgetName;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);
     };

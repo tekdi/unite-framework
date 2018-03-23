@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SunbirdIconListRenderer{
     @Input() data : Array<any>;
-    @Input() widName;
+    @Input() widgetName;
     loading = true;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);

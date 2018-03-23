@@ -82,7 +82,7 @@ export class UniteRouting{
                     {
                         respObj =  {
                                     source : roElement['source'],
-                                    service : roElement['service'],
+                                    //service : roElement['service'],
                                     defaultRenderer : roElement['defaultRenderer'],
                                     widgets : roElement['widgets'],
                                     param : dynamicSegObj,
@@ -163,7 +163,7 @@ export class UniteRouting{
                     let route = routes[index];
                     if (route.id == widget.routeId && menu.id == widget.menuId) {
                         widget.widget.config.baseUrl = menu.source.config.baseUrl;
-                        oldWidget['service'] = widget.widget.config.service;
+                        //oldWidget['service'] = widget.widget.config.service;
                         oldWidget['source'] = widget.widget.source.name;
                         oldWidget['widgetName'] = widget.widget.name;
                         oldWidget['renderer'] = widget.widget.renderer;

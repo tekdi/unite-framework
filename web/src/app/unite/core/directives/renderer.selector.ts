@@ -78,7 +78,7 @@ export class RendererSelector {
         {
             let config = {
                 urlData: widInfo.param ? widInfo.param : {},
-                defaultConfig : widInfo['defaultConfig'] ? widInfo['defaultConfig'] : {}
+                config: widInfo['config'] ? widInfo['config'] : {}
             };
 
             let metadata = {
@@ -95,10 +95,10 @@ export class RendererSelector {
             if (widInfo.service) {
                 this.getServiceData(widInfo, dataSourceObj, thisCompRef, metadata);
             }
-            else if (widInfo.defaultConfig.data) {
+            else if (widInfo.config.data) {
                 this.getJsonData(widInfo, dataSourceObj, thisCompRef, metadata);
             }
-            else if (widInfo.defaultConfig.html) {
+            else if (widInfo.config.html) {
                 this.getHtmlData(widInfo, dataSourceObj, thisCompRef, metadata);
             }
         }
@@ -106,8 +106,8 @@ export class RendererSelector {
 
     getServiceData(widInfo, dataSourceObj, thisCompRef, metadata) {
         dataSourceObj.getData(widInfo.service).map(data => {
-            if (widInfo['defaultConfig']['dataNode']) {
-                let dataNode2 = widInfo['defaultConfig']['dataNode'].split(".");
+            if (widInfo['config']['dataNode']) {
+                let dataNode2 = widInfo['config']['dataNode'].split(".");
                 let myFinalValue = data;
                 dataNode2.forEach(element => {
                     myFinalValue = myFinalValue[element];
@@ -122,11 +122,11 @@ export class RendererSelector {
     }
     
     getJsonData(widInfo, dataSourceObj, thisCompRef, metadata) {
-        this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.defaultConfig.data);
+        this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.config.data);
     }
 
     getHtmlData(widInfo, dataSourceObj, thisCompRef, metadata) {
-        this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.defaultConfig.html);
+        this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.config.html);
     }
 
     setDynamicComponentInputs(widInfo, thisCompRef, metadata, data) {

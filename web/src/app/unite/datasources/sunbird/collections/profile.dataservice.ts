@@ -16,7 +16,7 @@ export class SunbirdProfileDataService
     constructor(private config, private _httpClient? : HttpClient )
     {
         
-        this.dataNode = config.defaultConfig['dataNode'];
+        this.dataNode = config.config['dataNode'];
         this.apiBase = environment.apiBase;
 
         var AuthorizationTo = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkMTc1MDIwNDdlODc0ODZjOTM0ZDQ1ODdlYTQ4MmM3MyJ9.7LWocwCn5rrCScFQYOne8_Op2EOo-xTCK5JCFarHKSs';

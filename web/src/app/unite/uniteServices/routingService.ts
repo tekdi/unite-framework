@@ -11,21 +11,15 @@ export class UniteRouting{
         private _menusService: MenusService,
         private _widgetsService: WidgetsService,
         private _config: Config ){
-
     }
 
-    getMenus(dataSources){
-        this._menusService.getMenus().subscribe(data =>{
+    getMenus(dataSources) {
+        this._menusService.getMenus().subscribe(data => {
             this.menus = data;
             let finalMenu = [];
 
             this.menus.forEach(menu => {
-                let menuArray = {};
-                console.log(menu['routeUrl']);
-                menuArray['path'] = menu['routeUrl'];
-                menuArray['page_id'] = menu['id'];
-                menuArray['menuName'] = menu['name'];
-                finalMenu.push(menuArray);
+                finalMenu.push(menu);
             });
 
             this.finalMenus = finalMenu;
@@ -36,9 +30,9 @@ export class UniteRouting{
     }
 
     parseUniteUrl(uniteUrl) {
+        this.getMenuWidgets(uniteUrl);
         console.log("parse unite url 1 ", uniteUrl, this.finalMenus);
-        if(uniteUrl)
-        {
+        if(uniteUrl) {
             let segArr = uniteUrl.split('/');
             let segCount = segArr.length;
             let respObj = {};
@@ -46,12 +40,12 @@ export class UniteRouting{
 
             for(let roElement of this.finalMenus)
             {
-                let roArray = roElement.path.split("/");
+                let roArray = roElement.routeUrl.split("/");
                 let roLength = roArray.length;
                 console.log("roLength", roLength);
                 console.log("roArray", roArray);
                 
-                let roDynamicSegmentCount   = (roElement.path.match(/\/:/g)||[]).length;
+                let roDynamicSegmentCount = (roElement.routeUrl.match(/\/:/g)||[]).length;
                 let roStaticSegmentCount    = roLength - roDynamicSegmentCount;
                 let dynamicSegObj = {};
 
@@ -93,7 +87,7 @@ export class UniteRouting{
                                     param : dynamicSegObj,
                                     showDefault : roElement['showDefault'],
                                     mapper : roElement['mapper'],
-                                    widgetName : roElement['menuName']
+                                    widgetName : roElement['name']
                                 };
 
                         mainDynamicSegObj = dynamicSegObj;
@@ -130,18 +124,17 @@ export class UniteRouting{
     getAllMenus() {
         let finalUniteBasePath = "";
         let menusToReturn = [];
-        let finalMenus = this.finalMenus;
 
         finalUniteBasePath += this._config.baserUnitePath['basePath'] ? this._config.baserUnitePath['basePath'] + "/" : "";
         finalUniteBasePath += this._config.baserFamilyPath['basePath'] ? this._config.baserFamilyPath['basePath'] + "/" : '';
         console.log("FINAL UNITE BASE PATH", finalUniteBasePath);
         console.log('%c CLASS CONFIG', 'color: green; font-weight: bold;');
         console.log(this._config);
-        finalMenus.forEach(element => {
+        this.finalMenus.forEach(element => {
             let thisElement = element;
-            if(thisElement.path.indexOf(':') == -1)
+            if (thisElement.routeUrl.indexOf(':') == -1)
             {
-                thisElement.path = finalUniteBasePath + thisElement.path;
+                thisElement.routeUrl = finalUniteBasePath + thisElement.routeUrl;
                 menusToReturn.push(thisElement);
             }
         });
@@ -174,8 +167,8 @@ export class UniteRouting{
                         oldWidget['widgetName'] = widget.widget.name;
                         oldWidget['renderer'] = widget.widget.renderer;
                         oldWidget['mapper'] = widget.widget.mapper;
-                        oldWidget['defaultConfig'] = widget.widget.config;
-                        oldWidget['page_id'] = widget.routeId;
+                        oldWidget['config'] = widget.widget.config;
+                        oldWidget['id'] = widget.routeId;
                         widgetsArray.push(oldWidget);
                         return;
                     }
@@ -188,21 +181,7 @@ export class UniteRouting{
         console.log('FINAL NEW MENUS After Mapping', this.finalMenus);  
     }
 
-    mapWidgetsWithPages(widgets) {
-        console.log("FINAL MENUS");
-        console.log(this.finalMenus);
-        this.finalMenus.forEach((menuElement, index) => {    
-            if(menuElement.page_id) {
-                let widgetsArray = [];
-                widgets.forEach(widget => {
-                    if (menuElement.page_id == widget.page_id) {
-                        widgetsArray.push(widget);
-                    }
-                });
-                
-                this.finalMenus[index]['widgets']= widgetsArray;
-            }
-        });
-        console.log('Final Menues After Mapping',this.finalMenus);
+    getMenuWidgets(url : string) {
+        console.log("getMenuWidgets", this.finalMenus);
     }
 }

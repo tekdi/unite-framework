@@ -17,6 +17,6 @@ export class SunbirdCourseDataService {
 
     getData() {
         return this._httpClient.get(
-            this.config.defaultConfig.baseUrl + "/private/service/v1/content/course/v1/hierarchy/" + this.config.urlData.courseId);
+            this.config.config.baseUrl + "/private/service/v1/content/course/v1/hierarchy/" + this.config.urlData.courseId);
     }
 }

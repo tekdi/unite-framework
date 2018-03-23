@@ -46,12 +46,12 @@ export class RendererSelector {
         console.log("menu informations ", menuInfo);
         console.log("availableRenderes ", availableRenderes);
 
-        if(menuInfo && menuInfo.length !== 0)
-        {
+        if(menuInfo && menuInfo.length !== 0) {
             menuInfo.forEach(widInfo => {
                 let widRenderer = widInfo['renderer'] ? widInfo['renderer'] : widInfo['defaultRenderer'];
                 console.log("widInfo", widInfo);
                 console.log("widRenderer", widRenderer);
+
                 if(availableRenderes.hasOwnProperty(widRenderer))
                 {
                     console.log("availableRenderes ------------>", availableRenderes[widRenderer]);
@@ -92,7 +92,7 @@ export class RendererSelector {
             
             console.log("widInfo DDDDDDDDDD", widInfo);            
 
-            if (widInfo.service) {
+            if (widInfo.config.service) {
                 this.getServiceData(widInfo, dataSourceObj, thisCompRef, metadata);
             }
             else if (widInfo.config.data) {

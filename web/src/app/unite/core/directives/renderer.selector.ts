@@ -83,7 +83,7 @@ export class RendererSelector {
 
             let metadata = {
                 source : widInfo.source,
-                service: widInfo.service ? widInfo.service : '',
+                service: widInfo.config.service ? widInfo.config.service : '',
                 config : config
             }
 

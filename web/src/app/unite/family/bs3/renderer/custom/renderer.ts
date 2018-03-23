@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class CustomRenderer{
     @Input() data;
-    @Input() widName;
+    @Input() widgetName;
     @Input() set mapper(value){
         this.mapProperties(this.data, value);
     };

@@ -9,7 +9,7 @@ import { Config } from './../classes';
 interface DynamicComponent {
     data: any;
     mapper: any;
-    widName: any;
+    widgetName: any;
     metadata: any;
   }
 
@@ -132,7 +132,7 @@ export class RendererSelector {
     setDynamicComponentInputs(widInfo, thisCompRef, metadata, data) {
         (<DynamicComponent>thisCompRef.instance).data = data;
         (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper : {};
-        (<DynamicComponent>thisCompRef.instance).widName = widInfo.widName;
+        (<DynamicComponent>thisCompRef.instance).widgetName = widInfo.widgetName;
         (<DynamicComponent>thisCompRef.instance).metadata = metadata;
     }
 }

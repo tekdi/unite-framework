@@ -171,7 +171,7 @@ export class UniteRouting{
                         widget.widget.config.baseUrl = menu.source.config.baseUrl;
                         oldWidget['service'] = widget.widget.config.service;
                         oldWidget['source'] = widget.widget.source.name;
-                        oldWidget['widName'] = widget.widget.name;
+                        oldWidget['widgetName'] = widget.widget.name;
                         oldWidget['renderer'] = widget.widget.renderer;
                         oldWidget['mapper'] = widget.widget.mapper;
                         oldWidget['defaultConfig'] = widget.widget.config;

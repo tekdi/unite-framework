@@ -16,13 +16,15 @@ interface DynamicComponent {
 @Directive({
   selector: '[ad-renderer]'
 })
-export class RendererSelector {
+
+  export class RendererSelector {
 
     dataCollection = dataSources;
+    @Input() position: string;
 
     @Input('ad-renderer') set config(value){
-        console.log("I am inside renderer selector config ", value);
-        this.renderWidgetsForPage(value);
+        console.log("I am inside renderer selector config Body position ", value);
+        this.renderWidgetsForPage(value,this.position);
     }
 
     constructor(
@@ -38,24 +40,31 @@ export class RendererSelector {
         console.log("In Renderer Selectors constructor");
     }
 
-    renderWidgetsForPage(availableRenderes){
+    renderWidgetsForPage(availableRenderes,position){
         let servicePath = this._pfLocation.pathname;
         console.log("SERVICE PATH", servicePath);
         let menuInfo = this._uniteRoute.parseUniteUrl(servicePath);
 
-        //console.log("menu informations ", menuInfo);
-        //console.log("availableRenderes ", availableRenderes);
-
         if(menuInfo && menuInfo.length !== 0) {
+
             menuInfo.forEach(widgetInfo => {
+                let widgetPosition  = widgetInfo['position'] ? widgetInfo['position'] : 'body';
                 let widRenderer = widgetInfo['renderer'] ? widgetInfo['renderer'] : widgetInfo['defaultRenderer'];
-                //console.log("widgetInfo", widgetInfo);
-                
+                console.log('%c Widget Infor','color: yellow; font-weight: bold;',widgetInfo);
                 if(availableRenderes.hasOwnProperty(widRenderer))
                 {
-                    let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
-                    let thisCompRef = this._vcRef.createComponent(componentFactory);
-                    this.loadData(widgetInfo, thisCompRef);
+                    console.log('%c Directive sent Position','color: black; font-weight: bold;',position);
+                    console.log('%c Widget Position','color: red; font-weight: bold;',widgetPosition);
+                    if(position == widgetPosition)
+                    {
+                        let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
+                        let thisCompRef = this._vcRef.createComponent(componentFactory);
+                        this.loadData(widgetInfo, thisCompRef);
+                    }
+                    else
+                    {
+                        console.log('Widget is not for '+position+'position');
+                    }
                 }
                 else
                 {

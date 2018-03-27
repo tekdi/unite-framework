@@ -35,7 +35,7 @@ export class RendererSelector {
         private _config: Config
         ) 
     { 
-        console.log("renderWidgetsForPage");
+        console.log("In Renderer Selectors constructor");
     }
 
     renderWidgetsForPage(availableRenderes){
@@ -43,21 +43,19 @@ export class RendererSelector {
         console.log("SERVICE PATH", servicePath);
         let menuInfo = this._uniteRoute.parseUniteUrl(servicePath);
 
-        console.log("menu informations ", menuInfo);
-        console.log("availableRenderes ", availableRenderes);
+        //console.log("menu informations ", menuInfo);
+        //console.log("availableRenderes ", availableRenderes);
 
         if(menuInfo && menuInfo.length !== 0) {
-            menuInfo.forEach(widInfo => {
-                let widRenderer = widInfo['renderer'] ? widInfo['renderer'] : widInfo['defaultRenderer'];
-                console.log("widInfo", widInfo);
-                console.log("widRenderer", widRenderer);
-
+            menuInfo.forEach(widgetInfo => {
+                let widRenderer = widgetInfo['renderer'] ? widgetInfo['renderer'] : widgetInfo['defaultRenderer'];
+                //console.log("widgetInfo", widgetInfo);
+                
                 if(availableRenderes.hasOwnProperty(widRenderer))
                 {
-                    console.log("availableRenderes ------------>", availableRenderes[widRenderer]);
                     let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
                     let thisCompRef = this._vcRef.createComponent(componentFactory);
-                    this.loadData(widInfo, thisCompRef);
+                    this.loadData(widgetInfo, thisCompRef);
                 }
                 else
                 {
@@ -71,43 +69,39 @@ export class RendererSelector {
         }
     }
 
-    loadData(widInfo, thisCompRef){
-        console.log("widInfo", widInfo);
-
-        if(this.dataCollection.hasOwnProperty(widInfo.source))
+    loadData(widgetInfo, thisCompRef){
+        if(this.dataCollection.hasOwnProperty(widgetInfo.source))
         {
             let config = {
-                urlData: widInfo.param ? widInfo.param : {},
-                config: widInfo['config'] ? widInfo['config'] : {}
+                urlData: widgetInfo.param ? widgetInfo.param : {},
+                config: widgetInfo['config'] ? widgetInfo['config'] : {}
             };
 
             let metadata = {
-                source : widInfo.source,
-                service: widInfo.config.service ? widInfo.config.service : '',
+                source : widgetInfo.source,
+                service: widgetInfo.config.service ? widgetInfo.config.service : '',
                 config : config
             }
 
-            let dataSourceClass = this.dataCollection[widInfo.source];
+            let dataSourceClass = this.dataCollection[widgetInfo.source];
             let dataSourceObj = new dataSourceClass(config, this._httpClient);
             
-            console.log("widInfo DDDDDDDDDD", widInfo);            
-
-            if (widInfo.config.service) {
-                this.getServiceData(widInfo, dataSourceObj, thisCompRef, metadata);
+            if (widgetInfo.config.service) {
+                this.getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata);
             }
-            else if (widInfo.config.data) {
-                this.getJsonData(widInfo, dataSourceObj, thisCompRef, metadata);
+            else if (widgetInfo.config.data) {
+                this.getJsonData(widgetInfo, dataSourceObj, thisCompRef, metadata);
             }
-            else if (widInfo.config.html) {
-                this.getHtmlData(widInfo, dataSourceObj, thisCompRef, metadata);
+            else if (widgetInfo.config.html) {
+                this.getHtmlData(widgetInfo, dataSourceObj, thisCompRef, metadata);
             }
         }
     }
 
-    getServiceData(widInfo, dataSourceObj, thisCompRef, metadata) {
-        dataSourceObj.getData(widInfo.service).map(data => {
-            if (widInfo['config']['dataNode']) {
-                let dataNode2 = widInfo['config']['dataNode'].split(".");
+    getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
+        dataSourceObj.getData(widgetInfo.service).map(data => {
+            if (widgetInfo['config']['dataNode']) {
+                let dataNode2 = widgetInfo['config']['dataNode'].split(".");
                 let myFinalValue = data;
                 dataNode2.forEach(element => {
                     myFinalValue = myFinalValue[element];
@@ -117,22 +111,22 @@ export class RendererSelector {
             return data;
         })
         .subscribe(data => {
-            this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, data);
+            this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, data);
         });
     }
     
-    getJsonData(widInfo, dataSourceObj, thisCompRef, metadata) {
-        this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.config.data);
+    getJsonData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
+        this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, widgetInfo.config.data);
     }
 
-    getHtmlData(widInfo, dataSourceObj, thisCompRef, metadata) {
-        this.setDynamicComponentInputs(widInfo, thisCompRef, metadata, widInfo.config.html);
+    getHtmlData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
+        this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, widgetInfo.config.html);
     }
 
-    setDynamicComponentInputs(widInfo, thisCompRef, metadata, data) {
+    setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, data) {
         (<DynamicComponent>thisCompRef.instance).data = data;
-        (<DynamicComponent>thisCompRef.instance).mapper = widInfo.mapper ? widInfo.mapper : {};
-        (<DynamicComponent>thisCompRef.instance).widgetName = widInfo.widgetName;
+        (<DynamicComponent>thisCompRef.instance).mapper = widgetInfo.mapper ? widgetInfo.mapper : {};
+        (<DynamicComponent>thisCompRef.instance).widgetName = widgetInfo.widgetName;
         (<DynamicComponent>thisCompRef.instance).metadata = metadata;
     }
 }

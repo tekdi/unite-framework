@@ -2,12 +2,12 @@ import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@a
 import { Config } from './../classes';
 
 @Directive({
-  selector: '[selectTemplate]'
+  selector: '[selectLayout]'
 })
 export class TemplateSelector {
 
-    @Input('selectTemplate') set config(value){
-      this.renderTemplate(value);
+    @Input('selectLayout') set config(availableLayouts){
+        this.renderTemplate(availableLayouts);
     }
     constructor(
         private _vcRef: ViewContainerRef,
@@ -15,11 +15,12 @@ export class TemplateSelector {
         private _config: Config
     ) { }
 
-    renderTemplate(value) {
-
+    renderTemplate(availableLayouts) {
         console.log('TEMPLATE SELECTOR', this._config.site);
-        if (value['one']) {
-            let componentFactory = this._cfResolver.resolveComponentFactory(value['one']);
+        let layout = this._config.site['template'];
+        console.log('Layout', layout);
+        if (availableLayouts.hasOwnProperty(layout)) {
+            let componentFactory = this._cfResolver.resolveComponentFactory(availableLayouts[layout]);
             this._vcRef.createComponent(componentFactory);
         }
         else {

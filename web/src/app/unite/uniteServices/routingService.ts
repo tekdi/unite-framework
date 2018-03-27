@@ -23,8 +23,7 @@ export class UniteRouting{
             });
 
             this.finalMenus = finalMenu;
-            console.log("finalMenus");
-            console.log(this.finalMenus);
+            console.log("Final Menus",this.finalMenus);
             this.getAllWidgets();
         });
     }
@@ -42,9 +41,6 @@ export class UniteRouting{
             {
                 let roArray = roElement.routeUrl.split("/");
                 let roLength = roArray.length;
-                console.log("roLength", roLength);
-                console.log("roArray", roArray);
-                console.log("roElement", roElement);
                 
                 let roDynamicSegmentCount = (roElement.routeUrl.match(/\/:/g)||[]).length;
                 let roStaticSegmentCount    = roLength - roDynamicSegmentCount;
@@ -129,8 +125,7 @@ export class UniteRouting{
         finalUniteBasePath += this._config.baserUnitePath['basePath'] ? this._config.baserUnitePath['basePath'] + "/" : "";
         finalUniteBasePath += this._config.baserFamilyPath['basePath'] ? this._config.baserFamilyPath['basePath'] + "/" : '';
         console.log("FINAL UNITE BASE PATH", finalUniteBasePath);
-        console.log('%c CLASS CONFIG', 'color: green; font-weight: bold;');
-        console.log(this._config);
+        console.log('%c CLASS CONFIG', 'color: green; font-weight: bold;',this._config);
         this.finalMenus.forEach(element => {
             let thisElement = element;
             if (thisElement.routeUrl.indexOf(':') == -1)
@@ -145,8 +140,7 @@ export class UniteRouting{
 
     getAllWidgets() {
         this._widgetsService.getWidgets().subscribe(response =>{
-            console.log("getAllWidgets RESPONSE");
-            console.log(response);
+            console.log("getAllWidgets RESPONSE",response);
             this.mapNewWidgets(response);    
         });
     }
@@ -163,7 +157,6 @@ export class UniteRouting{
                     let route = routes[index];
                     if (route.id == widget.routeId && menu.id == widget.menuId) {
                         widget.widget.config.baseUrl = menu.source.config.baseUrl;
-                        //oldWidget['service'] = widget.widget.config.service;
                         oldWidget['source'] = widget.widget.source.name;
                         oldWidget['widgetName'] = widget.widget.name;
                         oldWidget['renderer'] = widget.widget.renderer;

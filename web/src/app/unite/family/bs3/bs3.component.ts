@@ -4,13 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { BS3LayoutsMapper } from './layouts/';
 
 @Component({
-    template : `<ng-template [selectTemplate]="bs3Templates"></ng-template>`,
+    template : `<ng-template [selectLayout]="bs3Layouts"></ng-template>`,
     styleUrls : ['./bs3.component.css'],
     encapsulation: ViewEncapsulation.None
 })
 export class bs3Comp{
 
-    bs3Templates = BS3LayoutsMapper;
+    bs3Layouts = BS3LayoutsMapper;
 
     constructor(
         private _acRoutes : ActivatedRoute,

@@ -48,8 +48,8 @@ interface DynamicComponent {
         if(menuInfo && menuInfo.length !== 0) {
 
             menuInfo.forEach(widgetInfo => {
-                let widgetPosition  = widgetInfo['position'] ? widgetInfo['position'] : 'body';
-                let widRenderer = widgetInfo['renderer'] ? widgetInfo['renderer'] : widgetInfo['defaultRenderer'];
+                let widgetPosition  = widgetInfo.position ? widgetInfo.position : 'body';
+                let widRenderer = widgetInfo.renderer ? widgetInfo.renderer : widgetInfo.defaultRenderer;
                 console.log('%c Widget Infor','color: yellow; font-weight: bold;',widgetInfo);
                 if(availableRenderes.hasOwnProperty(widRenderer))
                 {

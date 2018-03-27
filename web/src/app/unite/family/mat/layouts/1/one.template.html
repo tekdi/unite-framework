@@ -1,0 +1,9 @@
+<div class="ui menu secondary pointing center aligned">
+    <ng-container *ngFor="let menu of uniteMenus">
+        <a class="item" [href]="menu.routeUrl">{{menu.name}}</a>
+    </ng-container>
+</div>
+
+<div class="ui grid container">
+    <ng-template [ad-renderer]="renderMapper"></ng-template>
+</div>

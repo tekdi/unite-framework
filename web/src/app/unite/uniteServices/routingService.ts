@@ -78,7 +78,7 @@ export class UniteRouting{
                     {
                         respObj =  {
                                     source : roElement['source'],
-                                    //service : roElement['service'],
+                                    position : roElement['position'],
                                     defaultRenderer : roElement['defaultRenderer'],
                                     widgets : roElement['widgets'],
                                     param : dynamicSegObj,
@@ -159,6 +159,7 @@ export class UniteRouting{
                         widget.widget.config.baseUrl = menu.source.config.baseUrl;
                         oldWidget['source'] = widget.widget.source.name;
                         oldWidget['widgetName'] = widget.widget.name;
+                        oldWidget['position'] = widget.widget.position;
                         oldWidget['renderer'] = widget.widget.renderer;
                         oldWidget['mapper'] = widget.widget.mapper;
                         oldWidget['config'] = widget.widget.config;

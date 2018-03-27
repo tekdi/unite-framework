@@ -1,5 +1,5 @@
 <header class="header bg-white" id="header">
-  <div class="container">
+  <!--div class="container">
     <div class="row">
       <div class="col-xs-8 col-sm-3">
         <h1 class="logo">
@@ -20,14 +20,16 @@
         </div>
       </div>
     </div>
-  </div>
+  </div-->
+  <ng-template [ad-renderer]="renderMapper" position="header" class="headerClass"></ng-template>
 </header>
 
-<ng-template [ad-renderer]="renderMapper"></ng-template>
+<ng-template [ad-renderer]="renderMapper" position="body" class="bodyClass"></ng-template>
 
 <!-- Footer -->
 <footer class="top-space" id="contact">
-  <div class="container">
+    <ng-template [ad-renderer]="renderMapper" position="footer" class="footerClass"></ng-template>
+  <!--div class="container">
     <div class="row">
       <div class="col-xs-7 col-xxs-12 padding10">
         <address><span>Contact for queries: <a href="mailto:diksha-support@ncte-India.org" class="text-white" target="_top" title="Contact Us">  diksha-support@ncte-India.org</a></span></address>
@@ -37,6 +39,6 @@
         <span>&copy; 2018, DIKSHA</span>
       </div>
     </div>
-  </div>
+  </div-->
 </footer>
 <!-- /Footer -->

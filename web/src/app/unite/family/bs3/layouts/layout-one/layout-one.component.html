@@ -1,0 +1,42 @@
+<header class="header bg-white" id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-sm-3">
+        <h1 class="logo">
+          <a href="index.html" title="DIKSHA">
+                    <img src="https://diksha.gov.in/images/logo.png" alt="DIKSHA logo">
+                </a>
+        </h1>
+      </div>
+      <div class="col-sm-9 hidden-xs">
+        <div class="menu pull-right bg-white" id="nav-bar">
+          <ul class="nav navbar-nav">
+            <li *ngFor="let menu of uniteMenus">
+              <a [href]="menu.routeUrl" [title]="menu.name"><span>{{menu.name}}</span></a>
+            </li>
+            <li><a href="/private/index" target="_blank" title="Login" class="login strong"><span>LOGIN</span></a></li>
+            <li><a href="take-a-tour.html" title="Take a tour" class="btn btn-primary"><span>TAKE A TOUR</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<ng-template [ad-renderer]="renderMapper"></ng-template>
+
+<!-- Footer -->
+<footer class="top-space" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-7 col-xxs-12 padding10">
+        <address><span>Contact for queries: <a href="mailto:diksha-support@ncte-India.org" class="text-white" target="_top" title="Contact Us">  diksha-support@ncte-India.org</a></span></address>
+      </div>
+      <div class="col-xs-5 col-xxs-12 text-right padding10">
+        <a href="term-of-use.html" title="Terms of Use" target="_blank" class="text-white">Terms of Use</a> &nbsp; | &nbsp;
+        <span>&copy; 2018, DIKSHA</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /Footer -->

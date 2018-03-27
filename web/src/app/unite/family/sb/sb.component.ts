@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { sbTemplatesMapper } from './templates/templates.collections';
+import { sbTemplatesMapper } from './layouts';
 import { Config } from './../../core/classes';
 
 @Component({

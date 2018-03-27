@@ -7,7 +7,7 @@ import { RendererSelector } from '../../core/directives/renderer.selector';
 import { MatComp } from './mat.component';
 
 import { UniteRouting } from '../../uniteServices/routingService'
-import { matTemplates } from './templates/templates.collections';
+import { matTemplates } from './layouts';
 import { matRenderers } from './renderers/renderers.collection';
 
 const r : Routes = [

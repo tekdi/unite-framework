@@ -10,7 +10,7 @@ import { SbComp } from './sb.component';
 import { UniteRouting } from '../../uniteServices/routingService';
 
 import { SuiModule, SuiProgressModule } from 'ng2-semantic-ui';
-import { sbTemplates } from './templates/templates.collections';
+import { sbTemplates } from './layouts';
 import { sbRenderers } from './renderer/renderers.collection';
 
 import { UniteMapperPipe } from '../../core/pipes/mapper.pipe';

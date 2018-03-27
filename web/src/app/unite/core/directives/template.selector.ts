@@ -17,7 +17,7 @@ export class TemplateSelector {
 
     renderTemplate(value) {
 
-        console.log('Values', this._config.site);
+        console.log('TEMPLATE SELECTOR', this._config.site);
         if (value['one']) {
             let componentFactory = this._cfResolver.resolveComponentFactory(value['one']);
             this._vcRef.createComponent(componentFactory);

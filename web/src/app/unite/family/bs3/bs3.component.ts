@@ -1,7 +1,7 @@
 import { Config } from './../../core/classes';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { bs3TemplatesMapper } from './templates/templates.collections';
+import { BS3LayoutsMapper } from './layouts/';
 
 @Component({
     template : `<ng-template [selectTemplate]="bs3Templates"></ng-template>`,
@@ -10,12 +10,13 @@ import { bs3TemplatesMapper } from './templates/templates.collections';
 })
 export class bs3Comp{
 
-    bs3Templates = bs3TemplatesMapper;
+    bs3Templates = BS3LayoutsMapper;
 
     constructor(
         private _acRoutes : ActivatedRoute,
         private _config: Config )
     {
+        console.log("BS3LayoutsMapper ", BS3LayoutsMapper);
         this._config.baserFamilyPath = this._acRoutes.snapshot.data;
     }
 }

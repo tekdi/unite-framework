@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { matTemplatesMapper } from './templates/templates.collections';
+import { matTemplatesMapper } from './layouts';
 import { Config } from './../../core/classes';
 
 @Component({

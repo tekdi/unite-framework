@@ -10,7 +10,7 @@ import { bs3Comp } from './bs3.component';
 
 import { UniteRouting } from '../../uniteServices/routingService';
 
-import { bs3Templates } from './templates/templates.collections';
+import { BS3Layouts } from './layouts';
 import { bs3Renderers } from './renderer/renderers.collection';
 
 import { UniteMapperPipe } from '../../core/pipes/mapper.pipe';
@@ -24,7 +24,7 @@ const r : Routes = [
     imports : [CommonModule,OwlModule, RouterModule.forChild(r)],
     declarations : [
                     bs3Comp,
-                    bs3Templates,
+                    BS3Layouts,
                     bs3Renderers,
                     TemplateSelector,
                     RendererSelector,
@@ -32,7 +32,7 @@ const r : Routes = [
                     UniteLinkerPipe,
                     UniteLinkDirective
                     ],
-    entryComponents : [bs3Templates, bs3Renderers],
+    entryComponents: [BS3Layouts, bs3Renderers],
     providers : []
 })
 export class bs3Family{

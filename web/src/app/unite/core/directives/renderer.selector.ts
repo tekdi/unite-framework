@@ -6,13 +6,6 @@ import { dataSources } from './../../datasources/sources.collection';
 import { HttpClient } from '@angular/common/http';
 import { Config } from './../classes';
 
-// interface DynamicComponent {
-//     data: any;
-//     mapper: any;
-//     widgetName: any;
-//     metadata: any;
-//   }
-
 @Directive({
   selector: '[ad-renderer]'
 })

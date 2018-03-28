@@ -1,7 +1,7 @@
 <div class="ui grid">
     <div class="twelve wide column padding-bottom-none">
         <div class="margin-top-20 ui raised segment">
-                <div *ngIf="!localData">
+                <div *ngIf="!data">
                         <div class="loader">
                             <div class="lds-ripple">
                                 <div></div>
@@ -13,37 +13,37 @@
                     <span class="header cardsHeading"> {{widgetName}} </span>
                 </div>
                 <div class="profileitems profile-des ui relaxed aligned list ">
-                    <div class="item" *ngIf="localData">
+                    <div class="item" *ngIf="data">
                         <div class="iniformationcontent content">Email ID </div>
-                        <div class=" right floated content" [innerHTML]="localData | uniteMapper: localMap['email']"></div>
+                        <div class=" right floated content" [innerHTML]="data | uniteMapper: mapper['email']"></div>
                     </div> 
-                    <div class="item" *ngIf="localData">
+                    <div class="item" *ngIf="data">
                         <div class="iniformationcontent content">Phone Number </div>
-                        <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['phone']"></div>
+                        <div class="right floated content" [innerHTML]="data | uniteMapper: mapper['phone']"></div>
                     </div>
-                    <div class="item" *ngIf="localData">
+                    <div class="item" *ngIf="data">
                          <div class="iniformationcontent content">Gender </div>
-                        <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['gender']"></div>
+                        <div class="right floated content" [innerHTML]="data | uniteMapper: mapper['gender']"></div>
                     </div>
-                    <div class="item" *ngIf="localData">
+                    <div class="item" *ngIf="data">
                         <div class="iniformationcontent content">Birthdate (dd/mm/yyyy)</div>
-                        <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['dob']"></div>
+                        <div class="right floated content" [innerHTML]="data | uniteMapper: mapper['dob']"></div>
                     </div>
-                    <div class="item" *ngIf="localData">
+                    <div class="item" *ngIf="data">
                             <div class="iniformationcontent content">Language(s) known</div>
-                            <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['']"></div>
+                            <div class="right floated content" [innerHTML]="data | uniteMapper: mapper['']"></div>
                     </div>
-                    <div class="item" *ngIf="localData">
+                    <div class="item" *ngIf="data">
                             <div class="iniformationcontent content">Current location</div>
-                            <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['location']"></div>
+                            <div class="right floated content" [innerHTML]="data | uniteMapper: mapper['location']"></div>
                     </div>
-                    <div class="item" *ngIf="localData">
+                    <div class="item" *ngIf="data">
                             <div class="iniformationcontent content"></div>
-                            <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['']"></div>
+                            <div class="right floated content" [innerHTML]="data | uniteMapper: mapper['']"></div>
                     </div>
-                    <div class="item" *ngIf="localData">
+                    <div class="item" *ngIf="data">
                             <div class="iniformationcontent content"></div>
-                            <div class="right floated content" [innerHTML]="localData | uniteMapper: localMap['']"></div>
+                            <div class="right floated content" [innerHTML]="data | uniteMapper: mapper['']"></div>
                     </div>        
                 </div>
             </div>

@@ -1,24 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Renderer } from '@unite/core';
 
 @Component({
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class SunbirdCarouselRenderer{
-    @Input() data : Array<any>;
-    @Input() widgetName;
-    @Input() set mapper(value){
-        this.mapProperties(this.data, value);
-    };
+export class SunbirdCarouselRenderer implements OnInit, Renderer {
+    data;
+    mapper;
+    widgetName;
+    metadata;
+    slideConfig;
 
-    localData;
-    localMap;
+    constructor() { }
 
-    mapProperties(data, mapObj) {
-        this.localMap = mapObj;
-        this.localData = data;
-
-        console.log("chexkingsadfjlkdsajf ", data);
+    // Data Manipulation
+    ngOnInit() { 
+        this.slideConfig = { "slidesToShow": 4, "slidesToScroll": 4 };
     }
-    slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
 }

@@ -1,23 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Renderer } from '@unite/core';
 
 @Component({
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class SunbirdCustomRenderer{
-    @Input() data;
-    @Input() widgetName;
-    @Input() set mapper(value){
-        this.mapProperties(this.data, value);
-    };
+export class SunbirdCustomRenderer implements OnInit, Renderer {
+    data;
+    mapper;
+    widgetName;
+    metadata;
 
-    localData;
-    localMap;
+    constructor() { }
 
-    mapProperties(data, mapObj) {
-        console.log("localMap", mapObj);
-        console.log("localData", data);
-        this.localMap = mapObj;
-        this.localData = data;
-    }
+    // Data Manipulation
+    ngOnInit() { }
 }

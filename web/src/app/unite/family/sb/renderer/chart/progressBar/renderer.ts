@@ -1,21 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Renderer } from '@unite/core';
 
 @Component({
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class SunbirdProgressbarRenderer{
-    @Input() data : Array<any>;
-    @Input() widgetName;
-    @Input() set mapper(value){
-        this.mapProperties(this.data, value);
-    };
+export class SunbirdProgressbarRenderer implements OnInit, Renderer {
+    data;
+    mapper;
+    widgetName;
+    metadata;
 
-    localData;
-    localMap;
+    constructor() { }
 
-    mapProperties(data, mapObj) {
-        this.localMap = mapObj;
-        this.localData = data;
-    }
+    // Data Manipulation
+    ngOnInit() { }
 }

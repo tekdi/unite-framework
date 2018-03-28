@@ -1,26 +1,22 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Renderer } from '@unite/core';
 
 @Component({
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class SunbirdIconListRenderer{
-    @Input() data : Array<any>;
-    @Input() widgetName;
+export class SunbirdIconListRenderer implements OnInit, Renderer {
+    
     loading = true;
-    @Input() set mapper(value){
-        this.mapProperties(this.data, value);
-    };
+    data;
+    mapper;
+    widgetName;
+    metadata;
 
-    localData;
-    localMap;
+    constructor() { }
 
-    mapProperties(data, mapObj)
-    {
-        console.log('Mapper Object ICONLIST ===>>',mapObj);
-        console.log('Local Data ICONLIST ===>>',data);
-        this.localMap = mapObj;
-        this.localData = data;
+    // Data Manipulation
+    ngOnInit() { 
         this.loading = false;
     }
 }

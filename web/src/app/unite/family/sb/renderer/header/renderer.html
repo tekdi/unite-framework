@@ -45,8 +45,8 @@
 
 <div class="ui menu secondary pointing center aligned">
     <span>lakhan here</span>
-    <a class="item" *ngFor="let unit of localData" [routerLink]="['/' + unit | uniteMapper: localMap['alias']] " routerLinkActive="active">
-    {{ unit | uniteMapper: localMap['title'] }}
+    <a class="item" *ngFor="let unit of data" [routerLink]="['/' + unit | uniteMapper: mapper['alias']] " routerLinkActive="active">
+    {{ unit | uniteMapper: mapper['title'] }}
     </a>
 </div>
 <br />

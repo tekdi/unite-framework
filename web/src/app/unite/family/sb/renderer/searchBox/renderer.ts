@@ -1,27 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Renderer } from '@unite/core';
 
 @Component({
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
 export class SunbirdLinechartRenderer {
-    @Input() data : Array<any>;
-    @Input() widgetName;
-    @Input() set mapper(value){
-        this.mapProperties(this.data, value);
-    };
+    data;
+    mapper;
+    widgetName;
+    metadata;
 
-
-    localData;
-    localMap;
-
-    mapProperties(data, mapObj) {
-        this.localMap = mapObj;
-        this.localData = data;
-    }
-
-
-    public lineChartData:Array<any> = this.localData;
+    public lineChartData:Array<any> = this.data;
       public lineChartOptions:any = {
         responsive: true
       };

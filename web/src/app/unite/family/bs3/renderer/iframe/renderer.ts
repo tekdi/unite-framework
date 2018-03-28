@@ -1,27 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Renderer } from '@unite/core';
 
 @Component({
     templateUrl : "./renderer.html",
 })
-export class IframeRenderer{
-    @Input() data;
-    @Input() widgetName;
-    @Input() set mapper(value){
-        this.mapProperties(this.data, value);
-    };
+export class IframeRenderer implements OnInit, Renderer {
+    data;
+    mapper;
+    widgetName;
+    metadata;
 
-    constructor (private sanitizer:DomSanitizer){
+    constructor(private sanitizer: DomSanitizer) { }
 
+    // Data Manipulation
+    ngOnInit() {
+        this.data = this.sanitizer.bypassSecurityTrustHtml(this.data);
     }
-    localData;
-    localMap;
-
-    mapProperties(data, mapObj) {
-        this.localMap = mapObj;
-        this.localData = data;
-        this.localData.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.data.url);
-    }
-
-    
 }

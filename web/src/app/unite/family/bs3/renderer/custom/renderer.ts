@@ -1,24 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Renderer } from '@unite/core';
 
 @Component({
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class CustomRenderer{
-    @Input() data;
-    @Input() widgetName;
-    @Input() set mapper(value){
-        this.mapProperties(this.data, value);
-    };
+export class CustomRenderer implements OnInit, Renderer{
+    data;
+    mapper;
+    widgetName;
+    metadata;
 
-    localData;
-    localMap;
-constructor(private sanitizer: DomSanitizer){
+    constructor(private sanitizer: DomSanitizer) { }
 
-}
-    mapProperties(data, mapObj) {
-        this.localMap = mapObj;
-        this.localData = this.sanitizer.bypassSecurityTrustHtml(data);
+    // Data Manipulation
+    ngOnInit() {
+        this.data = this.sanitizer.bypassSecurityTrustHtml(this.data);
     }
 }

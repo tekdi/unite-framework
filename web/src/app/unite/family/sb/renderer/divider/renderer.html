@@ -5,10 +5,10 @@
                     <span class="header cardsHeading">{{widgetName}}</span>
                 </div>
                 <div class="profileitems ui relaxed divided items">
-                    <div class="item" *ngIf="localData">
+                    <div class="item" *ngIf="data">
                         <div class="content twelve wide column middle aligned">
                             <div class="description">
-                                    <div [innerHTML]="localData | uniteMapper: localMap['description']"></div>
+                                    <div [innerHTML]="data | uniteMapper: mapper['description']"></div>
                             </div>
                         </div>
                     </div>

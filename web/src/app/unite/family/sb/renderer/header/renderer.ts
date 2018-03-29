@@ -15,4 +15,4 @@ export class SunbirdHeaderRenderer implements OnInit, Renderer {
 
     // Data Manipulation
     ngOnInit() { }
-
+}

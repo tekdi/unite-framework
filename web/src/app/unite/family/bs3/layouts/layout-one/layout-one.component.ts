@@ -11,7 +11,7 @@ export class LayoutOneComponent implements OnInit {
   renderMapper = renderMapper;
   uniteMenus;
   constructor(private _routingService: UniteRouting) {
-    this.uniteMenus = this._routingService.getAllMenus()
+    this.uniteMenus = this._routingService.menus;
   }
 
   ngOnInit() {

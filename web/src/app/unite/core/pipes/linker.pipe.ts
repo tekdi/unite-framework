@@ -21,9 +21,9 @@ export class UniteLinkerPipe implements PipeTransform {
 
         if(node)
         {
-            const pages = this._uniteRouting.finalMenus;
+            const pages = this._uniteRouting.menus;
 
-            console.log("this is the nodeeeeee ", node, this._uniteRouting.finalMenus);
+            console.log("this is the nodeeeeee ", node, this._uniteRouting.menus);
 
             for (var index = 0; index < pages.length; index++)
             {

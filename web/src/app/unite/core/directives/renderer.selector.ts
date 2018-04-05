@@ -11,13 +11,13 @@ import { Config } from './../classes';
 })
 
   export class RendererSelector {
-
+    widgets;
     dataCollection = dataSources;
     @Input() position: string;
 
     @Input('ad-renderer') set config(value){
         console.log("I am inside renderer selector config Body position ", value);
-        this.renderWidgetsForPage(value,this.position);
+        this.renderWidgetsForPage(value);
     }
 
     constructor(
@@ -33,43 +33,31 @@ import { Config } from './../classes';
         console.log("In Renderer Selectors constructor");
     }
 
-    renderWidgetsForPage(availableRenderes,position){
-        let servicePath = this._pfLocation.pathname;
-        console.log("SERVICE PATH", servicePath);
-        let menuInfo = this._uniteRoute.parseUniteUrl(servicePath);
-        console.log("menuInfo", menuInfo[0]);
-        // if(menuInfo && menuInfo.length !== 0) {
-            debugger;
-        if(menuInfo) {
+    renderWidgetsForPage(availableRenderes) {
+        this.widgets = this._uniteRoute.menu.widgets;
 
-            menuInfo[0].widgets.forEach(widget => {
+        if (this.widgets && this.widgets != 'undefined') {
+            this.widgets.forEach(widget => {
                 let widgetPosition = widget.widget.position ? widget.widget.position : 'body';
                 let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
-                console.log('%c Widget Infor','color: yellow; font-weight: bold;',widget);
-                if(availableRenderes.hasOwnProperty(widRenderer))
-                {
-                    console.log('%c Directive sent Position','color: black; font-weight: bold;',position);
-                    console.log('%c Widget Position','color: red; font-weight: bold;',widgetPosition);
-                    if(position == widgetPosition)
-                    {
+
+                console.log('%c Widget Infor', 'color: yellow; font-weight: bold;', widget);
+                if (availableRenderes.hasOwnProperty(widRenderer)) {
+                    console.log('%c Directive sent Position', 'color: black; font-weight: bold;', this.position);
+                    console.log('%c Widget Position', 'color: red; font-weight: bold;', widgetPosition);
+                    if (this.position == widgetPosition) {
                         let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
                         let thisCompRef = this._vcRef.createComponent(componentFactory);
                         this.loadData(widget.widget, thisCompRef);
                     }
-                    else
-                    {
-                        console.log('Widget is not for '+position+'position');
+                    else {
+                        console.log('Widget is not for ' + this.position + 'position');
                     }
                 }
-                else
-                {
+                else {
                     console.log("ERROR :: renderer not found ", widRenderer);
                 }
             });
-        }
-        else
-        {
-            console.log("invalid menusssss ----------");
         }
     }
 

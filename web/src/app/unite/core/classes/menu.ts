@@ -36,10 +36,4 @@ export class Menu {
         console.log("menuObject",this.menuObject);
         return this.menuObject[this.menuUrl];
     }
-    /* 
-    Set menu instance on current menuUrl 
-    */
-    // public setInstance(menuUrl) {
-    //     this.menuUrl = menuUrl;
-    // }
 }

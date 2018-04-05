@@ -9,12 +9,11 @@ import { AdminBranch } from './branch/admin/admin.branch';
 import { UniteRouting } from './uniteServices/routingService';
 import { dataSources } from './datasources/sources.collection';
 
-import { 
-        BootModule, 
+import {
         UniteMapperPipe, 
         UniteLinkerPipe, 
-        Config, MenusService, 
-        WidgetsService 
+        Config, MenusService,
+        Menu, WidgetsService 
     } from '@unite/core';
 
 const uniteRoutes : Routes = [
@@ -34,7 +33,6 @@ const uniteRoutes : Routes = [
     imports : [
         CommonModule,
         HttpClientModule,
-        BootModule,
         RouterModule.forChild(uniteRoutes)
     ],
 
@@ -48,7 +46,8 @@ const uniteRoutes : Routes = [
     ]
 })
 export class UniteModule{
-    constructor(private _uniteRouting: UniteRouting, private _config: Config ) {
-        this._uniteRouting.getMenus(dataSources);
+    constructor(private _uniteRouting: UniteRouting, private _menu: Menu, private _config: Config) {
+        console.log("UNITE MODULE");
+        this._uniteRouting.getMenus();
     }
 }

@@ -1,5 +1,5 @@
 <header class="header bg-white" id="header">
-  <!--div class="container">
+  <div class="container">
     <div class="row">
       <div class="col-xs-8 col-sm-3">
         <h1 class="logo">
@@ -12,7 +12,7 @@
         <div class="menu pull-right bg-white" id="nav-bar">
           <ul class="nav navbar-nav">
             <li *ngFor="let menu of uniteMenus">
-              <a [href]="menu.routeUrl" [title]="menu.name"><span>{{menu.name}}</span></a>
+              <a [href]="menu.menuUrl" [title]="menu.name"><span>{{menu.name}}</span></a>
             </li>
             <li><a href="/private/index" target="_blank" title="Login" class="login strong"><span>LOGIN</span></a></li>
             <li><a href="take-a-tour.html" title="Take a tour" class="btn btn-primary"><span>TAKE A TOUR</span></a></li>
@@ -20,8 +20,9 @@
         </div>
       </div>
     </div>
-  </div-->
-  <ng-template [ad-renderer]="renderMapper" position="header" class="headerClass"></ng-template>
+  </div>
+
+  <!-- <ng-template [ad-renderer]="renderMapper" position="header" class="headerClass"></ng-template> -->
 </header>
 
 <ng-template [ad-renderer]="renderMapper" position="body" class="bodyClass"></ng-template>

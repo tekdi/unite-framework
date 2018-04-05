@@ -10,6 +10,6 @@ export class OneTemplate{
     uniteMenus;
     constructor(private _routingService : UniteRouting){
         this.renderMapper = renderMapper;
-         this.uniteMenus = this._routingService.getAllMenus()
+        this.uniteMenus = this._routingService.menus;
     }
 }

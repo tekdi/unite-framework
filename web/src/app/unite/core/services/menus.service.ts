@@ -11,7 +11,7 @@ export class MenusService extends BaseService{
     super(_httpClient);
   }
 
-  getMenus() {
+  getMenus(): any {
     return this.get(this.url);
   }
 }

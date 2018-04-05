@@ -20,11 +20,6 @@
       "type": "belongsTo",
       "model": "Extension",
       "foreignKey": ""
-    },
-    "widgetAssignments": {
-      "type": "hasMany",
-      "model": "WidgetAssignment",
-      "foreignKey": ""
     }
   },
   "acls": [],

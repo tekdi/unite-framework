@@ -22,7 +22,7 @@
       "type": "string",
       "required": true
     },
-    "routeUrl": {
+    "menuUrl": {
       "type": "string"
     }
   },
@@ -31,14 +31,6 @@
     "source": {
       "type": "belongsTo",
       "model": "Source",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "widgetAssignments": {
-      "type": "hasMany",
-      "model": "WidgetAssignment",
       "foreignKey": "",
       "options": {
         "nestRemoting": true

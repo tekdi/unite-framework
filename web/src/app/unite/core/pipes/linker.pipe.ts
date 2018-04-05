@@ -31,7 +31,7 @@ export class UniteLinkerPipe implements PipeTransform {
                 if(node.id == pages[index]['id'])
                 {
                     let page        = pages[index];
-                    let pagePath = page.routeUrl;
+                    let pagePath = page.menuUrl;
                     let pagePathArr = pagePath.split("/");
                     let nodePathParam = node['urlParams'];
 

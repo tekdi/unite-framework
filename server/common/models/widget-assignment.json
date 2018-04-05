@@ -5,22 +5,16 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "menuUrl": {
+      "type": "string"
+    }
+  },
   "validations": [],
   "relations": {
     "widget": {
       "type": "belongsTo",
       "model": "Widget",
-      "foreignKey": ""
-    },
-    "route": {
-      "type": "belongsTo",
-      "model": "Route",
-      "foreignKey": ""
-    },
-    "menu": {
-      "type": "belongsTo",
-      "model": "Menu",
       "foreignKey": ""
     }
   },

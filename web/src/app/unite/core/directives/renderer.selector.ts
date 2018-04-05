@@ -29,7 +29,7 @@ import { Config } from './../classes';
         private _httpClient : HttpClient,
         private _config: Config
         ) 
-    { 
+    {
         console.log("In Renderer Selectors constructor");
     }
 
@@ -37,13 +37,15 @@ import { Config } from './../classes';
         let servicePath = this._pfLocation.pathname;
         console.log("SERVICE PATH", servicePath);
         let menuInfo = this._uniteRoute.parseUniteUrl(servicePath);
+        console.log("menuInfo", menuInfo[0]);
+        // if(menuInfo && menuInfo.length !== 0) {
+            debugger;
+        if(menuInfo) {
 
-        if(menuInfo && menuInfo.length !== 0) {
-
-            menuInfo.forEach(widgetInfo => {
-                let widgetPosition  = widgetInfo.position ? widgetInfo.position : 'body';
-                let widRenderer = widgetInfo.renderer ? widgetInfo.renderer : widgetInfo.defaultRenderer;
-                console.log('%c Widget Infor','color: yellow; font-weight: bold;',widgetInfo);
+            menuInfo[0].widgets.forEach(widget => {
+                let widgetPosition = widget.widget.position ? widget.widget.position : 'body';
+                let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
+                console.log('%c Widget Infor','color: yellow; font-weight: bold;',widget);
                 if(availableRenderes.hasOwnProperty(widRenderer))
                 {
                     console.log('%c Directive sent Position','color: black; font-weight: bold;',position);
@@ -52,7 +54,7 @@ import { Config } from './../classes';
                     {
                         let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
                         let thisCompRef = this._vcRef.createComponent(componentFactory);
-                        this.loadData(widgetInfo, thisCompRef);
+                        this.loadData(widget.widget, thisCompRef);
                     }
                     else
                     {
@@ -72,31 +74,28 @@ import { Config } from './../classes';
     }
 
     loadData(widgetInfo, thisCompRef){
-        if(this.dataCollection.hasOwnProperty(widgetInfo.source))
-        {
-            let config = {
-                urlData: widgetInfo.param ? widgetInfo.param : {},
-                config: widgetInfo['config'] ? widgetInfo['config'] : {}
-            };
+        console.log('%c HAS SOURCE ', 'color: pink; font-weight: bold;', widgetInfo);
+        let config = {
+            urlData: widgetInfo.param ? widgetInfo.param : {},
+            config: widgetInfo.config ? widgetInfo.config : {}
+        };
 
-            let metadata = {
-                source : widgetInfo.source,
-                service: widgetInfo.config.service ? widgetInfo.config.service : '',
-                config : config
-            }
+        let metadata = {
+            source: widgetInfo.config.source,
+            service: widgetInfo.config.service ? widgetInfo.config.service : '',
+            config : config
+        }
 
-            let dataSourceClass = this.dataCollection[widgetInfo.source];
-            let dataSourceObj = new dataSourceClass(config, this._httpClient);
-            
-            if (widgetInfo.config.service) {
-                this.getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata);
-            }
-            else if (widgetInfo.config.data) {
-                this.getJsonData(widgetInfo, dataSourceObj, thisCompRef, metadata);
-            }
-            else if (widgetInfo.config.html) {
-                this.getHtmlData(widgetInfo, dataSourceObj, thisCompRef, metadata);
-            }
+        let dataSourceObj = "";
+        
+        if (widgetInfo.config.service) {
+            this.getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata);
+        }
+        else if (widgetInfo.config.data) {
+            this.getJsonData(widgetInfo, dataSourceObj, thisCompRef, metadata);
+        }
+        else if (widgetInfo.config.html) {
+            this.getHtmlData(widgetInfo, dataSourceObj, thisCompRef, metadata);
         }
     }
 

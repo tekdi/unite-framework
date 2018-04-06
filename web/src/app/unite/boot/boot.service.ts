@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Config, Menu } from './../../core/classes';
-import { MenusService } from './../services/';
 import 'rxjs/add/operator/toPromise';
+import { Config, Menu, MenusService } from './../core';
 
 @Injectable()
 export class BootService {
@@ -34,9 +33,7 @@ export class BootService {
           this._menu.initMenu(menu);
           console.log("INIT MENU SERVICE");
         });
-
         this._menu.menuUrl="";
-        //console.log("INIT MENU SERVICE INSTANCE", this._menu.getMenus());
         resolve();
       });
     });

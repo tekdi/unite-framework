@@ -1,7 +1,8 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Config, Menu } from './../../core/classes';
-import { MenusService } from './../services/';
+import { Config, Menu } from './../core/classes';
+import { MenusService } from './../core/services/menus.service';
+// import { MenusService } from './services/';
 import { HttpClientModule } from '@angular/common/http';
 import { BootService } from './boot.service';
 

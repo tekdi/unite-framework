@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { BootModule } from './unite/core';
+import { BootModule } from './unite/boot';
 
 const r : Routes = [
                 {

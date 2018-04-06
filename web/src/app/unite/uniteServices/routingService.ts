@@ -12,13 +12,13 @@ export class UniteRouting {
         private _widgetsService: WidgetsService,
         private _menu: Menu) { }
 
-    public getMenus() {
+    public getMenus(): void{
         this.menus = this._menu.getMenus();
         this.menu = this._menu.getInstance();
         this.getMenuWidgets();
     }
 
-    public getMenuWidgets() {
+    public getMenuWidgets(): void{
         console.log("GET ALL WIDGETS MENU", this.menu);
         this._widgetsService.getWidgets(this.menu.menuUrl).subscribe(widgets => {
             this.menu.widgets = widgets;

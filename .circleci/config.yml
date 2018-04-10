@@ -14,21 +14,13 @@ jobs:
         command: |
           cd web
           ls
-      - type: shell
-        name: 'Check Angular Installed and Install NPMs'
-        command: |
+          # Check Angular Installed and Install NPMs
           ng -v
           npm install
-      - type: shell
-        name: 'Generate Site'
-        command: |
+          # Generate Site
           ng build
-      - type: shell
-        name: 'Push Generated site to s3 bucket'
-        command: |
+          # Push Generated site to s3 bucket
           aws s3 sync dist/ s3://unite-framework --delete
-      - type: shell
-        name: 'Generate Docs and push it to docs s3 bucket'
-        command: |
+          # Generate Docs and push it to docs s3 bucket
           npm run doc
           aws s3 sync documentation/ s3://unite-framework-docs --delete

@@ -10,12 +10,25 @@ jobs:
     steps:
       - checkout
       - type: shell
+        name: 'Change Directory to Web'
         command: |
           cd web
           ls
+      - type: shell
+        name: 'Check Angular Installed and Install NPMs'
+        command: |
           ng -v
           npm install
+      - type: shell
+        name: 'Generate Site'
+        command: |
           ng build
+      - type: shell
+        name: 'Push Generated site to s3 bucket'
+        command: |
           aws s3 sync dist/ s3://unite-framework --delete
+      - type: shell
+        name: 'Generate Docs and push it to docs s3 bucket'
+        command: |
           npm run doc
           aws s3 sync documentation/ s3://unite-framework-docs --delete

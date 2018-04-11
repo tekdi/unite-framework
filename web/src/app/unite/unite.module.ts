@@ -47,7 +47,7 @@ const uniteRoutes : Routes = [
 })
 export class UniteModule{
     constructor(private _uniteRouting: UniteRouting, private _menu: Menu, private _config: Config) {
-        console.log("UNITE MODULE");
+        //console.log("UNITE MODULE");
         this._uniteRouting.getMenus();
     }
 }

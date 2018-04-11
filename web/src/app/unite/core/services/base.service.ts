@@ -7,12 +7,14 @@ import * as config from 'assets/config.json';
 @Injectable()
 export class BaseService {
 
-  constructor(private _httpClient: HttpClient) { 
+  constructor(public _httpClient: HttpClient) { 
 
   }
 
   get(url) {
     console.log("config", config['server']['host']);
+    console.log("AAAAAAAAAAAAAAA");
+    console.log(this._httpClient);
     return this._httpClient.get(config['server']['host'] + url);
   }
 

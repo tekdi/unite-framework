@@ -1,23 +1,30 @@
+import { WidgetsService } from './../services/widgets.service';
+import { Menu } from './../classes/menu';
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { UniteRouting } from './../../uniteServices/routingService';
-import { dataSources } from './../../datasources/sources.collection';
 import { HttpClient } from '@angular/common/http';
-import { Config } from './../classes';
+import { dataSources } from '../../datasources/sources.collection';
 
 @Directive({
   selector: '[ad-renderer]'
 })
 
   export class RendererSelector {
-    widgets;
-    dataCollection = dataSources;
+    private widgets;
+    private dynamicComponents = [];
+    private    dataCollection = dataSources;
+    
     @Input() position: string;
-
     @Input('ad-renderer') set config(value){
-        console.log("I am inside renderer selector config Body position ", value);
-        this.renderWidgetsForPage(value);
+        this._acRoute.url.subscribe(data => {
+            this._menu.menuUrl = '';
+
+            if (data[0] != undefined) {
+                this._menu.menuUrl = "/" + data[0].path;
+            }
+            this.getRoutesWidgets(value);
+        });
     }
 
     constructor(
@@ -25,26 +32,35 @@ import { Config } from './../classes';
         private _cfResolver: ComponentFactoryResolver,
         private _pfLocation : PlatformLocation,
         private _acRoute : ActivatedRoute,
-        private _uniteRoute : UniteRouting,
         private _httpClient : HttpClient,
-        private _config: Config
-        ) 
+        private _menu: Menu,
+        private _widgetsService: WidgetsService
+        )
     {
         console.log("In Renderer Selectors constructor");
     }
 
-    renderWidgetsForPage(availableRenderes) {
-        this.widgets = this._uniteRoute.menu.widgets;
+    /**
+     * getRoutesWidgets
+     */
+    public getRoutesWidgets(rendereres) {
+        let menu = this._menu.getInstance();
 
-        if (this.widgets && this.widgets != 'undefined') {
+        this._widgetsService.getWidgets(this._menu.menuUrl).subscribe(widgets => {
+            this.widgets = widgets;
+            this.DestroyDynamicComponents();
+            this.renderWidgetsForPage(rendereres);
+        });
+    }
+
+    renderWidgetsForPage(availableRenderes) {
+
+        if (this.widgets && this.widgets != undefined) {
             this.widgets.forEach(widget => {
                 let widgetPosition = widget.widget.position ? widget.widget.position : 'body';
                 let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
 
-                console.log('%c Widget Infor', 'color: yellow; font-weight: bold;', widget);
                 if (availableRenderes.hasOwnProperty(widRenderer)) {
-                    console.log('%c Directive sent Position', 'color: black; font-weight: bold;', this.position);
-                    console.log('%c Widget Position', 'color: red; font-weight: bold;', widgetPosition);
                     if (this.position == widgetPosition) {
                         let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
                         let thisCompRef = this._vcRef.createComponent(componentFactory);
@@ -62,7 +78,7 @@ import { Config } from './../classes';
     }
 
     loadData(widgetInfo, thisCompRef){
-        console.log('%c HAS SOURCE ', 'color: pink; font-weight: bold;', widgetInfo);
+   
         let config = {
             urlData: widgetInfo.param ? widgetInfo.param : {},
             config: widgetInfo.config ? widgetInfo.config : {}
@@ -73,22 +89,28 @@ import { Config } from './../classes';
             service: widgetInfo.config.service ? widgetInfo.config.service : '',
             config : config
         }
+        let dataSourceClass;
+        let dataSourceObj
 
-        let dataSourceObj = "";
-        
-        if (widgetInfo.config.service) {
+        if(this.dataCollection.hasOwnProperty(widgetInfo.config.source))
+        {
+            dataSourceClass = this.dataCollection[widgetInfo.config.source];
+            dataSourceObj   = new dataSourceClass(config, this._httpClient);
+        }    
+
+        if (widgetInfo.config.service && widgetInfo.config.source) {
             this.getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata);
         }
         else if (widgetInfo.config.data) {
-            this.getJsonData(widgetInfo, dataSourceObj, thisCompRef, metadata);
+            this.getJsonData(widgetInfo, thisCompRef, metadata);
         }
         else if (widgetInfo.config.html) {
-            this.getHtmlData(widgetInfo, dataSourceObj, thisCompRef, metadata);
+            this.getHtmlData(widgetInfo, thisCompRef, metadata);
         }
     }
 
     getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
-        dataSourceObj.getData(widgetInfo.service).map(data => {
+        dataSourceObj.getData(widgetInfo.config.service).map(data => {
             if (widgetInfo['config']['dataNode']) {
                 let dataNode2 = widgetInfo['config']['dataNode'].split(".");
                 let myFinalValue = data;
@@ -104,11 +126,11 @@ import { Config } from './../classes';
         });
     }
     
-    getJsonData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
+    getJsonData(widgetInfo, thisCompRef, metadata) {
         this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, widgetInfo.config.data);
     }
 
-    getHtmlData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
+    getHtmlData(widgetInfo, thisCompRef, metadata) {
         this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, widgetInfo.config.html);
     }
 
@@ -117,5 +139,15 @@ import { Config } from './../classes';
         (thisCompRef.instance).mapper = widgetInfo.mapper ? widgetInfo.mapper : {};
         (thisCompRef.instance).widgetName = widgetInfo.widgetName;
         (thisCompRef.instance).metadata = metadata;
+        this.dynamicComponents.push(thisCompRef);
+    }
+
+    /**
+     * DestroyDynamicComponents
+     */
+    public DestroyDynamicComponents() {
+        this.dynamicComponents.forEach(component => {
+            component.destroy();
+        });
     }
 }

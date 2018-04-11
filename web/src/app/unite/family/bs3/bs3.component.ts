@@ -1,3 +1,5 @@
+import { UniteRouting } from './../../uniteServices/routingService';
+import { Menu } from './../../core/classes/menu';
 import { Config } from './../../core/classes';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,9 +16,20 @@ export class bs3Comp{
 
     constructor(
         private _acRoutes : ActivatedRoute,
-        private _config: Config )
+        private _config: Config,
+        private _menu: Menu,
+        private _uniteRouting: UniteRouting)
     {
-        console.log("BS3LayoutsMapper ", BS3LayoutsMapper);
+        // this._acRoutes.url.subscribe(data => {
+        //     console.log("THIS MENU", this._menu);
+        //     this._menu.menuUrl = "";
+        //     if (data[0] != undefined) {
+        //         this._menu.menuUrl = "/" + data[0].path;
+        //     }
+        //     this._uniteRouting.getMenus();           
+        //     console.log("BOOTSTRAP 3 INSIDE URL");
+        // });
+
         this._config.baserFamilyPath = this._acRoutes.snapshot.data;
     }
 }

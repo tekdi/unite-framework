@@ -6,10 +6,7 @@ export class UniteRouting {
     public menu;
     public menus;
 
-    constructor(
-        private _menu: Menu)
-    {
-        console.log("ROUTING SERVICE");
+    constructor(private _menu: Menu) {
     }
 
     public getMenus(): void{

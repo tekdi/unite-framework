@@ -12,9 +12,6 @@ export class BaseService {
   }
 
   get(url) {
-    console.log("config", config['server']['host']);
-    console.log("AAAAAAAAAAAAAAA");
-    console.log(this._httpClient);
     return this._httpClient.get(config['server']['host'] + url);
   }
 

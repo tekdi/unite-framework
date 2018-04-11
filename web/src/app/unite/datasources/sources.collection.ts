@@ -11,7 +11,9 @@
 // }
 
 import { DikshaDataSource } from './diksha/diksha.datasource';
+import { MenusDataSource } from './menus/menus.datasource';
 
 export const dataSources = {
-    '': DikshaDataSource // Default selected datasource
+    'Diksha': DikshaDataSource /* Default selected datasource */,
+    'Menus' : MenusDataSource 
 }

@@ -4,6 +4,7 @@ import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@a
 import { PlatformLocation } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { dataSources } from '../../datasources/sources.collection';
 
 @Directive({
   selector: '[ad-renderer]'
@@ -12,17 +13,16 @@ import { HttpClient } from '@angular/common/http';
   export class RendererSelector {
     private widgets;
     private dynamicComponents = [];
-
+    private    dataCollection = dataSources;
+    
     @Input() position: string;
     @Input('ad-renderer') set config(value){
-        console.log("I am inside renderer selector config Body position ", value);
         this._acRoute.url.subscribe(data => {
             this._menu.menuUrl = '';
 
             if (data[0] != undefined) {
                 this._menu.menuUrl = "/" + data[0].path;
             }
-            console.log("DYNAMIC COMPONENT",this._cfResolver);
             this.getRoutesWidgets(value);
         });
     }
@@ -46,10 +46,8 @@ import { HttpClient } from '@angular/common/http';
     public getRoutesWidgets(rendereres) {
         let menu = this._menu.getInstance();
 
-        console.log("DYNAMIC COMPONENTS", this.dynamicComponents);
         this._widgetsService.getWidgets(this._menu.menuUrl).subscribe(widgets => {
             this.widgets = widgets;
-            console.log("WIDGETS", this.widgets);
             this.DestroyDynamicComponents();
             this.renderWidgetsForPage(rendereres);
         });
@@ -62,10 +60,7 @@ import { HttpClient } from '@angular/common/http';
                 let widgetPosition = widget.widget.position ? widget.widget.position : 'body';
                 let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
 
-                console.log('%c Widget Infor', 'color: yellow; font-weight: bold;', widget);
                 if (availableRenderes.hasOwnProperty(widRenderer)) {
-                    console.log('%c Directive sent Position', 'color: black; font-weight: bold;', this.position);
-                    console.log('%c Widget Position', 'color: red; font-weight: bold;', widgetPosition);
                     if (this.position == widgetPosition) {
                         let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
                         let thisCompRef = this._vcRef.createComponent(componentFactory);
@@ -83,7 +78,7 @@ import { HttpClient } from '@angular/common/http';
     }
 
     loadData(widgetInfo, thisCompRef){
-        console.log('%c HAS SOURCE ', 'color: pink; font-weight: bold;', widgetInfo);
+   
         let config = {
             urlData: widgetInfo.param ? widgetInfo.param : {},
             config: widgetInfo.config ? widgetInfo.config : {}
@@ -94,22 +89,28 @@ import { HttpClient } from '@angular/common/http';
             service: widgetInfo.config.service ? widgetInfo.config.service : '',
             config : config
         }
+        let dataSourceClass;
+        let dataSourceObj
 
-        let dataSourceObj = "";
-        
-        if (widgetInfo.config.service) {
+        if(this.dataCollection.hasOwnProperty(widgetInfo.config.source))
+        {
+            dataSourceClass = this.dataCollection[widgetInfo.config.source];
+            dataSourceObj   = new dataSourceClass(config, this._httpClient);
+        }    
+
+        if (widgetInfo.config.service && widgetInfo.config.source) {
             this.getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata);
         }
         else if (widgetInfo.config.data) {
-            this.getJsonData(widgetInfo, dataSourceObj, thisCompRef, metadata);
+            this.getJsonData(widgetInfo, thisCompRef, metadata);
         }
         else if (widgetInfo.config.html) {
-            this.getHtmlData(widgetInfo, dataSourceObj, thisCompRef, metadata);
+            this.getHtmlData(widgetInfo, thisCompRef, metadata);
         }
     }
 
     getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
-        dataSourceObj.getData(widgetInfo.service).map(data => {
+        dataSourceObj.getData(widgetInfo.config.service).map(data => {
             if (widgetInfo['config']['dataNode']) {
                 let dataNode2 = widgetInfo['config']['dataNode'].split(".");
                 let myFinalValue = data;
@@ -125,11 +126,11 @@ import { HttpClient } from '@angular/common/http';
         });
     }
     
-    getJsonData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
+    getJsonData(widgetInfo, thisCompRef, metadata) {
         this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, widgetInfo.config.data);
     }
 
-    getHtmlData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
+    getHtmlData(widgetInfo, thisCompRef, metadata) {
         this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, widgetInfo.config.html);
     }
 
@@ -139,7 +140,6 @@ import { HttpClient } from '@angular/common/http';
         (thisCompRef.instance).widgetName = widgetInfo.widgetName;
         (thisCompRef.instance).metadata = metadata;
         this.dynamicComponents.push(thisCompRef);
-        console.log('%c DYNAMIC COMPONENT ', 'color: pink; font-weight: bold;', thisCompRef);
     }
 
     /**

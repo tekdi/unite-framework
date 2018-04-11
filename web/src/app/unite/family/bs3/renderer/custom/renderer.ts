@@ -16,7 +16,6 @@ export class CustomRenderer implements OnInit, Renderer{
 
     // Data Manipulation
     ngOnInit() {
-        console.log("RENDERED DATA", this.data);
         this.data = this.sanitizer.bypassSecurityTrustHtml(this.data);
     }
 }

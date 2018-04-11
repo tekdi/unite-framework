@@ -37,5 +37,13 @@ export interface IMenu {
     /**
      * menu source
     */
-    source?: any;
+    source?: Object;
+    /**
+     * menu source
+    */
+    subMenu?: Array<IMenu>;
+}
+
+export interface IRoute {
+
 }

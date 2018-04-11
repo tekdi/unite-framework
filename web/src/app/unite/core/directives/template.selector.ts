@@ -13,7 +13,9 @@ export class TemplateSelector {
         private _vcRef: ViewContainerRef,
         private _cfResolver: ComponentFactoryResolver,
         private _config: Config
-    ) { }
+    ) {
+        console.log("SELECT LAYOUT");
+     }
 
     renderTemplate(availableLayouts) {
         console.log('TEMPLATE SELECTOR', this._config.site);

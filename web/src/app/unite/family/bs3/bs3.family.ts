@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes, ActivatedRoute} from '@angular/router'
+import { RouterModule, Routes, ActivatedRoute } from '@angular/router'
 import { OwlModule } from 'ngx-owl-carousel';
 
 import { TemplateSelector } from '../../core/directives/template.selector';

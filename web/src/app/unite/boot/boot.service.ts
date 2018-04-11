@@ -30,10 +30,9 @@ export class BootService {
     
       this._menusService.getMenus().subscribe(menus => {
         menus.forEach(menu => {
-          this._menu.initMenu(menu);
-          console.log("INIT MENU SERVICE");
+          this._menu.setMenu(menu);
+          console.log("SET MENU SERVICE");
         });
-        this._menu.menuUrl="";
         resolve();
       });
     });

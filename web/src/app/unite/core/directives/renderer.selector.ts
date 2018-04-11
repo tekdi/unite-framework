@@ -1,23 +1,30 @@
+import { WidgetsService } from './../services/widgets.service';
+import { Menu } from './../classes/menu';
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { UniteRouting } from './../../uniteServices/routingService';
-import { dataSources } from './../../datasources/sources.collection';
 import { HttpClient } from '@angular/common/http';
-import { Config } from './../classes';
 
 @Directive({
   selector: '[ad-renderer]'
 })
 
   export class RendererSelector {
-    widgets;
-    dataCollection = dataSources;
-    @Input() position: string;
+    private widgets;
+    private dynamicComponents = [];
 
+    @Input() position: string;
     @Input('ad-renderer') set config(value){
         console.log("I am inside renderer selector config Body position ", value);
-        this.renderWidgetsForPage(value);
+        this._acRoute.url.subscribe(data => {
+            this._menu.menuUrl = '';
+
+            if (data[0] != undefined) {
+                this._menu.menuUrl = "/" + data[0].path;
+            }
+            console.log("DYNAMIC COMPONENT",this._cfResolver);
+            this.getRoutesWidgets(value);
+        });
     }
 
     constructor(
@@ -25,18 +32,32 @@ import { Config } from './../classes';
         private _cfResolver: ComponentFactoryResolver,
         private _pfLocation : PlatformLocation,
         private _acRoute : ActivatedRoute,
-        private _uniteRoute : UniteRouting,
         private _httpClient : HttpClient,
-        private _config: Config
-        ) 
+        private _menu: Menu,
+        private _widgetsService: WidgetsService
+        )
     {
         console.log("In Renderer Selectors constructor");
     }
 
-    renderWidgetsForPage(availableRenderes) {
-        this.widgets = this._uniteRoute.menu.widgets;
+    /**
+     * getRoutesWidgets
+     */
+    public getRoutesWidgets(rendereres) {
+        let menu = this._menu.getInstance();
 
-        if (this.widgets && this.widgets != 'undefined') {
+        console.log("DYNAMIC COMPONENTS", this.dynamicComponents);
+        this._widgetsService.getWidgets(this._menu.menuUrl).subscribe(widgets => {
+            this.widgets = widgets;
+            console.log("WIDGETS", this.widgets);
+            this.DestroyDynamicComponents();
+            this.renderWidgetsForPage(rendereres);
+        });
+    }
+
+    renderWidgetsForPage(availableRenderes) {
+
+        if (this.widgets && this.widgets != undefined) {
             this.widgets.forEach(widget => {
                 let widgetPosition = widget.widget.position ? widget.widget.position : 'body';
                 let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
@@ -117,5 +138,16 @@ import { Config } from './../classes';
         (thisCompRef.instance).mapper = widgetInfo.mapper ? widgetInfo.mapper : {};
         (thisCompRef.instance).widgetName = widgetInfo.widgetName;
         (thisCompRef.instance).metadata = metadata;
+        this.dynamicComponents.push(thisCompRef);
+        console.log('%c DYNAMIC COMPONENT ', 'color: pink; font-weight: bold;', thisCompRef);
+    }
+
+    /**
+     * DestroyDynamicComponents
+     */
+    public DestroyDynamicComponents() {
+        this.dynamicComponents.forEach(component => {
+            component.destroy();
+        });
     }
 }

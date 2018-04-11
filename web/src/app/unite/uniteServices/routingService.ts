@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { MenusService, WidgetsService } from "../core/services";
 import { Menu } from './../core/classes';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class UniteRouting {
@@ -10,18 +11,12 @@ export class UniteRouting {
     constructor(
         private _menusService: MenusService,
         private _widgetsService: WidgetsService,
-        private _menu: Menu) { }
+        private _menu: Menu) {
+            console.log("ROUTING SERVICE");
+        }
 
     public getMenus(): void{
         this.menus = this._menu.getMenus();
         this.menu = this._menu.getInstance();
-        this.getMenuWidgets();
-    }
-
-    public getMenuWidgets(): void{
-        console.log("GET ALL WIDGETS MENU", this.menu);
-        this._widgetsService.getWidgets(this.menu.menuUrl).subscribe(widgets => {
-            this.menu.widgets = widgets;
-        });
     }
 }

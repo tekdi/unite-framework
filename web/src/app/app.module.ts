@@ -8,7 +8,7 @@ import { BootModule } from './unite/boot';
 const r : Routes = [
                 {
                   path : "",
-    loadChildren: "./unite/unite.module#UniteModule",
+                  loadChildren: "./unite/unite.module#UniteModule",
                   data: {'basePath' : ''}
                 }
               ];
@@ -20,7 +20,7 @@ const r : Routes = [
   imports: [
     BrowserModule,
     BootModule,
-    RouterModule.forRoot(r)
+    RouterModule.forRoot(r, { enableTracing: false })
   ],
   providers: [],
   bootstrap: [AppComponent]

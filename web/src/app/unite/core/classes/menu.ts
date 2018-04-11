@@ -4,13 +4,7 @@ export class Menu {
     public menuUrl = 'undefined';
     private menuObject: Object = {};
     private menuArray: Array<IMenu> = [];
-
-    /* 
-    Init menu 
-    */
-    public initMenu(menu: IMenu): void {
-        this.setMenu(menu);
-    }
+    // public widgets: Object = {};
 
     /*
     Get menus serialize array 
@@ -35,7 +29,8 @@ export class Menu {
     /* 
     Get menu instance on current menuUrl 
     */
-    public getInstance(): IMenu | boolean {
+    // public getInstance(): IMenu | boolean {
+    public getInstance(): any {
         if (typeof (this.menuUrl) == 'undefined') {
             return false;
         }

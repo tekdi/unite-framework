@@ -21,7 +21,7 @@ export class MenusDataSource
                         : ServiceCollection['menus'];
 
         let dsObj = new dsName(this._httpClient);
-        return dsObj.getData().map(result => {
+        return dsObj.getAll().map(result => {
             return result;
         });
     }

@@ -18,6 +18,6 @@
         "language": "en-GB"
     },
     "server" :{
-        "host" : "http://172.132.45.94:3000/"
+        "host" : "http://localhost:3000/"
     }
 }

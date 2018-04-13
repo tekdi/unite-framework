@@ -4,13 +4,14 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class WidgetsService extends BaseService {
-  constructor(_httpClient: HttpClient) {
-    super(_httpClient);
+
+  constructor(_httpClient: HttpClient, url?: string) {
+    url = url ? url : 'api/WidgetAssignments?filter[include][widget]=source&filter[where][menuUrl]';
+    super(_httpClient, url);
   }
 
   getWidgets(menuUrl) {
-    let url = 'api/WidgetAssignments?filter[include][widget]=source&filter[where][menuUrl]';
-    url = menuUrl == '' ? url: url + "=" + menuUrl; 
-    return this.get(url);
+    menuUrl = menuUrl == '' ? this.url: this.url + "=" + menuUrl; 
+    return this.get(menuUrl);
   }
 }

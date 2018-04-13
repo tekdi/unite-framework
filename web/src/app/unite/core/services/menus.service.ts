@@ -5,13 +5,12 @@ import { BaseService } from "./base.service";
 @Injectable()
 export class MenusService extends BaseService{
 
-  url: string = 'api/menus?filter[include][source][extension]=routes';
-
-  constructor(_httpClient: HttpClient) {
-    super(_httpClient);
+  constructor(_httpClient: HttpClient, url?: string) {
+    url = url ? url : 'api/menus?filter[include][source][extension]=routes';
+    super(_httpClient, url);
   }
 
   getMenus(): any {
-    return this.get(this.url);
+    return this.getAll();
   }
 }

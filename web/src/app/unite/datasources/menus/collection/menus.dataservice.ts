@@ -7,15 +7,13 @@ export class UniteMenusDataService extends BaseService
 {
     dataUrl;
     dataNode;
-    url: string = 'api/menus?filter[include][source][extension]=routes';
-
 
     constructor(_httpClient: HttpClient) {
-        super(_httpClient);
+        super(_httpClient, 'api/menus?filter[include][source][extension]=routes');
     }
 
     getData()
     {
-        return this.get(this.url);
+        return this.getAll();
     }
 }

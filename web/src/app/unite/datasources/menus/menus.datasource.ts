@@ -26,12 +26,12 @@ export class MenusDataSource
         });
     }
 
-    setRoutes(baseSegment)
-    {
-        let myRouteObj = [
-            { title: "Menus", path: "menus", id:""},
-            { title: "Menu", path: "menu/:menuId", id:""}
-        ]
-        return myRouteObj;
-    }
+    // setRoutes(baseSegment)
+    // {
+    //     let myRouteObj = [
+    //         { title: "Menus", path: "menus", id:""},
+    //         { title: "Menu", path: "menu/:menuId", id:""}
+    //     ]
+    //     return myRouteObj;
+    // }
 }

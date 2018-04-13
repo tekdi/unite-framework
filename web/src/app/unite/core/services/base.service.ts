@@ -13,20 +13,20 @@ export class BaseService {
 
   }
 
-  get(url) {
+  public get(url) {
     return this._httpClient.get(config['server']['host'] + url)
       .catch(this.handleError);
   }
 
-  post() {
+  public post() {
   
   }
 
-  update() {
+  public update() {
 
   }
 
-  delete() {
+  public delete() {
 
   }
 

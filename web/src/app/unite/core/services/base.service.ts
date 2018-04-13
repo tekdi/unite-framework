@@ -9,7 +9,7 @@ import * as config from 'assets/config.json';
 @Injectable()
 export class BaseService {
 
-  constructor(public _httpClient: HttpClient, public url: String, public host?: string) { 
+  constructor(public _httpClient: HttpClient, public url: string, public host?: string) { 
     this.host = this.host ? this.host : config['server']['host']; 
   }
 

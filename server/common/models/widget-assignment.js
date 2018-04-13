@@ -15,10 +15,10 @@ module.exports = function(Widgetassignment) {
                     }
                     positions[currrentElement.position].widgets.push(currrentElement);
                 }
+                ctx.result = answers;
             } else {
-                answers = result;
+                answers.ctx.result.position = ctx.result;
             }
-            ctx.result = answers;
         }
         next();
     });

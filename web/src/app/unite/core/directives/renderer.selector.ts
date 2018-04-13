@@ -46,7 +46,7 @@ import { dataSources } from '../../datasources/sources.collection';
     public getRoutesWidgets(rendereres) {
         let menu = this._menu.getInstance();
 
-        this._widgetsService.getWidgets(this._menu.menuUrl).subscribe(widgets => {
+        this._widgetsService.get(this._menu.menuUrl).subscribe(widgets => {
             this.widgets = widgets;
             this.DestroyDynamicComponents();
             this.renderWidgetsForPage(rendereres);

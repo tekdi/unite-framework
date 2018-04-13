@@ -25,7 +25,7 @@ const r : Routes = [
     RouterModule.forRoot(r, { enableTracing: false })
   ],
   providers: [
-    //  { provide: ErrorHandler, useClass: AppErrorHandler }
+    { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]
 })

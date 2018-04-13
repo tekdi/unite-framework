@@ -9,12 +9,21 @@ import * as config from 'assets/config.json';
 @Injectable()
 export class BaseService {
 
-  constructor(public _httpClient: HttpClient) { 
-
+  constructor(public _httpClient: HttpClient, public url: string, public host?: string) { 
+    this.host = this.host ? this.host : config['server']['host'];
   }
 
-  public get(url) {
-    return this._httpClient.get(config['server']['host'] + url)
+  public getAll() {
+    return this._httpClient.get(this.host + this.url)
+      .catch(this.handleError);
+  }
+
+  /**
+   * get method
+   * slug: string   
+  */
+  public get(slug: string) {
+    return this._httpClient.get(this.host + this.url + slug)
       .catch(this.handleError);
   }
 

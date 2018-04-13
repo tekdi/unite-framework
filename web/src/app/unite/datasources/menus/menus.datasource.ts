@@ -25,13 +25,4 @@ export class MenusDataSource
             return result;
         });
     }
-
-    // setRoutes(baseSegment)
-    // {
-    //     let myRouteObj = [
-    //         { title: "Menus", path: "menus", id:""},
-    //         { title: "Menu", path: "menu/:menuId", id:""}
-    //     ]
-    //     return myRouteObj;
-    // }
 }

@@ -10,16 +10,10 @@
       "type": "string",
       "required": true
     },
-    "ordering": {
-      "type": "string"
-    },
     "config": {
       "type": "object"
     },
     "renderer": {
-      "type": "string"
-    },
-    "position": {
       "type": "string"
     },
     "mapper": {

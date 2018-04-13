@@ -13,7 +13,7 @@ import { dataSources } from '../../datasources/sources.collection';
   export class RendererSelector {
     private widgets;
     private dynamicComponents = [];
-    private    dataCollection = dataSources;
+    private dataCollection = dataSources;
     
     @Input() position: string;
     @Input('ad-renderer') set config(value){
@@ -96,7 +96,7 @@ import { dataSources } from '../../datasources/sources.collection';
         {
             dataSourceClass = this.dataCollection[widgetInfo.config.source];
             dataSourceObj   = new dataSourceClass(config, this._httpClient);
-        }    
+        }
 
         if (widgetInfo.config.service && widgetInfo.config.source) {
             this.getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata);

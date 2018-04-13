@@ -1,3 +1,5 @@
+import { ErrorHandler } from '@angular/core';
+import { AppErrorHandler } from './unite/core/error-handler/app-error';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -22,7 +24,9 @@ const r : Routes = [
     BootModule,
     RouterModule.forRoot(r, { enableTracing: false })
   ],
-  providers: [],
+  providers: [
+    // { provide: ErrorHandler, useClass: AppErrorHandler }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

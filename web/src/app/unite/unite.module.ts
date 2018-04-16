@@ -10,23 +10,23 @@ import { UniteRouting } from './uniteServices/routingService';
 import { dataSources } from './datasources/sources.collection';
 
 import {
-        UniteMapperPipe, 
-        UniteLinkerPipe, 
+        UniteMapperPipe,
+        UniteLinkerPipe,
         Config, MenusService,
-        Menu, WidgetsService 
+        Menu, WidgetsService
     } from '@unite/core';
 
-const uniteRoutes : Routes = [
-    {path : "admin", component : AdminBranch},
-    {path : "", component : SiteBranch,
+const uniteRoutes: Routes = [
+    {path : 'admin', component : AdminBranch},
+    {path : '', component : SiteBranch,
         children: [
-            {path: 'mat', loadChildren : "./family/mat/mat.family#MatFamily", data : {basePath : 'mat'}},
-            {path: '', loadChildren : "./family/bs3/bs3.family#bs3Family", data : {basePath : ''}},
-            {path: 'sb', loadChildren : "./family/sb/sb.family#SbFamily", data : {basePath : 'sb'}},
+            {path: 'mat', loadChildren : './family/mat/mat.family#MatFamily', data : {basePath : 'mat'}},
+            {path: '', loadChildren : './family/bs3/bs3.family#bs3Family', data : {basePath : ''}},
+            {path: 'sb', loadChildren : './family/sb/sb.family#SbFamily', data : {basePath : 'sb'}},
             /*{path: 'mdb', loadChildren : "./family/mdb/mdb.family#MdbFamily"}*/
-        ], 
+        ]
     }
-]
+];
 
 @NgModule({
     declarations : [SiteBranch, AdminBranch],
@@ -37,17 +37,16 @@ const uniteRoutes : Routes = [
     ],
 
     providers: [
-        SystemJsNgModuleLoader, 
-        UniteRouting, 
-        UniteMapperPipe, 
-        UniteLinkerPipe, 
+        SystemJsNgModuleLoader,
+        UniteRouting,
+        UniteMapperPipe,
+        UniteLinkerPipe,
         MenusService,
         WidgetsService
     ]
 })
-export class UniteModule{
+export class UniteModule {
     constructor(private _uniteRouting: UniteRouting, private _menu: Menu, private _config: Config) {
-        //console.log("UNITE MODULE");
         this._uniteRouting.getMenus();
     }
 }

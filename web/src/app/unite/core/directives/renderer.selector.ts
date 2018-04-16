@@ -14,14 +14,14 @@ import { dataSources } from '../../datasources/sources.collection';
     private widgets;
     private dynamicComponents = [];
     private dataCollection = dataSources;
-    
+
     @Input() position: string;
     @Input('ad-renderer') set config(value){
         this._acRoute.url.subscribe(data => {
             this._menu.menuUrl = '';
 
-            if (data[0] != undefined) {
-                this._menu.menuUrl = "/" + data[0].path;
+            if (data[0] !== undefined) {
+                this._menu.menuUrl = '/' + data[0].path;
             }
             this.getRoutesWidgets(value);
         });
@@ -37,7 +37,7 @@ import { dataSources } from '../../datasources/sources.collection';
         private _widgetsService: WidgetsService
         )
     {
-        console.log("In Renderer Selectors constructor");
+        console.log('In Renderer Selectors constructor');
     }
 
     /**
@@ -46,7 +46,7 @@ import { dataSources } from '../../datasources/sources.collection';
     public getRoutesWidgets(rendereres) {
         let menu = this._menu.getInstance();
 
-        this._widgetsService.get('='+this._menu.menuUrl).subscribe(widgets => {
+        this._widgetsService.get('=' + this._menu.menuUrl).subscribe(widgets => {
             this.widgets = widgets;
             this.DestroyDynamicComponents();
             this.renderWidgetsForPage(rendereres);
@@ -54,23 +54,22 @@ import { dataSources } from '../../datasources/sources.collection';
     }
 
     renderWidgetsForPage(availableRenderes) {
-    
-        let widgetsForPosition = this.widgets[this.position];        
+
+        let widgetsForPosition = this.widgets[this.position];
         widgetsForPosition.widgets.forEach(widget => {
             let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
             if (availableRenderes.hasOwnProperty(widRenderer)) {
                 let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
                 let thisCompRef = this._vcRef.createComponent(componentFactory);
                 this.loadData(widget.widget, thisCompRef);
-            }
-            else {
-                console.log("ERROR :: renderer not found ", widRenderer);
+            } else {
+                console.log('ERROR :: renderer not found ', widRenderer);
             }
         });
     }
 
     loadData(widgetInfo, thisCompRef){
-   
+
         let config = {
             urlData: widgetInfo.param ? widgetInfo.param : {},
             config: widgetInfo.config ? widgetInfo.config : {}
@@ -80,23 +79,21 @@ import { dataSources } from '../../datasources/sources.collection';
             source: widgetInfo.config.source,
             service: widgetInfo.config.service ? widgetInfo.config.service : '',
             config : config
-        }
-        let dataSourceClass;
-        let dataSourceObj
+        };
 
-        if(this.dataCollection.hasOwnProperty(widgetInfo.config.source))
-        {
+        let dataSourceClass;
+        let dataSourceObj;
+
+        if (this.dataCollection.hasOwnProperty(widgetInfo.config.source)) {
             dataSourceClass = this.dataCollection[widgetInfo.config.source];
             dataSourceObj   = new dataSourceClass(config, this._httpClient);
         }
 
         if (widgetInfo.config.service && widgetInfo.config.source) {
             this.getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata);
-        }
-        else if (widgetInfo.config.data) {
+        } else if (widgetInfo.config.data) {
             this.getJsonData(widgetInfo, thisCompRef, metadata);
-        }
-        else if (widgetInfo.config.html) {
+        } else if (widgetInfo.config.html) {
             this.getHtmlData(widgetInfo, thisCompRef, metadata);
         }
     }
@@ -104,7 +101,7 @@ import { dataSources } from '../../datasources/sources.collection';
     getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
         dataSourceObj.getData(widgetInfo.config.service).map(data => {
             if (widgetInfo['config']['dataNode']) {
-                let dataNode2 = widgetInfo['config']['dataNode'].split(".");
+                let dataNode2 = widgetInfo['config']['dataNode'].split('.');
                 let myFinalValue = data;
                 dataNode2.forEach(element => {
                     myFinalValue = myFinalValue[element];
@@ -117,7 +114,7 @@ import { dataSources } from '../../datasources/sources.collection';
             this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, data);
         });
     }
-    
+
     getJsonData(widgetInfo, thisCompRef, metadata) {
         this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, widgetInfo.config.data);
     }

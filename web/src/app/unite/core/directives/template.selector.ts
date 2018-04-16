@@ -20,8 +20,7 @@ export class TemplateSelector {
         if (availableLayouts.hasOwnProperty(layout)) {
             let componentFactory = this._cfResolver.resolveComponentFactory(availableLayouts[layout]);
             this._vcRef.createComponent(componentFactory);
-        }
-        else {
+        } else {
             console.log('ERROR : Template not found...');
         }
     }

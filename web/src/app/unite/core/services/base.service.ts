@@ -10,12 +10,12 @@ import * as config from 'assets/config.json';
 export class BaseService {
 
   constructor(public _httpClient: HttpClient, public url: string, public host?: string) { 
-    this.host = this.host ? this.host : config['server']['host']; 
+    this.host = this.host ? this.host : config['server']['host'];
   }
 
   /**
    * get service
-   * slug : srting 
+   * slug : srting
    */
   public get(slug: string) {
     return this._httpClient.get(this.host + this.url + slug)
@@ -31,7 +31,6 @@ export class BaseService {
   }
 
   public post() {
-  
   }
 
   public update() {
@@ -43,10 +42,12 @@ export class BaseService {
   }
 
   private handleError(error: Response) {
-    if (error.status === 400)
-        return Observable.throw(new BadInput(error));
-    if (error.status === 404)
+    if (error.status === 400) {
+      return Observable.throw(new BadInput(error));
+    }
+    if (error.status === 404) {
       return Observable.throw(new NotFoundError());
+    }
     return Observable.throw(new AppError(error));
   }
 }

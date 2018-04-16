@@ -7,7 +7,7 @@ export class Menu {
     // public widgets: Object = {};
 
     /*
-    Get menus serialize array 
+    Get menus serialize array
     */
     public setMenu(menu: IMenu): void {
         this.menuObject[menu.menuUrl] = menu;
@@ -15,10 +15,10 @@ export class Menu {
     }
 
     /*
-    Get menus serialize array 
+    Get menus serialize array
     */
     public getMenus(): Array<IMenu> | boolean {
-        console.dir("GET MENUs", this.menuUrl);
+        console.dir('GET MENUs', this.menuUrl);
 
         if (this.menuArray) {
             return this.menuArray;
@@ -26,12 +26,12 @@ export class Menu {
         return false;
     }
 
-    /* 
-    Get menu instance on current menuUrl 
+    /*
+    Get menu instance on current menuUrl
     */
     // public getInstance(): IMenu | boolean {
     public getInstance(): any {
-        if (typeof (this.menuUrl) == 'undefined') {
+        if (typeof (this.menuUrl) === 'undefined') {
             return false;
         }
         return this.menuObject[this.menuUrl];

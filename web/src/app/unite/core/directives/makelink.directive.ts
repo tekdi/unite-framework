@@ -9,18 +9,15 @@ export class UniteLinkDirective {
     @Input('uniteLink') linkConfig;
     @Input() set uniteData(value){
         this.getLink(value);
-    };
+    }
 
-    constructor( private _elRef : ElementRef, private _uniteLinker : UniteLinkerPipe ) { }
+    constructor( private _elRef: ElementRef, private _uniteLinker: UniteLinkerPipe ) { }
 
-    getLink(uniteData)
-    {
-        if(this.linkConfig)
-        {
+    getLink(uniteData) {
+        if (this.linkConfig) {
             let thisLink = this._uniteLinker.transform(uniteData, this.linkConfig);
 
-            if(thisLink)
-            {
+            if (thisLink) {
                 this._elRef.nativeElement.href = thisLink.replace(/^\/|\/$/g, '');
             }
         }

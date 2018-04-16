@@ -16,7 +16,7 @@ export class BootService {
    */
   public setConfig(): Promise<any> {
     return new Promise((resolve, reject) => {
-    console.log("SET NEW CONFIG");
+    console.log('SET NEW CONFIG');
       this._config.setConfig();
       resolve();
     });
@@ -26,12 +26,12 @@ export class BootService {
    * initMenus
    */
   public initMenus(): Promise<any> {
-    return new Promise((resolve, reject)=>{
-    
+    return new Promise((resolve, reject) => {
+
       this._menusService.getAll().subscribe(menus => {
         menus.forEach(menu => {
           this._menu.setMenu(menu);
-          console.log("SET MENU SERVICE");
+          console.log('SET MENU SERVICE');
         });
         resolve();
       });

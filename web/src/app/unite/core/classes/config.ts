@@ -1,7 +1,7 @@
 import * as configData from 'assets/config.json';
 
 export class Config {
-    baserUnitePath : object;   
+    baserUnitePath: object;
     baserFamilyPath: object;
     gbConfig: object;
     site: object;

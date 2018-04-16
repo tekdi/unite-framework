@@ -44,6 +44,4 @@ export interface IMenu {
     subMenu?: Array<IMenu>;
 }
 
-export interface IRoute {
-
-}
+export interface IRoute { }

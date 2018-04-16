@@ -7,10 +7,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BootModule } from './unite/boot';
 
-const r : Routes = [
+const r: Routes = [
                 {
-                  path : "",
-                  loadChildren: "./unite/unite.module#UniteModule",
+                  path : '',
+                  loadChildren: './unite/unite.module#UniteModule',
                   data: {'basePath' : ''}
                 }
               ];

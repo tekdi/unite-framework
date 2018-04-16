@@ -46,7 +46,7 @@ import { dataSources } from '../../datasources/sources.collection';
     public getRoutesWidgets(rendereres) {
         let menu = this._menu.getInstance();
 
-        this._widgetsService.get(this._menu.menuUrl).subscribe(widgets => {
+        this._widgetsService.get('='+this._menu.menuUrl).subscribe(widgets => {
             this.widgets = widgets;
             this.DestroyDynamicComponents();
             this.renderWidgetsForPage(rendereres);
@@ -54,27 +54,19 @@ import { dataSources } from '../../datasources/sources.collection';
     }
 
     renderWidgetsForPage(availableRenderes) {
-
-        if (this.widgets && this.widgets != undefined) {
-            this.widgets.forEach(widget => {
-                let widgetPosition = widget.widget.position ? widget.widget.position : 'body';
-                let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
-
-                if (availableRenderes.hasOwnProperty(widRenderer)) {
-                    if (this.position == widgetPosition) {
-                        let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
-                        let thisCompRef = this._vcRef.createComponent(componentFactory);
-                        this.loadData(widget.widget, thisCompRef);
-                    }
-                    else {
-                        console.log('Widget is not for ' + this.position + 'position');
-                    }
-                }
-                else {
-                    console.log("ERROR :: renderer not found ", widRenderer);
-                }
-            });
-        }
+    
+        let widgetsForPosition = this.widgets[this.position];        
+        widgetsForPosition.widgets.forEach(widget => {
+            let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
+            if (availableRenderes.hasOwnProperty(widRenderer)) {
+                let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
+                let thisCompRef = this._vcRef.createComponent(componentFactory);
+                this.loadData(widget.widget, thisCompRef);
+            }
+            else {
+                console.log("ERROR :: renderer not found ", widRenderer);
+            }
+        });
     }
 
     loadData(widgetInfo, thisCompRef){

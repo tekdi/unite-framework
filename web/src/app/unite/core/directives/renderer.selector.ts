@@ -70,7 +70,6 @@ import { dataSources } from '../../datasources/sources.collection';
     }
 
     loadData(widgetInfo, thisCompRef){
-   
         let config = {
             urlData: widgetInfo.param ? widgetInfo.param : {},
             config: widgetInfo.config ? widgetInfo.config : {}
@@ -129,7 +128,7 @@ import { dataSources } from '../../datasources/sources.collection';
     setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, data) {
         (thisCompRef.instance).data = data;
         (thisCompRef.instance).mapper = widgetInfo.mapper ? widgetInfo.mapper : {};
-        (thisCompRef.instance).widgetName = widgetInfo.widgetName;
+        (thisCompRef.instance).widgetName = widgetInfo.name;
         (thisCompRef.instance).metadata = metadata;
         this.dynamicComponents.push(thisCompRef);
     }

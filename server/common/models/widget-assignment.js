@@ -4,7 +4,7 @@ module.exports = function(Widgetassignment) {
     Widgetassignment.afterRemote('**', function(ctx, Widgetassignment, next) {
                 var answers = {};
                 if (ctx.result) {
-                    if (Array.isArray(Widgetassignment)) {
+                    if (Array.isArray(ctx.result)) {
                         var positions = {},i, j, currrentElement;
                         var result = ctx.result;
                         for(i = 0, j = result.length; i < j; i++){

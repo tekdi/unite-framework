@@ -6,4 +6,5 @@ export const BS3LayoutsMapper = {
     'two': LayoutTwoComponent
 };
 
-export const BS3Layouts = [LayoutOneComponent, LayoutTwoComponent]
+export const BS3Layouts = [LayoutOneComponent, LayoutTwoComponent];
+

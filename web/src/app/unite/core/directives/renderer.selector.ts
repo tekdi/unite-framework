@@ -82,7 +82,6 @@ import { overrides } from './../../family/bs3/overrides/renderers';
     }
 
     loadData(widgetInfo, thisCompRef) {
-
         let config = {
             urlData: widgetInfo.param ? widgetInfo.param : {},
             config: widgetInfo.config ? widgetInfo.config : {}
@@ -139,7 +138,7 @@ import { overrides } from './../../family/bs3/overrides/renderers';
     setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, data) {
         (thisCompRef.instance).data = data;
         (thisCompRef.instance).mapper = widgetInfo.mapper ? widgetInfo.mapper : {};
-        (thisCompRef.instance).widgetName = widgetInfo.widgetName;
+        (thisCompRef.instance).widgetName = widgetInfo.name;
         (thisCompRef.instance).metadata = metadata;
         this.dynamicComponents.push(thisCompRef);
     }

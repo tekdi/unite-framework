@@ -44,4 +44,19 @@ export interface IMenu {
     subMenu?: Array<IMenu>;
 }
 
-export interface IRoute { }
+export interface IRoute {
+    /**
+     * route name
+    */
+    name: string;
+
+    /**
+     * route URL
+    */
+    routeUrl: string;
+
+    /**
+     * route layout
+    */
+    layout?: string;
+}

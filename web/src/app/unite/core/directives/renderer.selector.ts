@@ -5,6 +5,7 @@ import { PlatformLocation } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { dataSources } from '../../datasources/sources.collection';
+import { overrides } from './../../family/bs3/overrides/renderers';
 
 @Directive({
   selector: '[ad-renderer]'
@@ -14,9 +15,10 @@ import { dataSources } from '../../datasources/sources.collection';
     private widgets;
     private dynamicComponents = [];
     private dataCollection = dataSources;
+    private overrides = overrides;
 
     @Input() position: string;
-    @Input('ad-renderer') set config(value){
+    @Input('ad-renderer') set config(value) {
         this._acRoute.url.subscribe(data => {
             this._menu.menuUrl = '';
 
@@ -30,13 +32,11 @@ import { dataSources } from '../../datasources/sources.collection';
     constructor(
         private _vcRef: ViewContainerRef,
         private _cfResolver: ComponentFactoryResolver,
-        private _pfLocation : PlatformLocation,
-        private _acRoute : ActivatedRoute,
-        private _httpClient : HttpClient,
+        private _pfLocation: PlatformLocation,
+        private _acRoute: ActivatedRoute,
+        private _httpClient: HttpClient,
         private _menu: Menu,
-        private _widgetsService: WidgetsService
-        )
-    {
+        private _widgetsService: WidgetsService) {
         console.log('In Renderer Selectors constructor');
     }
 
@@ -59,7 +59,8 @@ import { dataSources } from '../../datasources/sources.collection';
         widgetsForPosition.widgets.forEach(widget => {
             let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
             if (availableRenderes.hasOwnProperty(widRenderer)) {
-                let componentFactory = this._cfResolver.resolveComponentFactory(availableRenderes[widRenderer]);
+                let selectedRenderer = this.hasOverride(widRenderer) ? this.hasOverride(widRenderer) : availableRenderes[widRenderer];
+                let componentFactory = this._cfResolver.resolveComponentFactory(selectedRenderer);
                 let thisCompRef = this._vcRef.createComponent(componentFactory);
                 this.loadData(widget.widget, thisCompRef);
             } else {
@@ -68,7 +69,19 @@ import { dataSources } from '../../datasources/sources.collection';
         });
     }
 
-    loadData(widgetInfo, thisCompRef){
+    /**
+     * rendererHasOverride
+     */
+    public hasOverride(renderer): string | boolean {
+
+        if (renderer) {
+            return this.overrides[renderer];
+        }
+
+        return false;
+    }
+
+    loadData(widgetInfo, thisCompRef) {
         let config = {
             urlData: widgetInfo.param ? widgetInfo.param : {},
             config: widgetInfo.config ? widgetInfo.config : {}

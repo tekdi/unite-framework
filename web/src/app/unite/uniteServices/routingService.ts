@@ -9,7 +9,7 @@ export class UniteRouting {
     constructor(private _menu: Menu) {
     }
 
-    public getMenus(): void{
+    public getMenus(): void {
         this.menus = this._menu.getMenus();
         this.menu = this._menu.getInstance();
     }

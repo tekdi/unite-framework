@@ -36,7 +36,7 @@ const r : Routes = [
     entryComponents : [sbTemplates, sbRenderers],
     providers : []
 })
-export class SbFamily{
+export class SbTemplate{
     constructor(){
         console.log("this is Sb family....");
     }

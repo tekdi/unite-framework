@@ -37,7 +37,7 @@ const r: Routes = [
     entryComponents: [BS3Layouts, bs3Renderers, overridesArray],
     providers : []
 })
-export class bs3Family {
+export class bs3Template {
     constructor() {
         console.log('this is bs3 family....');
     }

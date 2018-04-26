@@ -5,7 +5,7 @@ import { PlatformLocation } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { dataSources } from '../../datasources/sources.collection';
-import { overrides } from './../../family/bs3/overrides/renderers';
+import { overrides } from './../../templates/bs3/overrides/renderers';
 
 @Directive({
   selector: '[ad-renderer]'

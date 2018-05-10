@@ -1,4 +1,4 @@
-import { WidgetsService } from './../services/widgets.service';
+import { UniteRoute } from './../classes/';
 import { Menu } from './../classes/menu';
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
@@ -12,7 +12,6 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
 })
 
   export class RendererSelector {
-    private widgets;
     private dynamicComponents = [];
     private dataCollection = dataSources;
     private overrides = overrides;
@@ -20,12 +19,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
     @Input() position: string;
     @Input('ad-renderer') set config(value) {
         this._acRoute.url.subscribe(data => {
-            this._menu.menuUrl = '';
-
-            if (data[0] !== undefined) {
-                this._menu.menuUrl = '/' + data[0].path;
-            }
-            this.getRoutesWidgets(value);
+            this.renderWidgetsForRoute(value);
         });
     }
 
@@ -36,26 +30,15 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
         private _acRoute: ActivatedRoute,
         private _httpClient: HttpClient,
         private _menu: Menu,
-        private _widgetsService: WidgetsService) {
+        private _uniteRoute: UniteRoute
+    ) {
         console.log('In Renderer Selectors constructor');
     }
 
-    /**
-     * getRoutesWidgets
-     */
-    public getRoutesWidgets(rendereres) {
-        let menu = this._menu.getInstance();
+    renderWidgetsForRoute(availableRenderes) {
+        let widgetsForPosition = this._uniteRoute.widgets[this.position];
 
-        this._widgetsService.get('=' + this._menu.menuUrl).subscribe(widgets => {
-            this.widgets = widgets;
-            this.DestroyDynamicComponents();
-            this.renderWidgetsForPage(rendereres);
-        });
-    }
-
-    renderWidgetsForPage(availableRenderes) {
-
-        let widgetsForPosition = this.widgets[this.position];
+        this.DestroyDynamicComponents();
         widgetsForPosition.widgets.forEach(widget => {
             let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
             if (availableRenderes.hasOwnProperty(widRenderer)) {

@@ -7,4 +7,3 @@ export const BS3LayoutsMapper = {
 };
 
 export const BS3Layouts = [LayoutOneComponent, LayoutTwoComponent];
-

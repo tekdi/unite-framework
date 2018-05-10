@@ -6,7 +6,7 @@ import { Renderer } from '@unite/core';
     templateUrl : "./renderer.html",
     styleUrls: ['./renderer.css']
 })
-export class CustomRenderer implements OnInit, Renderer{
+export class CustomRenderer implements OnInit, Renderer {
     data;
     mapper;
     widgetName;

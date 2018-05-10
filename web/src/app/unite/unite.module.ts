@@ -15,6 +15,7 @@ import {
         Config, MenusService,
         Menu, WidgetsService
     } from '@unite/core';
+import { AboutComponent } from './views';
 
 const uniteRoutes: Routes = [
     {path : 'admin', component : AdminBranch},
@@ -29,7 +30,10 @@ const uniteRoutes: Routes = [
 ];
 
 @NgModule({
-    declarations : [SiteBranch, AdminBranch],
+    declarations: [
+        SiteBranch,
+        AdminBranch
+    ],
     imports : [
         CommonModule,
         HttpClientModule,

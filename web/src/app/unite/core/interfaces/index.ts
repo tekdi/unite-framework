@@ -48,15 +48,25 @@ export interface IRoute {
     /**
      * route name
     */
-    name: string;
+    name?: string;
 
     /**
      * route URL
     */
-    routeUrl: string;
+    path: string;
+
+    /**
+     * route view
+    */
+    view?: Object;
 
     /**
      * route layout
     */
     layout?: string;
+
+    /**
+     * widgets collections
+    */
+    widgets?: Array<any>;
 }

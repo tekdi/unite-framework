@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./partners.component.css']
 })
 export class PartnersComponent implements OnInit {
-  selectorTag = '<app-partners></app-partners>';
+
   constructor() { }
 
   ngOnInit() {

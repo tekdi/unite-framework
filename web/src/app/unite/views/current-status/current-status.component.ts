@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./current-status.component.css']
 })
 export class CurrentStatusComponent implements OnInit {
-  selectorTag = '<app-current-status></app-current-status>';
+
   constructor() { }
 
   ngOnInit() {

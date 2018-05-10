@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./for-teachers.component.css']
 })
 export class ForTeachersComponent implements OnInit {
-  selectorTag = '<app-for-teachers></app-for-teachers>';
   constructor() { }
 
   ngOnInit() {

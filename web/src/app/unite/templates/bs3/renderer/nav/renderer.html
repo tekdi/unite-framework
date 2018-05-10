@@ -9,7 +9,7 @@
       </div>
       <div class="col-sm-9 hidden-xs">
         <div class="menu pull-right bg-white" id="nav-bar">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" *ngIf="data">
             <li *ngFor="let menu of data">
               <a [routerLink]="menu.menuUrl" [title]="menu.name"><span>{{menu.name}}</span></a>
             </li>

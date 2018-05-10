@@ -8,8 +8,6 @@ import { RendererSelector } from '../../core/directives/renderer.selector';
 import { UniteLinkDirective } from '../../core/directives/makelink.directive';
 import { bs3Comp } from './bs3.component';
 
-import { UniteRouting } from '../../uniteServices/routingService';
-
 import { BS3Layouts } from './layouts';
 import { bs3Renderers } from './renderer/renderers.collection';
 import { overridesArray } from './overrides/renderers';
@@ -17,25 +15,57 @@ import { overridesArray } from './overrides/renderers';
 import { UniteMapperPipe } from '../../core/pipes/mapper.pipe';
 import { UniteLinkerPipe } from '../../core/pipes/linker.pipe';
 
-const r: Routes = [
-        {path : '**', component : bs3Comp}
-    ];
+import {
+    ForTeachersComponent,
+    PartnersComponent,
+    CurrentStatusComponent,
+    ContentComponent,
+    AboutComponent,
+    HomeComponent,
+    viwesArray
+} from '../../views';
+
+import { WidgetsService, UniteRoute } from '../../core';
+import { AddViewToRouteDirective } from '../../core/directives/';
+
+const compName = bs3Comp;
+const viewsRoute: Routes = [
+    { path: 'for-teachers', component: compName, data: { viewMapper: 'ForTeachersComponent'}},
+    { path: 'partners', component: compName, data: { viewMapper: 'PartnersComponent' }},
+    { path: 'current-status', component: compName, data: { viewMapper: 'CurrentStatusComponent' }},
+    { path: 'content', component: compName, data: { viewMapper: 'ContentComponent' }},
+    { path: 'about', component: compName, data: { viewMapper: 'AboutComponent' }},
+    { path: '', component: compName, data: { viewMapper: 'HomeComponent' }}
+];
 
 @NgModule({
-    imports : [CommonModule, OwlModule, RouterModule.forChild(r)],
+    imports : [
+        CommonModule,
+        OwlModule,
+        RouterModule.forChild(viewsRoute)
+    ],
     declarations : [
-                    bs3Comp,
-                    BS3Layouts,
-                    bs3Renderers,
-                    overridesArray,
-                    TemplateSelector,
-                    RendererSelector,
-                    UniteMapperPipe,
-                    UniteLinkerPipe,
-                    UniteLinkDirective
-                    ],
-    entryComponents: [BS3Layouts, bs3Renderers, overridesArray],
-    providers : []
+        bs3Comp,
+        BS3Layouts,
+        bs3Renderers,
+        overridesArray,
+        TemplateSelector,
+        RendererSelector,
+        UniteMapperPipe,
+        UniteLinkerPipe,
+        UniteLinkDirective,
+        AddViewToRouteDirective,
+
+        // views component
+        ForTeachersComponent,
+        PartnersComponent,
+        CurrentStatusComponent,
+        ContentComponent,
+        AboutComponent,
+        HomeComponent
+    ],
+    entryComponents: [BS3Layouts, bs3Renderers, overridesArray, viwesArray],
+    providers: [WidgetsService, UniteRoute]
 })
 export class bs3Template {
     constructor() {

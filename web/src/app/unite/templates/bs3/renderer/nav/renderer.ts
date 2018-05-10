@@ -10,8 +10,12 @@ export class NavRenderer implements OnInit, Renderer {
     widgetName;
     metadata;
 
-    constructor() { }
+    constructor() {
+
+    }
 
     // Data Manipulation 
-    ngOnInit() { }
+    ngOnInit() { 
+        console.log('NAVBAR', this.data);
+    }
 }

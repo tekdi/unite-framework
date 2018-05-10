@@ -56,6 +56,11 @@ export interface IRoute {
     path: string;
 
     /**
+     * route view
+    */
+    view?: Object;
+
+    /**
      * route layout
     */
     layout?: string;

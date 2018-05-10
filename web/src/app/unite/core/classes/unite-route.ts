@@ -6,6 +6,8 @@ export class UniteRoute implements IRoute {
 
     public widgets;
 
+    public view;
+
     /**
      * getRoute get the current route instance
      */

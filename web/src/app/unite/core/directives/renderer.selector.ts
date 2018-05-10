@@ -1,5 +1,4 @@
 import { UniteRoute } from './../classes/';
-import { WidgetsService } from './../services/widgets.service';
 import { Menu } from './../classes/menu';
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
@@ -31,7 +30,6 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
         private _acRoute: ActivatedRoute,
         private _httpClient: HttpClient,
         private _menu: Menu,
-        private _widgetsService: WidgetsService,
         private _uniteRoute: UniteRoute
     ) {
         console.log('In Renderer Selectors constructor');

@@ -7,21 +7,22 @@ const port = '3003';
 
 app.get('/api/menus', (req, res) => {
 
+    // Get menus API
+    services.deliveryClient.getEntries({
+        content_type: 'menus',
+        locale: 'en-US',
+        order: '-sys.createdAt',
+        include: 1 
+    }).then((response) => {
+        let data = [];
+        response.items.forEach(element => {
+            data.push(element.fields);    
+        });
+        res.send(data);
+    }).catch((err) => console.log(err));
+    let slug = '';
 
-    // services.deliveryClient.getEntries({
-    //     content_type: 'menus',
-    //     locale: 'en-US',
-    //     order: '-sys.createdAt',
-    //     include: 1 
-    // }).then((response) => {
-    //     let data = [];
-    //     response.items.forEach(element => {
-    //         data.push(element.fields);    
-    //     });
-    //     res.send(data);
-    // }).catch((err) => console.log(err));
-    let slug = '5aa8dde4b056e114f8cc7ddd';
-
+    // Get widgets API
     services.deliveryClient.getEntries({
         content_type: 'widgetAssignments',
         'fields.id': slug,

@@ -5,33 +5,40 @@ const services = require('./service');
 
 const port = '3003';
 
+// Get menus
 app.get('/api/menus', (req, res) => {
-
-    // Get menus API
     services.deliveryClient.getEntries({
         content_type: 'menus',
         locale: 'en-US',
         order: '-sys.createdAt',
         include: 1 
     }).then((response) => {
-        let data = [];
+        let items = [];
         response.items.forEach(element => {
-            data.push(element.fields);    
+            items.push(element.fields); 
         });
-        res.send(data);
+        res.send(items);
     }).catch((err) => console.log(err));
-    let slug = '';
+});
 
-    // Get widgets API
+// Get menus and routes widgets
+app.get('/api/widgets', (req, res) => {
+    let menuUrl = '';
     services.deliveryClient.getEntries({
         content_type: 'widgetAssignments',
-        'fields.id': slug,
+        'fields.menuUrl': menuUrl,
         locale:'en-US',
         include: 2
       }).then((response) => {
-        console.log("WIDGETS ASSIGNMENTS");
-        // console.log(response.items[0]);
-        res.send(response);
+        let items = {};
+        response.items.forEach(item => {
+            if (!(item.fields.position in items)) {
+                items[item.fields.position] = { widgets: []};
+            }
+
+            items[item.fields.position].widgets.push(item.fields); 
+        });
+        res.send(items);
     }).catch((err) => console.log(err));
 });
 

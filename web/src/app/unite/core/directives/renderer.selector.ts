@@ -36,6 +36,11 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
     }
 
     renderWidgetsForRoute(availableRenderes) {
+
+        // if (this._uniteRoute.widgets.hasOwnProperty(this.position) == -1) {
+        //     return false;
+        // }
+
         let widgetsForPosition = this._uniteRoute.widgets[this.position];
 
         this.DestroyDynamicComponents();
@@ -85,6 +90,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
         }
 
         if (widgetInfo.config.service && widgetInfo.config.source) {
+            console.log();
             this.getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata);
         } else if (widgetInfo.config.data) {
             this.getJsonData(widgetInfo, thisCompRef, metadata);

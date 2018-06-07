@@ -11,7 +11,9 @@ export class UnorderedRenderer implements OnInit, Renderer {
     widgetName;
     metadata;
 
-    constructor() { }
+    constructor() { 
+        console.log("UNORDERED");
+    }
 
     // Data Manipulation
     ngOnInit() { }

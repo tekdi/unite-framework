@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UniteMenusDataService } from './collection/menus.dataservice';
+import { UniteMenuDataService } from './collection/menu.dataservice';
+
 const ServiceCollection =  {
                             'menus' : UniteMenusDataService,
-                            'menu': '',
+                            'menu': UniteMenuDataService,
                         };
                         
 @Injectable()

@@ -62,3 +62,7 @@ Thumbs.db
 /server/node_modules
 /server/client
 /server/npm-debug.log
+
+# Contentful
+/contentful/node_modules
+/contentful/.vscode

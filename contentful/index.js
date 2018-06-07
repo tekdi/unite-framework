@@ -1,45 +1,15 @@
 const express = require('express');
 const app = express();
-const contentful = require('contentful');
-const services = require('./service');
+const cockpit = require('./routes/cockpit');
+const contentful = require('./routes/contentful');
 
-const port = '3003';
+const port = '3004';
 
-// Get menus
-app.get('/api/menus', (req, res) => {
-    services.deliveryClient.getEntries({
-        content_type: 'menus',
-        locale: 'en-US',
-        order: '-sys.createdAt',
-        include: 1 
-    }).then((response) => {
-        let items = [];
-        response.items.forEach(element => {
-            items.push(element.fields); 
-        });
-        res.send(items);
-    }).catch((err) => console.log(err));
-});
+app.use('/api/cockpit', cockpit);
+app.use('/api/contentful', contentful);
 
-// Get menus and routes widgets
-app.get('/api/widgets', (req, res) => {
-    let menuUrl = '';
-    services.deliveryClient.getEntries({
-        content_type: 'widgetAssignments',
-        'fields.menuUrl': menuUrl,
-        locale:'en-US',
-        include: 2
-      }).then((response) => {
-        let items = {};
-        response.items.forEach(item => {
-            if (!(item.fields.position in items)) {
-                items[item.fields.position] = { widgets: []};
-            }
-
-            items[item.fields.position].widgets.push(item.fields); 
-        });
-        res.send(items);
-    }).catch((err) => console.log(err));
+app.get('/', (req, res) => {
+    res.send(`Listing on PORT ${port}`);
 });
 
 app.listen(port, () => { console.log(`Listing on PORT ${port}`)});

@@ -2,14 +2,49 @@
 	<div class="row">
 	   <div class="col-xs-12">
 	    <h2>{{widgetName}}</h2>
-		   <ul>
-		   <li *ngFor="let item of data">
-			  <a title="Visit Link" class="no-underline" target="_blank" [href]="item.link">
-                  {{item.item}}
-              </a>
-           </li>
-           </ul>
+            <!-- <div *ngFor="let item of data" class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTYzZDk3OGY2YmYgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjNkOTc4ZjZiZiI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OC44MDQ2ODc1IiB5PSIxMDQuNSI+MjQyeDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" alt="">
+                    <div class="caption">
+                        <h3>{{item.name}}</h3>
+                        <p>{{item.description}}</p>
+                    </div>
+                </div>
+            </div> -->
+
+
+            <div *ngFor="let item of data" class="well">
+                    <div class="media">
+                          <img class="pull-left media-object" src="http://placekitten.com/150/150">
+                        <div class="media-body">
+                          <h4 class="media-heading">{{item.name}}</h4>
+                        <p>{{item.description}}</p>
+                        <ul class="list-inline list-unstyled">
+                            <li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
+                          <li>|</li>
+                          <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+                          <li>|</li>
+                          <li>
+                             <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                          </li>
+                          <li>|</li>
+                          <li>
+                          <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                            <span><i class="fa fa-facebook-square"></i></span>
+                            <span><i class="fa fa-twitter-square"></i></span>
+                            <span><i class="fa fa-google-plus-square"></i></span>
+                          </li>
+                          </ul>
+                     </div>
+                  </div>
+                </div>
+
         </div>
+        
     </div>
     <hr/>
 </div>

@@ -34,7 +34,7 @@ export class bs3Comp {
             }
 
             this.setRouteParams(path);
-            console.log(data);
+            console.log(data, "Set Routes Path");
         });
 
         console.log('BS3COMP');
@@ -42,11 +42,15 @@ export class bs3Comp {
 
     private setRouteParams(path) {
 
+        // If view is empty for route then set the default view
+        if (!this._acRoute.snapshot.data.viewMapper) {
+            this._acRoute.snapshot.data.viewMapper = 'DefaultComponent';
+        }   
 
         this._uniteRoute.view = viewsObject[this._acRoute.snapshot.data.viewMapper];
-
         this._uniteRoute.path = path;
         const url = this._uniteRoute.path ? '=/' + this._uniteRoute.path : '';
+        console.log(url, "URL");
         this._widgetsService.get(url).subscribe(widgets => {
             this._uniteRoute.widgets = widgets;
             this.displayLayout = true;

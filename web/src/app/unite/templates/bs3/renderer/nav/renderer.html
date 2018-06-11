@@ -3,15 +3,20 @@
       <div class="col-xs-8 col-sm-3">
         <h1 class="logo">
           <a href="index.html" title="DIKSHA">
-                    <img src="https://diksha.gov.in/images/logo.png" alt="DIKSHA logo">
-                </a>
+            <img src="https://diksha.gov.in/images/logo.png" alt="DIKSHA logo">
+          </a>
         </h1>
       </div>
       <div class="col-sm-9 hidden-xs">
         <div class="menu pull-right bg-white" id="nav-bar">
           <ul class="nav navbar-nav" *ngIf="data">
-            <li *ngFor="let menu of data">
-              <a [routerLink]="menu.menuUrl" [title]="menu.name"><span>{{menu.name}}</span></a>
+            <li *ngFor="let menu of data" [ngSwitch]="menu.fragment !== undefined">
+              <a *ngSwitchCase="true" [routerLink]="menu.menuUrl" [title]="menu.name" [fragment]="menu.fragment">
+                <span>{{menu.name}}</span>
+              </a>
+              <a *ngSwitchDefault [routerLink]="menu.menuUrl" [title]="menu.name">
+                <span>{{menu.name}}</span>
+              </a>
             </li>
             <li><a href="/private/index" target="_blank" title="Login" class="login strong"><span>LOGIN</span></a></li>
             <li><a href="take-a-tour.html" title="Take a tour" class="btn btn-primary"><span>TAKE A TOUR</span></a></li>

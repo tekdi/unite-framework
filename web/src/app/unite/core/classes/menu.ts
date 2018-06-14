@@ -17,13 +17,9 @@ export class Menu {
     /*
     Get menus serialize array
     */
-    public getMenus(): Array<IMenu> | boolean {
+    public getMenus(): Array<IMenu> {
         console.dir('GET MENUs', this.menuUrl);
-
-        if (this.menuArray) {
-            return this.menuArray;
-        }
-        return false;
+        return this.menuArray;
     }
 
     /*

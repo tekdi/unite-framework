@@ -7,8 +7,6 @@ import { RendererSelector } from '../../core/directives/renderer.selector';
 import { UniteLinkDirective } from '../../core/directives/makelink.directive';
 import { SbComp } from './sb.component';
 
-import { UniteRouting } from '../../uniteServices/routingService';
-
 import { SuiModule, SuiProgressModule } from 'ng2-semantic-ui';
 import { sbTemplates } from './layouts';
 import { sbRenderers } from './renderer/renderers.collection';

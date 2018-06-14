@@ -6,6 +6,9 @@
     "module": "es2015",
     "types": [],
     "paths":{
+      "@unite/core/services": [
+        "app/unite/core/services"
+      ],
       "@unite/core": [
         "app/unite/core"
       ]

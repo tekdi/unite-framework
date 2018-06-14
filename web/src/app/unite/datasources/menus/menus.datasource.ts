@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UniteMenusDataService } from './collection/menus.dataservice';
-import { UniteMenuDataService } from './collection/menu.dataservice';
+import { UniteMenusDataService } from './services/menus.dataservice';
+import { UniteMenuDataService } from './services/menu.dataservice';
 
-const ServiceCollection =  {
-                            'menus' : UniteMenusDataService,
-                            'menu': UniteMenuDataService,
-                        };
+const ServiceCollection = {
+    'menus' : UniteMenusDataService,
+    'menu': UniteMenuDataService,
+};
                         
 @Injectable()
 export class MenusDataSource

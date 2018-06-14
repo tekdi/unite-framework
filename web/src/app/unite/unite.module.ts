@@ -20,11 +20,7 @@ const uniteRoutes: Routes = [
     {path : 'admin', component : AdminBranch},
     {path : '', component : SiteBranch,
         children: [
-            // { path: 'mat', loadChildren: './templates/mat/mat.template#MatTemplate', data : {basePath : 'mat'}},
-            { path: '', loadChildren: './templates/bs3/bs3.template#bs3Template', data : {basePath : ''}},
-            // { path: 'sb', loadChildren: './templates/sb/sb.template#SbTemplate', data : {basePath : 'sb'}},
-            /*{path: 'mdb', loadChildren : "./templates/mdb/mdb.template#MdbFamily"}*/
-        ]
+            { path: '', loadChildren: './templates/bs3/bs3.template#bs3Template', data : {basePath : ''}}        ]
     }
 ];
 

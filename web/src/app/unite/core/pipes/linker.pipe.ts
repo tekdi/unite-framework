@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { UniteRouting } from './../../uniteServices/routingService';
 import { UniteMapperPipe } from './mapper.pipe';
+import { Menu } from '../classes';
+
 /*
  * Raise the value exponentially
  * Takes an exponent argument that defaults to 1.
@@ -15,15 +16,12 @@ import { UniteMapperPipe } from './mapper.pipe';
     })
 export class UniteLinkerPipe implements PipeTransform {
 
-    constructor( private _uniteRouting : UniteRouting, private _uniteMapper : UniteMapperPipe ){}
+    constructor( private _menu : Menu, private _uniteMapper : UniteMapperPipe ){}
 
     transform(value, node): string {
 
         if (node) {
-            const pages = this._uniteRouting.menus;
-
-            console.log('this is the nodeeeeee ', node, this._uniteRouting.menus);
-
+            const pages = this._menu.getMenus();
             for (let index = 0; index < pages.length; index++) {
                 // Node id is menu id
                 if (node.id == pages[index]['id']) {

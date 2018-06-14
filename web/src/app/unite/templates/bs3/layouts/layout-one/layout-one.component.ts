@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UniteRouting } from '../../../../uniteServices/routingService';
 import { renderMapper } from '../../renderer/renderers.collection';
+import { Menu } from '@unite/core';
 
 
 @Component({
@@ -11,9 +11,9 @@ export class LayoutOneComponent implements OnInit {
 
   renderMapper = renderMapper;
   uniteMenus;
-  constructor(private _routingService: UniteRouting) {
+  constructor(private _menu: Menu) {
     console.log('LAYOUT');
-    this.uniteMenus = this._routingService.menus;
+    this.uniteMenus = this._menu.getMenus();
   }
 
   ngOnInit() {

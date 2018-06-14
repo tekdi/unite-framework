@@ -5,6 +5,7 @@ import { BS3LayoutsMapper } from './layouts/';
 import { WidgetsService } from '../../core/services';
 import { Menu, UniteRoute } from './../../core/classes';
 import { viewsObject } from '../../views';
+import { Router } from '@angular/router'
 
 @Component({
     template : `
@@ -25,7 +26,11 @@ export class bs3Comp {
         private _config: Config,
         private _menu: Menu,
         private _widgetsService: WidgetsService,
-        private _uniteRoute: UniteRoute ) {
+        private _uniteRoute: UniteRoute,
+        private _router: Router    
+    ) {
+            console.log(this._router.config[0] , "ROUTER");
+            console.log(this._router.config[0] , "ROUTER");
             this._acRoute.url.subscribe(data => {
             let path = '';
 

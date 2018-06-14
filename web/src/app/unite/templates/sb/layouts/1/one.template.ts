@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UniteRouting } from '../../../../uniteServices/routingService';
 import { renderMapper } from '../../renderer/renderers.collection';
+import { Menu } from '@unite/core';
 
 @Component({
     templateUrl : "./one.template.html"
@@ -8,7 +8,7 @@ import { renderMapper } from '../../renderer/renderers.collection';
 export class OneTemplate{
     renderMapper = renderMapper;
     uniteMenus;
-    constructor(private _routingService : UniteRouting){
-        this.uniteMenus = this._routingService.menus;
+    constructor(private _menu : Menu){
+        this.uniteMenus = this._menu.getMenus();
     }
 }

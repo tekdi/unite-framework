@@ -6,7 +6,6 @@ import 'rxjs/Rx';
 
 import { SiteBranch } from './branch/site/site.branch';
 import { AdminBranch } from './branch/admin/admin.branch';
-import { UniteRouting } from './uniteServices/routingService';
 import { dataSources } from './datasources/sources.collection';
 
 import {
@@ -21,9 +20,9 @@ const uniteRoutes: Routes = [
     {path : 'admin', component : AdminBranch},
     {path : '', component : SiteBranch,
         children: [
-            { path: 'mat', loadChildren: './templates/mat/mat.template#MatTemplate', data : {basePath : 'mat'}},
+            // { path: 'mat', loadChildren: './templates/mat/mat.template#MatTemplate', data : {basePath : 'mat'}},
             { path: '', loadChildren: './templates/bs3/bs3.template#bs3Template', data : {basePath : ''}},
-            { path: 'sb', loadChildren: './templates/sb/sb.template#SbTemplate', data : {basePath : 'sb'}},
+            // { path: 'sb', loadChildren: './templates/sb/sb.template#SbTemplate', data : {basePath : 'sb'}},
             /*{path: 'mdb', loadChildren : "./templates/mdb/mdb.template#MdbFamily"}*/
         ]
     }
@@ -42,7 +41,6 @@ const uniteRoutes: Routes = [
 
     providers: [
         SystemJsNgModuleLoader,
-        UniteRouting,
         UniteMapperPipe,
         UniteLinkerPipe,
         MenusService,
@@ -50,7 +48,5 @@ const uniteRoutes: Routes = [
     ]
 })
 export class UniteModule {
-    constructor(private _uniteRouting: UniteRouting, private _menu: Menu, private _config: Config) {
-        this._uniteRouting.getMenus();
-    }
+    constructor(private _menu: Menu, private _config: Config) {  }
 }

@@ -6,7 +6,6 @@ import { TemplateSelector } from '../../core/directives/template.selector';
 import { RendererSelector } from '../../core/directives/renderer.selector';
 import { MatComp } from './mat.component';
 
-import { UniteRouting } from '../../uniteServices/routingService';
 import { matTemplates } from './layouts';
 import { matRenderers } from './renderers/renderers.collection';
 

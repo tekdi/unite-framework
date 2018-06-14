@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CoursesDataService } from './collection/courses.datasource';
+import { CoursesDataService } from './services/courses.datasource';
 const ServiceCollection =  {
     'courses': CoursesDataService,
 };

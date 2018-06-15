@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row">
+	   <div class="col-xs-12">
+	    <h2></h2>
+            <div *ngFor="let item of items" class="well">
+                <div class="media">
+                        <!-- <img class="pull-left media-object" src="http://placekitten.com/150/150"> -->
+                    <div class="media-body">
+                        <a [routerLink]="['/events', item._id]">
+                            <h4 class="media-heading">{{item.title}}</h4>
+                        </a>
+                    <p>{{item.description}}</p>
+
+                    <p><span>Venue: </span> {{ item.venue.address}}</p>
+                    <ul class="list-inline list-unstyled">
+                        <li><span><i class="glyphicon glyphicon-calendar"></i> {{ item.started_on }} </span></li>
+                        <li>|</li>
+                        <span> {{item.rating}} <i class="glyphicon glyphicon-star"></i></span>
+                        <li>|</li>
+                        <li>
+                        <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                        <span><i class="fa fa-facebook-square"></i></span>
+                        <span><i class="fa fa-twitter-square"></i></span>
+                        <span><i class="fa fa-google-plus-square"></i></span>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <hr/>
+</div>

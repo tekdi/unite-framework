@@ -16,6 +16,8 @@ export class NavRenderer implements OnInit, Renderer {
 
     // Data Manipulation 
     ngOnInit() {
+        console.log("NNNNNNNNNNNNNNNNNNNNNNNNNN");
+        
          console.log('NAVBAR', this.data);
     }
 }

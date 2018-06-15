@@ -5,6 +5,8 @@ export * from './for-teachers/for-teachers.component';
 export * from './home/home.component';
 export * from './partners/partners.component';
 export * from './default/default.component';
+export * from './events/events.component';
+export * from './event-detail/event-detail.component';
 
 import { AboutComponent } from './about/about.component';
 import { ContentComponent } from './content/content.component';
@@ -13,6 +15,8 @@ import { ForTeachersComponent } from './for-teachers/for-teachers.component';
 import { HomeComponent } from './home/home.component';
 import { PartnersComponent } from './partners/partners.component';
 import { DefaultComponent } from './default/default.component';
+import { EventsComponent } from './events/events.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 
 export const viewsObject = {
     DefaultComponent: DefaultComponent,
@@ -21,7 +25,9 @@ export const viewsObject = {
     CurrentStatusComponent: CurrentStatusComponent,
     ForTeachersComponent: ForTeachersComponent,
     HomeComponent: HomeComponent,
-    PartnersComponent: PartnersComponent
+    PartnersComponent: PartnersComponent,
+    EventsComponent: EventsComponent,
+    EventDetailComponent: EventDetailComponent
 };
 
 export const viwesArray = [
@@ -31,5 +37,7 @@ export const viwesArray = [
     CurrentStatusComponent,
     ForTeachersComponent,
     HomeComponent,
-    PartnersComponent
+    PartnersComponent,
+    EventsComponent,
+    EventDetailComponent
 ];

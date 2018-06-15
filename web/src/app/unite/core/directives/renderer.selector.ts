@@ -1,5 +1,4 @@
-import { UniteRoute } from './../classes/';
-import { Menu } from './../classes/menu';
+import { UniteRoute, Menu } from './../classes/';
 import { Directive, ViewContainerRef, Input, ComponentFactoryResolver } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -37,16 +36,20 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
 
     renderWidgetsForRoute(availableRenderes) {
 
-        // if (this._uniteRoute.widgets.hasOwnProperty(this.position) == -1) {
-        //     return false;
-        // }
+        // Check position is present or not
+        if ((this.position in this._uniteRoute.widgets) === false) {
+            return false;
+        }
 
         this.DestroyDynamicComponents();
         let widgetsForPosition = this._uniteRoute.widgets[this.position];
 
-
         widgetsForPosition.widgets.forEach(widget => {
-            let widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
+            let widRenderer = '';
+            if (('widget' in widget) == true && 'renderer' in widget.widget) {
+                widRenderer = widget.widget.renderer ? widget.widget.renderer : widget.widget.defaultRenderer;
+            }
+
             if (availableRenderes.hasOwnProperty(widRenderer)) {
                 let selectedRenderer = this.hasOverride(widRenderer) ? this.hasOverride(widRenderer) : availableRenderes[widRenderer];
                 let componentFactory = this._cfResolver.resolveComponentFactory(selectedRenderer);
@@ -83,15 +86,15 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
         };
 
         let dataSourceClass;
-        let dataSourceObj;
-
-        if (this.dataCollection.hasOwnProperty(widgetInfo.config.source)) {
-            dataSourceClass = this.dataCollection[widgetInfo.config.source];
-            dataSourceObj   = new dataSourceClass(config, this._httpClient);
-        }
 
         if (widgetInfo.config.service && widgetInfo.config.source) {
-            console.log();
+            let dataSourceObj;
+
+            if (this.dataCollection.hasOwnProperty(widgetInfo.config.source)) {
+                dataSourceClass = this.dataCollection[widgetInfo.config.source];
+                dataSourceObj = new dataSourceClass(widgetInfo.config.service , this._httpClient);
+            }
+
             this.getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata);
         } else if (widgetInfo.config.data) {
             this.getJsonData(widgetInfo, thisCompRef, metadata);
@@ -101,7 +104,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
     }
 
     getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
-        dataSourceObj.getData(widgetInfo.config.service).map(data => {
+        dataSourceObj.getAll().map(data => {
             if (widgetInfo['config']['dataNode']) {
                 let dataNode2 = widgetInfo['config']['dataNode'].split('.');
                 let myFinalValue = data;

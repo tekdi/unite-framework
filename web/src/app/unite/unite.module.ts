@@ -14,7 +14,6 @@ import {
         Config, MenusService,
         Menu, WidgetsService
     } from '@unite/core';
-import { AboutComponent } from './views';
 
 const uniteRoutes: Routes = [
     {path : 'admin', component : AdminBranch},

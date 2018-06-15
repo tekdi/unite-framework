@@ -1,9 +1,13 @@
-<div addComponentTag> </div>
-<ng-template [appAddViewToRoute]="" ></ng-template>
+<!-- <div addComponentTag> </div> -->
 <header class="header bg-white" id="header">
-   <ng-template [ad-renderer]="renderMapper" position="header" class="headerClass"></ng-template>
+  <ng-template [ad-renderer]="renderMapper" position="header" class="headerClass"></ng-template>
 </header>
-  <ng-template [ad-renderer]="renderMapper" position="body" class="bodyClass"></ng-template>
+<!-- <div [ngSwitch]="displayView">
+  <ng-template *ngSwitchCase="displayView" [ad-renderer]="renderMapper" position="body" class="bodyClass"></ng-template>
+  <ng-template *ngSwitchDefault [appAddViewToRoute]="" ></ng-template>
+</div> -->
+<ng-template [appAddViewToRoute]="" ></ng-template>
+<ng-template [ad-renderer]="renderMapper" position="body" class="bodyClass"></ng-template>
 <footer class="top-space" id="contact">
-  <!-- <ng-template [ad-renderer]="renderMapper" position="footer" class="footerClass"></ng-template> -->
+  <ng-template [ad-renderer]="renderMapper" position="footer" class="footerClass"></ng-template>
 </footer>

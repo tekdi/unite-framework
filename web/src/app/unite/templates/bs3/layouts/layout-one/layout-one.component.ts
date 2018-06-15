@@ -12,11 +12,10 @@ export class LayoutOneComponent implements OnInit {
   renderMapper = renderMapper;
   uniteMenus;
   constructor(private _menu: Menu) {
-    console.log('LAYOUT');
+    console.log('LAYOUT', this._menu.getMenus());
     this.uniteMenus = this._menu.getMenus();
   }
 
   ngOnInit() {
   }
-
 }

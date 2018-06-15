@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CoursesDataService } from './services/courses.datasource';
+import { EventsService } from './services/events.service';
+
 const ServiceCollection =  {
-    'courses': CoursesDataService,
+    'events': EventsService,
 };
 
 @Injectable()
 export class DikshaDataSource {
     private dsConfigObj;
-    constructor(private config, private _httpClient?: HttpClient) {
-    }
-
-    getData(serviceName)
-    {
+    dsObj = null;
+    constructor(private serviceName, private _httpClient?: HttpClient) {
         let dsName = serviceName && ServiceCollection.hasOwnProperty(serviceName) 
                         ? ServiceCollection[serviceName]
-                        : ServiceCollection['default'];
+                        : ServiceCollection['menus'];
+        this.dsObj = new dsName(this._httpClient);   
+    }
 
-        let dsObj = new dsName(this.config, this._httpClient);
-        return dsObj.getData().map(asdf => {
-            return asdf;
-        });
+    getAll()
+    {
+        return this.dsObj.getAll();
+    }
+    
+    get(slug) {
+        return this.dsObj.get(slug);
     }
 }

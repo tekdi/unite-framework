@@ -12,28 +12,20 @@ const ServiceCollection = {
 export class MenusDataSource
 {
     private dsConfigObj;
-    constructor(private config, private _httpClient? : HttpClient)
-    {
-    }
-
-    getData(serviceName)
-    {
+    dsObj = null;
+    constructor(private serviceName, private _httpClient?: HttpClient) {
         let dsName = serviceName && ServiceCollection.hasOwnProperty(serviceName) 
                         ? ServiceCollection[serviceName]
                         : ServiceCollection['menus'];
-
-        let dsObj = new dsName(this._httpClient);
-        return dsObj.getAll().map(result => {
-            return result;
-        });
+        this.dsObj = new dsName(this._httpClient);   
     }
 
-    // setRoutes(baseSegment)
-    // {
-    //     let myRouteObj = [
-    //         { title: "Menus", path: "menus", id:""},
-    //         { title: "Menu", path: "menu/:menuId", id:""}
-    //     ]
-    //     return myRouteObj;
-    // }
+    getAll()
+    {
+        return this.dsObj.getAll();
+    }
+    
+    get(slug) {
+        return this.dsObj.get(slug);
+    }
 }

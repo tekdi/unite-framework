@@ -23,8 +23,10 @@ import {
     AboutComponent,
     HomeComponent,
     viwesArray,
-    DefaultComponent
-} from '../../views';
+    DefaultComponent,
+    EventsComponent,
+    EventDetailComponent
+} from './views';
 
 import { WidgetsService, UniteRoute } from '../../core';
 import { AddViewToRouteDirective } from '../../core/directives/';
@@ -37,7 +39,8 @@ const compName = bs3Comp;
 const viewsRoute: Routes = [
     { path: 'for-teachers', component: compName, data: { viewMapper: 'ForTeachersComponent'}},
     { path: 'partners', component: compName, data: { viewMapper: 'PartnersComponent' }},
-    { path: 'events', component: compName, data: { viewMapper: '' }},
+    { path: 'events/:id', component: compName, data: { viewMapper: 'EventDetailComponent' }},
+    { path: 'events', component: compName, data: { viewMapper: 'EventsComponent' }},
     { path: 'current-status', component: compName, data: { viewMapper: 'CurrentStatusComponent' }},
     { path: 'content', component: compName, data: { viewMapper: 'ContentComponent' }},
     { path: 'about', component: compName, data: { viewMapper: 'AboutComponent' }},
@@ -69,7 +72,9 @@ const viewsRoute: Routes = [
         ContentComponent,
         AboutComponent,
         HomeComponent,
-        DefaultComponent
+        DefaultComponent,
+        EventsComponent,
+        EventDetailComponent  
     ],
     entryComponents: [BS3Layouts, bs3Renderers, overridesArray, viwesArray],
     providers: [WidgetsService, UniteRoute]

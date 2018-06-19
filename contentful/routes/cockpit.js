@@ -9,12 +9,28 @@ const config = {
 
 const rootUrl = 'http://ttpllt16-php71.local/cockpit';
 
+router.get('/:collection/:slug', (req, res) => {
+    fetch(rootUrl + '/api/collections/get/'+ req.params.collection +'?token=' + config.token + '&filter[_id]=' + req.params.slug, {
+        method: 'get',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            limit: 10,
+            skip: 5,
+            sort: {_created:-1},
+            populate: 1 // resolve linked collection items
+        })
+    })
+    .then(response => response.json())
+    .then((response) => {
+        res.send(response.entries[0]);
+    });
+});
+
 router.get('/:collection', (req, res) => {
     fetch(rootUrl + '/api/collections/get/'+ req.params.collection +'?token=' + config.token , {
         method: 'get',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            filter: {published:true},
             limit: 10,
             skip: 5,
             sort: {_created:-1},
@@ -29,8 +45,6 @@ router.get('/:collection', (req, res) => {
 
 // Save specified collection data
 router.post('/:collection', (req, res) => {
-
-    // console.log("LENGTH", req.body.length);
     fetch(rootUrl + '/api/collections/save/'+ req.params.collection +'?token=' + config.token, {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
@@ -39,7 +53,13 @@ router.post('/:collection', (req, res) => {
         })
     })
     .then(response => response.json())
-    .then(entry => res.send(entry));
+    .then((entry) => {
+        if (entry) {
+            res.send(entry);
+        } else {
+            res.send(entry);
+        }
+    });
 });
 
 // Delete data into specified collection

@@ -9,7 +9,7 @@ import { dataSources } from '../../../../datasources/sources.collection';
   styleUrls: ['./event-detail.component.css']
 })
 export class EventDetailComponent implements OnInit {
-  items = '';
+  item = '';
   constructor(private _acRoutes: ActivatedRoute, private _httpClient: HttpClient) { 
   }
 
@@ -20,9 +20,8 @@ export class EventDetailComponent implements OnInit {
   getEvent() {
     let dataSourceClass = dataSources['Diksha'];        
     let dataSourceObj = new dataSourceClass('events', this._httpClient);
-    dataSourceObj.get(this._acRoutes.snapshot.params['id']).subscribe((result) => {
-      this.items = result;
-      console.log(result, "EVENT details");
+    dataSourceObj.get('/'+this._acRoutes.snapshot.params['id']).subscribe((result) => {
+      this.item = result;
     });
   }
 }

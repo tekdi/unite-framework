@@ -18,6 +18,7 @@ export class LayoutSelector {
     renderLayout(availableLayouts) {
         let layout = this._config.site['template'];
         if (availableLayouts.hasOwnProperty(layout)) {
+            console.log(layout, "LAYOUTS");
             let componentFactory = this._cfResolver.resolveComponentFactory(availableLayouts[layout]);
             this._vcRef.createComponent(componentFactory);
         } else {

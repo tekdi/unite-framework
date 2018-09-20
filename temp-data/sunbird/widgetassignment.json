@@ -1,0 +1,17 @@
+{"_id":{"$oid":"5aa8dccfb056e114f8cc7ddc"},"menuUrl":"","ordering":"1","position":"body","widgetId":{"$oid":"5aa8db75b056e114f8cc7dd8"}}
+{"_id":{"$oid":"5aa8dde4b056e114f8cc7ddd"},"menuUrl":"","ordering":"2","position":"body","widgetId":{"$oid":"5aa8db75b056e114f8cc7dd9"}}
+{"_id":{"$oid":"5aa8ddf5b056e114f8cc7dde"},"menuUrl":"","ordering":"3","position":"body","widgetId":{"$oid":"5aa8db75b056e114f8cc7dda"}}
+{"_id":{"$oid":"5aa8e328b056e114f8cc7de0"},"menuUrl":"","ordering":"4","position":"body","widgetId":{"$oid":"5aa8e30ab056e114f8cc7ddf"}}
+{"_id":{"$oid":"5aa8fab8b056e114f8cc7de2"},"menuUrl":"","ordering":"5","position":"body","widgetId":{"$oid":"5aa8f974b056e114f8cc7de1"}}
+{"_id":{"$oid":"5aa91897cc7d01024bf6959e"},"menuUrl":"","ordering":"6","position":"body","widgetId":{"$oid":"5aa91884cc7d01024bf6959d"}}
+{"_id":{"$oid":"5aa9189bcc7d01024bf6959f"},"menuUrl":"/partners","ordering":"1","position":"body","widgetId":{"$oid":"5aa91ef5cc7d01024bf695a0"}}
+{"_id":{"$oid":"5aa92fcfcc7d01024bf695a2"},"menuUrl":"/partners","ordering":"2","position":"body","widgetId":{"$oid":"5aa92f72cc7d01024bf695a1"}}
+{"_id":{"$oid":"5aaa222c1f5ac70daccbf5d9"},"menuUrl":"","ordering":"7","position":"body","widgetId":{"$oid":"5aaa21ba1f5ac70daccbf5d8"}}
+{"_id":{"$oid":"5aaa48551f5ac70daccbf5db"},"menuUrl":"","ordering":"8","position":"body","widgetId":{"$oid":"5aaa48431f5ac70daccbf5da"}}
+{"_id":{"$oid":"5aaa49f11f5ac70daccbf5de"},"menuUrl":"","ordering":"9","position":"body","widgetId":{"$oid":"5aaa49df1f5ac70daccbf5dd"}}
+{"_id":{"$oid":"5ab0cfebda59e91169c3e9e8"},"menuUrl":"/contents","ordering":"1","position":"body","widgetId":{"$oid":"5ab0cfa3da59e91169c3e9e7"}}
+{"_id":{"$oid":"5b18c9a01e6daf20c093cbba"},"menuUrl":"","ordering":"1","position":"header","widgetId":{"$oid":"5b18c8d71e6daf20c093cbb9"}}
+{"_id":{"$oid":"5b18d64b1e6daf20c093cbbb"},"menuUrl":"/partners","ordering":"1","position":"header","widgetId":{"$oid":"5b18c8d71e6daf20c093cbb9"}}
+{"_id":{"$oid":"5b18dc161e6daf20c093cbbd"},"menuUrl":"/partners","ordering":"3","position":"body","widgetId":{"$oid":"5b18dbe51e6daf20c093cbbc"}}
+{"_id":{"$oid":"5b1931f31e6daf20c093cbbf"},"menuUrl":"/events","ordering":"1","position":"header","widgetId":{"$oid":"5b18c8d71e6daf20c093cbb9"}}
+{"_id":{"$oid":"5b2a451638452f33b298ef08"},"menuUrl":"/event","ordering":"1","position":"header","widgetId":{"$oid":"5b18c8d71e6daf20c093cbb9"}}

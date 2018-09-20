@@ -12,7 +12,7 @@ export class AddViewToRouteDirective {
     private _uniteRoute: UniteRoute,
     private _vcRef: ViewContainerRef,
     private _cfResolver: ComponentFactoryResolver) {
-
+console.log(this._uniteRoute.view, "AAAAAAAAAAAAAAAAAAAAAA");
     let componentFactory = this._cfResolver.resolveComponentFactory(this._uniteRoute.view);
     this._vcRef.createComponent(componentFactory);
   }

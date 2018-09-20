@@ -31,7 +31,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
         private _menu: Menu,
         private _uniteRoute: UniteRoute
     ) {
-        console.log('In Renderer Selectors constructor');
+        console.log('In Renderer Selectors constructor', this._vcRef);
     }
 
     renderWidgetsForRoute(availableRenderes) {

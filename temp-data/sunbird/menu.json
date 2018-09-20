@@ -1,0 +1,9 @@
+{"_id":{"$oid":"5aa7c1ca4716eb7d786ef1b4"},"name":"Home","parent":"0","ordering":"0","alias":"home","menuUrl":"","sourceId":{"$oid":"5aa7c13a4716eb7d786ef1b3"}}
+{"_id":{"$oid":"5aa7c33b4716eb7d786ef1b6"},"name":"For teachers","parent":"0","ordering":"2","alias":"for-teachers","menuUrl":"","sourceId":{"$oid":"5aa7c13a4716eb7d786ef1b3"},"fragment":"for-teachers"}
+{"_id":{"$oid":"5aa7c33b4716eb7d786ef1b5"},"name":"About","parent":"0","ordering":"1","alias":"about","menuUrl":"","sourceId":{"$oid":"5aa7c13a4716eb7d786ef1b3"},"fragment":"about"}
+{"_id":{"$oid":"5aa7c33b4716eb7d786ef1b7"},"name":"Current status","parent":"0","ordering":"3","alias":"current-status","menuUrl":"","sourceId":{"$oid":"5aa7c13a4716eb7d786ef1b3"},"fragment":"current-status"}
+{"_id":{"$oid":"5aa7c33b4716eb7d786ef1b8"},"name":"Journey so far","parent":"0","ordering":"4","alias":"journey-so-far","menuUrl":"","sourceId":{"$oid":"5aa7c13a4716eb7d786ef1b3"},"fragment":"journey-so-far"}
+{"_id":{"$oid":"5aa7c33b4716eb7d786ef1ba"},"name":"Partners","parent":"0","ordering":"5","alias":"partners","menuUrl":"/partners","sourceId":{"$oid":"5aa7c13a4716eb7d786ef1b3"}}
+{"_id":{"$oid":"5aa7c33b4716eb7d786ef1b9"},"name":"Content","parent":"0","ordering":"5","alias":"content","menuUrl":"","sourceId":{"$oid":"5aa7c13a4716eb7d786ef1b3"},"fragment":"content"}
+{"_id":{"$oid":"5b1930331e6daf20c093cbbe"},"name":"Event Blog View","parent":"0","ordering":"0","alias":"events","menuUrl":"/events","sourceId":{"$oid":"5aa7c13a4716eb7d786ef1b3"}}
+{"_id":{"$oid":"5b2a40c038452f33b298ef07"},"name":"Create Event","parent":"0","ordering":"10","alias":"createevent","menuUrl":"/event","sourceId":{"$oid":"5aa7c13a4716eb7d786ef1b3"}}

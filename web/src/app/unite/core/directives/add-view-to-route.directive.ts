@@ -4,7 +4,9 @@ import { UniteRoute } from '../classes';
 @Directive({
   selector: '[appAddViewToRoute]'
 })
-
+/**
+ * 
+ */
 export class AddViewToRouteDirective {
 
   @Input('appAddViewToRoute') set config(availableLayouts) { }
@@ -12,7 +14,7 @@ export class AddViewToRouteDirective {
     private _uniteRoute: UniteRoute,
     private _vcRef: ViewContainerRef,
     private _cfResolver: ComponentFactoryResolver) {
-console.log(this._uniteRoute.view, "AAAAAAAAAAAAAAAAAAAAAA");
+
     let componentFactory = this._cfResolver.resolveComponentFactory(this._uniteRoute.view);
     this._vcRef.createComponent(componentFactory);
   }

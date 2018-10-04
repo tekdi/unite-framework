@@ -1,5 +1,8 @@
 import * as configData from 'assets/config.json';
 
+/**
+ * Configuration class which set and get the Unite config object
+ */
 export class Config {
     baserUnitePath: object;
     baserFamilyPath: object;
@@ -8,6 +11,11 @@ export class Config {
     admin: object;
     server: object;
 
+    /**
+     * This function set the Unite config
+     * 
+     * @returns void
+     */
     setConfig() {
         // this.baserUnitePath;
         // this.baserFamilyPath;
@@ -17,6 +25,11 @@ export class Config {
         this.server = configData['server'];
     }
 
+    /**
+     * This function get the config
+     * 
+     * @returns Unite config object
+     */
     getConfig() {
         return this;
     }

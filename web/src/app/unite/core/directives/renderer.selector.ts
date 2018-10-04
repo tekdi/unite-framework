@@ -34,6 +34,11 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
         console.log('In Renderer Selectors constructor', this._vcRef);
     }
 
+    /**
+     * This function display widgets on specified routes
+     * 
+     * @param availableRenderes - renderer list for specified template
+     */
     renderWidgetsForRoute(availableRenderes) {
 
         // Check position is present or not
@@ -73,6 +78,12 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
         return false;
     }
 
+    /**
+     * This function load the data for widgets
+     * 
+     * @param widgetInfo - widgets information object
+     * @param thisCompRef - dynamic component referance object
+     */
     loadData(widgetInfo, thisCompRef) {
         let config = {
             urlData: widgetInfo.param ? widgetInfo.param : {},
@@ -103,6 +114,14 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
         }
     }
 
+    /**
+     * This function load the data form specified service and append to the specified widget
+     * 
+     * @param widgetInfo - widget information object
+     * @param dataSourceObj - datasource information object
+     * @param thisCompRef - dynamic component referance object
+     * @param metadata - metadata of widget 
+     */
     getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
         dataSourceObj.getAll().map(data => {
             if (widgetInfo['config']['dataNode']) {
@@ -120,14 +139,36 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
         });
     }
 
+    /**
+     * This function load the data form specified JSON and append to the specified widget
+     * 
+     * @param widgetInfo - widget information object
+     * @param thisCompRef - dynamic component referance object
+     * @param metadata - metadata of widget
+     */
     getJsonData(widgetInfo, thisCompRef, metadata) {
         this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, widgetInfo.config.data);
     }
 
+    /**
+     * This function load the html content and append to the specified widget
+     * 
+     * @param widgetInfo - widget information object
+     * @param thisCompRef - dynamic component referance object
+     * @param metadata - metadata of widget
+     */
     getHtmlData(widgetInfo, thisCompRef, metadata) {
         this.setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, widgetInfo.config.html);
     }
 
+    /**
+     * This function create component instance with specified renderer and append specified data.
+     * 
+     * @param widgetInfo - widget information object
+     * @param thisCompRef - dynamic component referance object
+     * @param metadata - metadata of widget
+     * @param data - data for widget
+     */
     setDynamicComponentInputs(widgetInfo, thisCompRef, metadata, data) {
         (thisCompRef.instance).data = data;
         (thisCompRef.instance).mapper = widgetInfo.mapper ? widgetInfo.mapper : {};
@@ -137,7 +178,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
     }
 
     /**
-     * DestroyDynamicComponents
+     * This function destroy the specified componenet instance
      */
     public DestroyDynamicComponents() {
         this.dynamicComponents.forEach(component => {

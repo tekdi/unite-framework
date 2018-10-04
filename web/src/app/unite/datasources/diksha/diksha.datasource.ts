@@ -16,12 +16,20 @@ export class DikshaDataSource {
                         : ServiceCollection['menus'];
         this.dsObj = new dsName(this._httpClient);   
     }
-
+    
+    /**
+     * This function get list
+     */
     getAll()
     {
         return this.dsObj.getAll();
     }
     
+    /**
+     * This function get the single record on provided slug
+     * 
+     * @param slug - slug is a part of URL
+     */
     get(slug) {
         return this.dsObj.get(slug);
     }

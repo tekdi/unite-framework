@@ -45,6 +45,11 @@ export class bs3Comp {
         console.log('BS3COMP');
     }
 
+    /**
+     * This function set parameters for the provided path
+     * 
+     * @param path - path is current router path
+     */
     private setRouteParams(path) {
 
         // If view is empty for route then set the default view

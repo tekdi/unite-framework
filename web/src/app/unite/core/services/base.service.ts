@@ -14,8 +14,9 @@ export class BaseService {
   }
 
   /**
-   * get service
-   * slug : srting
+   * This function get the record on provided slug
+   * 
+   * @param slug - slug is url part
    */
   public get(slug: string) {
     return this._httpClient.get(this.host + this.url + slug)
@@ -23,7 +24,7 @@ export class BaseService {
   }
 
   /**
-   * getAll
+   * This function get list
    */
   public getAll() {
     return this._httpClient.get(this.host + this.url)
@@ -41,6 +42,11 @@ export class BaseService {
 
   }
 
+  /**
+   * This function is used to handle custom error
+   * 
+   * @param error - angular error handler object
+   */
   private handleError(error: Response) {
     if (error.status === 400) {
       return Observable.throw(new BadInput(error));

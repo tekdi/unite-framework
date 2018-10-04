@@ -15,6 +15,11 @@ export class LayoutSelector {
         private _config: Config
     ) {}
 
+    /**
+     * This function dynamicaly render layouts on specified layout
+     * 
+     * @param availableLayouts - list of layouts array
+     */
     renderLayout(availableLayouts) {
         let layout = this._config.site['template'];
         if (availableLayouts.hasOwnProperty(layout)) {

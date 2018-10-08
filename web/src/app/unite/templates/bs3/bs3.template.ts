@@ -79,6 +79,14 @@ const viewsRoute: Routes = [
     entryComponents: [BS3Layouts, bs3Renderers, overridesArray, viwesArray],
     providers: [WidgetsService, UniteRoute]
 })
+
+/**
+ * Load all template required components in this module.
+ * 
+ * Here, bs3 is one template for Unite. 
+ * You can also create any template like 'LighTemplate' which based on Angular material.
+ * so, you need to load the required angular material components here. 
+ */
 export class bs3Template {
     constructor() {
         console.log('this is bs3 family....');

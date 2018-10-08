@@ -6,7 +6,7 @@ import { UnorderedRenderer } from './list/unordered/renderer';
 import { IframeRenderer } from './iframe/renderer';
 
 /**
- * Renderer object
+ * Renderer object with custom index which required to dynamicaly select the renderer on config.
  */
 export const renderMapper = {
         custom: CustomRenderer,
@@ -21,10 +21,10 @@ export const renderMapper = {
  *  Renderes classes list
  */
 export const bs3Renderers = [
-                                CustomRenderer,
-                                CarouselRenderer,
-                                UnorderedRenderer,
-                                StatesmapRenderer,
-                                IframeRenderer,
-                                NavRenderer
-                            ]
+        CustomRenderer,
+        CarouselRenderer,
+        UnorderedRenderer,
+        StatesmapRenderer,
+        IframeRenderer,
+        NavRenderer
+]

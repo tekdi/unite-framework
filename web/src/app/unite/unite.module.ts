@@ -19,7 +19,7 @@ const uniteRoutes: Routes = [
     {path : 'admin', component : AdminBranch},
     {path : '', component : SiteBranch,
         children: [
-            { path: '', loadChildren: './templates/bs3/bs3.template#bs3Template', data : {basePath : ''}}        ]
+            { path: '', loadChildren: './templates/bs3/bs3.template#bs3Template', data : {basePath : ''}}]
     }
 ];
 

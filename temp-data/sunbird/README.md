@@ -1,3 +1,5 @@
+Open terminal in current(unite-framework/temp-data/sunbird) folder and execute the following commands
+
 sudo mongoimport --db umongodb --collection Menu --file menu.json
 
 sudo mongoimport --db umongodb --collection Widget --file widget.json

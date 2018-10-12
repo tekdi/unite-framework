@@ -11,6 +11,6 @@
 
 
  **Database Design Diagram**
- 1. link - https://app.quickdatabasediagrams.com/#/schema/kgDNgaLMYESb-suRwpJeGw
+ 1. link - <a href="https://app.quickdatabasediagrams.com/#/schema/kgDNgaLMYESb-suRwpJeGw" target="_blank">Database design</a>
 
     ![unite database design](unite-database-design.png)

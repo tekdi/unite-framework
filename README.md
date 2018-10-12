@@ -9,5 +9,6 @@
  3. Next, goto the web folder and run the *ng serve --open* command and check your application run on *http://localhost:4200* .
 
  **Database Design Diagram**
- 1. https://app.quickdatabasediagrams.com/#/schema/kgDNgaLMYESb-suRwpJeGw
-  
+ 1. link - https://app.quickdatabasediagrams.com/#/schema/kgDNgaLMYESb-suRwpJeGw
+
+    ![unite database design](unite-database-design.png)

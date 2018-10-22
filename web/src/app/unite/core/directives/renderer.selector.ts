@@ -36,7 +36,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
 
     /**
      * This function display widgets on specified routes
-     * 
+     *
      * @param availableRenderes - renderer list for specified template
      */
     renderWidgetsForRoute(availableRenderes) {
@@ -80,7 +80,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
 
     /**
      * This function load the data for widgets
-     * 
+     *
      * @param widgetInfo - widgets information object
      * @param thisCompRef - dynamic component referance object
      */
@@ -116,11 +116,11 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
 
     /**
      * This function load the data form specified service and append to the specified widget
-     * 
+     *
      * @param widgetInfo - widget information object
      * @param dataSourceObj - datasource information object
      * @param thisCompRef - dynamic component referance object
-     * @param metadata - metadata of widget 
+     * @param metadata - metadata of widget
      */
     getServiceData(widgetInfo, dataSourceObj, thisCompRef, metadata) {
         dataSourceObj.getAll().map(data => {
@@ -141,7 +141,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
 
     /**
      * This function load the data form specified JSON and append to the specified widget
-     * 
+     *
      * @param widgetInfo - widget information object
      * @param thisCompRef - dynamic component referance object
      * @param metadata - metadata of widget
@@ -152,7 +152,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
 
     /**
      * This function load the html content and append to the specified widget
-     * 
+     *
      * @param widgetInfo - widget information object
      * @param thisCompRef - dynamic component referance object
      * @param metadata - metadata of widget
@@ -163,7 +163,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
 
     /**
      * This function create component instance with specified renderer and append specified data.
-     * 
+     *
      * @param widgetInfo - widget information object
      * @param thisCompRef - dynamic component referance object
      * @param metadata - metadata of widget
@@ -182,7 +182,7 @@ import { overrides } from './../../templates/bs3/overrides/renderers';
      */
     public DestroyDynamicComponents() {
         this.dynamicComponents.forEach(component => {
-            console.log("DESTROY COMPONENT");
+            console.log('DESTROY COMPONENT');
             component.destroy();
         });
     }

@@ -10,6 +10,9 @@
  3. Next, goto the web folder and run *npm install* command after that run *ng serve --open* command and check your application run on *http://localhost:4200* .
 
 
+ **Unite Documentation Link**
+   https://docs.google.com/document/d/1cin9yFF5QIiw02xFJVsFWsmwnbd5cHSquZ-HUIuxzDQ/edit?usp=sharing
+
  **Database Design Diagram**
  1. link - <a href="https://app.quickdatabasediagrams.com/#/schema/kgDNgaLMYESb-suRwpJeGw" target="_blank">Database design</a>
 

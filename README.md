@@ -28,3 +28,16 @@
 ## Misc
 
 - [MongoDB Compass](https://www.mongodb.com/products/compass) - Something similar to phpMyAdmin but is for MongoDB.
+
+## Import dummy data to start with
+
+- Open terminal in directory (unite-framework/temp-data/sunbird) and execute the following commands.
+
+```
+sudo mongoimport --db umongodb --collection Menu --file menu.json
+sudo mongoimport --db umongodb --collection Widget --file widget.json
+sudo mongoimport --db umongodb --collection Source --file source.json
+sudo mongoimport --db umongodb --collection WidgetAssignment --file widgetassignment.json
+sudo mongoimport --db umongodb --collection Route --file route.json
+```
+- Above commands will import the collections ```Menu, Widget, Source, WidgetAssignment and Route``` inside the ```umongodb``` database, which can be verified with the ```Compass explorer```.

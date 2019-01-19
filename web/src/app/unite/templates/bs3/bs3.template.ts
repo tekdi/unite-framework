@@ -89,6 +89,6 @@ const viewsRoute: Routes = [
  */
 export class bs3Template {
     constructor() {
-        console.log('this is bs3 family....');
+        console.log('this is bs3 template....');
     }
 }

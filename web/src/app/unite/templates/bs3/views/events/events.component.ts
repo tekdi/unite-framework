@@ -17,11 +17,10 @@ export class EventsComponent implements OnInit {
   }
 
   getEvents() {
-    let dataSourceClass = dataSources['Diksha'];        
+    let dataSourceClass = dataSources['Diksha'];
     let dataSourceObj = new dataSourceClass('events', this._httpClient);
     dataSourceObj.getAll().subscribe((result) => {
       this.items = result;
-      console.log(result, "EVENTS VIEW RESULT");
     });
   }
 }

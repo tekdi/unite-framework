@@ -27,9 +27,8 @@ export class bs3Comp {
         private _menu: Menu,
         private _widgetsService: WidgetsService,
         private _uniteRoute: UniteRoute,
-        private _router: Router    
+        private _router: Router
     ) {
-            console.log(this._router.config[0] , "ROUTER");
             console.log(this._router.config[0] , "ROUTER");
             this._acRoute.url.subscribe(data => {
             let path = '';
@@ -55,7 +54,7 @@ export class bs3Comp {
         // If view is empty for route then set the default view
         if (!this._acRoute.snapshot.data.viewMapper) {
             this._acRoute.snapshot.data.viewMapper = 'DefaultComponent';
-        }   
+        }
 
         this._uniteRoute.view = viewsObject[this._acRoute.snapshot.data.viewMapper];
         this._uniteRoute.path = path;

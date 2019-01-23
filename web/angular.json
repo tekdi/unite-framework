@@ -21,11 +21,9 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/owl.carousel/dist/owl.carousel.js"
             ]
           },
           "configurations": {
@@ -73,11 +71,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/owl.carousel/dist/owl.carousel.js"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "assets": [
               "src/assets",
@@ -129,7 +125,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "css"
+      "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

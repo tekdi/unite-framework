@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ActivatedRoute } from '@angular/router'
-import { OwlModule } from 'ngx-owl-carousel';
 
 import { TemplateSelector } from '../../core/directives/template.selector';
 import { RendererSelector } from '../../core/directives/renderer.selector';
@@ -50,7 +49,6 @@ const viewsRoute: Routes = [
 @NgModule({
     imports : [
         CommonModule,
-        OwlModule,
         RouterModule.forChild(viewsRoute)
     ],
     declarations : [

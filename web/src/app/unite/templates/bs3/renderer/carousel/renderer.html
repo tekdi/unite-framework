@@ -1,7 +1,6 @@
 <h4 class="strong" >{{widgetName}}</h4>
-<owl-carousel
-[options]="{items: 1, dots: true, navigation: true}"
-[carouselClasses]="['owl-carousel', 'journey-carousel']">
+<div
+[class]="['owl-carousel', 'journey-carousel']">
 <div class="item milestone" *ngFor="let item of data">
     <img alt="" title="" [src]="item | uniteMapper: mapper['image_url']" />
     <div class="milestone-details">
@@ -9,4 +8,4 @@
         <div class="milestone-desc" [innerHtml]="item | uniteMapper: mapper['description']"></div>
     </div>
 </div>
-</owl-carousel>
+</div>

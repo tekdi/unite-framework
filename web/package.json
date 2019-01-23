@@ -18,9 +18,8 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "eslint"
-    ],
+    "src/**/*.js": "eslint",
+    "src/**/*.ts": "eslint",
     "src/**/*.css": "stylelint",
     "src/**/*.scss": "stylelint --syntax=scss",
     "*.{md,html}": [

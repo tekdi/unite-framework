@@ -14,6 +14,8 @@
         "template": "two",
         "name": "Unite Framework Administrator",
         "meta_desc": "Integrate Anything!! Literally!!",
+        "meta_keywords": "Unite Framwork, CMS",
+        "robots":"No Index, No Follow",
         "timezone":"GMT",
         "language": "en-GB"
     },

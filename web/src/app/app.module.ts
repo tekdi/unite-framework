@@ -13,7 +13,7 @@ const r: Routes = [
                   loadChildren: './unite/unite.module#UniteModule',
                   data: {'basePath' : ''}
                 }
-              ];
+              ]; 
 
 @NgModule({
   declarations: [

@@ -38,9 +38,9 @@ export function initMenus(_bootService: BootService) {
 
 /**
  * Boot module init config and menu
- * 
+ *
  * refer following link for how angular(v5) APP_INITIALIZER works.
- *   
+ *
  * https://blog.angularindepth.com/hooking-into-the-angular-bootstrap-process-36e82a01fba8
  */
 export class BootModule {

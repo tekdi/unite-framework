@@ -16,7 +16,7 @@ import { Menu } from '../classes';
     })
 export class UniteLinkerPipe implements PipeTransform {
 
-    constructor( private _menu : Menu, private _uniteMapper : UniteMapperPipe ){}
+    constructor( private _menu: Menu, private _uniteMapper: UniteMapperPipe ){}
 
     transform(value, node): string {
 

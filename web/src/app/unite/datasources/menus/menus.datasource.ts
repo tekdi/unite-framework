@@ -7,24 +7,24 @@ const ServiceCollection = {
     'menus' : UniteMenusDataService,
     'menu': UniteMenuDataService,
 };
-                        
+
 @Injectable()
 export class MenusDataSource
 {
     private dsConfigObj;
     dsObj = null;
     constructor(private serviceName, private _httpClient?: HttpClient) {
-        let dsName = serviceName && ServiceCollection.hasOwnProperty(serviceName) 
+        let dsName = serviceName && ServiceCollection.hasOwnProperty(serviceName)
                         ? ServiceCollection[serviceName]
                         : ServiceCollection['menus'];
-        this.dsObj = new dsName(this._httpClient);   
+        this.dsObj = new dsName(this._httpClient);
     }
 
     getAll()
     {
         return this.dsObj.getAll();
     }
-    
+
     get(slug) {
         return this.dsObj.get(slug);
     }

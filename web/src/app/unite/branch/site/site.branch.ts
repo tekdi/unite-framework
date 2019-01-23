@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, TemplateRef, NgModuleFactoryLoader, SystemJsNgModuleLoader, Injector } from '@angular/core';
-import { AdDirective } from "../branch.ad";
+import { AdDirective } from '../branch.ad';
 import { ActivatedRoute } from '@angular/router';
 import { Config } from './../../core/classes/config';
 @Component({
@@ -15,11 +15,11 @@ export class SiteBranch implements OnInit {
     { }
 
     constructor(
-        private _acRoutes : ActivatedRoute,
+        private _acRoutes: ActivatedRoute,
         private _config: Config)
     {
         this._config.baserUnitePath = this._acRoutes.snapshot.data;
-        console.log("acitvated routers in sdie dsite ", this._config.baserUnitePath);
+        console.log('acitvated routers in sdie dsite ', this._config.baserUnitePath);
     }
 
     ngAfterViewInit()

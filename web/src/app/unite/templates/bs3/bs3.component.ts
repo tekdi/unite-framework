@@ -5,7 +5,7 @@ import { BS3LayoutsMapper } from './layouts/';
 import { WidgetsService } from '../../core/services';
 import { Menu, UniteRoute } from './../../core/classes';
 import { viewsObject } from './views';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
     template : `
@@ -29,7 +29,7 @@ export class bs3Comp {
         private _uniteRoute: UniteRoute,
         private _router: Router
     ) {
-            console.log(this._router.config[0] , "ROUTER");
+            console.log(this._router.config[0] , 'ROUTER');
             this._acRoute.url.subscribe(data => {
             let path = '';
 
@@ -38,7 +38,7 @@ export class bs3Comp {
             }
 
             this.setRouteParams(path);
-            console.log(data, "Set Routes Path");
+            console.log(data, 'Set Routes Path');
         });
 
         console.log('BS3COMP');
@@ -46,7 +46,7 @@ export class bs3Comp {
 
     /**
      * This function set parameters for the provided path
-     * 
+     *
      * @param path - path is current router path
      */
     private setRouteParams(path) {
@@ -59,7 +59,7 @@ export class bs3Comp {
         this._uniteRoute.view = viewsObject[this._acRoute.snapshot.data.viewMapper];
         this._uniteRoute.path = path;
         const url = this._uniteRoute.path ? '=/' + this._uniteRoute.path : '';
-        console.log(url, "URL");
+        console.log(url, 'URL');
         this._widgetsService.get(url).subscribe(widgets => {
             this._uniteRoute.widgets = widgets;
             this.displayLayout = true;

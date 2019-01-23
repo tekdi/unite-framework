@@ -4,5 +4,5 @@ import { Component } from '@angular/core';
     template : '<div>This is admin branch</div>'
 })
 export class AdminBranch {
-    
+
 }

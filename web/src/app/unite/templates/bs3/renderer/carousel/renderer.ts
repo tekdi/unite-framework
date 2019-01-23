@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Renderer } from '@unite/core';
 
 @Component({
-    templateUrl: "./renderer.html",
+    templateUrl: './renderer.html',
     styleUrls: ['./renderer.css']
 })
 export class CarouselRenderer implements OnInit, Renderer {
@@ -13,6 +13,6 @@ export class CarouselRenderer implements OnInit, Renderer {
 
     constructor() { }
 
-    // Data Manipulation 
+    // Data Manipulation
     ngOnInit() { }
 }

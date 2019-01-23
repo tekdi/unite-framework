@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, ActivatedRoute } from '@angular/router'
+import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
 
 import { TemplateSelector } from '../../core/directives/template.selector';
 import { RendererSelector } from '../../core/directives/renderer.selector';
@@ -72,7 +72,7 @@ const viewsRoute: Routes = [
         HomeComponent,
         DefaultComponent,
         EventsComponent,
-        EventDetailComponent  
+        EventDetailComponent
     ],
     entryComponents: [BS3Layouts, bs3Renderers, overridesArray, viwesArray],
     providers: [WidgetsService, UniteRoute]
@@ -80,10 +80,10 @@ const viewsRoute: Routes = [
 
 /**
  * Load all template required components in this module.
- * 
- * Here, bs3 is one template for Unite. 
+ *
+ * Here, bs3 is one template for Unite.
  * You can also create any template like 'LighTemplate' which based on Angular material.
- * so, you need to load the required angular material components here. 
+ * so, you need to load the required angular material components here.
  */
 export class bs3Template {
     constructor() {

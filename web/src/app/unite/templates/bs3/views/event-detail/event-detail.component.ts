@@ -10,7 +10,7 @@ import { dataSources } from '../../../../datasources/sources.collection';
 })
 export class EventDetailComponent implements OnInit {
   item = '';
-  constructor(private _acRoutes: ActivatedRoute, private _httpClient: HttpClient) { 
+  constructor(private _acRoutes: ActivatedRoute, private _httpClient: HttpClient) {
   }
 
   ngOnInit() {
@@ -18,9 +18,9 @@ export class EventDetailComponent implements OnInit {
   }
 
   getEvent() {
-    let dataSourceClass = dataSources['Diksha'];        
+    let dataSourceClass = dataSources['Diksha'];
     let dataSourceObj = new dataSourceClass('events', this._httpClient);
-    dataSourceObj.get('/'+this._acRoutes.snapshot.params['id']).subscribe((result) => {
+    dataSourceObj.get('/' + this._acRoutes.snapshot.params['id']).subscribe((result) => {
       this.item = result;
     });
   }

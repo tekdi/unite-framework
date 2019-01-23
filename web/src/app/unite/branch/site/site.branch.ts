@@ -11,22 +11,20 @@ import { Config } from './../../core/classes/config';
 })
 export class SiteBranch implements OnInit {
     siteConfig;
-    ngOnInit()
-    { }
+    ngOnInit(){ }
 
     constructor(
-        private _acRoutes: ActivatedRoute,
-        private _config: Config)
-    {
+      private _acRoutes: ActivatedRoute,
+      private _config: Config) {
         this._config.baserUnitePath = this._acRoutes.snapshot.data;
         console.log('acitvated routers in sdie dsite ', this._config.baserUnitePath);
     }
 
-    ngAfterViewInit()
-    {
+    ngAfterViewInit() {
     }
 
-    setFamilyAndTemplate()
-    { }
+    setFamilyAndTemplate() {
+
+    }
 
 }

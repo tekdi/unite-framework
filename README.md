@@ -29,6 +29,8 @@
 
 - [MongoDB Compass](https://www.mongodb.com/products/compass) - Something similar to phpMyAdmin but is for MongoDB.
 - [PM2](http://pm2.keymetrics.io/) - Advanced, production process manager for Node.js
+- https://github.com/angular/angular-cli/wiki/stories-budgets
+- https://blog.angularindepth.com/super-charging-an-angular-cli-app-fc496a6c100
 
 ## Import dummy data to start with
 

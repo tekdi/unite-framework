@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-- Node, NPM, loopback-v3 (nodejs framework) and MongoDB should be installed on the system.
+- Node, NPM, loopback-v3 (nodejs framework), pm2 (process manager for Node.js) and MongoDB should be installed on the system.
  
 ## Setup on localhost
 
@@ -10,7 +10,7 @@
 2. **Install server dependencies** - change directory to the server folder and run ```npm install``` command. This will install all the server dependencies.
 3. **Verify MongoDB is active** - MongoDB is by default not started every time the system is restarted / booted. Verify MongoDB server is active / running with command ```service mongod status```. If not active, start the MongoDB with command ```sudo service mongod start```.
 4. **Import temporary data** - [Instructions](#import-dummy-data-to-start-with)
-4. **Start loopback server** - run command ```node .``` to start the server.
+4. **Start loopback server** - run command ```node .``` to start the server on local machine. To start loopback in background run command ```pm2 start server/server.js```. To verify server is running, run command ```pm2 list```, it should show server online.
 5. Once the server is active, one can access ```http://localhost:3002/explorer``` URL to add application data (Such as Menu, Widget, WidgetAssignment, Source) using post service from loopback. refer Database Design Diagram for more clarification on relationship between the collections.
 6. **Install Angular dependencies** - Next, change directory to the web folder and run ```npm install``` command to install the Angular dependencies.
 7. **Start Angular application** - run command ```ng serve --open``` and check running application on ```http://localhost:4200```.
@@ -28,6 +28,7 @@
 ## Misc
 
 - [MongoDB Compass](https://www.mongodb.com/products/compass) - Something similar to phpMyAdmin but is for MongoDB.
+- [PM2](http://pm2.keymetrics.io/) - Advanced, production process manager for Node.js
 
 ## Import dummy data to start with
 

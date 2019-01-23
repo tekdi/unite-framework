@@ -13,7 +13,7 @@ import {
         UniteLinkerPipe,
         Config, MenusService,
         Menu, WidgetsService
-    } from '@unite/core';
+    } from '@unite/core'; 
 
 
 const uniteRoutes: Routes = [

@@ -21,7 +21,6 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.scss"
             ],
             "scripts": [
             ]
@@ -79,7 +78,6 @@
             "scripts": [
             ],
             "styles": [
-              "src/styles.scss"
             ],
             "assets": [
               "src/assets",

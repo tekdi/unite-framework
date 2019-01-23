@@ -4,6 +4,7 @@ import { PlatformLocation, CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import 'rxjs/Rx';
 
+
 import { SiteBranch } from './branch/site/site.branch';
 import { AdminBranch } from './branch/admin/admin.branch';
 import { dataSources } from './datasources/sources.collection';
@@ -13,7 +14,7 @@ import {
         UniteLinkerPipe,
         Config, MenusService,
         Menu, WidgetsService
-    } from '@unite/core';  
+    } from '@unite/core';
 
 
 const uniteRoutes: Routes = [

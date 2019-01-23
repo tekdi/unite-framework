@@ -18,8 +18,8 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": "eslint",
-    "src/**/*.ts": "eslint",
+    "src/**/*.js": "tslint",
+    "src/**/*.ts": "tslint",
     "src/**/*.css": "stylelint",
     "src/**/*.scss": "stylelint --syntax=scss",
     "*.{md,html}": [
@@ -77,7 +77,7 @@
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "ts-node": "~3.2.0",
-    "tslint": "~5.7.0",
-    "typescript": "~2.4.2"
+    "tslint": "^5.7.0",
+    "typescript": "^2.4.2"
   }
 }

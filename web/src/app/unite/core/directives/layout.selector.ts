@@ -17,13 +17,13 @@ export class LayoutSelector {
 
     /**
      * This function dynamicaly render layouts on specified layout
-     * 
+     *
      * @param availableLayouts - list of layouts array
      */
     renderLayout(availableLayouts) {
         let layout = this._config.site['template'];
         if (availableLayouts.hasOwnProperty(layout)) {
-            console.log(layout, "LAYOUTS");
+            console.log(layout, 'LAYOUTS');
             let componentFactory = this._cfResolver.resolveComponentFactory(availableLayouts[layout]);
             this._vcRef.createComponent(componentFactory);
         } else {

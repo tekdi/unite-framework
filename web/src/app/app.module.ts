@@ -14,7 +14,6 @@ const r: Routes = [
                   data: {'basePath' : ''}
                 }
               ];
-
 @NgModule({
   declarations: [
     AppComponent

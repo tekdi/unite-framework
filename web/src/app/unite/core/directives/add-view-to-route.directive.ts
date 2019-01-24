@@ -5,7 +5,7 @@ import { UniteRoute } from '../classes';
   selector: '[appAddViewToRoute]'
 })
 /**
- * 
+ *
  */
 export class AddViewToRouteDirective {
 

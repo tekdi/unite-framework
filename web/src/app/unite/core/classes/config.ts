@@ -13,7 +13,7 @@ export class Config {
 
     /**
      * This function set the Unite config
-     * 
+     *
      * @returns void
      */
     setConfig() {
@@ -27,7 +27,7 @@ export class Config {
 
     /**
      * This function get the config
-     * 
+     *
      * @returns Unite config object
      */
     getConfig() {

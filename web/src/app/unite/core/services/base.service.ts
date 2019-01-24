@@ -9,13 +9,13 @@ import * as config from 'assets/config.json';
 @Injectable()
 export class BaseService {
 
-  constructor(public _httpClient: HttpClient, public url: string, public host?: string) { 
+  constructor(public _httpClient: HttpClient, public url: string, public host?: string) {
     this.host = this.host ? this.host : config['server']['host'];
   }
 
   /**
    * This function get the record on provided slug
-   * 
+   *
    * @param slug - slug is url part
    */
   public get(slug: string) {
@@ -44,7 +44,7 @@ export class BaseService {
 
   /**
    * This function is used to handle custom error
-   * 
+   *
    * @param error - angular error handler object
    */
   private handleError(error: Response) {

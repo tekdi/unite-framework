@@ -3,7 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Renderer } from '@unite/core';
 
 @Component({
-    templateUrl : "./renderer.html",
+    templateUrl : './renderer.html',
 })
 export class IframeRenderer implements OnInit, Renderer {
     data;

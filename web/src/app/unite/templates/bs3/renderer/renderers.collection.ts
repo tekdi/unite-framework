@@ -15,7 +15,7 @@ export const renderMapper = {
         statesmap : StatesmapRenderer,
         iframe : IframeRenderer,
         nav : NavRenderer
-}
+};
 
 /**
  *  Renderes classes list
@@ -27,4 +27,4 @@ export const bs3Renderers = [
         StatesmapRenderer,
         IframeRenderer,
         NavRenderer
-]
+];
